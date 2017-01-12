@@ -8,7 +8,7 @@ Version: 17.1.12
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/fmidev/smartmet-library-imagine
+URL: https://github.com/fmidev/smartmet-library-calculator
 Source0: %{name}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: boost-devel
