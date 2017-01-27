@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 17.1.12
+Version: 17.1.27
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -52,5 +52,8 @@ Provides: %{DEVELNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Fri Jan 27 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.1.27-1.fmi
+- Recompiled due to NFmiQueryData object size change
+
 * Thu Jan 12 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.1.12-1.fmi
 - First version extracted from the full text generator library
