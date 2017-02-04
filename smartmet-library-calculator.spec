@@ -22,7 +22,7 @@ Querydata calculator library
 %prep
 rm -rf $RPM_BUILD_ROOT
 
-%setup -q -n %{DIRNAME}
+%setup -q -n %{SPECNAME}
  
 %build
 make %{_smp_mflags}
