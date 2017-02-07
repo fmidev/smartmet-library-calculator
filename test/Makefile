@@ -42,7 +42,7 @@ LIBS = \
 	-lboost_system
 
 
-INCLUDES += -I ../include
+INCLUDES += -I ../calculator
 
 LIBS += 
 
