@@ -177,6 +177,41 @@ int Config::requireInteger(const std::string& theName) const
 
 // ----------------------------------------------------------------------
 /*!
+ * \brief Get setting value as a integer
+ */
+// ----------------------------------------------------------------------
+
+int Config::requireInteger(const std::string& theName, int theLoLimit, int theHiLimit) const
+{
+  int value = boost::lexical_cast<int>(requireString(theName));
+
+  if (value >= theLoLimit && value <= theHiLimit) return value;
+  throw std::runtime_error("Variable '" + theName + "' value is out of range " +
+                           boost::lexical_cast<std::string>(theLoLimit) + "..." +
+                           boost::lexical_cast<std::string>(theHiLimit));
+}
+
+// ----------------------------------------------------------------------
+/*!
+ * \brief Get setting value as a integer
+ */
+// ----------------------------------------------------------------------
+
+int Config::optionalInteger(const std::string& theName,
+                            int theDefault,
+                            int theLoLimit,
+                            int theHiLimit) const
+{
+  int value = optionalInteger(theName, theDefault);
+
+  if (value >= theLoLimit && value <= theHiLimit) return value;
+  throw std::runtime_error("Variable '" + theName + "' value is out of range " +
+                           boost::lexical_cast<std::string>(theLoLimit) + "..." +
+                           boost::lexical_cast<std::string>(theHiLimit));
+}
+
+// ----------------------------------------------------------------------
+/*!
  * \brief Get setting value as a double
  */
 // ----------------------------------------------------------------------

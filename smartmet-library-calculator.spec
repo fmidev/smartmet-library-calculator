@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 17.1.27
+Version: 17.3.16
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -12,8 +12,8 @@ URL: https://github.com/fmidev/smartmet-library-calculator
 Source0: %{name}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 17.1.10
-Requires: smartmet-library-newbase >= 17.1.10
+BuildRequires: smartmet-library-newbase-devel >= 17.3.9
+Requires: smartmet-library-newbase >= 17.3.9
 Provides: %{LIBNAME}
 
 %description
@@ -52,6 +52,12 @@ Provides: %{DEVELNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Mar 16 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.3.16-1.fmi
+- Removed use of deprecated macgyver Cast.h
+
+* Fri Feb 10 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.2.10-1.fmi
+- Recompiled due to newbase API changes
+
 * Fri Jan 27 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.1.27-1.fmi
 - Recompiled due to NFmiQueryData object size change
 
