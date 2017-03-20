@@ -5,12 +5,11 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MEDIANCALCULATOR_H
-#define TEXTGEN_MEDINACALCULATOR_H
+#pragma once
 
-#include "Calculator.h"
 #include <boost/shared_ptr.hpp>
 #include <vector>
+#include "Calculator.h"
 
 namespace TextGen
 {
@@ -32,7 +31,5 @@ class MedianCalculator : public Calculator
 };  // class MedianCalculator
 
 }  // namespace TextGen
-
-#endif  // TEXTGEN_MEDIANCALCULATOR_H
 
 // ======================================================================

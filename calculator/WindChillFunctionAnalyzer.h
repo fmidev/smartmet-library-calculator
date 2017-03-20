@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WINDCHILLFUNCTIONALYZER_H
-#define TEXTGEN_WINDCHILLFUNCTIONANALYZER_H
+#pragma once
 
 #include "FunctionAnalyzer.h"
 #include "WeatherFunction.h"
@@ -59,7 +58,5 @@ class WindChillFunctionAnalyzer : public FunctionAnalyzer
 };  // class WindChillFunctionAnalyzer
 
 }  // namespace TextGen
-
-#endif  // TEXTGEN_WINDCHILLFUNCTIONANALYZER_H
 
 // ======================================================================
