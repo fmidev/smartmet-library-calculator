@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_TIMETOOLS_H
-#define TEXTGEN_TIMETOOLS_H
+#pragma once
 
 #include <ctime>
 
@@ -27,6 +26,5 @@ TextGenPosixTime addHours(const TextGenPosixTime& theDate, int theHours);
 }
 }  // namespace TextGen
 
-#endif  // TEXTGEN_TIMETOOLS_H
 
 // ======================================================================

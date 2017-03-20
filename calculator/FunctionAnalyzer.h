@@ -12,8 +12,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_FUNCTIONANALYZER_H
-#define TEXTGEN_FUNCTIONANALYZER_H
+#pragma once
 
 #include "WeatherDataType.h"
 #include <string>
@@ -45,6 +44,5 @@ class FunctionAnalyzer
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_FUNCTIONANALYZER_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_GRIDFORECASTER_H
-#define TEXTGEN_GRIDFORECASTER_H
+#pragma once
 
 #include "WeatherForecaster.h"
 
@@ -38,6 +37,5 @@ class GridForecaster : public WeatherForecaster
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_GRIDFORECASTER_H
 
 // ======================================================================

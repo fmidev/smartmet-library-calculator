@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_PARAMETERANALYZER_H
-#define TEXTGEN_PARAMETERANALYZER_H
+#pragma once
 
 #include "NullAcceptor.h"
 #include "WeatherDataType.h"
@@ -46,6 +45,5 @@ class ParameterAnalyzer
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_PARAMETERANALYZER_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERPERIODTOOLS_H
-#define TEXTGEN_WEATHERPERIODTOOLS_H
+#pragma once
 
 namespace TextGen
 {
@@ -39,6 +38,5 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
 }  // namespace WeatherPeriodTools
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERPERIODTOOLS_H
 
 // ======================================================================

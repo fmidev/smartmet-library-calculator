@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MODCHANGECALCULATOR_H
-#define TEXTGEN_MODCHANGECALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -38,6 +37,5 @@ class ModChangeCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MODCHANGECALCULATOR_H
 
 // ======================================================================

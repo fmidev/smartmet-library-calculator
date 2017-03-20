@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef MATHTOOLS_H
-#define MATHTOOLS_H
+#pragma once
 
 #include <vector>
 
@@ -120,6 +119,5 @@ double pearson_coefficient(const std::vector<double>& theValueVector);
 
 }  // namespace MathTools
 
-#endif  // MATHTOOLS_H
 
 // ======================================================================

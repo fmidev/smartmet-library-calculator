@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MEANCALCULATOR_H
-#define TEXTGEN_MEANCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -33,6 +32,5 @@ class MeanCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MEANCALCULATOR_H
 
 // ======================================================================

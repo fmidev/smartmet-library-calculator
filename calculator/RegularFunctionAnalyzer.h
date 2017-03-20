@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_REGULARFUNCTIONANALYZER_H
-#define TEXTGEN_REGULARFUNCTIONANALYZER_H
+#pragma once
 
 #include "FunctionAnalyzer.h"
 #include "WeatherFunction.h"
@@ -58,6 +57,5 @@ class RegularFunctionAnalyzer : public FunctionAnalyzer
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_REGULARFUNCTIONANALYZER_H
 
 // ======================================================================

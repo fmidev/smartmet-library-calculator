@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_LATESTWEATHERSOURCE_H
-#define TEXTGEN_LATESTWEATHERSOURCE_H
+#pragma once
 
 #include "WeatherSource.h"
 #include <boost/shared_ptr.hpp>
@@ -28,6 +27,5 @@ class LatestWeatherSource : public WeatherSource
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_LATESTWEATHERSOURCE_H
 
 // ======================================================================

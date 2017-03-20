@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MAXIMUMCALCULATOR_H
-#define TEXTGEN_MAXIMUMCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -33,6 +32,5 @@ class MaximumCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MAXIMUMCALCULATOR_H
 
 // ======================================================================

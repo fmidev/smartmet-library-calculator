@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERSOURCE_H
-#define TEXTGEN_WEATHERSOURCE_H
+#pragma once
 
 #include <string>
 #include <boost/shared_ptr.hpp>
@@ -29,6 +28,5 @@ class WeatherSource
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERSOURCE_H
 
 // ======================================================================

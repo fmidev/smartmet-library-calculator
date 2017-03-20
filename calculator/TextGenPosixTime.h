@@ -1,5 +1,4 @@
-#ifndef TEXTGEN_POSIX_TIME_H
-#define TEXTGEN_POSIX_TIME_H
+#pragma once
 
 #include <newbase/NFmiStaticTime.h>
 
@@ -83,4 +82,3 @@ bool operator==(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tg
 bool operator<(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tgTime);
 bool operator>(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tgTime);
 
-#endif  // TEXTGEN_POSIX_TIME_H

@@ -5,8 +5,7 @@
  */
 // ----------------------------------------------------------------------
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#pragma once
 
 #include <string>
 
@@ -45,6 +44,5 @@ void clear();
 void release();
 }  // namespace Settings
 
-#endif  // SETTINGS_H
 
 // ======================================================================

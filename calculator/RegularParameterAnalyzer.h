@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef WEATHERANALYZER_REGULARPARAMETERANALYZER_H
-#define WEATHERANALYZER_REGULARPARAMETERANALYZER_H
+#pragma once
 
 #include "ParameterAnalyzer.h"
 #include <string>
@@ -42,6 +41,5 @@ class RegularParameterAnalyzer : public ParameterAnalyzer
 };
 }
 
-#endif  // TEXTGEN_REGULARPARAMETERANALYZER_H
 
 // ======================================================================

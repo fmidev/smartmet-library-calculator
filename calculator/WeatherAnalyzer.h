@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERANALYZER_H
-#define TEXTGEN_WEATHERANALYZER_H
+#pragma once
 
 #include "WeatherDataType.h"
 #include "WeatherParameter.h"
@@ -82,6 +81,5 @@ class WeatherAnalyzer
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERANALYZER_H
 
 // ======================================================================

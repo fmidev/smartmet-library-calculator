@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_PARAMETERANALYZERFACTORY_H
-#define TEXTGEN_PARAMETERANALYZERFACTORY_H
+#pragma once
 
 #include "ParameterAnalyzer.h"
 #include "WeatherParameter.h"
@@ -20,6 +19,5 @@ ParameterAnalyzer* create(TextGen::WeatherParameter theParameter);
 }  // namespace ParameterAnalyzerFactory
 }  // namespace TextGen
 
-#endif  // TEXTGEN_PARAMETERANALYZERFACTORY_H
 
 // ======================================================================

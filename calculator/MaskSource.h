@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MASKSOURCE_H
-#define TEXTGEN_MASKSOURCE_H
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 #include <string>
@@ -40,6 +39,5 @@ class MaskSource
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MASKSOURCE_H
 
 // ======================================================================

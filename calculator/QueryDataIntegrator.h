@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_QUERYDATAINTEGRATOR_H
-#define TEXTGEN_QUERYDATAINTEGRATOR_H
+#pragma once
 
 class NFmiFastQueryInfo;
 class NFmiIndexMask;
@@ -96,6 +95,5 @@ float Integrate(NFmiFastQueryInfo& theQI,
 }  // namespace QueryDataIntegrator
 }  // namespace TextGen
 
-#endif  // TEXTGEN_QUERYDATAINTEGRATOR_H
 
 // ======================================================================

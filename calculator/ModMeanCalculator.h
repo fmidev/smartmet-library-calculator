@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MODMEANCALCULATOR_H
-#define TEXTGEN_MODMEANCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -38,6 +37,5 @@ class ModMeanCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MODMEANCALCULATOR_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_REGULARMASKSOURCE_H
-#define TEXTGEN_REGULARMASKSOURCE_H
+#pragma once
 
 #include "MaskSource.h"
 
@@ -36,6 +35,5 @@ class RegularMaskSource : public MaskSource
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_REGULARMASKSOURCE_H
 
 // ======================================================================

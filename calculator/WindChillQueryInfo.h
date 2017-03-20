@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef WINDCHILLQUERYINFO_H
-#define WINDCHILLQUERYINFO_H
+#pragma once
 
 #include <newbase/NFmiFastQueryInfo.h>
 
@@ -23,4 +22,3 @@ class WindChillQueryInfo : public NFmiFastQueryInfo
   long itsParameterOffset;
 };
 
-#endif

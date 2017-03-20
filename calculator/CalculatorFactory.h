@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_CALCULATORFACTORY_H
-#define TEXTGEN_CALCULATORFACTORY_H
+#pragma once
 
 #include "WeatherFunction.h"
 
@@ -29,6 +28,5 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
 }  // namespace CalculatorFactory
 }  // namespace TextGen
 
-#endif  // TEXTGEN_CALCULATORFACTORY_H
 
 // ======================================================================

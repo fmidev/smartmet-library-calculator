@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef WEATHERANALYZER_WINDCHILLPARAMETERANALYZER_H
-#define WEATHERANALYZER_WINDCHILLPARAMETERANALYZER_H
+#pragma once
 
 #include "ParameterAnalyzer.h"
 #include <string>
@@ -42,6 +41,5 @@ class WindChillParameterAnalyzer : public ParameterAnalyzer
 };
 }
 
-#endif  // TEXTGEN_WINDCHILLPARAMETERANALYZER_H
 
 // ======================================================================

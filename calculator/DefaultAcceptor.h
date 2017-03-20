@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_DEFAULTACCEPTOR_H
-#define TEXTGEN_DEFAULTACCEPTOR_H
+#pragma once
 
 #include "Acceptor.h"
 
@@ -22,6 +21,5 @@ class DefaultAcceptor : public Acceptor
 };  // class DefaultAcceptor
 }  // namespace TextGen
 
-#endif  // TEXTGEN_DEFAULTACCEPTOR_H
 
 // ======================================================================

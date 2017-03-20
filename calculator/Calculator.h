@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_CALCULATOR_H
-#define TEXTGEN_CALCULATOR_H
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 
@@ -29,6 +28,5 @@ class Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_CALCULATOR_H
 
 // ======================================================================

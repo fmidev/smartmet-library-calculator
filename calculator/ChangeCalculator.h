@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_CHANGECALCULATOR_H
-#define TEXTGEN_CHANGECALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include "Acceptor.h"
@@ -36,6 +35,5 @@ class ChangeCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_CHANGECALCULATOR_H
 
 // ======================================================================

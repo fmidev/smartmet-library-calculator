@@ -1,5 +1,4 @@
-#ifndef TEXTGEN_WEATHERHISTORY_H
-#define TEXTGEN_WEATHERHISTORY_H
+#pragma once
 
 #include "TextGenPosixTime.h"
 #include <string>
@@ -25,4 +24,3 @@ class WeatherHistory
 
 }  // namespace TextGen
 
-#endif  //  TEXTGEN_WEATHERHISTORY_H

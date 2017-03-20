@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_LOCATIONSOURCE_H
-#define TEXTGEN_LOCATIONSOURCE_H
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 #include <string>
@@ -37,6 +36,5 @@ class LocationSource
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_LOCATIONSOURCE_H
 
 // ======================================================================

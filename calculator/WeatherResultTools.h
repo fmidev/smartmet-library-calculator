@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERRESULTTOOLS_H
-#define TEXTGEN_WEATHERRESULTTOOLS_H
+#pragma once
 
 #include "WeatherResult.h"
 #include <string>
@@ -42,6 +41,5 @@ bool isSimilarRange(const WeatherResult& theMinimum1,
 }  // namespace WeatherResultTools
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERRESULTTOOLS_H
 
 // ======================================================================

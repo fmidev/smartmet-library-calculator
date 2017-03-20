@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERAREA_H
-#define TEXTGEN_WEATHERAREA_H
+#pragma once
 
 #include "WeatherHistory.h"
 
@@ -117,6 +116,5 @@ class WeatherArea
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERAREA_H
 
 // ======================================================================

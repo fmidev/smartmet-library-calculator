@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_RANGEACCEPTOR_H
-#define TEXTGEN_RANGEACCEPTOR_H
+#pragma once
 
 #include "Acceptor.h"
 
@@ -30,6 +29,5 @@ class RangeAcceptor : public Acceptor
 };  // class RangeAcceptor
 }  // namespace TextGen
 
-#endif  // TEXTGEN_RANGEACCEPTOR_H
 
 // ======================================================================

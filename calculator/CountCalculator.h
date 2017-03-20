@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_COUNTCALCULATOR_H
-#define TEXTGEN_COUNTCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -36,6 +35,5 @@ class CountCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_COUNTCALCULATOR_H
 
 // ======================================================================

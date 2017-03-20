@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_TRENDCALCULATOR_H
-#define TEXTGEN_TRENDCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include "Acceptor.h"
@@ -39,6 +38,5 @@ class TrendCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_TRENDCALCULATOR_H
 
 // ======================================================================

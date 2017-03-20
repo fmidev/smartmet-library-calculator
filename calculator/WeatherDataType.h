@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERDATATYPE_H
-#define TEXTGEN_WEATHERDATATYPE_H
+#pragma once
 
 namespace TextGen
 {
@@ -21,6 +20,5 @@ enum WeatherDataType
 
 const char* data_type_name(const TextGen::WeatherDataType& theDataType);
 
-#endif  // TEXTGEN_WEATHERDATATYPE_H
 
 // ======================================================================

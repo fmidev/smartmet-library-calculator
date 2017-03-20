@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERPERIODGENERATOR_H
-#define TEXTGEN_WEATHERPERIODGENERATOR_H
+#pragma once
 
 namespace TextGen
 {
@@ -28,6 +27,5 @@ class WeatherPeriodGenerator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERPERIODGENERATOR_H
 
 // ======================================================================

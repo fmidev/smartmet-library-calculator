@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MINIMUMCALCULATOR_H
-#define TEXTGEN_MINIMUMCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -33,6 +32,5 @@ class MinimumCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MINIMUMCALCULATOR_H
 
 // ======================================================================

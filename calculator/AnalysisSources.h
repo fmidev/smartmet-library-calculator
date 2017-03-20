@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_ANALYSISSOURCES_H
-#define TEXTGEN_ANALYSISSOURCES_H
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 
@@ -53,6 +52,5 @@ class AnalysisSources
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_ANALYSISSOURCES_H
 
 // ======================================================================

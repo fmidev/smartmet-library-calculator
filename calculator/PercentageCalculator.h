@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_PERCENTAGECALCULATOR_H
-#define TEXTGEN_PERCENTAGECALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -37,6 +36,5 @@ class PercentageCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_PERCENTAGECALCULATOR_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERFORECASTER_H
-#define TEXTGEN_WEATHERFORECASTER_H
+#pragma once
 
 #include "WeatherAnalyzer.h"
 
@@ -39,6 +38,5 @@ class WeatherForecaster : public WeatherAnalyzer
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERFORECASTER_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_SUMCALCULATOR_H
-#define TEXTGEN_SUMCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include "Acceptor.h"
@@ -34,6 +33,5 @@ class SumCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_SUMCALCULATOR_H
 
 // ======================================================================

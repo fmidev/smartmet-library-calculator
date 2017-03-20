@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_LISTEDPERIODGENERATOR_H
-#define TEXTGEN_LISTEDPERIODGENERATOR_H
+#pragma once
 
 #include "WeatherPeriodGenerator.h"
 #include "WeatherPeriod.h"
@@ -43,6 +42,5 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_LISTEDPERIODGENERATOR_H
 
 // ======================================================================

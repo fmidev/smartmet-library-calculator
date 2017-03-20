@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_TEXTGENERROR_H
-#define TEXTGEN_TEXTGENERROR_H
+#pragma once
 
 #include <stdexcept>
 #include <string>
@@ -26,6 +25,5 @@ class TextGenError : public std::exception
 };  // class TextGenError
 }  // namespace TextGen
 
-#endif  // TEXTGEN_TEXTGENERROR_H
 
 // ======================================================================

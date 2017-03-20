@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MODSTANDARDDEVIATIONCALCULATOR_H
-#define TEXTGEN_MODSTANDARDDEVIATIONCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include <boost/shared_ptr.hpp>
@@ -39,6 +38,5 @@ class ModStandardDeviationCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MODSTANDARDDEVIATIONCALCULATOR_H
 
 // ======================================================================

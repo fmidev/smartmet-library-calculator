@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_STANDARDDEVIATIONCALCULATOR_H
-#define TEXTGEN_STANDARDDEVIATIONCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include "Acceptor.h"
@@ -35,6 +34,5 @@ class StandardDeviationCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_STANDARDDEVIATIONCALCULATOR_H
 
 // ======================================================================

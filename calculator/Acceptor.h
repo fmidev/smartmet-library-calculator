@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_ACCEPTOR_H
-#define TEXTGEN_ACCEPTOR_H
+#pragma once
 
 namespace TextGen
 {
@@ -21,6 +20,5 @@ class Acceptor
 };  // class Acceptor
 }  // namespace TextGen
 
-#endif  // TEXTGEN_ACCEPTOR_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef WEATHERANALYZER_MODULOPARAMETERANALYZER_H
-#define WEATHERANALYZER_MODULOPARAMETERANALYZER_H
+#pragma once
 
 #include "ParameterAnalyzer.h"
 #include <string>
@@ -45,6 +44,5 @@ class ModuloParameterAnalyzer : public ParameterAnalyzer
 };
 }
 
-#endif  // TEXTGEN_MODULOPARAMETERANALYZER_H
 
 // ======================================================================

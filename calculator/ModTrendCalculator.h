@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_MODTRENDCALCULATOR_H
-#define TEXTGEN_MODTRENDCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 #include "Acceptor.h"
@@ -42,6 +41,5 @@ class ModTrendCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_MODTRENDCALCULATOR_H
 
 // ======================================================================

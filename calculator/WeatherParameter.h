@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERPARAMETER_H
-#define TEXTGEN_WEATHERPARAMETER_H
+#pragma once
 
 namespace TextGen
 {
@@ -66,6 +65,5 @@ enum WeatherParameter
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_WEATHERPARAMETER_H
 
 // ======================================================================

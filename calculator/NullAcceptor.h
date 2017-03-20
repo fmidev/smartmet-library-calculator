@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_NULLACCEPTOR_H
-#define TEXTGEN_NULLACCEPTOR_H
+#pragma once
 
 #include "Acceptor.h"
 
@@ -22,6 +21,5 @@ class NullAcceptor : public Acceptor
 };  // class NullAcceptor
 }  // namespace TextGen
 
-#endif  // TEXTGEN_NULLACCEPTOR_H
 
 // ======================================================================

@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_IDGENERATOR_H
-#define TEXTGEN_IDGENERATOR_H
+#pragma once
 
 namespace TextGen
 {
@@ -18,6 +17,5 @@ class IdGenerator
 };  // class IdGenerator
 }  // namespace namespace TextGen
 
-#endif  // TEXTGEN_IDGENERATOR_H
 
 // ======================================================================

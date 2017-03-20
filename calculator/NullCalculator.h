@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_NULLCALCULATOR_H
-#define TEXTGEN_NULLCALCULATOR_H
+#pragma once
 
 #include "Calculator.h"
 
@@ -28,6 +27,5 @@ class NullCalculator : public Calculator
 
 }  // namespace TextGen
 
-#endif  // TEXTGEN_NULLCALCULATOR_H
 
 // ======================================================================

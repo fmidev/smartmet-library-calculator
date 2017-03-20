@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_QUERYDATATOOLS_H
-#define TEXTGEN_QUERYDATATOOLS_H
+#pragma once
 
 class NFmiFastQueryInfo;
 class TextGenPosixTime;
@@ -29,6 +28,5 @@ bool lastTime(NFmiFastQueryInfo& theQI, const TextGenPosixTime& theTime);
 }
 }
 
-#endif  // TEXTGEN_QUERYDATATOOLS_H
 
 // ======================================================================

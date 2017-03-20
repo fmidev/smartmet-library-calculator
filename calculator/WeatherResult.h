@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERRESULT_H
-#define TEXTGEN_WEATHERRESULT_H
+#pragma once
 
 #include <iosfwd>
 
@@ -43,6 +42,5 @@ bool operator!=(const TextGen::WeatherResult& theLhs, const TextGen::WeatherResu
 
 std::ostream& operator<<(std::ostream& theOutput, const TextGen::WeatherResult& theResult);
 
-#endif  // TEXTGEN_WEATHERRESULT_H
 
 // ======================================================================

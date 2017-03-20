@@ -5,8 +5,7 @@
  */
 // ======================================================================
 
-#ifndef TEXTGEN_WEATHERPERIOD_H
-#define TEXTGEN_WEATHERPERIOD_H
+#pragma once
 
 #include "TextGenPosixTime.h"
 
@@ -49,6 +48,5 @@ bool operator==(const TextGen::WeatherPeriod& theLhs, const TextGen::WeatherPeri
 
 bool operator!=(const TextGen::WeatherPeriod& theLhs, const TextGen::WeatherPeriod& theRhs);
 
-#endif  // TEXTGEN_WEATHERPERIOD_H
 
 // ======================================================================
