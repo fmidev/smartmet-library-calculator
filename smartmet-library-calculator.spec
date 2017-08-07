@@ -11,6 +11,7 @@ Group: Development/Libraries
 URL: https://github.com/fmidev/smartmet-library-calculator
 Source0: %{name}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRequires: make
 BuildRequires: boost-devel
 BuildRequires: smartmet-library-newbase-devel >= 17.3.9
 Requires: smartmet-library-newbase >= 17.3.9
