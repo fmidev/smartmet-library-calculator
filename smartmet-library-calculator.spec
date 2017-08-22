@@ -54,6 +54,9 @@ Provides: %{DEVELNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Upcoming
+- Changed default timezone to be UTC, Europe/Helsinki is not portable
+
 * Thu Mar 16 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.3.16-1.fmi
 - Removed use of deprecated macgyver Cast.h
 

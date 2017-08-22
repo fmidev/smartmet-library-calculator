@@ -1,7 +1,7 @@
 #include "TextGenPosixTime.h"
-#include <newbase/NFmiStaticTime.h>
-#include <macgyver/TimeZoneFactory.h>
 #include <boost/thread.hpp>
+#include <macgyver/TimeZoneFactory.h>
+#include <newbase/NFmiStaticTime.h>
 
 #include <iostream>  // std::cout
 #include <sstream>   // std::stringstream
@@ -11,7 +11,8 @@ using namespace boost::local_time;
 using namespace boost::gregorian;
 using namespace std;
 
-#define DEFAULT_TZ_ID "Europe/Helsinki"
+// Used to be Europe/Helsinki, this is a more portable default
+#define DEFAULT_TZ_ID "UTC"
 
 static boost::thread_specific_ptr<std::string> tls;
 
