@@ -1,13 +1,14 @@
 // ======================================================================
 
 #include "Config.h"
-#include <boost/foreach.hpp>
 #include <boost/algorithm/string/case_conv.hpp>
+#include <boost/foreach.hpp>
 //#include <boost/thread.hpp>
-#include <boost/tokenizer.hpp>
 #include <boost/algorithm/string.hpp>
-#include <stdexcept>
+#include <boost/tokenizer.hpp>
 #include <functional>
+#include <stdexcept>
+#include <string>
 
 #define BOOST_FILESYSTEM_NO_DEPRECATED
 #define BOOST_FILESYSTEM_VERSION 3
@@ -172,7 +173,7 @@ int Config::requireInteger(const std::string& theName) const
 {
   std::string value = requireString(theName);
 
-  return boost::lexical_cast<int>(value);
+  return std::stoi(value);
 }
 
 // ----------------------------------------------------------------------
@@ -183,7 +184,7 @@ int Config::requireInteger(const std::string& theName) const
 
 int Config::requireInteger(const std::string& theName, int theLoLimit, int theHiLimit) const
 {
-  int value = boost::lexical_cast<int>(requireString(theName));
+  int value = std::stoi(requireString(theName));
 
   if (value >= theLoLimit && value <= theHiLimit) return value;
   throw std::runtime_error("Variable '" + theName + "' value is out of range " +
@@ -235,7 +236,7 @@ double Config::requireDouble(const std::string& theName) const
 {
   std::string value = requireString(theName);
 
-  return boost::lexical_cast<double>(value);
+  return std::stod(value);
 }
 
 }  // namespace Fmi
