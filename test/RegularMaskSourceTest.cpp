@@ -1,9 +1,9 @@
-#include <regression/tframe.h>
-#include <newbase/NFmiIndexMask.h>
-#include <newbase/NFmiStringTools.h>
 #include "RegularMaskSource.h"
 #include "UserWeatherSource.h"
 #include "WeatherArea.h"
+#include <newbase/NFmiIndexMask.h>
+#include <newbase/NFmiStringTools.h>
+#include <regression/tframe.h>
 
 #include <iostream>
 #include <stdexcept>
@@ -35,7 +35,7 @@ void mask()
 
   // Initialize all the data
 
-  shared_ptr<NFmiQueryData> sqd(new NFmiQueryData(datafile));
+  boost::shared_ptr<NFmiQueryData> sqd(new NFmiQueryData(datafile));
 
   UserWeatherSource wsource;
   wsource.insert("data", sqd);

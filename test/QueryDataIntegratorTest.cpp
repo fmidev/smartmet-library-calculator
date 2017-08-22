@@ -1,18 +1,18 @@
-#include <regression/tframe.h>
+#include "MaximumCalculator.h"
+#include "MeanCalculator.h"
+#include "MinimumCalculator.h"
 #include "QueryDataIntegrator.h"
 #include "SumCalculator.h"
-#include "MaximumCalculator.h"
-#include "MinimumCalculator.h"
-#include "MeanCalculator.h"
 #include "TextGenPosixTime.h"
+#include <regression/tframe.h>
 
+#include <boost/lexical_cast.hpp>
 #include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiIndexMask.h>
 #include <newbase/NFmiIndexMaskSource.h>
 #include <newbase/NFmiIndexMaskTools.h>
 #include <newbase/NFmiQueryData.h>
 #include <newbase/NFmiSvgPath.h>
-#include <boost/lexical_cast.hpp>
 #include <fstream>
 
 using namespace std;
@@ -22,7 +22,7 @@ using namespace TextGen::QueryDataIntegrator;
 
 namespace QueryDataIntegratorTest
 {
-shared_ptr<NFmiQueryData> theQD;
+boost::shared_ptr<NFmiQueryData> theQD;
 const NFmiGrid* theGrid;
 
 NFmiSvgPath theArea;
