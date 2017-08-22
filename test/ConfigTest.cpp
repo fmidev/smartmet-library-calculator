@@ -1,6 +1,6 @@
-#include <regression/tframe.h>
 #include "Config.h"
 #include "TextGenPosixTime.h"
+#include <regression/tframe.h>
 
 using namespace std;
 
@@ -72,22 +72,22 @@ void isset_function()
 
 void require_function()
 {
-  string string_param(Fmi::Config().require<string>("string_param"));
+  string string_param(Fmi::Config().requireString("string_param"));
   if (string_param != "string")
     TEST_FAILED("Value of string_param sould be 'string' not " + string_param);
-  bool bool_param1(Fmi::Config().require<bool>("bool_param1"));
+  bool bool_param1(Fmi::Config().requireBoolean("bool_param1"));
   if (bool_param1 != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
 
-  bool bool_param2(Fmi::Config().require<bool>("bool_param2"));
+  bool bool_param2(Fmi::Config().requireBoolean("bool_param2"));
   if (bool_param2 != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
 
-  bool bool_param3(Fmi::Config().require<bool>("bool_param3"));
+  bool bool_param3(Fmi::Config().requireBoolean("bool_param3"));
   if (bool_param3 != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
 
-  bool bool_param4(Fmi::Config().require<bool>("bool_param4"));
+  bool bool_param4(Fmi::Config().requireBoolean("bool_param4"));
   if (bool_param4 != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
 
-  int int_param(Fmi::Config().require<int>("int_param"));
+  int int_param(Fmi::Config().requireInteger("int_param"));
   if (int_param != 55)
   {
     stringstream ss;
@@ -95,14 +95,14 @@ void require_function()
     TEST_FAILED("Value of bool_param sould be '55' not " + ss.str());
   }
 
-  double double_param(Fmi::Config().require<double>("double_param"));
+  double double_param(Fmi::Config().requireDouble("double_param"));
   if (double_param != 23.56)
   {
     stringstream ss;
     ss << double_param;
     TEST_FAILED("Value of bool_param sould be '23.56' not " + ss.str());
   }
-  int hour_param1(Fmi::Config().require("hour_param1", 0, 23));
+  int hour_param1(Fmi::Config().requireInteger("hour_param1", 0, 23));
   if (hour_param1 != 0)
   {
     stringstream ss;
@@ -110,7 +110,7 @@ void require_function()
     TEST_FAILED("Value of hour_param sould be '0' not " + ss.str());
   }
 
-  int hour_param2(Fmi::Config().require("hour_param2", 0, 23));
+  int hour_param2(Fmi::Config().requireInteger("hour_param2", 0, 23));
   if (hour_param2 != 15)
   {
     stringstream ss;
@@ -118,7 +118,7 @@ void require_function()
     TEST_FAILED("Value of hour_param sould be '15' not " + ss.str());
   }
 
-  int hour_param3(Fmi::Config().require("hour_param3", 0, 23));
+  int hour_param3(Fmi::Config().requireInteger("hour_param3", 0, 23));
   if (hour_param3 != 23)
   {
     stringstream ss;
@@ -128,7 +128,7 @@ void require_function()
 
   //	int hour_param4(Fmi::Config().require("hour_param4", 0, 23));
 
-  int days_param(Fmi::Config().require("days_param", 0, 31));
+  int days_param(Fmi::Config().requireInteger("days_param", 0, 31));
   if (days_param != 5)
   {
     stringstream ss;
@@ -136,7 +136,7 @@ void require_function()
     TEST_FAILED("Value of hour_param sould be '5' not " + ss.str());
   }
 
-  int percentage_param(Fmi::Config().require("percentage_param", 0, 100));
+  int percentage_param(Fmi::Config().requireInteger("percentage_param", 0, 100));
   if (percentage_param != 18)
   {
     stringstream ss;
