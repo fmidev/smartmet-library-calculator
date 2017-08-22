@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 17.3.16
+Version: 17.8.22
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -54,7 +54,8 @@ Provides: %{DEVELNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
-* Upcoming
+* Tue Aug 22 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.8.22-1.fmi
+- Added handling of timezones names "local" and "localtime"
 - Changed default timezone to be UTC, Europe/Helsinki is not portable
 
 * Thu Mar 16 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.3.16-1.fmi

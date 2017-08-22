@@ -3,6 +3,7 @@
 #include <macgyver/TimeZoneFactory.h>
 #include <newbase/NFmiStaticTime.h>
 
+#include <ctime>
 #include <iostream>  // std::cout
 #include <sstream>   // std::stringstream
 
@@ -298,12 +299,28 @@ TextGenPosixTime TextGenPosixTime::LocalTime(const TextGenPosixTime& utcTime)
   return TextGenPosixTime(localptime);
 }
 
+// https://stackoverflow.com/questions/3118582/how-do-i-find-the-current-system-timezone
+std::string get_current_timezone()
+{
+  ::time_t ts = 0;
+  struct tm t;
+  char buf[16];
+  ::localtime_r(&ts, &t);
+  ::strftime(buf, sizeof(buf), "%Z", &t);
+  return buf;
+}
+
 void TextGenPosixTime::SetThreadTimeZone(const std::string& theTimeZoneId /*= ""*/)
 {
   if (theTimeZoneId.empty())
     release_timezone_id();
   else
-    get_timezone_id() = theTimeZoneId;
+  {
+    if (theTimeZoneId != "local" && theTimeZoneId != "localtime")
+      get_timezone_id() = theTimeZoneId;
+    else
+      get_timezone_id() = get_current_timezone();
+  }
 }
 
 void TextGenPosixTime::ResetThreadTimeZone() { release_timezone_id(); }
