@@ -14,9 +14,9 @@
 
 #include "WindChillParameterAnalyzer.h"
 #include "AnalysisSources.h"
-#include "WindChillParameterAnalyzer.h"
-#include "WindChillFunctionAnalyzer.h"
 #include "WeatherResult.h"
+#include "WindChillFunctionAnalyzer.h"
+#include "WindChillParameterAnalyzer.h"
 
 using namespace std;
 using namespace boost;
@@ -66,7 +66,7 @@ WeatherResult WindChillParameterAnalyzer::analyze(const AnalysisSources& theSour
                                                   const Acceptor& theTimeAcceptor,
                                                   const Acceptor& theTester) const
 {
-  auto_ptr<FunctionAnalyzer> analyzer(
+  unique_ptr<FunctionAnalyzer> analyzer(
       new WindChillFunctionAnalyzer(theAreaFunction, theTimeFunction, theSubTimeFunction));
 
   return analyzer->analyze(theSources,

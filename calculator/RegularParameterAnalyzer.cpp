@@ -65,7 +65,7 @@ WeatherResult RegularParameterAnalyzer::analyze(const AnalysisSources& theSource
                                                 const Acceptor& theTimeAcceptor,
                                                 const Acceptor& theTester) const
 {
-  auto_ptr<FunctionAnalyzer> analyzer(
+  unique_ptr<FunctionAnalyzer> analyzer(
       new RegularFunctionAnalyzer(theAreaFunction, theTimeFunction, theSubTimeFunction));
 
   return analyzer->analyze(theSources,

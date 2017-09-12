@@ -67,7 +67,7 @@ WeatherResult ModuloParameterAnalyzer::analyze(const AnalysisSources& theSources
                                                const Acceptor& theTimeAcceptor,
                                                const Acceptor& theTester) const
 {
-  auto_ptr<RegularFunctionAnalyzer> analyzer(
+  unique_ptr<RegularFunctionAnalyzer> analyzer(
       new RegularFunctionAnalyzer(theAreaFunction, theTimeFunction, theSubTimeFunction));
 
   analyzer->modulo(itsModulo);
