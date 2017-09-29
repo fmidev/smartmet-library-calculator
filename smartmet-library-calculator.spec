@@ -15,6 +15,8 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
 BuildRequires: smartmet-library-newbase-devel >= 17.3.9
+BuildRequires: smartmet-library-macgyver-devel >= 17.3.9
+BuildRequires: freetype-devel
 Requires: smartmet-library-newbase >= 17.3.9
 Provides: %{LIBNAME}
 
@@ -45,6 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %package -n %{DEVELNAME}
 Summary: FMI %{DIRNAME} development files
 Provides: %{DEVELNAME}
+Requires: %{SPECNAME}
 
 %description -n %{DEVELNAME}
 %{DIRNAME} development files
