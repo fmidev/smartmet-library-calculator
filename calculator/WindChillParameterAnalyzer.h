@@ -39,7 +39,6 @@ class WindChillParameterAnalyzer : public ParameterAnalyzer
   const std::string itsVariable;
   const std::string itsParameter;
 };
-}
-
+}  // namespace TextGen
 
 // ======================================================================

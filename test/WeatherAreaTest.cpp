@@ -1,6 +1,6 @@
-#include <regression/tframe.h>
-#include "WeatherArea.h"
 #include "Settings.h"
+#include "WeatherArea.h"
+#include <regression/tframe.h>
 
 #include <newbase/NFmiSettings.h>
 

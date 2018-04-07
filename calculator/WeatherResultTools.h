@@ -41,5 +41,4 @@ bool isSimilarRange(const WeatherResult& theMinimum1,
 }  // namespace WeatherResultTools
 }  // namespace TextGen
 
-
 // ======================================================================

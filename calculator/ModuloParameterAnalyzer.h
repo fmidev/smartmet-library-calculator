@@ -42,7 +42,6 @@ class ModuloParameterAnalyzer : public ParameterAnalyzer
   const std::string itsParameter;
   const int itsModulo;
 };
-}
-
+}  // namespace TextGen
 
 // ======================================================================

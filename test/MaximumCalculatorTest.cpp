@@ -1,6 +1,6 @@
-#include <regression/tframe.h>
 #include "MaximumCalculator.h"
 #include <newbase/NFmiGlobals.h>
+#include <regression/tframe.h>
 
 #include <iostream>
 #include <string>

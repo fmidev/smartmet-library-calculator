@@ -15,9 +15,9 @@
 #include "WindChillFunctionAnalyzer.h"
 
 #include "AnalysisSources.h"
-#include "QueryDataIntegrator.h"
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
+#include "QueryDataIntegrator.h"
 #include "Settings.h"
 #include "TextGenError.h"
 #include "WeatherArea.h"
@@ -30,10 +30,10 @@
 #include <newbase/NFmiQueryData.h>
 //#include <newbase/NFmiMetMath.h>
 
-#include <boost/shared_ptr.hpp>
 #include <boost/lexical_cast.hpp>
-#include <string>
+#include <boost/shared_ptr.hpp>
 #include <sstream>
+#include <string>
 
 using namespace std;
 using namespace boost;
@@ -43,7 +43,7 @@ namespace
 //! A static instance to avoid construction costs
 
 NFmiEnumConverter converter;
-}  // namespace anonymous
+}  // namespace
 
 namespace TextGen
 {

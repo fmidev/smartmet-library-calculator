@@ -1,7 +1,7 @@
 #include <regression/tframe.h>
 
-#include "Settings.h"
 #include "Config.h"
+#include "Settings.h"
 #include "TextGenPosixTime.h"
 #include "WeatherResult.h"
 

@@ -21,4 +21,3 @@ class WindChillQueryInfo : public NFmiFastQueryInfo
  private:
   long itsParameterOffset;
 };
-

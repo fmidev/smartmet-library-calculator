@@ -2,10 +2,10 @@
 
 #include <newbase/NFmiStaticTime.h>
 
-#include <string>                                     // std::string
+#include <boost/date_time/local_time/local_time.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>  //include all types plus i/o
 #include <boost/date_time/time_zone_base.hpp>
-#include <boost/date_time/local_time/local_time.hpp>
+#include <string>  // std::string
 
 class TextGenPosixTime
 {
@@ -81,4 +81,3 @@ bool operator>=(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tg
 bool operator==(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tgTime);
 bool operator<(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tgTime);
 bool operator>(const NFmiStaticTime& nfmiStaticTime, const TextGenPosixTime& tgTime);
-

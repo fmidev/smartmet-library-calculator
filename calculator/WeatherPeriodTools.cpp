@@ -20,9 +20,9 @@
 
 #include <boost/lexical_cast.hpp>
 
-#include "WeatherPeriodTools.h"
-#include "WeatherPeriod.h"
 #include "TextGenError.h"
+#include "WeatherPeriod.h"
+#include "WeatherPeriodTools.h"
 
 #include "TextGenPosixTime.h"
 
@@ -211,7 +211,7 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
 
   throw TextGenError(msg);
 }
-}
-}
+}  // namespace WeatherPeriodTools
+}  // namespace TextGen
 
 // ======================================================================

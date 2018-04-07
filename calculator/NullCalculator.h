@@ -27,5 +27,4 @@ class NullCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

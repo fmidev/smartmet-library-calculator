@@ -23,8 +23,7 @@ TextGenPosixTime dayStart(const TextGenPosixTime& theDate);
 TextGenPosixTime dayEnd(const TextGenPosixTime& theDate);
 TextGenPosixTime nextDay(const TextGenPosixTime& theDate);
 TextGenPosixTime addHours(const TextGenPosixTime& theDate, int theHours);
-}
+}  // namespace TimeTools
 }  // namespace TextGen
-
 
 // ======================================================================

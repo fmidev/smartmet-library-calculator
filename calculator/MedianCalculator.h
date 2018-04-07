@@ -7,9 +7,9 @@
 
 #pragma once
 
+#include "Calculator.h"
 #include <boost/shared_ptr.hpp>
 #include <vector>
-#include "Calculator.h"
 
 namespace TextGen
 {

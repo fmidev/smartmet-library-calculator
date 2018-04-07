@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include <string>
 #include <boost/shared_ptr.hpp>
 #include <newbase/NFmiQueryData.h>
+#include <string>
 
 class NFmiQueryData;
 
@@ -27,6 +27,5 @@ class WeatherSource
 };  // class WeatherSource
 
 }  // namespace TextGen
-
 
 // ======================================================================

@@ -38,5 +38,4 @@ class ModStandardDeviationCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

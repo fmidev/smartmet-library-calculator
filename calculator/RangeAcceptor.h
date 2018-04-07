@@ -29,5 +29,4 @@ class RangeAcceptor : public Acceptor
 };  // class RangeAcceptor
 }  // namespace TextGen
 
-
 // ======================================================================

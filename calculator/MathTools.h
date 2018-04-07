@@ -119,5 +119,4 @@ double pearson_coefficient(const std::vector<double>& theValueVector);
 
 }  // namespace MathTools
 
-
 // ======================================================================

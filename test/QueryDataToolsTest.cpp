@@ -1,9 +1,9 @@
-#include <regression/tframe.h>
 #include "QueryDataTools.h"
 #include "TextGenPosixTime.h"
+#include <regression/tframe.h>
 
-#include <newbase/NFmiQueryData.h>
 #include <newbase/NFmiFastQueryInfo.h>
+#include <newbase/NFmiQueryData.h>
 #include <stdexcept>
 
 using namespace std;

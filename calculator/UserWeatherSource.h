@@ -31,5 +31,4 @@ class UserWeatherSource : public WeatherSource
 
 }  // namespace TextGen
 
-
 // ======================================================================

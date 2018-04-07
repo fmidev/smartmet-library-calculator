@@ -28,5 +28,4 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
 }  // namespace CalculatorFactory
 }  // namespace TextGen
 
-
 // ======================================================================

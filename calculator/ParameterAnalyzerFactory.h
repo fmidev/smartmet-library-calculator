@@ -19,5 +19,4 @@ ParameterAnalyzer* create(TextGen::WeatherParameter theParameter);
 }  // namespace ParameterAnalyzerFactory
 }  // namespace TextGen
 
-
 // ======================================================================

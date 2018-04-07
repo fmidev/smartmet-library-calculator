@@ -26,8 +26,8 @@
 // ======================================================================
 
 #include "WeatherPeriod.h"
-#include "TimeTools.h"
 #include "TextGenError.h"
+#include "TimeTools.h"
 #include <cassert>
 #include <iostream>  // std::cout
 #include <sstream>   // std::stringstream

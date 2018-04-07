@@ -32,5 +32,4 @@ class MeanCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

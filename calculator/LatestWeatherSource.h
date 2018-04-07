@@ -27,5 +27,4 @@ class LatestWeatherSource : public WeatherSource
 
 }  // namespace TextGen
 
-
 // ======================================================================

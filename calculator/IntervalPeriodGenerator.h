@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "WeatherPeriodGenerator.h"
 #include "WeatherPeriod.h"
+#include "WeatherPeriodGenerator.h"
 
 #include <string>
 #include <vector>
@@ -49,6 +49,5 @@ class IntervalPeriodGenerator : public WeatherPeriodGenerator
 };  // class IntervalPeriodGenerator
 
 }  // namespace TextGen
-
 
 // ======================================================================

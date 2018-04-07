@@ -32,5 +32,4 @@ class MinimumCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

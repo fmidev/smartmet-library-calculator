@@ -37,5 +37,4 @@ class ModMeanCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

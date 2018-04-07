@@ -38,5 +38,4 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
 }  // namespace WeatherPeriodTools
 }  // namespace TextGen
 
-
 // ======================================================================

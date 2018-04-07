@@ -36,5 +36,4 @@ class PercentageCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

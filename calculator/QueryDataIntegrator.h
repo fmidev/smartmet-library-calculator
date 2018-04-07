@@ -95,5 +95,4 @@ float Integrate(NFmiFastQueryInfo& theQI,
 }  // namespace QueryDataIntegrator
 }  // namespace TextGen
 
-
 // ======================================================================

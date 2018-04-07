@@ -21,5 +21,4 @@ class NullAcceptor : public Acceptor
 };  // class NullAcceptor
 }  // namespace TextGen
 
-
 // ======================================================================

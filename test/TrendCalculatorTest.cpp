@@ -1,7 +1,7 @@
-#include <regression/tframe.h>
 #include "TrendCalculator.h"
-#include <newbase/NFmiGlobals.h>
 #include <boost/lexical_cast.hpp>
+#include <newbase/NFmiGlobals.h>
+#include <regression/tframe.h>
 #include <iostream>
 #include <string>
 

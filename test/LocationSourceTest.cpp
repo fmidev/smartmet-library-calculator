@@ -1,6 +1,6 @@
-#include <regression/tframe.h>
 #include "LocationSource.h"
 #include "Settings.h"
+#include <regression/tframe.h>
 
 #include <newbase/NFmiPoint.h>
 #include <newbase/NFmiSettings.h>

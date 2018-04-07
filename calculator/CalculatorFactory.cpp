@@ -17,8 +17,8 @@
 #include "CountCalculator.h"
 #include "MaximumCalculator.h"
 #include "MeanCalculator.h"
-#include "MinimumCalculator.h"
 #include "MedianCalculator.h"
+#include "MinimumCalculator.h"
 #include "ModChangeCalculator.h"
 #include "ModMeanCalculator.h"
 #include "ModStandardDeviationCalculator.h"
@@ -28,8 +28,8 @@
 #include "RangeAcceptor.h"
 #include "StandardDeviationCalculator.h"
 #include "SumCalculator.h"
-#include "TrendCalculator.h"
 #include "TextGenError.h"
+#include "TrendCalculator.h"
 
 #include <boost/lexical_cast.hpp>
 

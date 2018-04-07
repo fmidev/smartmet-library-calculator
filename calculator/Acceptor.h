@@ -20,5 +20,4 @@ class Acceptor
 };  // class Acceptor
 }  // namespace TextGen
 
-
 // ======================================================================

@@ -25,8 +25,7 @@ bool firstTime(NFmiFastQueryInfo& theQI,
                const TextGenPosixTime& theEndTime);
 
 bool lastTime(NFmiFastQueryInfo& theQI, const TextGenPosixTime& theTime);
-}
-}
-
+}  // namespace QueryDataTools
+}  // namespace TextGen
 
 // ======================================================================

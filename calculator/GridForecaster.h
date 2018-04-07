@@ -37,5 +37,4 @@ class GridForecaster : public WeatherForecaster
 
 }  // namespace TextGen
 
-
 // ======================================================================

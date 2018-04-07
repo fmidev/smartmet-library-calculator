@@ -15,9 +15,9 @@
 #include "RegularFunctionAnalyzer.h"
 
 #include "AnalysisSources.h"
-#include "QueryDataIntegrator.h"
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
+#include "QueryDataIntegrator.h"
 #include "Settings.h"
 #include "TextGenError.h"
 #include "WeatherArea.h"
@@ -29,10 +29,10 @@
 #include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiQueryData.h>
 
-#include <boost/shared_ptr.hpp>
 #include <boost/lexical_cast.hpp>
-#include <string>
+#include <boost/shared_ptr.hpp>
 #include <sstream>
+#include <string>
 
 using namespace std;
 using namespace boost;
@@ -43,7 +43,7 @@ namespace
 
 NFmiEnumConverter converter;
 
-}  // namespace anonymous
+}  // namespace
 
 // ----------------------------------------------------------------------
 /*!

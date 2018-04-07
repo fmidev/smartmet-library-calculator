@@ -25,5 +25,4 @@ class TextGenError : public std::exception
 };  // class TextGenError
 }  // namespace TextGen
 
-
 // ======================================================================

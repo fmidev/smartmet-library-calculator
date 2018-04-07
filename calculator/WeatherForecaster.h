@@ -38,5 +38,4 @@ class WeatherForecaster : public WeatherAnalyzer
 
 }  // namespace TextGen
 
-
 // ======================================================================

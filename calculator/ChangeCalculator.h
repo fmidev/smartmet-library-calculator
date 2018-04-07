@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "Calculator.h"
 #include "Acceptor.h"
+#include "Calculator.h"
 #include <boost/shared_ptr.hpp>
 
 namespace TextGen
@@ -34,6 +34,5 @@ class ChangeCalculator : public Calculator
 };  // class ChangeCalculator
 
 }  // namespace TextGen
-
 
 // ======================================================================

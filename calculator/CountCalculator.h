@@ -35,5 +35,4 @@ class CountCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

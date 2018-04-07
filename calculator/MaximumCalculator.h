@@ -32,5 +32,4 @@ class MaximumCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

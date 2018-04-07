@@ -1,6 +1,6 @@
-#include <regression/tframe.h>
-#include "WeatherResultTools.h"
 #include "Settings.h"
+#include "WeatherResultTools.h"
+#include <regression/tframe.h>
 
 #include <iostream>
 #include <stdexcept>

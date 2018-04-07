@@ -36,4 +36,4 @@ void WeatherHistory::updateTimePhrase(const std::string& theWeekdayPhrase,
   latestDayPhasePhrase = theDayPhasePhrase;
   latestDate = theTime;
 }
-}
+}  // namespace TextGen

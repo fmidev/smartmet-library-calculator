@@ -21,5 +21,4 @@ class DefaultAcceptor : public Acceptor
 };  // class DefaultAcceptor
 }  // namespace TextGen
 
-
 // ======================================================================

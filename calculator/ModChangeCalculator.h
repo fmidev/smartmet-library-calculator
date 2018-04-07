@@ -37,5 +37,4 @@ class ModChangeCalculator : public Calculator
 
 }  // namespace TextGen
 
-
 // ======================================================================

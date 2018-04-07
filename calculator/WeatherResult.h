@@ -42,5 +42,4 @@ bool operator!=(const TextGen::WeatherResult& theLhs, const TextGen::WeatherResu
 
 std::ostream& operator<<(std::ostream& theOutput, const TextGen::WeatherResult& theResult);
 
-
 // ======================================================================

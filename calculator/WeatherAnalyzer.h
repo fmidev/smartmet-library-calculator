@@ -7,11 +7,11 @@
 
 #pragma once
 
-#include "WeatherDataType.h"
-#include "WeatherParameter.h"
-#include "WeatherFunction.h"
-#include "NullAcceptor.h"
 #include "DefaultAcceptor.h"
+#include "NullAcceptor.h"
+#include "WeatherDataType.h"
+#include "WeatherFunction.h"
+#include "WeatherParameter.h"
 
 #include <string>
 
@@ -80,6 +80,5 @@ class WeatherAnalyzer
 };  // class WeatherAnalyzer
 
 }  // namespace TextGen
-
 
 // ======================================================================

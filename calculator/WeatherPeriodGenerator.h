@@ -27,5 +27,4 @@ class WeatherPeriodGenerator
 
 }  // namespace TextGen
 
-
 // ======================================================================

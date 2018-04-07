@@ -57,5 +57,4 @@ class RegularFunctionAnalyzer : public FunctionAnalyzer
 
 }  // namespace TextGen
 
-
 // ======================================================================

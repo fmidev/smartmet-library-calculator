@@ -82,7 +82,7 @@ string complete_filename(const string& theName)
   return fullname;
 }
 
-}  // namespace anonymous
+}  // namespace
 
 namespace TextGen
 {

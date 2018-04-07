@@ -17,16 +17,16 @@
 
 #include <boost/lexical_cast.hpp>
 
-#include "Settings.h"
-#include "WeatherResult.h"
 #include "Config.h"
-#include <newbase/NFmiStringTools.h>
+#include "Settings.h"
 #include "TextGenPosixTime.h"
+#include "WeatherResult.h"
+#include <newbase/NFmiStringTools.h>
 
 #include <cctype>  // for std::isdigit
 #include <list>
-#include <stdexcept>
 #include <sstream>  // std::stringstream
+#include <stdexcept>
 
 using namespace std;
 using namespace boost;
@@ -342,6 +342,6 @@ int optional_percentage(const std::string& theName, int theDefault)
 
 void clear() { Fmi::Config::clear(); }
 void release() { Fmi::Config::release(); }
-}
+}  // namespace Settings
 
 // ======================================================================

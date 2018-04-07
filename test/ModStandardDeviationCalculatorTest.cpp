@@ -1,6 +1,6 @@
-#include <regression/tframe.h>
 #include "ModStandardDeviationCalculator.h"
 #include <newbase/NFmiGlobals.h>
+#include <regression/tframe.h>
 
 #include <cmath>
 #include <iostream>

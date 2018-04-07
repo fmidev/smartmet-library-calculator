@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "WeatherPeriodGenerator.h"
 #include "WeatherPeriod.h"
+#include "WeatherPeriodGenerator.h"
 
 #include <string>
 
@@ -37,6 +37,5 @@ class NullPeriodGenerator : public WeatherPeriodGenerator
 };  // class NullPeriodGenerator
 
 }  // namespace TextGen
-
 
 // ======================================================================

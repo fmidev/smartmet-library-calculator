@@ -23,8 +23,8 @@
 #include "ParameterAnalyzerFactory.h"
 #include "ModuloParameterAnalyzer.h"
 #include "RegularParameterAnalyzer.h"
-#include "WindChillParameterAnalyzer.h"
 #include "TextGenError.h"
+#include "WindChillParameterAnalyzer.h"
 
 namespace TextGen
 {

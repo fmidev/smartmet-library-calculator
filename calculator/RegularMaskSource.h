@@ -35,5 +35,4 @@ class RegularMaskSource : public MaskSource
 
 }  // namespace TextGen
 
-
 // ======================================================================

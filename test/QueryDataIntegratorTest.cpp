@@ -445,7 +445,7 @@ class tests : public tframe::tests
 
 };  // class tests
 
-}  // QueryDataIntegratorTest
+}  // namespace QueryDataIntegratorTest
 
 int main(void)
 {

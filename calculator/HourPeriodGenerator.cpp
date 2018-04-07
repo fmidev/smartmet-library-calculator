@@ -17,8 +17,8 @@
 // ----------------------------------------------------------------------
 
 #include "HourPeriodGenerator.h"
-#include "WeatherPeriodTools.h"
 #include "Settings.h"
+#include "WeatherPeriodTools.h"
 
 using namespace std;
 

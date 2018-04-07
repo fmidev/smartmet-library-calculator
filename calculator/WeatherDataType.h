@@ -20,5 +20,4 @@ enum WeatherDataType
 
 const char* data_type_name(const TextGen::WeatherDataType& theDataType);
 
-
 // ======================================================================

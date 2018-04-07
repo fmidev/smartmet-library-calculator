@@ -94,7 +94,7 @@ void make_point_path(NFmiSvgPath& thePath, const NFmiPoint& thePoint)
   thePath.push_back(element1);
   thePath.push_back(element2);
 }
-}
+}  // namespace
 
 namespace TextGen
 {

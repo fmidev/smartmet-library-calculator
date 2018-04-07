@@ -15,7 +15,6 @@ class IdGenerator
   static long generate();
 
 };  // class IdGenerator
-}  // namespace namespace TextGen
-
+}  // namespace TextGen
 
 // ======================================================================
