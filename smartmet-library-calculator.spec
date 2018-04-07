@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 17.8.28
+Version: 18.4.7
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -14,10 +14,10 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 17.3.9
-BuildRequires: smartmet-library-macgyver-devel >= 17.3.9
+BuildRequires: smartmet-library-newbase-devel >= 18.4.7
+BuildRequires: smartmet-library-macgyver-devel >= 18.4.7
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 17.3.9
+Requires: smartmet-library-newbase >= 18.4.7
 Provides: %{LIBNAME}
 
 %description
@@ -57,6 +57,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Sat Apr  7 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.4.7-1.fmi
+- Upgrade to boost 1.66
+
 * Mon Aug 28 2017 Mika Heiskanen <mika.heiskanen@fmi.fi> - 17.8.28-1.fmi
 - Upgrade to boost 1.65
 
