@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.4.7
+Version: 18.5.2
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 18.4.7
+BuildRequires: smartmet-library-newbase-devel >= 18.5.2
 BuildRequires: smartmet-library-macgyver-devel >= 18.4.7
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 18.4.7
+Requires: smartmet-library-newbase >= 18.5.2
 Provides: %{LIBNAME}
 
 %description
@@ -58,6 +58,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed May  2 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.5.2-1.fmi
+- Repackaged since newbase NFmiEnumConverter ABI changed
+
 * Sat Apr  7 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.4.7-1.fmi
 - Upgrade to boost 1.66
 
