@@ -7,15 +7,7 @@
 
 #include "IdGenerator.h"
 
-#ifdef FMI_MULTITHREAD
-#include <boost/interprocess/sync/interprocess_upgradable_mutex.hpp>
-#include <boost/interprocess/sync/upgradable_lock.hpp>
-
-typedef boost::interprocess::interprocess_upgradable_mutex MutexType;
-typedef boost::interprocess::upgradable_lock<MutexType> WriteLock;
-
-static MutexType mymutex;
-#endif
+#include <boost/atomic.hpp>
 
 namespace TextGen
 {
@@ -27,22 +19,11 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-#ifdef FMI_MULTITHREAD
-
 long IdGenerator::generate()
 {
-  WriteLock lock(mymutex);
-  static long id;
-  ++id;
-  return id;
-}
-#else
-long IdGenerator::generate()
-{
-  static long id;
+  static boost::atomic<long> id;
   return ++id;
 }
-#endif
 
 }  // namespace TextGen
 
