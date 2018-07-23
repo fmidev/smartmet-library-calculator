@@ -51,9 +51,9 @@ void ModChangeCalculator::operator()(float theValue)
     if (itsCounter > 0)
     {
       const double diff = theValue - itsLastValue;
-      if (diff < -itsModulo / 2)
+      if (diff < -itsModulo / 2.0)
         itsCumulativeChange += diff + itsModulo;
-      else if (diff > itsModulo / 2)
+      else if (diff > itsModulo / 2.0)
         itsCumulativeChange += diff - itsModulo;
       else
         itsCumulativeChange += diff;

@@ -53,9 +53,9 @@ void ModTrendCalculator::operator()(float theValue)
     if (itsCounter > 0)
     {
       const float diff = theValue - itsLastValue;
-      if (diff < -itsModulo / 2)
+      if (diff < -itsModulo / 2.0)
         ++itsPositiveChanges;
-      else if (diff > itsModulo / 2)
+      else if (diff > itsModulo / 2.0)
         ++itsNegativeChanges;
       else if (diff < 0)
         ++itsNegativeChanges;
