@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.6.20
+Version: 18.7.23
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 18.6.13
-BuildRequires: smartmet-library-macgyver-devel >= 18.6.7
+BuildRequires: smartmet-library-newbase-devel >= 18.7.23
+BuildRequires: smartmet-library-macgyver-devel >= 18.7.23
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 18.6.13
+Requires: smartmet-library-newbase >= 18.7.23
 Provides: %{LIBNAME}
 
 %description
@@ -58,6 +58,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Mon Jul 23 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.7.23-1.fmi
+- Silenced CodeChecker warnings
+
 * Wed Jun 20 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.6.20-1.fmi
 - Use an atomic counter instead of mutexes
 
