@@ -40,7 +40,6 @@ namespace TextGen
 class LocationSource::Pimple
 {
  public:
-  ~Pimple();
   Pimple();
 
   bool hasCoordinates(const string& theLocation) const;
@@ -52,13 +51,6 @@ class LocationSource::Pimple
 
 };  // Pimple
 
-// ----------------------------------------------------------------------
-/*!
- * \brief Pimple destructor
- */
-// ----------------------------------------------------------------------
-
-LocationSource::Pimple::~Pimple() {}
 // ----------------------------------------------------------------------
 /*!
  * \brief Pimple constructor
