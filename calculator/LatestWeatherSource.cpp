@@ -134,7 +134,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   {
     // If the cached data is new enough, return it
 
-    if (time(NULL) - it->second.itsLastCheckTime < agelimit) return it->second.itsData;
+    if (time(nullptr) - it->second.itsLastCheckTime < agelimit) return it->second.itsData;
   }
 
   // Associated filename
@@ -143,7 +143,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
 
   // Update the time we checked the modification time
 
-  if (it != itsPimple->itsData.end()) it->second.itsLastCheckTime = time(NULL);
+  if (it != itsPimple->itsData.end()) it->second.itsLastCheckTime = time(nullptr);
 
   // See if the cached data is outdated. It is outdated if the
   // directory contains a newer file, or if the file itself
@@ -153,7 +153,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
 
   if (it != itsPimple->itsData.end() &&
       (it->second.itsFilename == filename || it->second.itsModTime >= modtime) &&
-      (time(NULL) - modtime > 30))
+      (time(nullptr) - modtime > 30))
     return it->second.itsData;
 
   // Erase the aged data
@@ -165,7 +165,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   WeatherDataStruct newdata;
   newdata.itsId = IdGenerator::generate();
   newdata.itsModTime = modtime;
-  newdata.itsLastCheckTime = time(NULL);
+  newdata.itsLastCheckTime = time(nullptr);
   newdata.itsFilename = filename;
   newdata.itsData = qdata;
 
