@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.7.25
+Version: 18.8.1
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -16,7 +16,7 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
 BuildRequires: smartmet-library-newbase-devel >= 18.7.23
-BuildRequires: smartmet-library-macgyver-devel >= 18.7.25
+BuildRequires: smartmet-library-macgyver-devel >= 18.8.1
 BuildRequires: freetype-devel
 Requires: smartmet-library-newbase >= 18.7.23
 Provides: %{LIBNAME}
@@ -58,6 +58,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Aug  1 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.8.1-1.fmi
+- Use C++11 for-loops instead of BOOST_FOREACH
+
 * Wed Jul 25 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.7.25-1.fmi
 - Prefer nullptr over NULL
 

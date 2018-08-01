@@ -1,10 +1,8 @@
 // ======================================================================
 
 #include "Config.h"
-#include <boost/algorithm/string/case_conv.hpp>
-#include <boost/foreach.hpp>
-//#include <boost/thread.hpp>
 #include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/case_conv.hpp>
 #include <boost/tokenizer.hpp>
 #include <functional>
 #include <stdexcept>
@@ -63,7 +61,7 @@ void Config::set(const std::string& theSettingsString)
   typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
   boost::char_separator<char> sep("\n");
   tokenizer tokens(theSettingsString, sep);
-  BOOST_FOREACH (const string& t, tokens)
+  for (const string& t : tokens)
   {
     if (t.find("=") == std::string::npos) continue;
 
