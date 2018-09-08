@@ -62,7 +62,7 @@ void Config::set(const std::string& theSettingsString)
   tokenizer tokens(theSettingsString, sep);
   for (const string& t : tokens)
   {
-    if (t.find("=") == std::string::npos) continue;
+    if (t.find('=') == std::string::npos) continue;
 
     boost::char_separator<char> sep2("=");
     tokenizer tokens2(t, sep2);
