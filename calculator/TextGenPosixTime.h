@@ -58,7 +58,7 @@ class TextGenPosixTime
   short GetWeekday(void) const;  // mon=1, tue=2,..., sat=6,  sun=7
   const boost::posix_time::ptime& PosixTime() { return istPosixTime; }
   static TextGenPosixTime UtcTime(const TextGenPosixTime& localTime);
-  static TextGenPosixTime LocalTime(const TextGenPosixTime& localTime);
+  static TextGenPosixTime LocalTime(const TextGenPosixTime& utcTime);
   // parameter isUtc tells whether theTime is in UTC or localtime:
   // it must be known when the theTime is in the proximity of daylight saving time change
   static short GetZoneDifferenceHour(const TextGenPosixTime& theTime, bool isUtc);
