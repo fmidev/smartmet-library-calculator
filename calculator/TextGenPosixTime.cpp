@@ -29,7 +29,7 @@ string& get_timezone_id()
   return *tls;
 }
 
-TextGenPosixTime::TextGenPosixTime(void) : istPosixTime(second_clock::local_time()) {}
+TextGenPosixTime::TextGenPosixTime() : istPosixTime(second_clock::local_time()) {}
 TextGenPosixTime::TextGenPosixTime(const boost::posix_time::ptime& theTime) : istPosixTime(theTime)
 {
 }
@@ -183,12 +183,12 @@ void TextGenPosixTime::SetSec(short sec)
   istPosixTime = ptime(d, time_duration(td.hours(), td.minutes(), sec));
 }
 
-short TextGenPosixTime::GetYear(void) const { return istPosixTime.date().year(); }
-short TextGenPosixTime::GetMonth(void) const { return istPosixTime.date().month(); }
-short TextGenPosixTime::GetDay(void) const { return istPosixTime.date().day(); }
-short TextGenPosixTime::GetHour(void) const { return istPosixTime.time_of_day().hours(); }
-short TextGenPosixTime::GetMin(void) const { return istPosixTime.time_of_day().minutes(); }
-short TextGenPosixTime::GetSec(void) const { return istPosixTime.time_of_day().seconds(); }
+short TextGenPosixTime::GetYear() const { return istPosixTime.date().year(); }
+short TextGenPosixTime::GetMonth() const { return istPosixTime.date().month(); }
+short TextGenPosixTime::GetDay() const { return istPosixTime.date().day(); }
+short TextGenPosixTime::GetHour() const { return istPosixTime.time_of_day().hours(); }
+short TextGenPosixTime::GetMin() const { return istPosixTime.time_of_day().minutes(); }
+short TextGenPosixTime::GetSec() const { return istPosixTime.time_of_day().seconds(); }
 std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
 {
   stringstream ss;
@@ -255,7 +255,7 @@ time_t TextGenPosixTime::EpochTime() const
   return (istPosixTime - time_t_epoch).total_seconds();
 }
 
-short TextGenPosixTime::GetWeekday(void) const  // mon=1, tue=2,..., sat=6,  sun=7
+short TextGenPosixTime::GetWeekday() const  // mon=1, tue=2,..., sat=6,  sun=7
 {
   short retval(istPosixTime.date().day_of_week());
 
@@ -264,7 +264,7 @@ short TextGenPosixTime::GetWeekday(void) const  // mon=1, tue=2,..., sat=6,  sun
   return retval;
 }
 
-short TextGenPosixTime::GetJulianDay(void) const { return istPosixTime.date().julian_day(); }
+short TextGenPosixTime::GetJulianDay() const { return istPosixTime.date().julian_day(); }
 short TextGenPosixTime::DaysInYear(const short aYear)
 {
   date d(aYear, 12, 1);
