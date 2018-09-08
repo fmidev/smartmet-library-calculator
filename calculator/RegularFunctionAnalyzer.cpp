@@ -159,7 +159,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   // Try activating the parameter
 
-  FmiParameterName param = FmiParameterName(converter.ToEnum(theParameterName));
+  auto param = FmiParameterName(converter.ToEnum(theParameterName));
   if (param == kFmiBadParameter)
     throw TextGenError("Parameter " + theParameterName + " is not defined in newbase");
 

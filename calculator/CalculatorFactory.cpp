@@ -157,7 +157,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
       return create(theFunction);
     case Percentage:
     {
-      PercentageCalculator* tmp = new PercentageCalculator;
+      auto* tmp = new PercentageCalculator;
       tmp->condition(theTester);
       return tmp;
     }
@@ -202,13 +202,13 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
       return create(theFunction, theModulo);
     case Percentage:
     {
-      PercentageCalculator* tmp = new PercentageCalculator;
+      auto* tmp = new PercentageCalculator;
       tmp->condition(theTester);
       return tmp;
     }
     case Count:
     {
-      CountCalculator* tmp = new CountCalculator;
+      auto* tmp = new CountCalculator;
       tmp->condition(theTester);
       return tmp;
     }

@@ -111,7 +111,7 @@ RegularMaskSource::mask_type RegularMaskSource::Pimple::find(const WeatherId& th
 
   WeatherAreaAndID key(theID, theArea);
 
-  mask_storage::const_iterator it = itsMaskStorage.find(key);
+  const auto it = itsMaskStorage.find(key);
   if (it == itsMaskStorage.end()) return dummy;
 
   return it->second;

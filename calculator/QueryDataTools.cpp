@@ -55,7 +55,7 @@ bool findIndices(NFmiFastQueryInfo& theQI,
                  unsigned long& theStartIndex,
                  unsigned long& theEndIndex)
 {
-  const unsigned long invalid = static_cast<unsigned long>(-1);
+  const auto invalid = static_cast<unsigned long>(-1);
 
   if (!firstTime(theQI, theStartTime, theEndTime)) return false;
   theStartIndex = theQI.TimeIndex();

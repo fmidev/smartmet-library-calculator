@@ -228,8 +228,8 @@ TextGen::WeatherResult require_result(const std::string& theName)
   {
     vector<string> values = NFmiStringTools::Split(value);
     if (values.size() != 2) throw runtime_error(msg);
-    const float result = lexical_cast<float>(values[0]);
-    const float accuracy = lexical_cast<float>(values[1]);
+    const auto result = lexical_cast<float>(values[0]);
+    const auto accuracy = lexical_cast<float>(values[1]);
     return TextGen::WeatherResult(result, accuracy);
   }
   catch (std::exception&)

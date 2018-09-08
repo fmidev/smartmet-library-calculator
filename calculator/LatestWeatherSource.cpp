@@ -127,8 +127,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   assert(itsPimple.get() != 0);
 
   // See if we have a cached result
-  using iterator = Pimple::container_type::iterator;
-  iterator it = itsPimple->itsData.find(theName);
+  auto it = itsPimple->itsData.find(theName);
 
   if (it != itsPimple->itsData.end())
   {

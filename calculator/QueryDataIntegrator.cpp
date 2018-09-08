@@ -254,7 +254,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
   theSpaceCalculator.reset();
 
-  for (NFmiIndexMask::const_iterator it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
+  for (auto it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
   {
     // possible -1 is handled by IndexFloatValue
     const unsigned long idx =
@@ -347,7 +347,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (!QueryDataTools::findIndices(theQI, theStartTime, theEndTime, startindex, endindex))
     return kFloatMissing;
 
-  for (NFmiIndexMask::const_iterator it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
+  for (auto it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
   {
     theTimeCalculator.reset();
 
@@ -457,7 +457,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
   if (theIndexMask.empty()) return kFloatMissing;
 
-  for (NFmiIndexMask::const_iterator it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
+  for (auto it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
   {
     theMainTimeCalculator.reset();
 
