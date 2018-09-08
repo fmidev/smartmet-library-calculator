@@ -57,10 +57,7 @@ class LocationSource::Pimple
  */
 // ----------------------------------------------------------------------
 
-LocationSource::Pimple::Pimple()
-    : itsLastSuccesfulName(), itsLastSuccesfulPoint(kFloatMissing, kFloatMissing)
-{
-}
+LocationSource::Pimple::Pimple() : itsLastSuccesfulPoint(kFloatMissing, kFloatMissing) {}
 
 // ----------------------------------------------------------------------
 /*!

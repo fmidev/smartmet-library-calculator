@@ -4,10 +4,7 @@ using namespace std;
 
 namespace TextGen
 {
-WeatherHistory::WeatherHistory()
-    : latestDate(1970, 1, 1), latestWeekdayPhrase(), latestDayPhasePhrase()
-{
-}
+WeatherHistory::WeatherHistory() : latestDate(1970, 1, 1) {}
 
 WeatherHistory::WeatherHistory(const WeatherHistory& theWeatherHistory)
     : latestDate(theWeatherHistory.latestDate),

@@ -121,8 +121,7 @@ WeatherArea::WeatherArea(const std::string& theSpecs, const std::string& theName
       itsSortKey(theName + '=' + theSpecs),
       itsLatitude(90.0),
       itsLongitude(180.0),
-      itsBooleanParameters(0x0),
-      itsHistory()
+      itsBooleanParameters(0x0)
 {
   parse_specs(theSpecs);
   set_boolean_parameters();
@@ -144,15 +143,13 @@ WeatherArea::WeatherArea(const std::string& theSpecs)
     : itsType(Full),
       itsPointFlag(),
       itsNamedFlag(false),
-      itsName(),
       itsPoint(kFloatMissing, kFloatMissing),
       itsPolygon(new NFmiSvgPath()),
       itsRadius(0),
       itsSortKey(theSpecs),
       itsLatitude(90.0),
       itsLongitude(180.0),
-      itsBooleanParameters(0x0),
-      itsHistory()
+      itsBooleanParameters(0x0)
 {
   parse_specs(theSpecs);
   set_boolean_parameters();
@@ -173,7 +170,6 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, float theRadius)
     : itsType(Full),
       itsPointFlag(theRadius == 0),
       itsNamedFlag(false),
-      itsName(),
       itsPoint(thePoint),
       itsPolygon(new NFmiSvgPath()),
       itsRadius(theRadius),
@@ -182,8 +178,7 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, float theRadius)
                  (theRadius == 0 ? "" : ":" + NFmiStringTools::Convert(theRadius))),
       itsLatitude(90.0),
       itsLongitude(180.0),
-      itsBooleanParameters(0x0),
-      itsHistory()
+      itsBooleanParameters(0x0)
 {
   if (theRadius < 0) throw TextGenError("A weather point cannot have a negative expansion radius");
   if (theRadius > 0) make_point_path(*itsPolygon, thePoint);
@@ -215,8 +210,7 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, const std::string& theName, 
                  (theRadius == 0 ? "" : ":" + NFmiStringTools::Convert(theRadius))),
       itsLatitude(90.0),
       itsLongitude(180.0),
-      itsBooleanParameters(0x0),
-      itsHistory()
+      itsBooleanParameters(0x0)
 {
   if (theRadius < 0) throw TextGenError("A weather point cannot have a negative expansion radius");
   if (theRadius > 0) make_point_path(*itsPolygon, thePoint);
@@ -250,8 +244,7 @@ WeatherArea::WeatherArea(const NFmiSvgPath& theSvgPath, const std::string& theNa
       itsSortKey(theName),
       itsLatitude(90.0),
       itsLongitude(180.0),
-      itsBooleanParameters(0x0),
-      itsHistory()
+      itsBooleanParameters(0x0)
 {
 }
 
