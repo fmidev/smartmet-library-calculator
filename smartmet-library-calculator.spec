@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.8.1
+Version: 18.9.8
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries

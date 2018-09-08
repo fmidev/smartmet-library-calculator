@@ -1,9 +1,8 @@
-// ======================================================================
-
 #include "Config.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/algorithm/string/case_conv.hpp>
 #include <boost/tokenizer.hpp>
+#include <macgyver/StringConversion.h>
 #include <functional>
 #include <stdexcept>
 #include <string>
@@ -186,8 +185,7 @@ int Config::requireInteger(const std::string& theName, int theLoLimit, int theHi
 
   if (value >= theLoLimit && value <= theHiLimit) return value;
   throw std::runtime_error("Variable '" + theName + "' value is out of range " +
-                           boost::lexical_cast<std::string>(theLoLimit) + "..." +
-                           boost::lexical_cast<std::string>(theHiLimit));
+                           Fmi::to_string(theLoLimit) + "..." + Fmi::to_string(theHiLimit));
 }
 
 // ----------------------------------------------------------------------
@@ -205,8 +203,7 @@ int Config::optionalInteger(const std::string& theName,
 
   if (value >= theLoLimit && value <= theHiLimit) return value;
   throw std::runtime_error("Variable '" + theName + "' value is out of range " +
-                           boost::lexical_cast<std::string>(theLoLimit) + "..." +
-                           boost::lexical_cast<std::string>(theHiLimit));
+                           Fmi::to_string(theLoLimit) + "..." + Fmi::to_string(theHiLimit));
 }
 
 // ----------------------------------------------------------------------

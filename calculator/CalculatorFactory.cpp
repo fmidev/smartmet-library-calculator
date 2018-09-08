@@ -30,9 +30,7 @@
 #include "SumCalculator.h"
 #include "TextGenError.h"
 #include "TrendCalculator.h"
-
-#include <boost/lexical_cast.hpp>
-
+#include <macgyver/StringConversion.h>
 #include <string>
 
 using namespace boost;
@@ -82,7 +80,7 @@ Calculator* create(WeatherFunction theFunction)
   }
 
   throw TextGenError("CalculatorFactory failed to recognize the given function" +
-                     lexical_cast<string>(static_cast<int>(theFunction)));
+                     Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 // ----------------------------------------------------------------------
@@ -128,7 +126,7 @@ Calculator* create(WeatherFunction theFunction, int theModulo)
   }
 
   throw TextGenError("CalculatorFactory failed to recognize the given function" +
-                     lexical_cast<string>(static_cast<int>(theFunction)));
+                     Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 // ----------------------------------------------------------------------
@@ -172,7 +170,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
   }
 
   throw TextGenError("CalculatorFactory failed to recognize the given function" +
-                     lexical_cast<string>(static_cast<int>(theFunction)));
+                     Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 // ----------------------------------------------------------------------
@@ -217,7 +215,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
   }
 
   throw TextGenError("CalculatorFactory failed to recognize the given function" +
-                     lexical_cast<string>(static_cast<int>(theFunction)));
+                     Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 }  // namespace CalculatorFactory

@@ -18,13 +18,11 @@
 // boost included laitettava ennen newbase:n NFmiGlobals-includea,
 // muuten MSVC:ss‰ min max m‰‰rittelyt jo tehty
 
-#include <boost/lexical_cast.hpp>
-
-#include "TextGenError.h"
-#include "WeatherPeriod.h"
 #include "WeatherPeriodTools.h"
-
+#include "TextGenError.h"
 #include "TextGenPosixTime.h"
+#include "WeatherPeriod.h"
+#include <macgyver/StringConversion.h>
 
 using namespace std;
 using namespace boost;
@@ -168,8 +166,7 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
                         int theMinEndHour)
 
 {
-  const string msg =
-      "WeatherPeriodTools: Cannot extract subperiod " + lexical_cast<string>(theNumber);
+  const string msg = "WeatherPeriodTools: Cannot extract subperiod " + Fmi::to_string(theNumber);
 
   if (theNumber <= 0) throw TextGenError(msg);
 

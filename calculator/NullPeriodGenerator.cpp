@@ -16,10 +16,9 @@
 // boost included laitettava ennen newbase:n NFmiGlobals-includea,
 // muuten MSVC:ss‰ min max m‰‰rittelyt jo tehty
 
-#include <boost/lexical_cast.hpp>
-
 #include "NullPeriodGenerator.h"
 #include "TextGenError.h"
+#include <macgyver/StringConversion.h>
 
 using namespace std;
 using namespace boost;
@@ -82,8 +81,7 @@ WeatherPeriod NullPeriodGenerator::period(size_type thePeriod) const
 {
   if (thePeriod == 1) return itsMainPeriod;
 
-  const string msg =
-      ("NullPeriodGenerator cannot return period " + lexical_cast<string>(thePeriod));
+  const string msg = ("NullPeriodGenerator cannot return period " + Fmi::to_string(thePeriod));
   throw TextGenError(msg);
 }
 

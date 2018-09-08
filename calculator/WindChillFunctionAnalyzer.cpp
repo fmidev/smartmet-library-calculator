@@ -13,7 +13,6 @@
 // ======================================================================
 
 #include "WindChillFunctionAnalyzer.h"
-
 #include "AnalysisSources.h"
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
@@ -25,13 +24,10 @@
 #include "WeatherResult.h"
 #include "WeatherSource.h"
 #include "WindChillQueryInfo.h"
-
+#include <boost/shared_ptr.hpp>
+#include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
 #include <newbase/NFmiQueryData.h>
-//#include <newbase/NFmiMetMath.h>
-
-#include <boost/lexical_cast.hpp>
-#include <boost/shared_ptr.hpp>
 #include <sstream>
 #include <string>
 
@@ -81,7 +77,7 @@ WindChillFunctionAnalyzer::WindChillFunctionAnalyzer(const WeatherFunction& theA
 void WindChillFunctionAnalyzer::modulo(int theModulo)
 {
   if (theModulo <= 0)
-    throw TextGenError("Trying to analyze data modulo " + lexical_cast<string>(theModulo));
+    throw TextGenError("Trying to analyze data modulo " + Fmi::to_string(theModulo));
   itsModulo = theModulo;
   itIsModulo = true;
 }

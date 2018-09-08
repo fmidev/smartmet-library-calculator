@@ -13,7 +13,6 @@
 // ======================================================================
 
 #include "RegularFunctionAnalyzer.h"
-
 #include "AnalysisSources.h"
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
@@ -24,13 +23,11 @@
 #include "WeatherPeriod.h"
 #include "WeatherResult.h"
 #include "WeatherSource.h"
-
+#include <boost/shared_ptr.hpp>
+#include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
 #include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiQueryData.h>
-
-#include <boost/lexical_cast.hpp>
-#include <boost/shared_ptr.hpp>
 #include <sstream>
 #include <string>
 
@@ -107,7 +104,7 @@ RegularFunctionAnalyzer::RegularFunctionAnalyzer(const WeatherFunction& theAreaF
 void RegularFunctionAnalyzer::modulo(int theModulo)
 {
   if (theModulo <= 0)
-    throw TextGenError("Trying to analyze data modulo " + lexical_cast<string>(theModulo));
+    throw TextGenError("Trying to analyze data modulo " + Fmi::to_string(theModulo));
   itsModulo = theModulo;
   itIsModulo = true;
 }
