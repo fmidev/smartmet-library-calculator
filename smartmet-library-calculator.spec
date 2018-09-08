@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 18.7.23
-BuildRequires: smartmet-library-macgyver-devel >= 18.8.1
+BuildRequires: smartmet-library-newbase-devel >= 18.9.6
+BuildRequires: smartmet-library-macgyver-devel >= 18.9.5
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 18.7.23
+Requires: smartmet-library-newbase >= 18.9.6
 Provides: %{LIBNAME}
 
 %description
@@ -58,6 +58,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Sat Sep  8 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.9.8-1.fmi
+- Silenced CodeChecker warnings
+
 * Wed Aug  1 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.8.1-1.fmi
 - Use C++11 for-loops instead of BOOST_FOREACH
 
