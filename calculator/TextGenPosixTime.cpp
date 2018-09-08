@@ -243,10 +243,9 @@ short TextGenPosixTime::GetZoneDifferenceHour(const TextGenPosixTime& theTime, b
                 theTime.istPosixTime < dst_local_end_time);
   }
 
-  if (dst_on)
-    return dst_offset;
-  else
-    return normal_time_offset;
+  if (dst_on) return dst_offset;
+
+  return normal_time_offset;
 }
 
 time_t TextGenPosixTime::EpochTime() const

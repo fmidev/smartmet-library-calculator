@@ -63,10 +63,8 @@ void CountCalculator::operator()(float theValue)
 
 float CountCalculator::operator()() const
 {
-  if (itsTotalCounter == 0)
-    return kFloatMissing;
-  else
-    return itsCounter;
+  if (itsTotalCounter == 0) return kFloatMissing;
+  return itsCounter;
 }
 
 // ----------------------------------------------------------------------

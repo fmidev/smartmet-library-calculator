@@ -65,8 +65,7 @@ float ChangeCalculator::operator()() const
 {
   if (itsCounter < 1 || itsStartValue == kFloatMissing || itsEndValue == kFloatMissing)
     return kFloatMissing;
-  else
-    return (itsEndValue - itsStartValue);
+  return (itsEndValue - itsStartValue);
 }
 
 // ----------------------------------------------------------------------

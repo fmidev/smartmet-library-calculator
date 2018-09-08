@@ -55,10 +55,9 @@ void MeanCalculator::operator()(float theValue)
 
 float MeanCalculator::operator()() const
 {
-  if (itsCounter == 0)
-    return kFloatMissing;
-  else
-    return itsSum / static_cast<double>(itsCounter);
+  if (itsCounter == 0) return kFloatMissing;
+
+  return itsSum / static_cast<double>(itsCounter);
 }
 
 // ----------------------------------------------------------------------

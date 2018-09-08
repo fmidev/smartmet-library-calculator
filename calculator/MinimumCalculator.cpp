@@ -62,10 +62,9 @@ void MinimumCalculator::operator()(float theValue)
 
 float MinimumCalculator::operator()() const
 {
-  if (itsCounter == 0)
-    return kFloatMissing;
-  else
-    return itsMinimum;
+  if (itsCounter == 0) return kFloatMissing;
+
+  return itsMinimum;
 }
 
 // ----------------------------------------------------------------------

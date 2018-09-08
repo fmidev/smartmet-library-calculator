@@ -73,10 +73,8 @@ void ModChangeCalculator::operator()(float theValue)
 
 float ModChangeCalculator::operator()() const
 {
-  if (itsCounter == 0)
-    return kFloatMissing;
-  else
-    return itsCumulativeChange;
+  if (itsCounter == 0) return kFloatMissing;
+  return itsCumulativeChange;
 }
 
 // ----------------------------------------------------------------------

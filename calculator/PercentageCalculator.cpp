@@ -77,10 +77,9 @@ void PercentageCalculator::operator()(float theValue)
 
 float PercentageCalculator::operator()() const
 {
-  if (itsTotalCounter == 0)
-    return kFloatMissing;
-  else
-    return 100 * static_cast<float>(itsCounter) / itsTotalCounter;
+  if (itsTotalCounter == 0) return kFloatMissing;
+
+  return 100 * static_cast<float>(itsCounter) / itsTotalCounter;
 }
 
 // ----------------------------------------------------------------------

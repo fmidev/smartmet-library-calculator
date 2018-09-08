@@ -57,18 +57,13 @@ void MedianCalculator::operator()(float theValue)
 
 float MedianCalculator::operator()() const
 {
-  if (theValueVector.empty())
-  {
-    return kFloatMissing;
-  }
-  else
-  {
-    sort(theValueVector.begin(), theValueVector.end());
-    unsigned int vectorSize(theValueVector.size());
-    const unsigned int medianIndex = (vectorSize < 2 ? 0 : ((vectorSize / 2) - 1));
+  if (theValueVector.empty()) return kFloatMissing;
 
-    return theValueVector.at(medianIndex);
-  }
+  sort(theValueVector.begin(), theValueVector.end());
+  unsigned int vectorSize(theValueVector.size());
+  const unsigned int medianIndex = (vectorSize < 2 ? 0 : ((vectorSize / 2) - 1));
+
+  return theValueVector.at(medianIndex);
 }
 
 // ----------------------------------------------------------------------

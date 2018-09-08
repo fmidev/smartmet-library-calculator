@@ -67,16 +67,12 @@ void StandardDeviationCalculator::operator()(float theValue)
 
 float StandardDeviationCalculator::operator()() const
 {
-  if (itsCounter < 2)
-    return kFloatMissing;
-  else
-  {
-    const double tmp = itsSquaredSum - itsSum * itsSum / itsCounter;
-    if (tmp < 0)
-      return 0.0;
-    else
-      return sqrt(tmp / (itsCounter - 1));
-  }
+  if (itsCounter < 2) return kFloatMissing;
+
+  const double tmp = itsSquaredSum - itsSum * itsSum / itsCounter;
+  if (tmp < 0) return 0.0;
+
+  return sqrt(tmp / (itsCounter - 1));
 }
 
 // ----------------------------------------------------------------------
