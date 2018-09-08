@@ -193,20 +193,20 @@ std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
 {
   stringstream ss;
 
-  if (kShortYear & theTimeMask)
+  if ((kShortYear & theTimeMask) != 0)
     ss << std::setw(2) << (GetYear() - (GetYear() < 2000 ? 1900 : 2000));
   else if (kLongYear & theTimeMask)
     ss << std::setw(4) << GetYear();
 
-  if (kMonth & theTimeMask) ss << std::setw(2) << setfill('0') << GetMonth();
+  if ((kMonth & theTimeMask) != 0) ss << std::setw(2) << setfill('0') << GetMonth();
 
-  if (kDay & theTimeMask) ss << std::setw(2) << setfill('0') << GetDay();
+  if ((kDay & theTimeMask) != 0) ss << std::setw(2) << setfill('0') << GetDay();
 
-  if (kHour & theTimeMask) ss << std::setw(2) << setfill('0') << GetHour();
+  if ((kHour & theTimeMask) != 0) ss << std::setw(2) << setfill('0') << GetHour();
 
-  if (kMinute & theTimeMask) ss << std::setw(2) << setfill('0') << GetMin();
+  if ((kMinute & theTimeMask) != 0) ss << std::setw(2) << setfill('0') << GetMin();
 
-  if (kSecond & theTimeMask) ss << std::setw(2) << setfill('0') << GetSec();
+  if ((kSecond & theTimeMask) != 0) ss << std::setw(2) << setfill('0') << GetSec();
 
   return ss.str();
 }

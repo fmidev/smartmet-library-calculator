@@ -584,21 +584,21 @@ bool WeatherArea::booleanParameter(const ParameterId& parameterId) const
  *
  */
 // ----------------------------------------------------------------------
-bool WeatherArea::isMarine() const { return (itsBooleanParameters & Marine); }
+bool WeatherArea::isMarine() const { return (itsBooleanParameters & Marine) != 0; }
 // ----------------------------------------------------------------------
 /*!
  * \brief Returns true if the area is mountain area, false otherwise
  *
  */
 // ----------------------------------------------------------------------
-bool WeatherArea::isMountain() const { return (itsBooleanParameters & Mountain); }
+bool WeatherArea::isMountain() const { return (itsBooleanParameters & Mountain) != 0; }
 // ----------------------------------------------------------------------
 /*!
  * \brief Returns true if the area is island, false otherwise
  *
  */
 // ----------------------------------------------------------------------
-bool WeatherArea::isIsland() const { return (itsBooleanParameters & Island); }
+bool WeatherArea::isIsland() const { return (itsBooleanParameters & Island) != 0; }
 }  // namespace TextGen
 
 // ======================================================================

@@ -23,7 +23,7 @@ static boost::thread_specific_ptr<SettingsData> tls;
 
 void release_settings()
 {
-  if (tls.get())
+  if (tls.get() != nullptr)
   {
     delete tls.release();
   }
@@ -31,7 +31,7 @@ void release_settings()
 
 SettingsData& get_settings()
 {
-  if (!tls.get()) tls.reset(new SettingsData);
+  if (tls.get() == nullptr) tls.reset(new SettingsData);
 
   return *tls;
 }

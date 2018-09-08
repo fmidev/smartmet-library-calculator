@@ -185,7 +185,7 @@ TextGenPosixTime require_time(const std::string& theName)
   if (value.size() != 12) throw runtime_error(msg);
 
   for (string::const_iterator it = value.begin(); it != value.end(); ++it)
-    if (!isdigit(*it)) throw runtime_error(msg);
+    if (isdigit(*it) == 0) throw runtime_error(msg);
 
   try
   {
