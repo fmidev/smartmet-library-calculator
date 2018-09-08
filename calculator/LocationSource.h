@@ -27,10 +27,10 @@ class LocationSource
   boost::shared_ptr<Pimple> itsPimple;
 
   // Singleton protection
-  ~LocationSource();
   LocationSource();
-  LocationSource(const LocationSource& theSrc);
-  LocationSource& operator=(const LocationSource& theSrc);
+  ~LocationSource() = default;
+  LocationSource(const LocationSource& theSrc) = delete;
+  LocationSource& operator=(const LocationSource& theSrc) = delete;
 
 };  // class LocationSource
 

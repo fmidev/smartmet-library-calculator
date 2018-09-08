@@ -18,8 +18,6 @@ namespace Fmi
 class Config
 {
  public:
-  Config();
-
   static bool isset(const std::string& theName);
   static void set(const std::string& theName, const std::string& theValue);
   static void set(const std::string& theSettingsString);
@@ -39,10 +37,6 @@ class Config
   int optionalInteger(const std::string& theName, int theDefault) const;
   double requireDouble(const std::string& theName) const;
   double optionalDouble(const std::string& theName, double theDefault) const;
-
- private:
-  //	std::map<std::string,std::string> itsSettings;	// the settings
-  //	boost::mutex itsMutex;							// settings mutex
 
 };  // class Config
 

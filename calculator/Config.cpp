@@ -36,7 +36,6 @@ SettingsData& get_settings()
   return *tls;
 }
 
-Config::Config() {}
 bool Config::isset(const std::string& theName)
 {
   const SettingsData& settings(get_settings());
