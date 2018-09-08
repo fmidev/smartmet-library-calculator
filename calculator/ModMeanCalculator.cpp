@@ -72,9 +72,9 @@ void ModMeanCalculator::operator()(float theValue)
     {
       const double diff = theValue - itsPreviousDirection;
       double dir = itsPreviousDirection + diff;
-      if (diff < -itsModulo / 2)
+      if (diff < -itsModulo / 2.0)
         dir += itsModulo;
-      else if (diff > itsModulo / 2)
+      else if (diff > itsModulo / 2.0)
         dir -= itsModulo;
       itsSum += dir;
 
