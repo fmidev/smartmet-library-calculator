@@ -124,7 +124,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   const int agelimit = 1 * 60;
 
   // The constructor should guarantee valid pimple
-  assert(itsPimple.get() != 0);
+  assert(itsPimple.get() != nullptr);
 
   // See if we have a cached result
   auto it = itsPimple->itsData.find(theName);

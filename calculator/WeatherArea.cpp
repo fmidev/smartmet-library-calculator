@@ -305,7 +305,8 @@ const NFmiPoint& WeatherArea::point() const
 const NFmiSvgPath& WeatherArea::path() const
 {
   if (itsPointFlag) throw TextGenError("Trying to access path of a point");
-  if (itsPolygon.get() == 0) throw TextGenError("Internal polygon allocation error in WeatherArea");
+  if (itsPolygon.get() == nullptr)
+    throw TextGenError("Internal polygon allocation error in WeatherArea");
   return *itsPolygon;
 }
 

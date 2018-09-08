@@ -200,7 +200,7 @@ RegularMaskSource::mask_type RegularMaskSource::mask(const WeatherArea& theArea,
 
   mask_type areamask = itsPimple->find(id, theArea);
 
-  if (areamask.get() != 0) return areamask;
+  if (areamask.get() != nullptr) return areamask;
 
   // Calculate new mask and cache it
 
