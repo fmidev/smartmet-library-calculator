@@ -60,10 +60,7 @@ void set(const std::string& theSettingsString) { Fmi::Config().set(theSettingsSt
  */
 // ----------------------------------------------------------------------
 
-std::string require(const std::string& theName)
-{
-  return Fmi::Config().requireString(theName.c_str());
-}
+std::string require(const std::string& theName) { return Fmi::Config().requireString(theName); }
 
 // ----------------------------------------------------------------------
 /*!
@@ -149,7 +146,7 @@ int require_hour(const std::string& theName)
 int require_days(const std::string& theName)
 {
   const int maxdays = 100000;
-  return Fmi::Config().requireInteger(theName.c_str(), 0, maxdays);
+  return Fmi::Config().requireInteger(theName, 0, maxdays);
 }
 
 // ----------------------------------------------------------------------
@@ -165,7 +162,7 @@ int require_days(const std::string& theName)
 
 int require_percentage(const std::string& theName)
 {
-  return Fmi::Config().requireInteger(theName.c_str(), 0, 100);
+  return Fmi::Config().requireInteger(theName, 0, 100);
 }
 
 // ----------------------------------------------------------------------
@@ -181,7 +178,7 @@ int require_percentage(const std::string& theName)
 
 TextGenPosixTime require_time(const std::string& theName)
 {
-  const string value = require_string(theName.c_str());
+  const string value = require_string(theName);
 
   const string msg = theName + " value " + value + " is not of form YYYYMMDDHHMI";
 
@@ -224,7 +221,7 @@ TextGenPosixTime require_time(const std::string& theName)
 
 TextGen::WeatherResult require_result(const std::string& theName)
 {
-  const string value = require_string(theName.c_str());
+  const string value = require_string(theName);
 
   const string msg(theName + " value " + value + " is not of form A,B");
   try
