@@ -165,10 +165,10 @@ bool isSimilarRange(const WeatherResult& theMinimum1,
   const int same_minimum = optional_int(theVar + "::same::minimum", 0);
   const int same_maximum = optional_int(theVar + "::same::maximum", 0);
 
-  const int minvalue1 = static_cast<int>(round(theMinimum1.value()));
-  const int maxvalue1 = static_cast<int>(round(theMaximum1.value()));
-  const int minvalue2 = static_cast<int>(round(theMinimum2.value()));
-  const int maxvalue2 = static_cast<int>(round(theMaximum2.value()));
+  const int minvalue1 = lround(theMinimum1.value());
+  const int maxvalue1 = lround(theMaximum1.value());
+  const int minvalue2 = lround(theMinimum2.value());
+  const int maxvalue2 = lround(theMaximum2.value());
 
   return (abs(minvalue1 - minvalue2) <= same_minimum && abs(maxvalue1 - maxvalue2) <= same_maximum);
 }
