@@ -95,7 +95,7 @@ namespace TextGen
 class LatestWeatherSource::Pimple
 {
  public:
-  typedef map<string, WeatherDataStruct> container_type;
+  using container_type = map<string, WeatherDataStruct>;
   container_type itsData;
 
 };  // class LatestWeatherSource::Pimple
@@ -127,7 +127,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   assert(itsPimple.get() != 0);
 
   // See if we have a cached result
-  typedef Pimple::container_type::iterator iterator;
+  using iterator = Pimple::container_type::iterator;
   iterator it = itsPimple->itsData.find(theName);
 
   if (it != itsPimple->itsData.end())
@@ -169,7 +169,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   newdata.itsFilename = filename;
   newdata.itsData = qdata;
 
-  typedef Pimple::container_type::value_type value_type;
+  using value_type = Pimple::container_type::value_type;
 
   itsPimple->itsData.insert(value_type(theName, newdata));
 
@@ -188,7 +188,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
 WeatherId LatestWeatherSource::id(const std::string& theName) const
 {
   // See if we have a stored result
-  typedef Pimple::container_type::const_iterator const_iterator;
+  using const_iterator = Pimple::container_type::const_iterator;
   const_iterator it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
     throw TextGenError("No data named " + theName + " stored in LatestWeatherSource");

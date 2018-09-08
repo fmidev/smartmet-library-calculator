@@ -76,8 +76,8 @@ struct WeatherAreaAndID
 class RegularMaskSource::Pimple
 {
  public:
-  typedef map<WeatherAreaAndID, mask_type> mask_storage;
-  typedef map<WeatherAreaAndID, masks_type> masks_storage;
+  using mask_storage = map<WeatherAreaAndID, mask_type>;
+  using masks_storage = map<WeatherAreaAndID, masks_type>;
 
   mask_storage itsMaskStorage;
   masks_storage itsMasksStorage;
@@ -131,7 +131,7 @@ void RegularMaskSource::Pimple::insert(const WeatherId& theID,
                                        const WeatherArea& theArea,
                                        const mask_type& theMask)
 {
-  typedef mask_storage::value_type value_type;
+  using value_type = mask_storage::value_type;
 
   WeatherAreaAndID key(theID, theArea);
 

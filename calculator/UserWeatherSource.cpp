@@ -37,10 +37,10 @@ namespace TextGen
 class UserWeatherSource::Pimple
 {
  public:
-  typedef map<string, boost::shared_ptr<NFmiQueryData> > container_type;
+  using container_type = map<string, boost::shared_ptr<NFmiQueryData> >;
   container_type itsData;
 
-  typedef map<string, WeatherId> id_container_type;
+  using id_container_type = map<string, WeatherId>;
   id_container_type itsIdData;
 };
 
@@ -65,7 +65,7 @@ UserWeatherSource::UserWeatherSource() : itsPimple(new Pimple) {}
 boost::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theName) const
 {
   // See if we have a stored result
-  typedef Pimple::container_type::const_iterator const_iterator;
+  using const_iterator = Pimple::container_type::const_iterator;
   const_iterator it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
     throw TextGenError("No data named " + theName + " stored in UserWeatherSource");
@@ -85,7 +85,7 @@ boost::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theN
 WeatherId UserWeatherSource::id(const std::string& theName) const
 {
   // See if we have a stored result
-  typedef Pimple::id_container_type::const_iterator const_iterator;
+  using const_iterator = Pimple::id_container_type::const_iterator;
   const_iterator it = itsPimple->itsIdData.find(theName);
   if (it == itsPimple->itsIdData.end())
     throw TextGenError("No data named " + theName + " stored in UserWeatherSource");
@@ -109,13 +109,13 @@ void UserWeatherSource::insert(const std::string& theName,
   assert(itsPimple.get() != 0);
 
   {
-    typedef Pimple::container_type::value_type value_type;
+    using value_type = Pimple::container_type::value_type;
     itsPimple->itsData.insert(value_type(theName, theData));
   }
 
   {
     WeatherId newid = IdGenerator::generate();
-    typedef Pimple::id_container_type::value_type value_type;
+    using value_type = Pimple::id_container_type::value_type;
     itsPimple->itsIdData.insert(value_type(theName, newid));
   }
 }
