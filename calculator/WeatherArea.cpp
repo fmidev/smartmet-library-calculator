@@ -540,7 +540,7 @@ bool WeatherArea::booleanParameterValue(const ParameterId& parameterId)
 {
   bool retval(false);
 
-  string parameterName("");
+  string parameterName;
 
   switch (parameterId)
   {
