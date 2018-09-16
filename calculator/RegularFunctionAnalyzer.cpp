@@ -50,19 +50,17 @@ NFmiEnumConverter converter;
 
 const char* data_type_name(const TextGen::WeatherDataType& theDataType)
 {
-  using namespace TextGen;
-
   switch (theDataType)
   {
-    case Forecast:
+    case TextGen::Forecast:
       return "forecast";
-    case Observation:
+    case TextGen::Observation:
       return "observation";
-    case Climatology:
+    case TextGen::Climatology:
       return "climatology";
   }
 
-  throw TextGenError("Unrecognized WeatherDataType");
+  throw TextGen::TextGenError("Unrecognized WeatherDataType");
 }
 
 namespace TextGen
