@@ -30,6 +30,7 @@
 #include "SumCalculator.h"
 #include "TextGenError.h"
 #include "TrendCalculator.h"
+#include <boost/move/make_unique.hpp>
 #include <macgyver/StringConversion.h>
 #include <string>
 
@@ -154,15 +155,15 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
       return create(theFunction);
     case Percentage:
     {
-      auto* tmp = new PercentageCalculator;
+      auto tmp = boost::movelib::make_unique<PercentageCalculator>();
       tmp->condition(theTester);
-      return tmp;
+      return tmp.release();
     }
     case Count:
     {
-      CountCalculator* tmp = new CountCalculator;
+      auto tmp = boost::movelib::make_unique<CountCalculator>();
       tmp->condition(theTester);
-      return tmp;
+      return tmp.release();
     }
   }
 
@@ -199,15 +200,15 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
       return create(theFunction, theModulo);
     case Percentage:
     {
-      auto* tmp = new PercentageCalculator;
+      auto tmp = boost::movelib::make_unique<PercentageCalculator>();
       tmp->condition(theTester);
-      return tmp;
+      return tmp.release();
     }
     case Count:
     {
-      auto* tmp = new CountCalculator;
+      auto tmp = boost::movelib::make_unique<CountCalculator>();
       tmp->condition(theTester);
-      return tmp;
+      return tmp.release();
     }
   }
 
