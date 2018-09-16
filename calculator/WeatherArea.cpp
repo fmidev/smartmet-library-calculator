@@ -560,9 +560,9 @@ bool WeatherArea::booleanParameterValue(const ParameterId& parameterId)
 
 void WeatherArea::set_boolean_parameters()
 {
-  itsBooleanParameters |= (booleanParameterValue(Marine) ? Marine : 0x0);
-  itsBooleanParameters |= (booleanParameterValue(Mountain) ? Mountain : 0x0);
-  itsBooleanParameters |= (booleanParameterValue(Island) ? Island : 0x0);
+  if (booleanParameterValue(Marine)) itsBooleanParameters |= Marine;
+  if (booleanParameterValue(Mountain)) itsBooleanParameters |= Mountain;
+  if (booleanParameterValue(Island)) itsBooleanParameters |= Island;
 }
 
 // ----------------------------------------------------------------------
