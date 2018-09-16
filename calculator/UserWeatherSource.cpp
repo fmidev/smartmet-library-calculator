@@ -105,9 +105,6 @@ WeatherId UserWeatherSource::id(const std::string& theName) const
 void UserWeatherSource::insert(const std::string& theName,
                                boost::shared_ptr<NFmiQueryData> theData) const
 {
-  // The constructor should guarantee valid pimple
-  assert(itsPimple.get() != nullptr);
-
   {
     using value_type = Pimple::container_type::value_type;
     itsPimple->itsData.insert(value_type(theName, theData));

@@ -21,6 +21,7 @@
 #include "WeatherResult.h"
 #include <cassert>
 #include <iostream>
+#include <stdexcept>
 
 namespace TextGen
 {
@@ -40,7 +41,7 @@ namespace TextGen
 WeatherResult::WeatherResult(float theValue, float theError)
     : itsValue(theValue), itsError(theError)
 {
-  assert(itsError >= 0);
+  if (itsError < 0) throw std::runtime_error("Error estimate below zero");
 }
 
 // ----------------------------------------------------------------------

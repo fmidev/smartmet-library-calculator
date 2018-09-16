@@ -123,9 +123,6 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   // Age limit for checking for new query data is 1 minute
   const int agelimit = 1 * 60;
 
-  // The constructor should guarantee valid pimple
-  assert(itsPimple.get() != nullptr);
-
   // See if we have a cached result
   auto it = itsPimple->itsData.find(theName);
 
