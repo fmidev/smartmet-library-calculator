@@ -20,7 +20,7 @@ class WeatherResult;
 class RegularParameterAnalyzer : public ParameterAnalyzer
 {
  public:
-  RegularParameterAnalyzer(const std::string& theVariable, const std::string& theParameter);
+  RegularParameterAnalyzer(std::string theVariable, std::string theParameter);
 
   virtual WeatherResult analyze(const AnalysisSources& theSources,
                                 const WeatherDataType& theDataType,

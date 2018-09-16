@@ -28,9 +28,9 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-RegularParameterAnalyzer::RegularParameterAnalyzer(const std::string& theVariable,
-                                                   const std::string& theParameter)
-    : itsVariable(theVariable), itsParameter(theParameter)
+RegularParameterAnalyzer::RegularParameterAnalyzer(std::string theVariable,
+                                                   std::string theParameter)
+    : itsVariable(std::move(theVariable)), itsParameter(std::move(theParameter))
 {
 }
 
