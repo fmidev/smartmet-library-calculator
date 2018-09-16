@@ -238,7 +238,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
     // This would happen if the area covers one point only
     if (error == kFloatMissing) return WeatherResult(result, 0);
 
-    return WeatherResult(result, error);
+    return {result, error};
   }
 
   if (!(qi.Location(theArea.point())))
