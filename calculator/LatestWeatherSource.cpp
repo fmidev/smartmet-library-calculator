@@ -34,10 +34,10 @@
 
 struct WeatherDataStruct
 {
-  std::time_t itsModTime;
-  std::time_t itsLastCheckTime;
+  std::time_t itsModTime = 0;
+  std::time_t itsLastCheckTime = 0;
   std::string itsFilename;
-  TextGen::WeatherId itsId;
+  TextGen::WeatherId itsId = 0;
   boost::shared_ptr<NFmiQueryData> itsData;
 };
 
