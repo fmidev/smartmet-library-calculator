@@ -29,9 +29,9 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-WindChillParameterAnalyzer::WindChillParameterAnalyzer(const std::string& theVariable,
-                                                       const std::string& theParameter)
-    : itsVariable(theVariable), itsParameter(theParameter)
+WindChillParameterAnalyzer::WindChillParameterAnalyzer(std::string theVariable,
+                                                       std::string theParameter)
+    : itsVariable(std::move(theVariable)), itsParameter(std::move(theParameter))
 {
 }
 

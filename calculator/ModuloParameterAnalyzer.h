@@ -20,9 +20,7 @@ class WeatherResult;
 class ModuloParameterAnalyzer : public ParameterAnalyzer
 {
  public:
-  ModuloParameterAnalyzer(const std::string& theVariable,
-                          const std::string& theParameter,
-                          int theModulo);
+  ModuloParameterAnalyzer(std::string theVariable, std::string theParameter, int theModulo);
 
   virtual WeatherResult analyze(const AnalysisSources& theSources,
                                 const WeatherDataType& theDataType,

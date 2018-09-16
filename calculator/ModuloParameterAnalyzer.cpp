@@ -29,10 +29,12 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-ModuloParameterAnalyzer::ModuloParameterAnalyzer(const std::string& theVariable,
-                                                 const std::string& theParameter,
+ModuloParameterAnalyzer::ModuloParameterAnalyzer(std::string theVariable,
+                                                 std::string theParameter,
                                                  int theModulo)
-    : itsVariable(theVariable), itsParameter(theParameter), itsModulo(theModulo)
+    : itsVariable(std::move(theVariable)),
+      itsParameter(std::move(theParameter)),
+      itsModulo(theModulo)
 {
 }
 

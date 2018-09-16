@@ -16,7 +16,7 @@ class TextGenError : public std::exception
 {
  public:
   ~TextGenError() throw() {}
-  TextGenError(const std::string& theError);
+  TextGenError(std::string theError);
   virtual const char* what(void) const throw();
 
  private:

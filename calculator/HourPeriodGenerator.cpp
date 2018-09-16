@@ -34,12 +34,12 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-HourPeriodGenerator::HourPeriodGenerator(const WeatherPeriod& theMainPeriod,
+HourPeriodGenerator::HourPeriodGenerator(WeatherPeriod theMainPeriod,
                                          int theStartHour,
                                          int theEndHour,
                                          int theMaxStartHour,
                                          int theMinEndHour)
-    : itsMainPeriod(theMainPeriod),
+    : itsMainPeriod(std::move(theMainPeriod)),
       itsStartHour(theStartHour),
       itsEndHour(theEndHour),
       itsMaxStartHour(theMaxStartHour),
@@ -70,9 +70,9 @@ HourPeriodGenerator::HourPeriodGenerator(const WeatherPeriod& theMainPeriod,
  */
 // ----------------------------------------------------------------------
 
-HourPeriodGenerator::HourPeriodGenerator(const WeatherPeriod& theMainPeriod,
+HourPeriodGenerator::HourPeriodGenerator(WeatherPeriod theMainPeriod,
                                          const std::string& theVariable)
-    : itsMainPeriod(theMainPeriod),
+    : itsMainPeriod(std::move(theMainPeriod)),
       itsStartHour(Settings::require_hour(theVariable + "::starthour")),
       itsEndHour(Settings::require_hour(theVariable + "::endhour")),
       itsMaxStartHour(Settings::optional_hour(theVariable + "::maxstarthour", itsStartHour)),

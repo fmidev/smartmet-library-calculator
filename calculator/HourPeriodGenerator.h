@@ -21,13 +21,13 @@ class HourPeriodGenerator : public WeatherPeriodGenerator
  public:
   typedef WeatherPeriodGenerator::size_type size_type;
 
-  HourPeriodGenerator(const WeatherPeriod& theMainPeriod,
+  HourPeriodGenerator(WeatherPeriod theMainPeriod,
                       int theStartHour,
                       int theEndHour,
                       int theMaxStartHour,
                       int theMinEndHour);
 
-  HourPeriodGenerator(const WeatherPeriod& theMainPeriod, const std::string& theVariable);
+  HourPeriodGenerator(WeatherPeriod theMainPeriod, const std::string& theVariable);
 
   virtual ~HourPeriodGenerator() {}
   virtual bool undivided() const;

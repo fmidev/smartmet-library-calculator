@@ -21,7 +21,7 @@ class NullPeriodGenerator : public WeatherPeriodGenerator
  public:
   typedef WeatherPeriodGenerator::size_type size_type;
 
-  NullPeriodGenerator(const WeatherPeriod& theMainPeriod);
+  NullPeriodGenerator(WeatherPeriod theMainPeriod);
 
   virtual ~NullPeriodGenerator() {}
   virtual bool undivided() const;

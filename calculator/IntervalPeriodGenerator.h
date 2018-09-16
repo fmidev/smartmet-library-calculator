@@ -22,12 +22,12 @@ class IntervalPeriodGenerator : public WeatherPeriodGenerator
  public:
   typedef WeatherPeriodGenerator::size_type size_type;
 
-  IntervalPeriodGenerator(const WeatherPeriod& theMainPeriod,
+  IntervalPeriodGenerator(WeatherPeriod theMainPeriod,
                           int theStartHour,
                           int theInterval,
                           int theMinimumInterval);
 
-  IntervalPeriodGenerator(const WeatherPeriod& theMainPeriod, const std::string& theVariable);
+  IntervalPeriodGenerator(WeatherPeriod theMainPeriod, const std::string& theVariable);
 
   virtual ~IntervalPeriodGenerator() {}
   virtual bool undivided() const;

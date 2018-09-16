@@ -20,7 +20,7 @@ class WeatherResult;
 class WindChillParameterAnalyzer : public ParameterAnalyzer
 {
  public:
-  WindChillParameterAnalyzer(const std::string& theVariable, const std::string& theParameter);
+  WindChillParameterAnalyzer(std::string theVariable, std::string theParameter);
 
   virtual WeatherResult analyze(const AnalysisSources& theSources,
                                 const WeatherDataType& theDataType,

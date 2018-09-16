@@ -33,11 +33,11 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-IntervalPeriodGenerator::IntervalPeriodGenerator(const WeatherPeriod& theMainPeriod,
+IntervalPeriodGenerator::IntervalPeriodGenerator(WeatherPeriod theMainPeriod,
                                                  int theStartHour,
                                                  int theInterval,
                                                  int theMinimumInterval)
-    : itsMainPeriod(theMainPeriod),
+    : itsMainPeriod(std::move(theMainPeriod)),
       itsStartHour(theStartHour),
       itsInterval(theInterval),
       itsMinimumInterval(theMinimumInterval)
@@ -61,9 +61,9 @@ IntervalPeriodGenerator::IntervalPeriodGenerator(const WeatherPeriod& theMainPer
  */
 // ----------------------------------------------------------------------
 
-IntervalPeriodGenerator::IntervalPeriodGenerator(const WeatherPeriod& theMainPeriod,
+IntervalPeriodGenerator::IntervalPeriodGenerator(WeatherPeriod theMainPeriod,
                                                  const std::string& theVariable)
-    : itsMainPeriod(theMainPeriod),
+    : itsMainPeriod(std::move(theMainPeriod)),
       itsStartHour(Settings::require_hour(theVariable + "::starthour")),
       itsInterval(Settings::require_int(theVariable + "::interval")),
       itsMinimumInterval(Settings::optional_int(theVariable + "::mininterval", itsInterval))

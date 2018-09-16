@@ -24,7 +24,7 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-TextGenError::TextGenError(const std::string& theError) : itsError(theError) {}
+TextGenError::TextGenError(std::string theError) : itsError(std::move(theError)) {}
 // ----------------------------------------------------------------------
 /*!
  * \brief Returns the error message

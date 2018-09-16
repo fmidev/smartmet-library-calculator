@@ -30,8 +30,8 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-NullPeriodGenerator::NullPeriodGenerator(const WeatherPeriod& theMainPeriod)
-    : itsMainPeriod(theMainPeriod)
+NullPeriodGenerator::NullPeriodGenerator(WeatherPeriod theMainPeriod)
+    : itsMainPeriod(std::move(theMainPeriod))
 {
 }
 
