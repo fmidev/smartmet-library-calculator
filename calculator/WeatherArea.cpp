@@ -73,8 +73,6 @@
 #include <newbase/NFmiStringTools.h>
 #include <fstream>
 
-using namespace std;
-
 namespace
 {
 // ----------------------------------------------------------------------
@@ -358,7 +356,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
   if (theSpecs.empty())
     throw TextGenError("Trying to construct WeatherArea from empty string description");
 
-  vector<string> words = NFmiStringTools::Split(theSpecs, ":");
+  std::vector<std::string> words = NFmiStringTools::Split(theSpecs, ":");
   if (words.size() > 2)
     throw TextGenError("Too many ':' characters in WeatherArea specification '" + theSpecs + "'");
 
@@ -379,11 +377,11 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
 
   // Parse the location part
 
-  const string& spec = words[0];
+  const std::string& spec = words[0];
 
-  const string searchpath = Settings::optional_string("textgen::mappath", ".");
+  const std::string searchpath = Settings::optional_string("textgen::mappath", ".");
 
-  string filename = spec;
+  std::string filename = spec;
   if (NFmiFileSystem::FileExists(filename))
   {
   }
@@ -401,7 +399,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
   {
     itsPointFlag = false;
 
-    ifstream in(filename.c_str(), ios::in);
+    std::ifstream in(filename.c_str(), std::ios::in);
     if (!in) throw TextGenError("Could not open map file '" + filename + "' for reading");
     in >> *itsPolygon;
     in.close();
@@ -424,7 +422,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
   {
     try
     {
-      vector<float> tmp = NFmiStringTools::Split<vector<float> >(spec);
+      std::vector<float> tmp = NFmiStringTools::Split<std::vector<float> >(spec);
       itsPoint = NFmiPoint(tmp[0], tmp[1]);
     }
     catch (...)
@@ -534,7 +532,7 @@ bool WeatherArea::booleanParameterValue(const ParameterId& parameterId)
 {
   bool retval(false);
 
-  string parameterName;
+  std::string parameterName;
 
   switch (parameterId)
   {

@@ -27,8 +27,6 @@
 #include <newbase/NFmiLocationFinder.h>
 #include <newbase/NFmiPoint.h>
 
-using namespace std;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -42,10 +40,10 @@ class LocationSource::Pimple
  public:
   Pimple();
 
-  bool hasCoordinates(const string& theLocation) const;
-  const NFmiPoint coordinates(const string& theLocation) const;
+  bool hasCoordinates(const std::string& theLocation) const;
+  const NFmiPoint coordinates(const std::string& theLocation) const;
 
-  mutable string itsLastSuccesfulName;
+  mutable std::string itsLastSuccesfulName;
   mutable NFmiPoint itsLastSuccesfulPoint;
   mutable NFmiLocationFinder itsFinder;
 
@@ -65,7 +63,7 @@ LocationSource::Pimple::Pimple() : itsLastSuccesfulPoint(kFloatMissing, kFloatMi
  */
 // ----------------------------------------------------------------------
 
-bool LocationSource::Pimple::hasCoordinates(const string& theLocation) const
+bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) const
 {
   if (theLocation.empty())
     throw TextGenError("Cannot request coordinates for an empty location name");
@@ -74,8 +72,8 @@ bool LocationSource::Pimple::hasCoordinates(const string& theLocation) const
 
   if (itsFinder.Empty())
   {
-    string filename = Settings::optional_string("textgen::coordinates",
-                                                "/smartmet/share/coordinates/default.txt");
+    std::string filename = Settings::optional_string("textgen::coordinates",
+                                                     "/smartmet/share/coordinates/default.txt");
     itsFinder.AddFile(filename, false);
   }
 
@@ -94,7 +92,7 @@ bool LocationSource::Pimple::hasCoordinates(const string& theLocation) const
  */
 // ----------------------------------------------------------------------
 
-const NFmiPoint LocationSource::Pimple::coordinates(const string& theLocation) const
+const NFmiPoint LocationSource::Pimple::coordinates(const std::string& theLocation) const
 {
   if (hasCoordinates(theLocation)) return itsLastSuccesfulPoint;
 
@@ -134,7 +132,7 @@ LocationSource& LocationSource::instance()
  */
 // ----------------------------------------------------------------------
 
-bool LocationSource::hasCoordinates(const string& theLocation) const
+bool LocationSource::hasCoordinates(const std::string& theLocation) const
 {
   return itsPimple->hasCoordinates(theLocation);
 }
@@ -150,7 +148,7 @@ bool LocationSource::hasCoordinates(const string& theLocation) const
  */
 // ----------------------------------------------------------------------
 
-NFmiPoint LocationSource::coordinates(const string& theLocation) const
+NFmiPoint LocationSource::coordinates(const std::string& theLocation) const
 {
   return itsPimple->coordinates(theLocation);
 }

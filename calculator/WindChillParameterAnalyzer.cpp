@@ -18,9 +18,6 @@
 #include "WindChillFunctionAnalyzer.h"
 #include "WindChillParameterAnalyzer.h"
 
-using namespace std;
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -32,8 +29,8 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-WindChillParameterAnalyzer::WindChillParameterAnalyzer(const string& theVariable,
-                                                       const string& theParameter)
+WindChillParameterAnalyzer::WindChillParameterAnalyzer(const std::string& theVariable,
+                                                       const std::string& theParameter)
     : itsVariable(theVariable), itsParameter(theParameter)
 {
 }
@@ -66,7 +63,7 @@ WeatherResult WindChillParameterAnalyzer::analyze(const AnalysisSources& theSour
                                                   const Acceptor& theTimeAcceptor,
                                                   const Acceptor& theTester) const
 {
-  unique_ptr<FunctionAnalyzer> analyzer(
+  std::unique_ptr<FunctionAnalyzer> analyzer(
       new WindChillFunctionAnalyzer(theAreaFunction, theTimeFunction, theSubTimeFunction));
 
   return analyzer->analyze(theSources,

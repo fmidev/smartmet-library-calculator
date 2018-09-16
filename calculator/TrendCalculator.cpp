@@ -17,8 +17,6 @@
 
 #include <newbase/NFmiGlobals.h>
 
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -92,7 +90,7 @@ float TrendCalculator::operator()() const
 
 void TrendCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------

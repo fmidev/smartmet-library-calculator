@@ -20,8 +20,6 @@
 #include "Settings.h"
 #include "TextGenError.h"
 
-using namespace std;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -64,7 +62,7 @@ IntervalPeriodGenerator::IntervalPeriodGenerator(const WeatherPeriod& theMainPer
 // ----------------------------------------------------------------------
 
 IntervalPeriodGenerator::IntervalPeriodGenerator(const WeatherPeriod& theMainPeriod,
-                                                 const string& theVariable)
+                                                 const std::string& theVariable)
     : itsMainPeriod(theMainPeriod),
       itsStartHour(Settings::require_hour(theVariable + "::starthour")),
       itsInterval(Settings::require_int(theVariable + "::interval")),

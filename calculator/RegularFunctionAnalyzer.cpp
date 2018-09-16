@@ -31,9 +31,6 @@
 #include <sstream>
 #include <string>
 
-using namespace std;
-using namespace boost;
-
 namespace
 {
 //! A static instance to avoid construction costs
@@ -147,9 +144,9 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 {
   // Establish the data
 
-  const string default_forecast = Settings::optional_string("textgen::default_forecast", "");
-  const string datavar = theDataName + '_' + data_type_name(theDataType);
-  const string dataname = Settings::optional_string(datavar, default_forecast);
+  const std::string default_forecast = Settings::optional_string("textgen::default_forecast", "");
+  const std::string datavar = theDataName + '_' + data_type_name(theDataType);
+  const std::string dataname = Settings::optional_string(datavar, default_forecast);
 
   // Get the data into use
 
@@ -248,7 +245,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   if (!(qi.Location(theArea.point())))
   {
-    ostringstream msg;
+    std::ostringstream msg;
     msg << "Could not set desired coordinate (" << theArea.point().X() << ',' << theArea.point().Y()
         << ')';
     if (theArea.isNamed()) msg << " named " << theArea.name();

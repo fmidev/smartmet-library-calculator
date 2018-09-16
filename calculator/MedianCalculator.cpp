@@ -19,9 +19,6 @@
 
 #include <algorithm>
 
-using namespace boost;
-using namespace std;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------

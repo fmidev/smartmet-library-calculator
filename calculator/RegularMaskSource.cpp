@@ -34,10 +34,6 @@
 
 #include <map>
 
-using namespace std;
-using namespace boost;
-using namespace NFmiIndexMaskTools;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -76,8 +72,8 @@ struct WeatherAreaAndID
 class RegularMaskSource::Pimple
 {
  public:
-  using mask_storage = map<WeatherAreaAndID, mask_type>;
-  using masks_storage = map<WeatherAreaAndID, masks_type>;
+  using mask_storage = std::map<WeatherAreaAndID, mask_type>;
+  using masks_storage = std::map<WeatherAreaAndID, masks_type>;
 
   mask_storage itsMaskStorage;
   masks_storage itsMasksStorage;
@@ -165,7 +161,7 @@ RegularMaskSource::mask_type RegularMaskSource::Pimple::create_mask(
   if (!qi.IsGrid())
     throw TextGenError("The data in " + theData + " is not gridded - cannot generate mask for it");
 
-  mask_type areamask(new NFmiIndexMask(MaskExpand(*(qi.Grid()), svg, radius)));
+  mask_type areamask(new NFmiIndexMask(NFmiIndexMaskTools::MaskExpand(*(qi.Grid()), svg, radius)));
   return areamask;
 }
 

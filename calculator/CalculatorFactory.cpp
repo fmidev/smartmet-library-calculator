@@ -33,9 +33,6 @@
 #include <macgyver/StringConversion.h>
 #include <string>
 
-using namespace boost;
-using namespace std;
-
 namespace TextGen
 {
 namespace CalculatorFactory

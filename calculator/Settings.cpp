@@ -28,9 +28,6 @@
 #include <sstream>  // std::stringstream
 #include <stdexcept>
 
-using namespace std;
-using namespace boost;
-
 namespace Settings
 {
 // ----------------------------------------------------------------------
@@ -75,8 +72,8 @@ std::string require(const std::string& theName) { return Fmi::Config().requireSt
 
 std::string require_string(const std::string& theName)
 {
-  const string value = require(theName);
-  if (value.empty()) throw runtime_error("Value of " + theName + " must be nonempty");
+  const std::string value = require(theName);
+  if (value.empty()) throw std::runtime_error("Value of " + theName + " must be nonempty");
   return value;
 }
 
@@ -178,35 +175,35 @@ int require_percentage(const std::string& theName)
 
 TextGenPosixTime require_time(const std::string& theName)
 {
-  const string value = require_string(theName);
+  const std::string value = require_string(theName);
 
-  const string msg = theName + " value " + value + " is not of form YYYYMMDDHHMI";
+  const std::string msg = theName + " value " + value + " is not of form YYYYMMDDHHMI";
 
-  if (value.size() != 12) throw runtime_error(msg);
+  if (value.size() != 12) throw std::runtime_error(msg);
 
-  for (string::const_iterator it = value.begin(); it != value.end(); ++it)
-    if (isdigit(*it) == 0) throw runtime_error(msg);
+  for (std::string::const_iterator it = value.begin(); it != value.end(); ++it)
+    if (isdigit(*it) == 0) throw std::runtime_error(msg);
 
   try
   {
-    const int yy = lexical_cast<int>(value.substr(0, 4));
-    const int mm = lexical_cast<int>(value.substr(4, 2));
-    const int dd = lexical_cast<int>(value.substr(6, 2));
-    const int hh = lexical_cast<int>(value.substr(8, 2));
-    const int mi = lexical_cast<int>(value.substr(10, 2));
+    const int yy = boost::lexical_cast<int>(value.substr(0, 4));
+    const int mm = boost::lexical_cast<int>(value.substr(4, 2));
+    const int dd = boost::lexical_cast<int>(value.substr(6, 2));
+    const int hh = boost::lexical_cast<int>(value.substr(8, 2));
+    const int mi = boost::lexical_cast<int>(value.substr(10, 2));
 
-    if (mm < 1 || mm > 12) throw runtime_error(msg);
-    if (dd < 1 || dd > 31) throw runtime_error(msg);
-    if (hh < 0 || hh > 23) throw runtime_error(msg);
-    if (mi < 0 || mi > 59) throw runtime_error(msg);
+    if (mm < 1 || mm > 12) throw std::runtime_error(msg);
+    if (dd < 1 || dd > 31) throw std::runtime_error(msg);
+    if (hh < 0 || hh > 23) throw std::runtime_error(msg);
+    if (mi < 0 || mi > 59) throw std::runtime_error(msg);
 
-    if (dd > TextGenPosixTime::DaysInMonth(mm, yy)) throw runtime_error(msg);
+    if (dd > TextGenPosixTime::DaysInMonth(mm, yy)) throw std::runtime_error(msg);
 
     return TextGenPosixTime(yy, mm, dd, hh, mi);
   }
   catch (std::exception&)
   {
-    throw runtime_error(msg);
+    throw std::runtime_error(msg);
   }
 }
 
@@ -221,20 +218,20 @@ TextGenPosixTime require_time(const std::string& theName)
 
 TextGen::WeatherResult require_result(const std::string& theName)
 {
-  const string value = require_string(theName);
+  const std::string value = require_string(theName);
 
-  const string msg(theName + " value " + value + " is not of form A,B");
+  const std::string msg(theName + " value " + value + " is not of form A,B");
   try
   {
-    vector<string> values = NFmiStringTools::Split(value);
-    if (values.size() != 2) throw runtime_error(msg);
-    const auto result = lexical_cast<float>(values[0]);
-    const auto accuracy = lexical_cast<float>(values[1]);
+    std::vector<std::string> values = NFmiStringTools::Split(value);
+    if (values.size() != 2) throw std::runtime_error(msg);
+    const auto result = boost::lexical_cast<float>(values[0]);
+    const auto accuracy = boost::lexical_cast<float>(values[1]);
     return TextGen::WeatherResult(result, accuracy);
   }
   catch (std::exception&)
   {
-    throw runtime_error(msg);
+    throw std::runtime_error(msg);
   }
 }
 
@@ -265,7 +262,7 @@ std::string optional_string(const std::string& theName, const std::string& theDe
 
 int optional_int(const std::string& theName, int theDefault)
 {
-  stringstream ss;
+  std::stringstream ss;
   ss << theDefault;
   return boost::lexical_cast<int>(Fmi::Config().optionalString(theName, ss.str()));
 
@@ -300,9 +297,9 @@ bool optional_bool(const std::string& theName, bool theDefault)
 double optional_double(const std::string& theName, double theDefault)
 {
   /*
-  stringstream ss;
+  std::stringstream ss;
   ss << theDefault;
-  return boost::lexical_cast<double>(Fmi::Config().optional<string>(theName ,ss.str()));
+  return boost::lexical_cast<double>(Fmi::Config().optional<std::string>(theName ,ss.str()));
 */
   return Fmi::Config().optionalDouble(theName, theDefault);
 }

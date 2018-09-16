@@ -24,8 +24,6 @@
 #include <cassert>
 #include <map>
 
-using namespace std;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -37,10 +35,10 @@ namespace TextGen
 class UserWeatherSource::Pimple
 {
  public:
-  using container_type = map<string, boost::shared_ptr<NFmiQueryData> >;
+  using container_type = std::map<std::string, boost::shared_ptr<NFmiQueryData> >;
   container_type itsData;
 
-  using id_container_type = map<string, WeatherId>;
+  using id_container_type = std::map<std::string, WeatherId>;
   id_container_type itsIdData;
 };
 

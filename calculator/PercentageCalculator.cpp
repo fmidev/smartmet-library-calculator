@@ -18,8 +18,6 @@
 
 #include <newbase/NFmiGlobals.h>
 
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------

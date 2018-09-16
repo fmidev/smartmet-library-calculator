@@ -17,8 +17,6 @@
 
 #include <newbase/NFmiGlobals.h>
 
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -70,7 +68,7 @@ float MeanCalculator::operator()() const
 
 void MeanCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------

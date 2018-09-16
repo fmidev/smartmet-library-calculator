@@ -17,8 +17,6 @@
 
 #include <newbase/NFmiGlobals.h>
 
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -87,7 +85,7 @@ float ModChangeCalculator::operator()() const
 
 void ModChangeCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------

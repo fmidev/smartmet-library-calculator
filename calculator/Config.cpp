@@ -14,9 +14,6 @@
 
 namespace Fmi
 {
-using namespace std;
-using namespace boost::filesystem;
-
 using SettingsData = std::map<std::string, std::string>;
 
 static boost::thread_specific_ptr<SettingsData> tls;
@@ -56,17 +53,17 @@ void Config::set(const std::string& theSettingsString)
   using tokenizer = boost::tokenizer<boost::char_separator<char> >;
   boost::char_separator<char> sep("\n");
   tokenizer tokens(theSettingsString, sep);
-  for (const string& t : tokens)
+  for (const std::string& t : tokens)
   {
     if (t.find('=') == std::string::npos) continue;
 
     boost::char_separator<char> sep2("=");
     tokenizer tokens2(t, sep2);
     tokenizer::iterator tok_iter = tokens2.begin();
-    string key(*tok_iter);
+    std::string key(*tok_iter);
     boost::trim(key);
     tok_iter++;
-    string value(*tok_iter);
+    std::string value(*tok_iter);
     boost::trim(value);
     Fmi::Config::set(key, value);
   }

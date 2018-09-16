@@ -17,9 +17,6 @@
 #include "RegularFunctionAnalyzer.h"
 #include "WeatherResult.h"
 
-using namespace std;
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -32,8 +29,8 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-ModuloParameterAnalyzer::ModuloParameterAnalyzer(const string& theVariable,
-                                                 const string& theParameter,
+ModuloParameterAnalyzer::ModuloParameterAnalyzer(const std::string& theVariable,
+                                                 const std::string& theParameter,
                                                  int theModulo)
     : itsVariable(theVariable), itsParameter(theParameter), itsModulo(theModulo)
 {
@@ -67,7 +64,7 @@ WeatherResult ModuloParameterAnalyzer::analyze(const AnalysisSources& theSources
                                                const Acceptor& theTimeAcceptor,
                                                const Acceptor& theTester) const
 {
-  unique_ptr<RegularFunctionAnalyzer> analyzer(
+  std::unique_ptr<RegularFunctionAnalyzer> analyzer(
       new RegularFunctionAnalyzer(theAreaFunction, theTimeFunction, theSubTimeFunction));
 
   analyzer->modulo(itsModulo);

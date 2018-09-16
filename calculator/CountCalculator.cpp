@@ -18,8 +18,6 @@
 
 #include <newbase/NFmiGlobals.h>
 
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -77,7 +75,7 @@ float CountCalculator::operator()() const
 
 void CountCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -90,7 +88,7 @@ void CountCalculator::acceptor(const Acceptor& theAcceptor)
 
 void CountCalculator::condition(const Acceptor& theCondition)
 {
-  itsCondition = shared_ptr<Acceptor>(theCondition.clone());
+  itsCondition = boost::shared_ptr<Acceptor>(theCondition.clone());
 }
 
 // ----------------------------------------------------------------------

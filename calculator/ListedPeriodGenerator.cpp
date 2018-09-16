@@ -18,8 +18,6 @@
 #include "Settings.h"
 #include "TextGenError.h"
 
-using namespace std;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------

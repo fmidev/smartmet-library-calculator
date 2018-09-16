@@ -24,9 +24,6 @@
 #include "WeatherPeriod.h"
 #include <macgyver/StringConversion.h>
 
-using namespace std;
-using namespace boost;
-
 namespace TextGen
 {
 namespace WeatherPeriodTools
@@ -166,7 +163,8 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
                         int theMinEndHour)
 
 {
-  const string msg = "WeatherPeriodTools: Cannot extract subperiod " + Fmi::to_string(theNumber);
+  const std::string msg =
+      "WeatherPeriodTools: Cannot extract subperiod " + Fmi::to_string(theNumber);
 
   if (theNumber <= 0) throw TextGenError(msg);
 

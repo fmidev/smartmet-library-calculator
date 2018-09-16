@@ -26,8 +26,6 @@
 #include <cassert>
 #include <map>
 
-using namespace std;
-
 // ----------------------------------------------------------------------
 /*!
  * \brief Cached query data container
@@ -36,9 +34,9 @@ using namespace std;
 
 struct WeatherDataStruct
 {
-  time_t itsModTime;
-  time_t itsLastCheckTime;
-  string itsFilename;
+  std::time_t itsModTime;
+  std::time_t itsLastCheckTime;
+  std::string itsFilename;
   TextGen::WeatherId itsId;
   boost::shared_ptr<NFmiQueryData> itsData;
 };
@@ -56,25 +54,25 @@ namespace
  */
 // ----------------------------------------------------------------------
 
-string complete_filename(const string& theName)
+std::string complete_filename(const std::string& theName)
 {
   using namespace TextGen;
 
   if (theName.empty()) throw TextGenError("Trying to search unnamed querydata");
 
-  const string varname = "textgen::" + theName;
-  const string queryname = Settings::optional_string(varname, theName);
+  const std::string varname = "textgen::" + theName;
+  const std::string queryname = Settings::optional_string(varname, theName);
 
   if (NFmiFileSystem::FileExists(queryname)) return queryname;
 
   if (!NFmiFileSystem::DirectoryExists(queryname))
     throw TextGenError("No directory named '" + queryname + "' containing querydata found");
 
-  string newestfile = NFmiFileSystem::NewestFile(queryname);
+  std::string newestfile = NFmiFileSystem::NewestFile(queryname);
   if (newestfile.empty())
     throw TextGenError("Directory '" + queryname + "' does not contain any querydata");
 
-  string fullname = queryname;
+  std::string fullname = queryname;
   const char lastchar = fullname[fullname.size() - 1];
   if (lastchar != '/' && lastchar != '\\') fullname += '/';
   fullname += newestfile;
@@ -95,7 +93,7 @@ namespace TextGen
 class LatestWeatherSource::Pimple
 {
  public:
-  using container_type = map<string, WeatherDataStruct>;
+  using container_type = std::map<std::string, WeatherDataStruct>;
   container_type itsData;
 
 };  // class LatestWeatherSource::Pimple
@@ -134,8 +132,8 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   }
 
   // Associated filename
-  const string filename = complete_filename(theName);
-  const time_t modtime = NFmiFileSystem::FileModificationTime(filename);
+  const std::string filename = complete_filename(theName);
+  const std::time_t modtime = NFmiFileSystem::FileModificationTime(filename);
 
   // Update the time we checked the modification time
 

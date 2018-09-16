@@ -28,9 +28,6 @@
 
 #include <cmath>
 
-using namespace boost;
-using namespace std;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------

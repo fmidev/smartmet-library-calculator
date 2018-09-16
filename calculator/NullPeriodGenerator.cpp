@@ -20,9 +20,6 @@
 #include "TextGenError.h"
 #include <macgyver/StringConversion.h>
 
-using namespace std;
-using namespace boost;
-
 namespace TextGen
 {
 // ----------------------------------------------------------------------
@@ -81,7 +78,7 @@ WeatherPeriod NullPeriodGenerator::period(size_type thePeriod) const
 {
   if (thePeriod == 1) return itsMainPeriod;
 
-  const string msg = ("NullPeriodGenerator cannot return period " + Fmi::to_string(thePeriod));
+  const std::string msg = ("NullPeriodGenerator cannot return period " + Fmi::to_string(thePeriod));
   throw TextGenError(msg);
 }
 
