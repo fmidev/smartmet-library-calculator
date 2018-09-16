@@ -1,5 +1,4 @@
 #include "TextGenPosixTime.h"
-#include <boost/thread.hpp>
 #include <macgyver/TimeZoneFactory.h>
 #include <newbase/NFmiStaticTime.h>
 #include <ctime>
@@ -12,20 +11,11 @@ namespace bp = boost::posix_time;
 // Used to be Europe/Helsinki, this is a more portable default
 #define DEFAULT_TZ_ID "UTC"
 
-static boost::thread_specific_ptr<std::string> tls;
+static thread_local std::string tls;
 
-void release_timezone_id()
-{
-  if (tls.get() != nullptr) delete tls.release();  // NOLINT(cppcoreguidelines-owning-memory)
-}
+void release_timezone_id() { tls.clear(); }
 
-std::string& get_timezone_id()
-{
-  if (tls.get() == nullptr)
-    tls.reset(new std::string());  // NOLINT(cppcoreguidelines-owning-memory)
-
-  return *tls;
-}
+std::string& get_timezone_id() { return tls; }
 
 TextGenPosixTime::TextGenPosixTime() : istPosixTime(bp::second_clock::local_time()) {}
 TextGenPosixTime::TextGenPosixTime(const bp::ptime& theTime) : istPosixTime(theTime) {}

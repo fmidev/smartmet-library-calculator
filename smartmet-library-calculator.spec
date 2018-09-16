@@ -18,6 +18,7 @@ BuildRequires: boost-devel
 BuildRequires: smartmet-library-newbase-devel >= 18.9.6
 BuildRequires: smartmet-library-macgyver-devel >= 18.9.5
 BuildRequires: freetype-devel
+BuildRequires: GSL
 Requires: smartmet-library-newbase >= 18.9.6
 Provides: %{LIBNAME}
 

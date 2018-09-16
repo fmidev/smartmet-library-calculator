@@ -16,19 +16,11 @@ namespace Fmi
 {
 using SettingsData = std::map<std::string, std::string>;
 
-static boost::thread_specific_ptr<SettingsData> tls;
+static thread_local SettingsData tls;
 
-void release_settings()
-{
-  if (tls.get() != nullptr) delete tls.release();  // NOLINT(cppcoreguidelines-owning-memory)
-}
+void release_settings() { tls.clear(); }
 
-SettingsData& get_settings()
-{
-  if (tls.get() == nullptr) tls.reset(new SettingsData);  // NOLINT(cppcoreguidelines-owning-memory)
-
-  return *tls;
-}
+SettingsData& get_settings() { return tls; }
 
 bool Config::isset(const std::string& theName)
 {
