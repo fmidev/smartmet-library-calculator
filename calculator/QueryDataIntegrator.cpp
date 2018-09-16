@@ -254,11 +254,11 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
   theSpaceCalculator.reset();
 
-  for (auto it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
+  for (const auto& mask : theIndexMask)
   {
     // possible -1 is handled by IndexFloatValue
     const unsigned long idx =
-        theQI.Index(theQI.ParamIndex(), *it, theQI.LevelIndex(), theQI.TimeIndex());
+        theQI.Index(theQI.ParamIndex(), mask, theQI.LevelIndex(), theQI.TimeIndex());
     const float tmp = theQI.GetFloatValue(idx);
     theSpaceCalculator(tmp);
   }
@@ -347,7 +347,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (!QueryDataTools::findIndices(theQI, theStartTime, theEndTime, startindex, endindex))
     return kFloatMissing;
 
-  for (auto it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
+  for (const auto& mask : theIndexMask)
   {
     theTimeCalculator.reset();
 
@@ -357,7 +357,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
     {
       // possible -1 is handled by IndexFloatValue
       const unsigned long idx =
-          theQI.Index(theQI.ParamIndex(), *it, theQI.LevelIndex(), theQI.TimeIndex());
+          theQI.Index(theQI.ParamIndex(), mask, theQI.LevelIndex(), theQI.TimeIndex());
       const float tmp = theQI.GetFloatValue(idx);
 
       theTimeCalculator(tmp);
@@ -457,7 +457,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
   if (theIndexMask.empty()) return kFloatMissing;
 
-  for (auto it = theIndexMask.begin(); it != theIndexMask.end(); ++it)
+  for (const auto& mask : theIndexMask)
   {
     theMainTimeCalculator.reset();
 
@@ -474,7 +474,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
       {
         // possible -1 is handled by IndexFloatValue
         const unsigned long idx =
-            theQI.Index(theQI.ParamIndex(), *it, theQI.LevelIndex(), theQI.TimeIndex());
+            theQI.Index(theQI.ParamIndex(), mask, theQI.LevelIndex(), theQI.TimeIndex());
         const float tmp = theQI.GetFloatValue(idx);
 
         theSubTimeCalculator(tmp);
