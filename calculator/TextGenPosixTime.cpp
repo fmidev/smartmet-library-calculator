@@ -19,12 +19,12 @@ static boost::thread_specific_ptr<std::string> tls;
 
 void release_timezone_id()
 {
-  if (tls.get()) delete tls.release();
+  if (tls.get()) delete tls.release();  // NOLINT(cppcoreguidelines-owning-memory)
 }
 
 string& get_timezone_id()
 {
-  if (!tls.get()) tls.reset(new std::string());
+  if (!tls.get()) tls.reset(new std::string());  // NOLINT(cppcoreguidelines-owning-memory)
 
   return *tls;
 }
