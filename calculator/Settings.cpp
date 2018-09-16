@@ -42,10 +42,10 @@ namespace Settings
 bool isset(const std::string& theName) { return Fmi::Config().isset(theName); }
 void set(const std::string& theName, const std::string& theValue)
 {
-  Fmi::Config().set(theName, theValue);
+  Fmi::Config::set(theName, theValue);
 }
 
-void set(const std::string& theSettingsString) { Fmi::Config().set(theSettingsString); }
+void set(const std::string& theSettingsString) { Fmi::Config::set(theSettingsString); }
 // ----------------------------------------------------------------------
 /*!
  * \brief Require the string value of the given variable
