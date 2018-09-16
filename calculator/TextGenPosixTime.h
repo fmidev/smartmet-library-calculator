@@ -13,7 +13,7 @@ class TextGenPosixTime
   TextGenPosixTime(void);
   TextGenPosixTime(time_t theTime);
   TextGenPosixTime(const boost::posix_time::ptime& theTime);
-  TextGenPosixTime(const TextGenPosixTime& theTime);
+  TextGenPosixTime(const TextGenPosixTime& theTime) = default;
   TextGenPosixTime(const NFmiStaticTime& theTime);
 
   TextGenPosixTime(short year, short month, short day);

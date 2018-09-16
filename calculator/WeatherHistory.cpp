@@ -4,13 +4,6 @@ namespace TextGen
 {
 WeatherHistory::WeatherHistory() : latestDate(1970, 1, 1) {}
 
-WeatherHistory::WeatherHistory(const WeatherHistory& theWeatherHistory)
-    : latestDate(theWeatherHistory.latestDate),
-      latestWeekdayPhrase(theWeatherHistory.latestWeekdayPhrase),
-      latestDayPhasePhrase(theWeatherHistory.latestDayPhasePhrase)
-{
-}
-
 void WeatherHistory::updateWeekdayPhrase(const std::string& theWeekdayPhrase,
                                          const TextGenPosixTime& theTime)
 {

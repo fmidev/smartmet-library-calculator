@@ -9,7 +9,7 @@ class WeatherHistory
 {
  public:
   WeatherHistory();
-  WeatherHistory(const WeatherHistory& theWeatherHistory);
+  WeatherHistory(const WeatherHistory& theWeatherHistory) = default;
 
   void updateTimePhrase(const std::string& theWeekdayPhrase,
                         const std::string& theDayPhasePhrase,

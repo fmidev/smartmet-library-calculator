@@ -21,10 +21,6 @@ TextGenPosixTime::TextGenPosixTime() : istPosixTime(bp::second_clock::local_time
 TextGenPosixTime::TextGenPosixTime(const bp::ptime& theTime) : istPosixTime(theTime) {}
 
 TextGenPosixTime::TextGenPosixTime(std::time_t theTime) : istPosixTime(bp::from_time_t(theTime)) {}
-TextGenPosixTime::TextGenPosixTime(const TextGenPosixTime& theTime)
-    : istPosixTime(theTime.istPosixTime)
-{
-}
 
 TextGenPosixTime::TextGenPosixTime(const NFmiStaticTime& theTime)
     : istPosixTime(bg::date(theTime.GetYear(), theTime.GetMonth(), theTime.GetDay()),
