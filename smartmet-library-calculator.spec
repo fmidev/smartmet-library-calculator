@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.9.8
+Version: 18.9.16
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -58,6 +58,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Sun Sep 16 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.9.16-1.fmi
+- Silenced CodeChecker warnings
+
 * Sat Sep  8 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.9.8-1.fmi
 - Silenced CodeChecker warnings
 
