@@ -23,15 +23,12 @@ static boost::thread_specific_ptr<SettingsData> tls;
 
 void release_settings()
 {
-  if (tls.get() != nullptr)
-  {
-    delete tls.release();
-  }
+  if (tls.get() != nullptr) delete tls.release();  // NOLINT(cppcoreguidelines-owning-memory)
 }
 
 SettingsData& get_settings()
 {
-  if (tls.get() == nullptr) tls.reset(new SettingsData);
+  if (tls.get() == nullptr) tls.reset(new SettingsData);  // NOLINT(cppcoreguidelines-owning-memory)
 
   return *tls;
 }
