@@ -216,9 +216,10 @@ RegularMaskSource::mask_type RegularMaskSource::mask(const WeatherArea& theArea,
  */
 // ----------------------------------------------------------------------
 
-RegularMaskSource::masks_type RegularMaskSource::masks(const WeatherArea& theArea,
-                                                       const std::string& theData,
-                                                       const WeatherSource& theWeatherSource) const
+RegularMaskSource::masks_type RegularMaskSource::masks(
+    const WeatherArea& /* theArea */,
+    const std::string& /* theData */,
+    const WeatherSource& /* theWeatherSource */) const
 {
   throw TextGenError("RegularMaskSource::masks not implemented");
 }

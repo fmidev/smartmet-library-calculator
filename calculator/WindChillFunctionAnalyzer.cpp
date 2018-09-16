@@ -113,7 +113,7 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
                                                  const Acceptor& theTimeAcceptor,
                                                  const Acceptor& theTester,
                                                  const std::string& theDataName,
-                                                 const std::string& theParameterName) const
+                                                 const std::string& /* theParameterName */) const
 {
   // Establish the data
 
