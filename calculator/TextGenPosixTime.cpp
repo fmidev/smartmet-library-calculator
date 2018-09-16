@@ -16,12 +16,13 @@ static boost::thread_specific_ptr<std::string> tls;
 
 void release_timezone_id()
 {
-  if (tls.get()) delete tls.release();  // NOLINT(cppcoreguidelines-owning-memory)
+  if (tls.get() != nullptr) delete tls.release();  // NOLINT(cppcoreguidelines-owning-memory)
 }
 
 std::string& get_timezone_id()
 {
-  if (!tls.get()) tls.reset(new std::string());  // NOLINT(cppcoreguidelines-owning-memory)
+  if (tls.get() == nullptr)
+    tls.reset(new std::string());  // NOLINT(cppcoreguidelines-owning-memory)
 
   return *tls;
 }
@@ -191,7 +192,7 @@ std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
 
   if ((kShortYear & theTimeMask) != 0)
     ss << std::setw(2) << (GetYear() - (GetYear() < 2000 ? 1900 : 2000));
-  else if (kLongYear & theTimeMask)
+  else if ((kLongYear & theTimeMask) != 0)
     ss << std::setw(4) << GetYear();
 
   if ((kMonth & theTimeMask) != 0) ss << std::setw(2) << std::setfill('0') << GetMonth();

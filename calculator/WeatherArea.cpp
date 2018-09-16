@@ -574,7 +574,7 @@ void WeatherArea::set_boolean_parameters()
 // ----------------------------------------------------------------------
 bool WeatherArea::booleanParameter(const ParameterId& parameterId) const
 {
-  return (itsBooleanParameters & parameterId);
+  return ((itsBooleanParameters & parameterId) != 0);
 }
 
 // ----------------------------------------------------------------------
