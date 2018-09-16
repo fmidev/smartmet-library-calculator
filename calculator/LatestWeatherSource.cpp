@@ -56,9 +56,7 @@ namespace
 
 std::string complete_filename(const std::string& theName)
 {
-  using namespace TextGen;
-
-  if (theName.empty()) throw TextGenError("Trying to search unnamed querydata");
+  if (theName.empty()) throw TextGen::TextGenError("Trying to search unnamed querydata");
 
   const std::string varname = "textgen::" + theName;
   const std::string queryname = Settings::optional_string(varname, theName);
@@ -66,11 +64,12 @@ std::string complete_filename(const std::string& theName)
   if (NFmiFileSystem::FileExists(queryname)) return queryname;
 
   if (!NFmiFileSystem::DirectoryExists(queryname))
-    throw TextGenError("No directory named '" + queryname + "' containing querydata found");
+    throw TextGen::TextGenError("No directory named '" + queryname +
+                                "' containing querydata found");
 
   std::string newestfile = NFmiFileSystem::NewestFile(queryname);
   if (newestfile.empty())
-    throw TextGenError("Directory '" + queryname + "' does not contain any querydata");
+    throw TextGen::TextGenError("Directory '" + queryname + "' does not contain any querydata");
 
   std::string fullname = queryname;
   const char lastchar = fullname[fullname.size() - 1];
