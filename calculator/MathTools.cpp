@@ -31,9 +31,8 @@ namespace MathTools
 
 int to_precision(float theValue, int thePrecision)
 {
-  if (thePrecision <= 0) return static_cast<int>(round(theValue));
-  const int value = static_cast<int>(round(theValue / thePrecision) * thePrecision);
-  return value;
+  if (thePrecision <= 0) lroundf(theValue);
+  return lroundf(theValue / thePrecision) * thePrecision;
 }
 
 // ----------------------------------------------------------------------
