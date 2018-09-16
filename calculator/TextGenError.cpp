@@ -33,7 +33,7 @@ TextGenError::TextGenError(const std::string& theError) : itsError(theError) {}
  */
 // ----------------------------------------------------------------------
 
-const char* TextGenError::what(void) const throw() { return itsError.c_str(); }
+const char* TextGenError::what() const throw() { return itsError.c_str(); }
 }  // namespace TextGen
 
 // ======================================================================
