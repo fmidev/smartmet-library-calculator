@@ -256,7 +256,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
   float result =
       QueryDataIntegrator::Integrate(qi, theArea.point(), thePeriods, *subtimemod, *timemod);
 
-  return WeatherResult(result, 0);
+  return {result, 0};
 }
 
 }  // namespace TextGen

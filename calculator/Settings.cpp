@@ -227,7 +227,7 @@ TextGen::WeatherResult require_result(const std::string& theName)
     if (values.size() != 2) throw std::runtime_error(msg);
     const auto result = boost::lexical_cast<float>(values[0]);
     const auto accuracy = boost::lexical_cast<float>(values[1]);
-    return TextGen::WeatherResult(result, accuracy);
+    return {result, accuracy};
   }
   catch (std::exception&)
   {

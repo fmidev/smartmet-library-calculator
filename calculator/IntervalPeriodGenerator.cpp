@@ -157,7 +157,7 @@ WeatherPeriod IntervalPeriodGenerator::period() const
 {
   const TextGenPosixTime start = period(1).localStartTime();
   const TextGenPosixTime end = period(size()).localEndTime();
-  return WeatherPeriod(start, end);
+  return {start, end};
 }
 
 // ----------------------------------------------------------------------

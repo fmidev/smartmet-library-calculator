@@ -232,7 +232,7 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
 
   float result = QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod);
 
-  return WeatherResult(result, 0);
+  return {result, 0};
 }
 
 }  // namespace TextGen

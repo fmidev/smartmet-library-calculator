@@ -200,7 +200,7 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
       {
         start.ChangeByHours(diff1);
         end.ChangeByHours(-diff2);
-        return WeatherPeriod(start, end);
+        return {start, end};
       }
   }
 
