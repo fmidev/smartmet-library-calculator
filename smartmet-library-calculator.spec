@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.10.1
+Version: 18.11.24
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,11 +15,11 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 18.9.6
-BuildRequires: smartmet-library-macgyver-devel >= 18.9.5
+BuildRequires: smartmet-library-newbase-devel >= 18.10.23
+BuildRequires: smartmet-library-macgyver-devel >= 18.11.24
 BuildRequires: freetype-devel
 BuildRequires: GSL
-Requires: smartmet-library-newbase >= 18.9.6
+Requires: smartmet-library-newbase >= 18.10.23
 Provides: %{LIBNAME}
 
 %description
@@ -59,6 +59,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Sat Nov 24 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.11.24-1.fmi
+- Fixed a memory leak in PercentageCalculator
+
 * Mon Oct  1 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.10.1-1.fmi
 - Added option -g to get a proper debuginfo package
 

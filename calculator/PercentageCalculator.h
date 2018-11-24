@@ -27,8 +27,8 @@ class PercentageCalculator : public Calculator
   void condition(const Acceptor& theCondition);
 
  private:
-  Acceptor* itsAcceptor;
-  Acceptor* itsCondition;
+  boost::shared_ptr<Acceptor> itsAcceptor;
+  boost::shared_ptr<Acceptor> itsCondition;
   long itsCounter;
   long itsTotalCounter;
 

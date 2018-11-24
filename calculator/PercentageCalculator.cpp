@@ -90,7 +90,7 @@ float PercentageCalculator::operator()() const
 
 void PercentageCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = theAcceptor.clone();
+  itsAcceptor.reset(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -103,7 +103,7 @@ void PercentageCalculator::acceptor(const Acceptor& theAcceptor)
 
 void PercentageCalculator::condition(const Acceptor& theCondition)
 {
-  itsCondition = theCondition.clone();
+  itsCondition.reset(theCondition.clone());
 }
 
 // ----------------------------------------------------------------------
