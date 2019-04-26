@@ -37,6 +37,7 @@ LIBS = \
 	../libsmartmet-calculator.so \
 	-lsmartmet-newbase \
 	-lsmartmet-macgyver \
+	-lgdal \
 	-lboost_iostreams \
 	-lboost_locale \
 	-lboost_system
