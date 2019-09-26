@@ -2,7 +2,7 @@ PROG = $(patsubst %.cpp,%,$(wildcard *.cpp))
 PHPPROG = $(wildcard *.php)
 # OBS = $(wildcard ../obj/*.o)
 
-MAINFLAGS = -std=c++11 -Wall -W -Wno-unused-parameter
+FLAGS = -std=c++11 -Wall -W -Wno-unused-parameter
 
 EXTRAFLAGS = -Werror -pedantic -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -Wconversion -Winline \
@@ -27,8 +27,16 @@ else
   libdir = $(PREFIX)/lib
 endif
 
+ifeq ($(TSAN), yes)
+  FLAGS += -fsanitize=thread
+endif
+ifeq ($(ASAN), yes)
+  FLAGS += -fsanitize=address -fsanitize=pointer-compare -fsanitize=pointer-subtract -fsanitize=undefined -fsanitize-address-use-after-scope
+endif
+
+
 CC = g++
-CFLAGS = -DUNIX -O0 -g $(MAINFLAGS)
+CFLAGS = -DUNIX -O0 -g $(FLAGS)
 
 INCLUDES = \
 	-I /usr/include/smartmet
