@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 18.11.24
+Version: 19.9.26
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,11 +15,11 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 18.10.23
-BuildRequires: smartmet-library-macgyver-devel >= 18.11.24
+BuildRequires: smartmet-library-newbase-devel >= 19.9.26
+BuildRequires: smartmet-library-macgyver-devel >= 19.9.26
 BuildRequires: freetype-devel
 BuildRequires: gsl
-Requires: smartmet-library-newbase >= 18.10.23
+Requires: smartmet-library-newbase >= 19.9.26
 Provides: %{LIBNAME}
 
 %description
@@ -59,6 +59,10 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Sep 26 2019 Mika Heiskanen <mika.heiskanen@fmi.fi> - 19.9.26-1.fmi
+- Added ASAN and TSAN builds
+- Repackaged due to newbase ABI changes
+
 * Sat Nov 24 2018 Mika Heiskanen <mika.heiskanen@fmi.fi> - 18.11.24-1.fmi
 - Fixed a memory leak in PercentageCalculator
 
