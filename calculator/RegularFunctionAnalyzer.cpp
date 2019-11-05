@@ -145,6 +145,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
   const std::string default_forecast = Settings::optional_string("textgen::default_forecast", "");
   const std::string datavar = theDataName + '_' + data_type_name(theDataType);
   const std::string dataname = Settings::optional_string(datavar, default_forecast);
+  const std::string paramname = Settings::optional_string(theDataName, theParameterName);
 
   // Get the data into use
 
@@ -154,11 +155,11 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   // Try activating the parameter
 
-  auto param = FmiParameterName(converter.ToEnum(theParameterName));
+  auto param = FmiParameterName(converter.ToEnum(paramname));
   if (param == kFmiBadParameter)
-    throw TextGenError("Parameter " + theParameterName + " is not defined in newbase");
+    throw TextGenError("Parameter " + paramname + " is not defined in newbase");
 
-  if (!qi.Param(param)) throw TextGenError(theParameterName + " is not available in " + dataname);
+  if (!qi.Param(param)) throw TextGenError(paramname + " is not available in " + dataname);
 
   // Handle points and areas separately
 
