@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 19.10.31
+Version: 19.11.5
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -59,6 +59,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Tue Nov 5 2019 Anssi Reponen <anssi.reponen@fmi.fi> - 19.11.5-1.fmi
+- Use parameter mapping if it has been defined in configuration file (BRAINSTORM-1719)
+
 * Thu Oct 31 2019 Mika Heiskanen <mika.heiskanen@fmi.fi> - 19.10.31-1.fmi
 - Rebuilt due to newbase API/ABI changes
 
