@@ -7,8 +7,10 @@
 
 #pragma once
 
+#include "WeatherParameter.h"
 #include "WeatherResult.h"
 #include <string>
+#include <vector>
 
 namespace TextGen
 {
@@ -38,6 +40,13 @@ bool isSimilarRange(const WeatherResult& theMinimum1,
                     const WeatherResult& theMaximum2,
                     const std::string& theVar);
 
+void checkMissingValue(const std::string& theStoryName,
+                       WeatherParameter theParameter,
+                       const WeatherResult& theWeatherResult);
+
+void checkMissingValue(const std::string& theStoryName,
+                       WeatherParameter theParameter,
+                       const std::vector<WeatherResult>& theWeatherResultVector);
 }  // namespace WeatherResultTools
 }  // namespace TextGen
 
