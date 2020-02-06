@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 20.1.8
+Version: 20.2.6
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost-devel
-BuildRequires: smartmet-library-newbase-devel >= 20.1.8
-BuildRequires: smartmet-library-macgyver-devel >= 19.9.26
+BuildRequires: smartmet-library-newbase-devel >= 20.2.6
+BuildRequires: smartmet-library-macgyver-devel >= 20.2.5
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 20.1.8
+Requires: smartmet-library-newbase >= 20.2.6
 Provides: %{LIBNAME}
 
 %description
@@ -58,6 +58,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Feb  6 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.2.6-1.fmi
+- NFmiPoint ABI changed: Z-coordinate removed
+
 * Wed Jan  8 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.1.8-1.fmi
 - NFmiPoint ABI changed
 
