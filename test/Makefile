@@ -39,13 +39,14 @@ CC = g++
 CFLAGS = -DUNIX -O0 -g $(FLAGS)
 
 INCLUDES = \
-	-I /usr/include/smartmet
+	-I/usr/gdal30/include \
+	-I/usr/include/smartmet
 
 LIBS = \
 	../libsmartmet-calculator.so \
 	-lsmartmet-newbase \
 	-lsmartmet-macgyver \
-	-lgdal \
+	-L/usr/gdal30/lib -lgdal \
 	-lboost_iostreams \
 	-lboost_locale \
 	-lboost_system
