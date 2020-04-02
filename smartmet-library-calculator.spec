@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 20.4.1
+Version: 20.4.2
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -58,7 +58,7 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
-* Wed Apr  1 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.4.1-1.fmi
+* Thu Apr  2 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.4.2-1.fmi
 - Repackaged due to newbase API changes
 
 * Thu Mar 26 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.3.26-1.fmi
