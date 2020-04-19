@@ -38,11 +38,18 @@ endif
 CC = g++
 CFLAGS = -DUNIX -O0 -g $(FLAGS)
 
-INCLUDES = \
+# Boost 1.69
+
+ifneq "$(wildcard /usr/include/boost169)" ""
+  INCLUDES += -I/usr/include/boost169
+  LIBS += -L/usr/lib64/boost169
+endif
+
+INCLUDES += \
 	-I/usr/gdal30/include \
 	-I/usr/include/smartmet
 
-LIBS = \
+LIBS += \
 	../libsmartmet-calculator.so \
 	-lsmartmet-newbase \
 	-lsmartmet-macgyver \
