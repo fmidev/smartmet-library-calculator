@@ -22,6 +22,7 @@ Requires: smartmet-library-newbase >= 20.4.18
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
+#TestRequires: smartmet-library-newbase-devel
 #TestRequires: boost169-devel
 Provides: %{LIBNAME}
 
