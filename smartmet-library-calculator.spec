@@ -19,6 +19,8 @@ BuildRequires: smartmet-library-newbase-devel >= 20.4.23
 BuildRequires: smartmet-library-macgyver-devel >= 20.4.18
 BuildRequires: freetype-devel
 Requires: smartmet-library-newbase >= 20.4.23
+#TestRequires: make
+#TestRequires: gcc-c++
 Provides: %{LIBNAME}
 
 %description
