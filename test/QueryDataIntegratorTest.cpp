@@ -145,7 +145,7 @@ void integrate_space(void)
   {
     MeanCalculator modifier;
     float result = Integrate(q, helsinki, modifier);
-    float expected = 15.4502144;
+    float expected = 14.9282227;
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("average over helsinki failed, got result " + lexical_cast<string>(result) +
@@ -155,7 +155,7 @@ void integrate_space(void)
   {
     MaximumCalculator modifier;
     float result = Integrate(q, uusimaa, modifier);
-    float expected = 15.8796091;
+    float expected = 15.3769522;
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("maximum over uusimaa failed, got result " + lexical_cast<string>(result) +
@@ -274,7 +274,7 @@ void integrate_time_space(void)
     MinimumCalculator timemodifier;
     float result = Integrate(q, uusimaa, spacemodifier, time1, time2, timemodifier);
 
-    float expected = 15.8796091;
+    float expected = 15.3769522;
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("maxmin over uusimaa and time failed, got result " +
@@ -286,7 +286,7 @@ void integrate_time_space(void)
     MaximumCalculator timemodifier;
     float result = Integrate(q, uusimaa, spacemodifier, time1, time2, timemodifier);
 
-    float expected = 19.9770164;
+    float expected = 19.4496746;
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("minmax over uusimaa and time failed, got result " +
@@ -347,7 +347,7 @@ void integrate_space_time(void)
     MinimumCalculator timemodifier;
     float result = Integrate(q, time1, time2, timemodifier, uusimaa, spacemodifier);
 
-    float expected = 15.8796091;
+    float expected = 15.3769522;
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("maxmin over time and uusimaa failed, got result " +
@@ -359,7 +359,7 @@ void integrate_space_time(void)
     MaximumCalculator timemodifier;
     float result = Integrate(q, time1, time2, timemodifier, uusimaa, spacemodifier);
 
-    float expected = 19.9770164;
+    float expected = 19.4496746;
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("minmax over time and uusimaa failed, got result " +

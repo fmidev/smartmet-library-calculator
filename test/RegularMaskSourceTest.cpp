@@ -48,13 +48,13 @@ void mask()
 
   {
     mask_type m = source.mask(uusimaa, "data", wsource);
-    if (m->size() != 7) TEST_FAILED("Size of mask uusimaa should be 7, not " + Convert(m->size()));
+    if (m->size() != 8) TEST_FAILED("Size of mask uusimaa should be 8, not " + Convert(m->size()));
   }
 
   {
     mask_type m = source.mask(ahvenanmaa, "data", wsource);
-    if (m->size() != 1)
-      TEST_FAILED("Size of mask ahvenanmaa should be 1, not " + Convert(m->size()));
+    if (m->size() != 0)
+      TEST_FAILED("Size of mask ahvenanmaa should be 0, not " + Convert(m->size()));
   }
 
   {
@@ -65,8 +65,8 @@ void mask()
 
   {
     mask_type m = source.mask(pohjois_lappi, "data", wsource);
-    if (m->size() != 30)
-      TEST_FAILED("Size of mask pohjois_lappi should be 30, not " + Convert(m->size()));
+    if (m->size() != 25)
+      TEST_FAILED("Size of mask pohjois_lappi should be 25, not " + Convert(m->size()));
   }
 
   TEST_PASSED();

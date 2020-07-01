@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 20.4.24
+Version: 20.7.1
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 20.4.23
+BuildRequires: smartmet-library-newbase-devel >= 20.6.30
 BuildRequires: smartmet-library-macgyver-devel >= 20.4.18
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 20.4.23
+Requires: smartmet-library-newbase >= 20.6.30
 #TestRequires: make
 #TestRequires: gcc-c++
 Provides: %{LIBNAME}
@@ -60,6 +60,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Jul  1 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.7.1-1.fmi
+- Repackaged
+
 * Fri Apr 24 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.4.24-1.fmi
 - Repackaged
 
