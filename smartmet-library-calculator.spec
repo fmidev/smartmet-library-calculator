@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 20.7.31
+Version: 20.8.21
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,12 +15,16 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 20.7.2
-BuildRequires: smartmet-library-macgyver-devel >= 20.7.31
+BuildRequires: smartmet-library-newbase-devel >= 20.8.21
+BuildRequires: smartmet-library-macgyver-devel >= 20.8.21
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 20.7.2
+Requires: smartmet-library-newbase >= 20.8.21
 #TestRequires: make
 #TestRequires: gcc-c++
+#TestRequires: smartmet-library-regression
+#TestRequires: smartmet-library-newbase-devel
+#TestRequires: boost169-devel
+#TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
 
 %description
@@ -60,6 +64,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Fri Aug 21 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.8.21-1.fmi
+- Upgrade to fmt 6.2
+
 * Fri Jul 31 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.7.31-1.fmi
 - Repackaged due to libpqxx upgrade
 
@@ -68,7 +75,6 @@ Requires: %{SPECNAME}
 
 * Fri Apr 24 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.4.24-1.fmi
 - Repackaged
-
 * Sat Apr 18 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.4.18-1.fmi
 - Upgrade to Boost 1.69
 
@@ -89,7 +95,6 @@ Requires: %{SPECNAME}
 
 * Wed Dec  4 2019 Mika Heiskanen <mika.heiskanen@fmi.fi> - 19.12.4-1.fmi
 - Use -fno-omit-frame-pointer for a better profiling and debugging experience                                                                                              
-
 * Tue Dec 3 2019 Anssi Reponen <anssi.reponen@fmi.fi> - 19.12.3-1.fmi
 - Two new functions added for checking missing parameter values (BRAINSTORM-1727)
 
