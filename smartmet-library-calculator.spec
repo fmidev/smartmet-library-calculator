@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 20.8.21
+Version: 20.8.26
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 20.8.21
+BuildRequires: smartmet-library-newbase-devel >= 20.8.26
 BuildRequires: smartmet-library-macgyver-devel >= 20.8.21
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 20.8.21
+Requires: smartmet-library-newbase >= 20.8.26
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
@@ -64,6 +64,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Aug 26 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.8.26-1.fmi
+- Numerous newbase API changes
+
 * Fri Aug 21 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.8.21-1.fmi
 - Upgrade to fmt 6.2
 
