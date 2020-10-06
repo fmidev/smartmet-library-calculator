@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 20.8.21
+Version: 20.10.7
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -16,12 +16,13 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
 BuildRequires: smartmet-library-newbase-devel >= 20.8.21
-BuildRequires: smartmet-library-macgyver-devel >= 20.8.21
+BuildRequires: smartmet-library-macgyver-devel >= 20.10.7
 BuildRequires: freetype-devel
 Requires: smartmet-library-newbase >= 20.8.21
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
+#TestRequires: smartmet-library-macgyver-devel
 #TestRequires: smartmet-library-newbase-devel
 #TestRequires: boost169-devel
 #TestRequires: smartmet-timezones
@@ -64,6 +65,10 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Oct  7 2020 Andris Pavenis <andris.pavenis@fmi.fi> - 20.10.7-1.fmi
+- Build update: use makefile.inc from smartmet-library-macgyver
+- Fail build in case of unresolved references in built library
+
 * Fri Aug 21 2020 Mika Heiskanen <mika.heiskanen@fmi.fi> - 20.8.21-1.fmi
 - Upgrade to fmt 6.2
 
@@ -71,7 +76,8 @@ Requires: %{SPECNAME}
 - Upgrade to Boost 1.69
 
 * Wed Dec  4 2019 Mika Heiskanen <mika.heiskanen@fmi.fi> - 19.12.4-1.fmi
-- Use -fno-omit-frame-pointer for a better profiling and debugging experience                                                                                              
+- Use -fno-omit-frame-pointer for a better profiling and debugging experience
+
 * Tue Dec 3 2019 Anssi Reponen <anssi.reponen@fmi.fi> - 19.12.3-1.fmi
 - Two new functions added for checking missing parameter values (BRAINSTORM-1727)
 
