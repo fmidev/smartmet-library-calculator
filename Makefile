@@ -3,54 +3,15 @@ LIB = smartmet-$(SUBNAME)
 SPEC = smartmet-library-$(SUBNAME)
 INCDIR = smartmet/$(SUBNAME)
 
-include common.mk
+include $(shell echo $${PREFIX-/usr})/share/smartmet/devel/makefile.inc
 
 # Compiler options
 
 DEFINES = -DUNIX -D_REENTRANT -DFMI_COMPRESSION -DBOOST -DBOOST_IOSTREAMS_NO_LIB
 
-ifeq ($(USE_CLANG), yes)
-
- FLAGS = \
-	-std=$(CXX_STD) -fPIC -MD -fno-omit-frame-pointer \
-	-Wall \
-	-Wextra \
-	-Wno-c++98-compat \
-	-Wno-float-equal \
-	-Wno-padded \
-	-Wno-missing-prototypes
-
  INCLUDES += \
-	-isystem $(includedir) \
-	-isystem $(includedir)/smartmet \
 	-isystem $(includedir)/smartmet/newbase \
 	`freetype-config --cflags`
-
-else
-
- FLAGS = -std=$(CXX_STD) -fPIC -MD -fno-omit-frame-pointer -Wall -W -Wno-unused-parameter -fdiagnostics-color=$(GCC_DIAG_COLOR)
-
- FLAGS_DEBUG = \
-	-Wcast-align \
-	-Winline \
-	-Wno-multichar \
-	-Wno-pmf-conversions \
-	-Woverloaded-virtual  \
-	-Wpointer-arith \
-	-Wcast-qual \
-	-Wwrite-strings \
-	-Wsign-promo \
-	-Wno-inline
-
- FLAGS_RELEASE = -Wuninitialized
-
- INCLUDES += \
-	-I$(includedir) \
-	-I$(includedir)/smartmet \
-	-I$(includedir)/smartmet/newbase \
-	`freetype-config --cflags`
-
-endif
 
 ifeq ($(TSAN), yes)
   FLAGS += -fsanitize=thread
@@ -59,13 +20,6 @@ ifeq ($(ASAN), yes)
   FLAGS += -fsanitize=address -fsanitize=pointer-compare -fsanitize=pointer-subtract -fsanitize=undefined -fsanitize-address-use-after-scope
 endif
 
-
-# Compile options in detault, debug and profile modes
-
-CFLAGS         = $(DEFINES) $(FLAGS) $(FLAGS_RELEASE) -DNDEBUG -O2 -g
-CFLAGS_DEBUG   = $(DEFINES) $(FLAGS) $(FLAGS_DEBUG)   -Werror  -Og -g
-CFLAGS_PROFILE = $(DEFINES) $(FLAGS) $(FLAGS_PROFILE) -DNDEBUG -O2 -g -pg
-
 LIBS += -L$(libdir) \
 	-lsmartmet-newbase \
 	-lsmartmet-macgyver
@@ -73,21 +27,6 @@ LIBS += -L$(libdir) \
 # What to install
 
 LIBFILE = lib$(LIB).so
-
-# How to install
-
-INSTALL_PROG = install -m 775
-INSTALL_DATA = install -m 664
-
-# Compile option overrides
-
-ifneq (,$(findstring debug,$(MAKECMDGOALS)))
-  CFLAGS = $(CFLAGS_DEBUG)
-endif
-
-ifneq (,$(findstring profile,$(MAKECMDGOALS)))
-  CFLAGS = $(CFLAGS_PROFILE)
-endif
 
 # Compilation directories
 

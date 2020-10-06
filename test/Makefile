@@ -2,17 +2,7 @@ PROG = $(patsubst %.cpp,%,$(wildcard *.cpp))
 PHPPROG = $(wildcard *.php)
 # OBS = $(wildcard ../obj/*.o)
 
-include ../common.mk
-
-FLAGS = -std=$(CXX_STD) -Wall -W -Wno-unused-parameter
-
-EXTRAFLAGS = -Werror -pedantic -Wpointer-arith -Wcast-qual \
-	-Wcast-align -Wwrite-strings -Wconversion -Winline \
-	-Wctor-dtor-privacy -Wnon-virtual-dtor -Wno-pmf-conversions \
-	-Wsign-promo -Wchar-subscripts -Wold-style-cast \
-	-Wshadow -Woverloaded-virtual
-
-DIFFICULTFLAGS = -Weffc++ -Wunreachable-code -Wredundant-decls
+include $(shell echo $${PREFIX-/usr})/share/smartmet/devel/makefile.inc
 
 UNAME_S := $(shell uname -s)
 
