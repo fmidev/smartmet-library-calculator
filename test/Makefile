@@ -2,30 +2,9 @@ PROG = $(patsubst %.cpp,%,$(wildcard *.cpp))
 PHPPROG = $(wildcard *.php)
 # OBS = $(wildcard ../obj/*.o)
 
-FLAGS = -std=c++11 -Wall -W -Wno-unused-parameter
+include $(shell echo $${PREFIX-/usr})/share/smartmet/devel/makefile.inc
 
-EXTRAFLAGS = -Werror -pedantic -Wpointer-arith -Wcast-qual \
-	-Wcast-align -Wwrite-strings -Wconversion -Winline \
-	-Wctor-dtor-privacy -Wnon-virtual-dtor -Wno-pmf-conversions \
-	-Wsign-promo -Wchar-subscripts -Wold-style-cast \
-	-Wshadow -Woverloaded-virtual
-
-DIFFICULTFLAGS = -Weffc++ -Wunreachable-code -Wredundant-decls
-
-processor := $(shell uname -p)
 UNAME_S := $(shell uname -s)
-
-ifeq ($(origin PREFIX), undefined)
-  PREFIX = /usr
-else
-  PREFIX = $(PREFIX)
-endif
-
-ifeq ($(processor), x86_64)
-  libdir = $(PREFIX)/lib64
-else
-  libdir = $(PREFIX)/lib
-endif
 
 ifeq ($(TSAN), yes)
   FLAGS += -fsanitize=thread
@@ -34,23 +13,7 @@ ifeq ($(ASAN), yes)
   FLAGS += -fsanitize=address -fsanitize=pointer-compare -fsanitize=pointer-subtract -fsanitize=undefined -fsanitize-address-use-after-scope
 endif
 
-
-CC = g++
 CFLAGS = -DUNIX -O0 -g $(FLAGS)
-
-# Boost 1.69
-
-ifneq "$(wildcard /usr/include/boost169)" ""
-  INCLUDES += -I/usr/include/boost169
-  LIBS += -L/usr/lib64/boost169
-endif
-
-ifneq "$(wildcard /usr/gdal30/include)" ""                                                                                                    
-  INCLUDES += -I/usr/gdal30/include                                                                                                           
-  LIBS += -L$(PREFIX)/gdal30/lib                                                                                                              
-else                                                                                                                                          
-  INCLUDES += -I/usr/include/gdal                                                                                                             
-endif 
 
 INCLUDES += \
 	-I/usr/include/smartmet
@@ -66,8 +29,6 @@ LIBS += \
 
 INCLUDES += -I ../calculator
 
-LIBS += 
-
 all: $(PROG)
 clean:
 	rm -f $(PROG) *~
@@ -79,5 +40,5 @@ test: $(PROG)
 	done
 
 $(PROG) : % : %.cpp ../libsmartmet-calculator.so
-	$(CC) $(CFLAGS) -o $@ $@.cpp $(INCLUDES) $(LIBS)
+	$(CXX) $(CFLAGS) -o $@ $@.cpp $(INCLUDES) $(LIBS)
 
