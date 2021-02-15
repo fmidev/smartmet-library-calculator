@@ -35,9 +35,11 @@ clean:
 
 test: $(PROG)
 	@echo Running tests:
-	@for prog in $(PROG); do \
-	 ./$$prog; \
-	done
+	@failed=; for prog in $(PROG); do \
+	 ./$$prog || failed="$$failed $$prog"; \
+	done; \
+	if test -z "$$failed" ; then true; else echo Test failed:; \
+		for test in $$failed; do echo "   $$test"; done; false; fi
 
 $(PROG) : % : %.cpp ../libsmartmet-calculator.so
 	$(CXX) $(CFLAGS) -o $@ $@.cpp $(INCLUDES) $(LIBS)
