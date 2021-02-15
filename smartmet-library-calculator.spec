@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 21.1.14
+Version: 21.2.15
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,10 +15,10 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 21.1.14
-BuildRequires: smartmet-library-macgyver-devel >= 21.1.14
+BuildRequires: smartmet-library-newbase-devel >= 21.2.15
+BuildRequires: smartmet-library-macgyver-devel >= 21.1.25
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 21.1.14
+Requires: smartmet-library-newbase >= 21.2.15
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
@@ -65,6 +65,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Mon Feb 15 2021 Mika Heiskanen <mika.heiskanen@fmi.fi> - 21.2.15-1.fmi
+- Repackaged due to newbase ABI changes
+
 * Thu Jan 14 2021 Mika Heiskanen <mika.heiskanen@fmi.fi> - 21.1.14-1.fmi
 - Repackaged smartmet to resolve debuginfo issues
 
