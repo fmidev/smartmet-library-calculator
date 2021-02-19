@@ -17,6 +17,7 @@ BuildRequires: make
 BuildRequires: boost169-devel
 BuildRequires: smartmet-library-newbase-devel >= 21.2.18
 BuildRequires: smartmet-library-macgyver-devel >= 21.1.25
+BuildRequires: smartmet-library-gis-devel >= 21.2.11
 BuildRequires: freetype-devel
 Requires: smartmet-library-newbase >= 21.2.18
 #TestRequires: make
