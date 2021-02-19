@@ -25,6 +25,7 @@ Requires: smartmet-library-newbase >= 21.2.18
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
 #TestRequires: smartmet-library-newbase-devel
+#TestRequires: smartmet-library-gis-devel >= 21.2.11
 #TestRequires: boost169-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
