@@ -155,8 +155,11 @@ void integrate_space(void)
   {
     MaximumCalculator modifier;
     float result = Integrate(q, uusimaa, modifier);
+#ifdef WGS84
+    float expected = 15.3769522;
+#else
     float expected = 14.86401;
-
+#endif
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("maximum over uusimaa failed, got result " + lexical_cast<string>(result) +
                   " instead of " + lexical_cast<string>(expected));
@@ -274,7 +277,11 @@ void integrate_time_space(void)
     MinimumCalculator timemodifier;
     float result = Integrate(q, uusimaa, spacemodifier, time1, time2, timemodifier);
 
+#ifdef WGS84
+    float expected = 15.3769522;
+#else
     float expected = 14.86401;
+#endif
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("maxmin over uusimaa and time failed, got result " +
@@ -286,7 +293,11 @@ void integrate_time_space(void)
     MaximumCalculator timemodifier;
     float result = Integrate(q, uusimaa, spacemodifier, time1, time2, timemodifier);
 
+#ifdef WGS84
+    float expected = 19.4496746;
+#else
     float expected = 18.1207;
+#endif
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("minmax over uusimaa and time failed, got result " +
@@ -347,7 +358,11 @@ void integrate_space_time(void)
     MinimumCalculator timemodifier;
     float result = Integrate(q, time1, time2, timemodifier, uusimaa, spacemodifier);
 
+#ifdef WGS84
+    float expected = 15.3769522;
+#else
     float expected = 14.86401;
+#endif
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("maxmin over time and uusimaa failed, got result " +
@@ -359,7 +374,11 @@ void integrate_space_time(void)
     MaximumCalculator timemodifier;
     float result = Integrate(q, time1, time2, timemodifier, uusimaa, spacemodifier);
 
+#ifdef WGS84
+    float expected = 19.4496746;
+#else
     float expected = 18.1207;
+#endif
 
     if (std::abs(result - expected) > 0.01)
       TEST_FAILED("minmax over time and uusimaa failed, got result " +
