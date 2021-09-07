@@ -7,7 +7,7 @@ include $(shell echo $${PREFIX-/usr})/share/smartmet/devel/makefile.inc
 
 # Compiler options
 
-DEFINES = -DUNIX -DWGS84 -D_REENTRANT -DFMI_COMPRESSION -DBOOST -DBOOST_IOSTREAMS_NO_LIB
+DEFINES = -DUNIX -D_REENTRANT -DFMI_COMPRESSION -DBOOST -DBOOST_IOSTREAMS_NO_LIB
 
  INCLUDES += \
 	-isystem $(includedir)/smartmet/newbase \
