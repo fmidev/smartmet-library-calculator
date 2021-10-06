@@ -26,7 +26,7 @@ namespace TextGen
 // ----------------------------------------------------------------------
 
 MinimumCalculator::MinimumCalculator()
-    : itsAcceptor(new DefaultAcceptor()), itsCounter(0), itsMinimum(kFloatMissing)
+    : itsAcceptor(new DefaultAcceptor()),  itsMinimum(kFloatMissing)
 {
 }
 

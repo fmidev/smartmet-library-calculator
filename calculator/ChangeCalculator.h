@@ -27,7 +27,7 @@ class ChangeCalculator : public Calculator
  private:
   boost::shared_ptr<Acceptor> itsAcceptor;
 
-  long itsCounter;
+  long itsCounter{0};
   float itsStartValue;
   float itsEndValue;
 

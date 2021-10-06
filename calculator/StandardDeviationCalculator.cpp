@@ -32,7 +32,7 @@ namespace TextGen
 // ----------------------------------------------------------------------
 
 StandardDeviationCalculator::StandardDeviationCalculator()
-    : itsAcceptor(new DefaultAcceptor()), itsCounter(0), itsSum(0), itsSquaredSum(0)
+    : itsAcceptor(new DefaultAcceptor()) 
 {
 }
 

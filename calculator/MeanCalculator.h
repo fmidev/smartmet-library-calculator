@@ -25,8 +25,8 @@ class MeanCalculator : public Calculator
 
  private:
   boost::shared_ptr<Acceptor> itsAcceptor;
-  long itsCounter;
-  double itsSum;
+  long itsCounter{0};
+  double itsSum{0};
 
 };  // class MeanCalculator
 

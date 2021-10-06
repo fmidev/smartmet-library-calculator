@@ -27,10 +27,7 @@ namespace TextGen
 
 TrendCalculator::TrendCalculator()
     : itsAcceptor(new DefaultAcceptor()),
-      itsCounter(0),
-      itsPositiveChanges(0),
-      itsNegativeChanges(0),
-      itsZeroChanges(0),
+      
       itsLastValue(kFloatMissing)
 {
 }

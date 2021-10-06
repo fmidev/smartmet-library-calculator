@@ -25,7 +25,7 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-SumCalculator::SumCalculator() : itsAcceptor(new DefaultAcceptor()), itsCounter(0), itsSum(0) {}
+SumCalculator::SumCalculator() : itsAcceptor(new DefaultAcceptor()) {}
 // ----------------------------------------------------------------------
 /*!
  * \brief Integrate a new value

@@ -28,8 +28,8 @@ class CountCalculator : public Calculator
  private:
   boost::shared_ptr<Acceptor> itsAcceptor;
   boost::shared_ptr<Acceptor> itsCondition;
-  long itsCounter;
-  long itsTotalCounter;
+  long itsCounter{0};
+  long itsTotalCounter{0};
 
 };  // class CountCalculator
 

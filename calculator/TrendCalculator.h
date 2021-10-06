@@ -27,10 +27,10 @@ class TrendCalculator : public Calculator
  private:
   boost::shared_ptr<Acceptor> itsAcceptor;
 
-  long itsCounter;
-  long itsPositiveChanges;
-  long itsNegativeChanges;
-  long itsZeroChanges;
+  long itsCounter{0};
+  long itsPositiveChanges{0};
+  long itsNegativeChanges{0};
+  long itsZeroChanges{0};
 
   float itsLastValue;
 

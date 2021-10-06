@@ -27,7 +27,7 @@ namespace TextGen
 
 ChangeCalculator::ChangeCalculator()
     : itsAcceptor(new DefaultAcceptor()),
-      itsCounter(0),
+      
       itsStartValue(kFloatMissing),
       itsEndValue(kFloatMissing)
 {

@@ -26,7 +26,7 @@ namespace TextGen
 // ----------------------------------------------------------------------
 
 MaximumCalculator::MaximumCalculator()
-    : itsAcceptor(new DefaultAcceptor()), itsCounter(0), itsMaximum(kFloatMissing)
+    : itsAcceptor(new DefaultAcceptor()),  itsMaximum(kFloatMissing)
 {
 }
 

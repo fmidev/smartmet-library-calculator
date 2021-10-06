@@ -28,9 +28,8 @@ namespace TextGen
 
 PercentageCalculator::PercentageCalculator()
     : itsAcceptor(new DefaultAcceptor()),
-      itsCondition(new NullAcceptor()),
-      itsCounter(0),
-      itsTotalCounter(0)
+      itsCondition(new NullAcceptor())
+      
 {
 }
 

@@ -25,7 +25,7 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-MeanCalculator::MeanCalculator() : itsAcceptor(new DefaultAcceptor()), itsCounter(0), itsSum(0) {}
+MeanCalculator::MeanCalculator() : itsAcceptor(new DefaultAcceptor()) {}
 // ----------------------------------------------------------------------
 /*!
  * \brief Integrate a new value
