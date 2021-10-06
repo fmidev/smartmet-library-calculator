@@ -30,7 +30,7 @@ class NullPeriodGenerator : public WeatherPeriodGenerator
   virtual WeatherPeriod period(size_type thePeriod) const;
 
  private:
-  NullPeriodGenerator(void);
+  NullPeriodGenerator();
 
   const WeatherPeriod itsMainPeriod;
 

@@ -36,7 +36,7 @@ class IntervalPeriodGenerator : public WeatherPeriodGenerator
   virtual WeatherPeriod period(size_type thePeriod) const;
 
  private:
-  IntervalPeriodGenerator(void);
+  IntervalPeriodGenerator();
   void init();
 
   const WeatherPeriod itsMainPeriod;

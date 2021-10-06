@@ -33,7 +33,7 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
   void add(const WeatherPeriod& thePeriod);
 
  private:
-  ListedPeriodGenerator(void);
+  ListedPeriodGenerator();
 
   const WeatherPeriod itsMainPeriod;
   std::vector<WeatherPeriod> itsPeriods;

@@ -36,7 +36,7 @@ class HourPeriodGenerator : public WeatherPeriodGenerator
   virtual WeatherPeriod period(size_type thePeriod) const;
 
  private:
-  HourPeriodGenerator(void);
+  HourPeriodGenerator();
 
   const WeatherPeriod itsMainPeriod;
   const int itsStartHour;
