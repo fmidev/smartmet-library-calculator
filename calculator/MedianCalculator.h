@@ -17,12 +17,12 @@ class MedianCalculator : public Calculator
 {
  public:
   MedianCalculator();
-  virtual ~MedianCalculator() = default;
-  virtual void operator()(float theValue);
-  virtual float operator()() const;
-  virtual void acceptor(const Acceptor& theAcceptor);
-  virtual boost::shared_ptr<Calculator> clone() const;
-  virtual void reset();
+  ~MedianCalculator() override = default;
+  void operator()(float theValue) override;
+  float operator()() const override;
+  void acceptor(const Acceptor& theAcceptor) override;
+  boost::shared_ptr<Calculator> clone() const override;
+  void reset() override;
 
  private:
   boost::shared_ptr<Acceptor> itsAcceptor;

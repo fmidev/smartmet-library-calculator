@@ -23,11 +23,11 @@ class NullPeriodGenerator : public WeatherPeriodGenerator
 
   NullPeriodGenerator(WeatherPeriod theMainPeriod);
 
-  virtual ~NullPeriodGenerator() = default;
-  virtual bool undivided() const;
-  virtual size_type size() const;
-  virtual WeatherPeriod period() const;
-  virtual WeatherPeriod period(size_type thePeriod) const;
+  ~NullPeriodGenerator() override = default;
+  bool undivided() const override;
+  size_type size() const override;
+  WeatherPeriod period() const override;
+  WeatherPeriod period(size_type thePeriod) const override;
 
  private:
   NullPeriodGenerator() = delete;

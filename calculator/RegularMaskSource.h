@@ -19,13 +19,13 @@ class RegularMaskSource : public MaskSource
 
   RegularMaskSource();
 
-  virtual mask_type mask(const WeatherArea& theArea,
+  mask_type mask(const WeatherArea& theArea,
                          const std::string& theData,
-                         const WeatherSource& theWeatherSource) const;
+                         const WeatherSource& theWeatherSource) const override;
 
-  virtual masks_type masks(const WeatherArea& theArea,
+  masks_type masks(const WeatherArea& theArea,
                            const std::string& theData,
-                           const WeatherSource& theWeatherSource) const;
+                           const WeatherSource& theWeatherSource) const override;
 
  private:
   class Pimple;

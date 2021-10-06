@@ -27,12 +27,12 @@ class WeatherResult;
 class RegularFunctionAnalyzer : public FunctionAnalyzer
 {
  public:
-  virtual ~RegularFunctionAnalyzer() = default;
+  ~RegularFunctionAnalyzer() override = default;
   RegularFunctionAnalyzer(const WeatherFunction& theAreaFunction,
                           const WeatherFunction& theTimeFunction,
                           const WeatherFunction& theSubTimeFunction);
 
-  virtual WeatherResult analyze(const AnalysisSources& theSources,
+  WeatherResult analyze(const AnalysisSources& theSources,
                                 const WeatherDataType& theDataType,
                                 const WeatherArea& theArea,
                                 const WeatherPeriodGenerator& thePeriods,
@@ -40,7 +40,7 @@ class RegularFunctionAnalyzer : public FunctionAnalyzer
                                 const Acceptor& theTimeAcceptor,
                                 const Acceptor& theTester,
                                 const std::string& theDataName,
-                                const std::string& theParameterName) const;
+                                const std::string& theParameterName) const override;
 
   void modulo(int theModulo);
 

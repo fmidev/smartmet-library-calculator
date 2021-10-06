@@ -14,9 +14,9 @@ namespace TextGen
 class RangeAcceptor : public Acceptor
 {
  public:
-  virtual ~RangeAcceptor() = default;
-  virtual bool accept(float theValue) const;
-  virtual Acceptor* clone() const;
+  ~RangeAcceptor() override = default;
+  bool accept(float theValue) const override;
+  Acceptor* clone() const override;
 
   RangeAcceptor();
   void lowerLimit(float theLimit);

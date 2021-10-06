@@ -17,12 +17,12 @@ class PercentageCalculator : public Calculator
  public:
   PercentageCalculator();
   PercentageCalculator(const PercentageCalculator& theOther);
-  virtual ~PercentageCalculator() = default;
-  virtual void operator()(float theValue);
-  virtual float operator()() const;
-  virtual void acceptor(const Acceptor& theAcceptor);
-  virtual boost::shared_ptr<Calculator> clone() const;
-  virtual void reset();
+  ~PercentageCalculator() override = default;
+  void operator()(float theValue) override;
+  float operator()() const override;
+  void acceptor(const Acceptor& theAcceptor) override;
+  boost::shared_ptr<Calculator> clone() const override;
+  void reset() override;
 
   void condition(const Acceptor& theCondition);
 

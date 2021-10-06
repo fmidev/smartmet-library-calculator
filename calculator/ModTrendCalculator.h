@@ -17,12 +17,12 @@ class ModTrendCalculator : public Calculator
 {
  public:
   ModTrendCalculator(int theModulo);
-  virtual ~ModTrendCalculator() = default;
-  virtual void operator()(float theValue);
-  virtual float operator()() const;
-  virtual void acceptor(const Acceptor& theAcceptor);
-  virtual boost::shared_ptr<Calculator> clone() const;
-  virtual void reset();
+  ~ModTrendCalculator() override = default;
+  void operator()(float theValue) override;
+  float operator()() const override;
+  void acceptor(const Acceptor& theAcceptor) override;
+  boost::shared_ptr<Calculator> clone() const override;
+  void reset() override;
 
  private:
   ModTrendCalculator() = delete;

@@ -16,8 +16,8 @@ class LatestWeatherSource : public WeatherSource
 {
  public:
   LatestWeatherSource();
-  virtual boost::shared_ptr<NFmiQueryData> data(const std::string& theName) const;
-  virtual WeatherId id(const std::string& theName) const;
+  boost::shared_ptr<NFmiQueryData> data(const std::string& theName) const override;
+  WeatherId id(const std::string& theName) const override;
 
  private:
   class Pimple;

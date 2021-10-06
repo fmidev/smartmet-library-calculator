@@ -24,11 +24,11 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
 
   ListedPeriodGenerator(const WeatherPeriod& theMainPeriod);
 
-  virtual ~ListedPeriodGenerator() = default;
-  virtual bool undivided() const;
-  virtual size_type size() const;
-  virtual WeatherPeriod period() const;
-  virtual WeatherPeriod period(size_type thePeriod) const;
+  ~ListedPeriodGenerator() override = default;
+  bool undivided() const override;
+  size_type size() const override;
+  WeatherPeriod period() const override;
+  WeatherPeriod period(size_type thePeriod) const override;
 
   void add(const WeatherPeriod& thePeriod);
 

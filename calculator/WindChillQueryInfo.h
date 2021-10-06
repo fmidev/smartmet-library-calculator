@@ -14,7 +14,7 @@ class WindChillQueryInfo : public NFmiFastQueryInfo
  public:
   WindChillQueryInfo(const NFmiFastQueryInfo& theInfo);
 
-  float GetFloatValue(unsigned long theIndex) const;
+  float GetFloatValue(unsigned long theIndex) const override;
 
   using NFmiFastQueryInfo::FloatValue;
 
