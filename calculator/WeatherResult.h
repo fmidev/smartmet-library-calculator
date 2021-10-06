@@ -26,7 +26,7 @@ class WeatherResult
   float error() const;
 
  private:
-  WeatherResult();
+  WeatherResult() = delete;
   float itsValue;
   float itsError;
 

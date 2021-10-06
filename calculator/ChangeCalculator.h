@@ -17,7 +17,7 @@ class ChangeCalculator : public Calculator
 {
  public:
   ChangeCalculator();
-  virtual ~ChangeCalculator() {}
+  virtual ~ChangeCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

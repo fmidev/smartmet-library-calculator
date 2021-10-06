@@ -20,7 +20,7 @@ class WeatherResult;
 class WeatherForecaster : public WeatherAnalyzer
 {
  public:
-  virtual ~WeatherForecaster() {}
+  virtual ~WeatherForecaster() = default;
   using WeatherAnalyzer::analyze;
 
   virtual WeatherResult analyze(const AnalysisSources& theSources,

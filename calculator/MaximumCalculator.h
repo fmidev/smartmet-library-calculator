@@ -16,7 +16,7 @@ class MaximumCalculator : public Calculator
 {
  public:
   MaximumCalculator();
-  virtual ~MaximumCalculator() {}
+  virtual ~MaximumCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

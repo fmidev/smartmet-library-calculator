@@ -16,8 +16,8 @@ class WeatherPeriodGenerator
  public:
   typedef unsigned int size_type;
 
-  WeatherPeriodGenerator() {}
-  virtual ~WeatherPeriodGenerator() {}
+  WeatherPeriodGenerator() = default;
+  virtual ~WeatherPeriodGenerator() = default;
   virtual bool undivided() const = 0;
   virtual size_type size() const = 0;
   virtual WeatherPeriod period() const = 0;

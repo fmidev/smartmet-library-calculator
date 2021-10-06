@@ -17,7 +17,7 @@ class ModTrendCalculator : public Calculator
 {
  public:
   ModTrendCalculator(int theModulo);
-  virtual ~ModTrendCalculator() {}
+  virtual ~ModTrendCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);
@@ -25,7 +25,7 @@ class ModTrendCalculator : public Calculator
   virtual void reset();
 
  private:
-  ModTrendCalculator();
+  ModTrendCalculator() = delete;
 
   boost::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;

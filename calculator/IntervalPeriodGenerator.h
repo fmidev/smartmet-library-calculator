@@ -29,14 +29,14 @@ class IntervalPeriodGenerator : public WeatherPeriodGenerator
 
   IntervalPeriodGenerator(WeatherPeriod theMainPeriod, const std::string& theVariable);
 
-  virtual ~IntervalPeriodGenerator() {}
+  virtual ~IntervalPeriodGenerator() = default;
   virtual bool undivided() const;
   virtual size_type size() const;
   virtual WeatherPeriod period() const;
   virtual WeatherPeriod period(size_type thePeriod) const;
 
  private:
-  IntervalPeriodGenerator();
+  IntervalPeriodGenerator() = delete;
   void init();
 
   const WeatherPeriod itsMainPeriod;

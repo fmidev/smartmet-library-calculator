@@ -34,7 +34,7 @@ class ModuloParameterAnalyzer : public ParameterAnalyzer
                                 const Acceptor& theTester = NullAcceptor()) const;
 
  private:
-  ModuloParameterAnalyzer();
+  ModuloParameterAnalyzer() = delete;
 
   const std::string itsVariable;
   const std::string itsParameter;

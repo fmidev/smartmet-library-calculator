@@ -28,7 +28,7 @@ class WeatherResult;
 class WindChillFunctionAnalyzer : public FunctionAnalyzer
 {
  public:
-  virtual ~WindChillFunctionAnalyzer() {}
+  virtual ~WindChillFunctionAnalyzer() = default;
   WindChillFunctionAnalyzer(const WeatherFunction& theAreaFunction,
                             const WeatherFunction& theTimeFunction,
                             const WeatherFunction& theSubTimeFunction);
@@ -46,7 +46,7 @@ class WindChillFunctionAnalyzer : public FunctionAnalyzer
   void modulo(int theModulo);
 
  private:
-  WindChillFunctionAnalyzer();
+  WindChillFunctionAnalyzer() = delete;
 
   const WeatherFunction itsAreaFunction;
   const WeatherFunction itsTimeFunction;

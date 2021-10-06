@@ -16,7 +16,7 @@ class MeanCalculator : public Calculator
 {
  public:
   MeanCalculator();
-  virtual ~MeanCalculator() {}
+  virtual ~MeanCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

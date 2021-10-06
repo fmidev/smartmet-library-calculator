@@ -16,7 +16,7 @@ class CountCalculator : public Calculator
 {
  public:
   CountCalculator();
-  virtual ~CountCalculator() {}
+  virtual ~CountCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

@@ -14,7 +14,7 @@ namespace TextGen
 class RangeAcceptor : public Acceptor
 {
  public:
-  virtual ~RangeAcceptor() {}
+  virtual ~RangeAcceptor() = default;
   virtual bool accept(float theValue) const;
   virtual Acceptor* clone() const;
 

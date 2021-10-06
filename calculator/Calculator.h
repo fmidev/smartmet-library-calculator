@@ -16,8 +16,8 @@ class Acceptor;
 class Calculator
 {
  public:
-  Calculator() {}
-  virtual ~Calculator() {}
+  Calculator() = default;
+  virtual ~Calculator() = default;
   virtual void operator()(float theValue) = 0;
   virtual float operator()() const = 0;
   virtual void acceptor(const Acceptor& theAcceptor) = 0;

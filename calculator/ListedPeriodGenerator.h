@@ -24,7 +24,7 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
 
   ListedPeriodGenerator(const WeatherPeriod& theMainPeriod);
 
-  virtual ~ListedPeriodGenerator() {}
+  virtual ~ListedPeriodGenerator() = default;
   virtual bool undivided() const;
   virtual size_type size() const;
   virtual WeatherPeriod period() const;
@@ -33,7 +33,7 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
   void add(const WeatherPeriod& thePeriod);
 
  private:
-  ListedPeriodGenerator();
+  ListedPeriodGenerator() = delete;
 
   const WeatherPeriod itsMainPeriod;
   std::vector<WeatherPeriod> itsPeriods;

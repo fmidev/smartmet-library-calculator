@@ -17,7 +17,7 @@ class SumCalculator : public Calculator
 {
  public:
   SumCalculator();
-  virtual ~SumCalculator() {}
+  virtual ~SumCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

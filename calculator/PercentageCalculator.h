@@ -17,7 +17,7 @@ class PercentageCalculator : public Calculator
  public:
   PercentageCalculator();
   PercentageCalculator(const PercentageCalculator& theOther);
-  virtual ~PercentageCalculator() {}
+  virtual ~PercentageCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

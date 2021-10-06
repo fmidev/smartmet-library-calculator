@@ -34,7 +34,7 @@ class WindChillParameterAnalyzer : public ParameterAnalyzer
                                 const Acceptor& theTester = NullAcceptor()) const;
 
  private:
-  WindChillParameterAnalyzer();
+  WindChillParameterAnalyzer() = delete;
 
   const std::string itsVariable;
   const std::string itsParameter;

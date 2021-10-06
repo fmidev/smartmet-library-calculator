@@ -89,7 +89,7 @@ class WeatherArea
   bool isIsland() const;
 
  private:
-  WeatherArea();
+  WeatherArea() = delete;
   void parse_specs(const std::string& theSpecs);
   void set_boolean_parameters();
   bool booleanParameterValue(const ParameterId& parameterId);

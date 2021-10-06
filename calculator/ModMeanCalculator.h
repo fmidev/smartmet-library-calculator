@@ -16,7 +16,7 @@ class ModMeanCalculator : public Calculator
 {
  public:
   ModMeanCalculator(int theModulo);
-  virtual ~ModMeanCalculator() {}
+  virtual ~ModMeanCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);
@@ -24,7 +24,7 @@ class ModMeanCalculator : public Calculator
   virtual void reset();
 
  private:
-  ModMeanCalculator();
+  ModMeanCalculator() = delete;
 
   boost::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;

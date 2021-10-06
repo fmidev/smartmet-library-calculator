@@ -16,7 +16,7 @@ class ModChangeCalculator : public Calculator
 {
  public:
   ModChangeCalculator(int theModulo);
-  virtual ~ModChangeCalculator() {}
+  virtual ~ModChangeCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);
@@ -24,7 +24,7 @@ class ModChangeCalculator : public Calculator
   virtual void reset();
 
  private:
-  ModChangeCalculator();
+  ModChangeCalculator() = delete;
 
   boost::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;

@@ -15,7 +15,7 @@ namespace TextGen
 class TextGenError : public std::exception
 {
  public:
-  ~TextGenError() throw() {}
+  ~TextGenError() throw() = default;
   TextGenError(std::string theError);
   virtual const char* what() const throw();
 

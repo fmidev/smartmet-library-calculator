@@ -28,7 +28,7 @@ class WeatherResult;
 class WeatherAnalyzer
 {
  public:
-  virtual ~WeatherAnalyzer() {}
+  virtual ~WeatherAnalyzer() = default;
   // derivatives override
   virtual WeatherResult analyze(const AnalysisSources& theSources,
                                 const WeatherParameter& theParameter,

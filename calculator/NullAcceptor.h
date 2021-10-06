@@ -14,7 +14,7 @@ namespace TextGen
 class NullAcceptor : public Acceptor
 {
  public:
-  virtual ~NullAcceptor() {}
+  virtual ~NullAcceptor() = default;
   virtual bool accept(float theValue) const;
   virtual Acceptor* clone() const;
 

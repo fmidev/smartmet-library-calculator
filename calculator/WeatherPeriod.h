@@ -31,7 +31,7 @@ class WeatherPeriod
   bool operator<(const WeatherPeriod& theRhs) const;
 
  private:
-  WeatherPeriod();
+  WeatherPeriod() = delete;
 
   TextGenPosixTime itsLocalStartTime;
   TextGenPosixTime itsLocalEndTime;

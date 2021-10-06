@@ -17,7 +17,7 @@ class StandardDeviationCalculator : public Calculator
 {
  public:
   StandardDeviationCalculator();
-  virtual ~StandardDeviationCalculator() {}
+  virtual ~StandardDeviationCalculator() = default;
   virtual void operator()(float theValue);
   virtual float operator()() const;
   virtual void acceptor(const Acceptor& theAcceptor);

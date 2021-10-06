@@ -29,14 +29,14 @@ class HourPeriodGenerator : public WeatherPeriodGenerator
 
   HourPeriodGenerator(WeatherPeriod theMainPeriod, const std::string& theVariable);
 
-  virtual ~HourPeriodGenerator() {}
+  virtual ~HourPeriodGenerator() = default;
   virtual bool undivided() const;
   virtual size_type size() const;
   virtual WeatherPeriod period() const;
   virtual WeatherPeriod period(size_type thePeriod) const;
 
  private:
-  HourPeriodGenerator();
+  HourPeriodGenerator() = delete;
 
   const WeatherPeriod itsMainPeriod;
   const int itsStartHour;

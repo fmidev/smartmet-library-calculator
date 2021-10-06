@@ -34,7 +34,7 @@ class RegularParameterAnalyzer : public ParameterAnalyzer
                                 const Acceptor& theTester = NullAcceptor()) const;
 
  private:
-  RegularParameterAnalyzer();
+  RegularParameterAnalyzer() = delete;
 
   const std::string itsVariable;
   const std::string itsParameter;
