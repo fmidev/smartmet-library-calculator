@@ -101,7 +101,7 @@ WeatherId UserWeatherSource::id(const std::string& theName) const
 // ----------------------------------------------------------------------
 
 void UserWeatherSource::insert(const std::string& theName,
-                               boost::shared_ptr<NFmiQueryData> theData) const
+                               const boost::shared_ptr<NFmiQueryData>& theData) const
 {
   {
     using value_type = Pimple::container_type::value_type;
