@@ -4,7 +4,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 21.5.6
+Version: 21.10.6
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -15,17 +15,17 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 21.5.6
-BuildRequires: smartmet-library-macgyver-devel >= 21.2.25
-BuildRequires: smartmet-library-gis-devel >= 21.5.5
+BuildRequires: smartmet-library-newbase-devel >= 21.9.22
+BuildRequires: smartmet-library-macgyver-devel >= 21.10.4
+BuildRequires: smartmet-library-gis-devel >= 21.9.24
 BuildRequires: freetype-devel
-Requires: smartmet-library-newbase >= 21.5.6
+Requires: smartmet-library-newbase >= 21.9.22
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
 #TestRequires: smartmet-library-newbase-devel
-#TestRequires: smartmet-library-gis-devel >= 21.5.5
+#TestRequires: smartmet-library-gis-devel >= 21.9.24
 #TestRequires: boost169-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
@@ -67,6 +67,9 @@ Requires: %{SPECNAME}
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Oct  6 2021 Mika Heiskanen <mika.heiskanen@fmi.fi> - 21.10.6-1.fmi
+- Used clang-tidy to modernize code
+
 * Thu May  6 2021 Mika Heiskanen <mika.heiskanen@fmi.fi> - 21.5.6-1.fmi
 - Repackaged due to ABI changes in NFmiAzimuthalArea
 
