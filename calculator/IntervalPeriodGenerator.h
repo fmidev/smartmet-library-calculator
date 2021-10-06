@@ -20,7 +20,7 @@ class WeatherPeriod;
 class IntervalPeriodGenerator : public WeatherPeriodGenerator
 {
  public:
-  typedef WeatherPeriodGenerator::size_type size_type;
+  using size_type = WeatherPeriodGenerator::size_type;
 
   IntervalPeriodGenerator(WeatherPeriod theMainPeriod,
                           int theStartHour,

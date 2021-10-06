@@ -23,8 +23,8 @@ class WeatherSource;
 class MaskSource
 {
  public:
-  typedef boost::shared_ptr<NFmiIndexMask> mask_type;
-  typedef boost::shared_ptr<NFmiIndexMaskSource> masks_type;
+  using mask_type = boost::shared_ptr<NFmiIndexMask>;
+  using masks_type = boost::shared_ptr<NFmiIndexMaskSource>;
 
   virtual ~MaskSource() = default;
   virtual mask_type mask(const WeatherArea& theArea,

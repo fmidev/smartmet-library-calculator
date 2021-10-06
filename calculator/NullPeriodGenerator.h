@@ -19,7 +19,7 @@ class WeatherPeriod;
 class NullPeriodGenerator : public WeatherPeriodGenerator
 {
  public:
-  typedef WeatherPeriodGenerator::size_type size_type;
+  using size_type = WeatherPeriodGenerator::size_type;
 
   NullPeriodGenerator(WeatherPeriod theMainPeriod);
 

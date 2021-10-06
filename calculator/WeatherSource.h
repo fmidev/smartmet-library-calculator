@@ -15,7 +15,7 @@ class NFmiQueryData;
 
 namespace TextGen
 {
-typedef long WeatherId;
+using WeatherId = long;
 
 class WeatherSource
 {

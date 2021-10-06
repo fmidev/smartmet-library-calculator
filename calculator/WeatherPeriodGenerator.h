@@ -14,7 +14,7 @@ class WeatherPeriod;
 class WeatherPeriodGenerator
 {
  public:
-  typedef unsigned int size_type;
+  using size_type = unsigned int;
 
   WeatherPeriodGenerator() = default;
   virtual ~WeatherPeriodGenerator() = default;

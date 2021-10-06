@@ -20,7 +20,7 @@ class WeatherPeriod;
 class ListedPeriodGenerator : public WeatherPeriodGenerator
 {
  public:
-  typedef WeatherPeriodGenerator::size_type size_type;
+  using size_type = WeatherPeriodGenerator::size_type;
 
   ListedPeriodGenerator(const WeatherPeriod& theMainPeriod);
 
