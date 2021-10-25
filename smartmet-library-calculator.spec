@@ -1,3 +1,4 @@
+%bcond_with tests
 %define DIRNAME calculator
 %define LIBNAME smartmet-%{DIRNAME}
 %define SPECNAME smartmet-library-%{DIRNAME}
@@ -19,6 +20,9 @@ BuildRequires: smartmet-library-newbase-devel >= 21.9.22
 BuildRequires: smartmet-library-macgyver-devel >= 21.10.4
 BuildRequires: smartmet-library-gis-devel >= 21.9.24
 BuildRequires: freetype-devel
+%if %{with tests}
+BuildRequires: smartmet-library-regression
+%endif
 Requires: smartmet-library-newbase >= 21.9.22
 #TestRequires: make
 #TestRequires: gcc-c++
@@ -40,6 +44,9 @@ rm -rf $RPM_BUILD_ROOT
  
 %build
 make %{_smp_mflags}
+%if %{with tests}
+make test %{_smp_mflags}
+%endif
 
 %install
 %makeinstall
