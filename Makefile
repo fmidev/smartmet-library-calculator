@@ -13,12 +13,6 @@ DEFINES = -DUNIX -D_REENTRANT -DFMI_COMPRESSION -DBOOST -DBOOST_IOSTREAMS_NO_LIB
 	-isystem $(includedir)/smartmet/newbase \
 	`freetype-config --cflags`
 
-ifeq ($(TSAN), yes)
-  FLAGS += -fsanitize=thread
-endif
-ifeq ($(ASAN), yes)
-  FLAGS += -fsanitize=address -fsanitize=pointer-compare -fsanitize=pointer-subtract -fsanitize=undefined -fsanitize-address-use-after-scope
-endif
 
 LIBS += -L$(libdir) \
 	-lsmartmet-newbase \
