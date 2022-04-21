@@ -9,10 +9,8 @@ include $(shell echo $${PREFIX-/usr})/share/smartmet/devel/makefile.inc
 
 DEFINES = -DUNIX -D_REENTRANT -DFMI_COMPRESSION -DBOOST -DBOOST_IOSTREAMS_NO_LIB
 
- INCLUDES += \
-	-isystem $(includedir)/smartmet/newbase \
-	`freetype-config --cflags`
-
+INCLUDES += \
+	-isystem $(includedir)/smartmet/newbase
 
 LIBS += -L$(libdir) \
 	-lsmartmet-newbase \
