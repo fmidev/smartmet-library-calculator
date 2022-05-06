@@ -64,7 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %package -n %{DEVELNAME}
 Summary: FMI %{DIRNAME} development files
 Provides: %{DEVELNAME}
-Requires: %{SPECNAME}
+Requires: %{SPECNAME} = %{version}-%{release}
+Requires: smartmet-library-macgyver-devel
 
 %description -n %{DEVELNAME}
 %{DIRNAME} development files
