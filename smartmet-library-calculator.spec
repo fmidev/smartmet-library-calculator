@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 21.10.6
+Version: 22.5.20
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -16,20 +16,20 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 21.9.22
-BuildRequires: smartmet-library-macgyver-devel >= 21.10.4
-BuildRequires: smartmet-library-gis-devel >= 21.9.24
+BuildRequires: smartmet-library-newbase-devel >= 22.5.20
+BuildRequires: smartmet-library-macgyver-devel >= 22.3.28
+BuildRequires: smartmet-library-gis-devel >= 22.5.4
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 21.9.22
+Requires: smartmet-library-newbase >= 22.5.20
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
 #TestRequires: smartmet-library-newbase-devel
-#TestRequires: smartmet-library-gis-devel >= 21.9.24
+#TestRequires: smartmet-library-gis-devel >= 22.5.4
 #TestRequires: boost169-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
@@ -75,6 +75,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Fri May 20 2022 Mika Heiskanen <mika.heiskanen@fmi.fi> - 22.5.20-1.fmi
+- Repackaged due to ABI changes to newbase LatLon methods
+
 * Wed Oct  6 2021 Mika Heiskanen <mika.heiskanen@fmi.fi> - 21.10.6-1.fmi
 - Used clang-tidy to modernize code
 
