@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 22.5.20
+Version: 22.5.24
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -16,14 +16,14 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 22.5.20
+BuildRequires: smartmet-library-newbase-devel >= 22.5.24
 BuildRequires: smartmet-library-macgyver-devel >= 22.3.28
 BuildRequires: smartmet-library-gis-devel >= 22.5.4
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 22.5.20
+Requires: smartmet-library-newbase >= 22.5.24
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
@@ -75,6 +75,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Tue May 24 2022 Mika Heiskanen <mika.heiskanen@fmi.fi> - 22.5.24-1.fmi
+- Repackaged due to NFmiArea ABI changes
+
 * Fri May 20 2022 Mika Heiskanen <mika.heiskanen@fmi.fi> - 22.5.20-1.fmi
 - Repackaged due to ABI changes to newbase LatLon methods
 
