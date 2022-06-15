@@ -12,25 +12,32 @@ Group: Development/Libraries
 URL: https://github.com/fmidev/smartmet-library-calculator
 Source0: %{name}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+%if 0%{?rhel} && 0%{rhel} < 9
+%define smartmet_boost boost169
+%else
+%define smartmet_boost boost
+%endif
+
 BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
-BuildRequires: boost169-devel
-BuildRequires: smartmet-library-newbase-devel >= 22.5.24
-BuildRequires: smartmet-library-macgyver-devel >= 22.3.28
-BuildRequires: smartmet-library-gis-devel >= 22.5.4
+BuildRequires: %{smartmet_boost}-devel
+BuildRequires: smartmet-library-newbase-devel >= 22.6.16
+BuildRequires: smartmet-library-macgyver-devel >= 22.6.16
+BuildRequires: smartmet-library-gis-devel >= 22.6.16
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 22.5.24
+Requires: smartmet-library-newbase >= 22.6.16
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
 #TestRequires: smartmet-library-newbase-devel
-#TestRequires: smartmet-library-gis-devel >= 22.5.4
-#TestRequires: boost169-devel
+#TestRequires: smartmet-library-gis-devel >= 22.6.16
+#TestRequires: %{smartmet_boost}-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
 
