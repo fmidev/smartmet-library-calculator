@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 22.6.16
+Version: 23.7.10
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Mon Jul 10 2023 Andris Pavēnis <andris.pavenis@fmi.fi> 23.7.10-1.fmi
+- Use postgresql 15, gdal 3.5, geos 3.11 and proj-9.0
+
 * Thu Jun 16 2022 Andris Pavēnis <andris.pavenis@fmi.fi> 22.6.16-1.fmi
 - Add support of HEL9, upgrade to libpqxx-7.7.0 (rhel8+) and fmt-8.1.1
 
