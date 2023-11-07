@@ -3,7 +3,7 @@
 #include <newbase/NFmiStaticTime.h>
 
 #include <boost/date_time/local_time/local_time.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>  //include all types plus i/o
+#include <macgyver/DateTime.h>  //include all types plus i/o
 #include <boost/date_time/time_zone_base.hpp>
 #include <string>  // std::string
 
@@ -12,7 +12,7 @@ class TextGenPosixTime
  public:
   TextGenPosixTime();
   TextGenPosixTime(time_t theTime);
-  TextGenPosixTime(const boost::posix_time::ptime& theTime);
+  TextGenPosixTime(const Fmi::DateTime& theTime);
   TextGenPosixTime(const TextGenPosixTime& theTime) = default;
   TextGenPosixTime(const NFmiStaticTime& theTime);
 
@@ -56,7 +56,7 @@ class TextGenPosixTime
   time_t EpochTime() const;
   short GetJulianDay() const;
   short GetWeekday() const;  // mon=1, tue=2,..., sat=6,  sun=7
-  const boost::posix_time::ptime& PosixTime() { return istPosixTime; }
+  const Fmi::DateTime& PosixTime() { return istPosixTime; }
   static TextGenPosixTime UtcTime(const TextGenPosixTime& localTime);
   static TextGenPosixTime LocalTime(const TextGenPosixTime& utcTime);
   // parameter isUtc tells whether theTime is in UTC or localtime:
@@ -70,7 +70,7 @@ class TextGenPosixTime
   static void ResetThreadTimeZone();
 
  private:
-  boost::posix_time::ptime istPosixTime;
+  Fmi::DateTime istPosixTime;
 
 };  // class TextGenPosixTime
 
