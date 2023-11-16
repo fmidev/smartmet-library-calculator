@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 23.7.28
+Version: 23.11.16
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Nov 16 2023 Andris Pavēnis <andris.pavenis@fmi.fi> 23.11.16-1.fmi
+- Repackage due to incorrect version value update in one of previous commits
+
 * Fri Jul 28 2023 Andris Pavēnis <andris.pavenis@fmi.fi> 23.7.28-1.fmi
 - Repackage due to bulk ABI changes in macgyver/newbase/spine
 
