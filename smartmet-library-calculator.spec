@@ -23,20 +23,20 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
-BuildRequires: smartmet-library-newbase-devel >= 23.7.28
-BuildRequires: smartmet-library-macgyver-devel >= 23.11.8
-BuildRequires: smartmet-library-gis-devel >= 23.7.10
+BuildRequires: smartmet-library-newbase-devel >= 24.1.30
+BuildRequires: smartmet-library-macgyver-devel >= 24.1.17
+BuildRequires: smartmet-library-gis-devel >= 24.1.3
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 23.7.28
+Requires: smartmet-library-newbase >= 24.1.30
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
-#TestRequires: smartmet-library-newbase-devel >= 23.7.28
-#TestRequires: smartmet-library-gis-devel >= 23.7.10
+#TestRequires: smartmet-library-newbase-devel >= 24.1.30
+#TestRequires: smartmet-library-gis-devel >= 24.1.3
 #TestRequires: %{smartmet_boost}-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
