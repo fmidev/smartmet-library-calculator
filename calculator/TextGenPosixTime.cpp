@@ -20,7 +20,7 @@ std::string& get_timezone_id() { return tls; }
 TextGenPosixTime::TextGenPosixTime() : istPosixTime(Fmi::SecondClock::local_time()) {}
 TextGenPosixTime::TextGenPosixTime(const Fmi::DateTime& theTime) : istPosixTime(theTime) {}
 
-TextGenPosixTime::TextGenPosixTime(std::time_t theTime) : istPosixTime(bp::from_time_t(theTime)) {}
+TextGenPosixTime::TextGenPosixTime(std::time_t theTime) : istPosixTime(Fmi::date_time::from_time_t(theTime)) {}
 
 TextGenPosixTime::TextGenPosixTime(const NFmiStaticTime& theTime)
     : istPosixTime(Fmi::Date(theTime.GetYear(), theTime.GetMonth(), theTime.GetDay()),
@@ -37,17 +37,14 @@ TextGenPosixTime::TextGenPosixTime(
     short year, short month, short day, short hour, short minute /*=0*/, short sec /*=0*/)
 {
   Fmi::TimeDuration td(hour, minute, sec, 0);
-  std::stringstream ss;
-  ss << year << "-" << month << "-" << day;
-  Fmi::Date d(bg::from_simple_string(ss.str()));
-
+  Fmi::Date d(year, month, day);
   istPosixTime = Fmi::DateTime(d, td);
 }
 
 void TextGenPosixTime::ChangeBySeconds(long sec) { istPosixTime += Fmi::Seconds(sec); }
 void TextGenPosixTime::ChangeByMinutes(long min) { istPosixTime += Fmi::Minutes(min); }
 void TextGenPosixTime::ChangeByHours(long hour) { istPosixTime += Fmi::Hours(hour); }
-void TextGenPosixTime::ChangeByDays(long day) { istPosixTime += bg::days(day); }
+void TextGenPosixTime::ChangeByDays(long day) { istPosixTime += Fmi::date_time::Days(day); }
 long TextGenPosixTime::DifferenceInMinutes(const TextGenPosixTime& anotherTime) const
 {
   Fmi::TimeDuration td(istPosixTime - anotherTime.istPosixTime);
@@ -199,36 +196,8 @@ short TextGenPosixTime::GetZoneDifferenceHour(const TextGenPosixTime& theTime, b
   std::string timeZoneId(get_timezone_id().empty() ? DEFAULT_TZ_ID : get_timezone_id());
   const Fmi::TimeZonePtr timeZone =
       Fmi::TimeZoneFactory::instance().time_zone_from_string(timeZoneId);
-
-  short dst_offset(timeZone->base_utc_offset().hours() + timeZone->dst_offset().hours());
-  short normal_time_offset(timeZone->base_utc_offset().hours());
-  Fmi::DateTime dst_local_start_time(timeZone->dst_local_start_time(theTime.GetYear()));
-  Fmi::DateTime dst_local_end_time(timeZone->dst_local_end_time(theTime.GetYear()));
-  bool dst_on = false;
-
-  // in the southern hemisphere dst is in wintertime
-  if (dst_local_start_time > dst_local_end_time)
-  {
-    if (isUtc)
-      dst_on = (theTime.istPosixTime + Fmi::Hours(dst_offset) >= dst_local_start_time ||
-                theTime.istPosixTime + Fmi::Hours(dst_offset) < dst_local_end_time);
-    else
-      dst_on = (theTime.istPosixTime >= dst_local_start_time ||
-                theTime.istPosixTime < dst_local_end_time);
-  }
-  else
-  {
-    if (isUtc)
-      dst_on = (theTime.istPosixTime + Fmi::Hours(dst_offset) >= dst_local_start_time &&
-                theTime.istPosixTime + Fmi::Hours(dst_offset) < dst_local_end_time);
-    else
-      dst_on = (theTime.istPosixTime >= dst_local_start_time &&
-                theTime.istPosixTime < dst_local_end_time);
-  }
-
-  if (dst_on) return dst_offset;
-
-  return normal_time_offset;
+  Fmi::LocalDateTime ldt(theTime.istPosixTime.date(), theTime.istPosixTime.time_of_day(), timeZone);
+  return ldt.offset().total_seconds() / 3600;
 }
 
 std::time_t TextGenPosixTime::EpochTime() const
@@ -240,7 +209,7 @@ std::time_t TextGenPosixTime::EpochTime() const
 
 short TextGenPosixTime::GetWeekday() const  // mon=1, tue=2,..., sat=6,  sun=7
 {
-  short retval = istPosixTime.date().day_of_week();
+  short retval = istPosixTime.date().day_of_week().iso_encoding();
 
   if (retval == 0) retval = 7;
 
