@@ -1,10 +1,9 @@
 #pragma once
 
 #include <newbase/NFmiStaticTime.h>
-
-#include <boost/date_time/local_time/local_time.hpp>
+//#include <boost/date_time/local_time/local_time.hpp>
 #include <macgyver/DateTime.h>  //include all types plus i/o
-#include <boost/date_time/time_zone_base.hpp>
+//#include <boost/date_time/time_zone_base.hpp>
 #include <string>  // std::string
 
 class TextGenPosixTime
@@ -68,6 +67,8 @@ class TextGenPosixTime
 
   static void SetThreadTimeZone(const std::string& theTimeZoneId = "");
   static void ResetThreadTimeZone();
+
+  inline const Fmi::DateTime& GetDateTime() const { return istPosixTime; }
 
  private:
   Fmi::DateTime istPosixTime;

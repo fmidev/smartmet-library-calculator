@@ -5,9 +5,6 @@
 #include <iostream>  // std::cout
 #include <sstream>   // std::stringstream
 
-namespace bg = boost::gregorian;
-namespace bp = boost::posix_time;
-
 // Used to be Europe/Helsinki, this is a more portable default
 #define DEFAULT_TZ_ID "UTC"
 
@@ -172,21 +169,20 @@ short TextGenPosixTime::GetSec() const { return istPosixTime.time_of_day().secon
 std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
 {
   std::stringstream ss;
-
   if ((kShortYear & theTimeMask) != 0)
-    ss << std::setw(2) << (GetYear() - (GetYear() < 2000 ? 1900 : 2000));
+    ss << Fmi::date_time::format_time("%y", istPosixTime);
   else if ((kLongYear & theTimeMask) != 0)
-    ss << std::setw(4) << GetYear();
+    ss << Fmi::date_time::format_time("%Y", istPosixTime);
 
-  if ((kMonth & theTimeMask) != 0) ss << std::setw(2) << std::setfill('0') << GetMonth();
+  if ((kMonth & theTimeMask) != 0) ss << Fmi::date_time::format_time("%m", istPosixTime);
 
-  if ((kDay & theTimeMask) != 0) ss << std::setw(2) << std::setfill('0') << GetDay();
+  if ((kDay & theTimeMask) != 0) ss << Fmi::date_time::format_time("%d", istPosixTime);
 
-  if ((kHour & theTimeMask) != 0) ss << std::setw(2) << std::setfill('0') << GetHour();
+  if ((kHour & theTimeMask) != 0) ss << Fmi::date_time::format_time("%H", istPosixTime);
 
-  if ((kMinute & theTimeMask) != 0) ss << std::setw(2) << std::setfill('0') << GetMin();
+  if ((kMinute & theTimeMask) != 0) ss << Fmi::date_time::format_time("%M", istPosixTime);
 
-  if ((kSecond & theTimeMask) != 0) ss << std::setw(2) << std::setfill('0') << GetSec();
+  if ((kSecond & theTimeMask) != 0) ss << Fmi::date_time::format_time("%S", istPosixTime);
 
   return ss.str();
 }
@@ -277,12 +273,15 @@ void TextGenPosixTime::SetThreadTimeZone(const std::string& theTimeZoneId /*= ""
 void TextGenPosixTime::ResetThreadTimeZone() { release_timezone_id(); }
 std::ostream& operator<<(std::ostream& os, const TextGenPosixTime& tgTime)
 {
+#if 1
+  os << Fmi::date_time::format_time("%d.%m.%y %H:%M:%S", tgTime.GetDateTime());
+#else
   os << std::setw(2) << std::setfill('0') << std::right << tgTime.GetDay() << "." << std::setw(2)
      << std::setfill('0') << std::right << tgTime.GetMonth() << "." << tgTime.GetYear() << " "
      << std::setw(2) << std::setfill('0') << std::right << tgTime.GetHour() << ":" << std::setw(2)
      << std::setfill('0') << std::right << tgTime.GetMin() << ":" << std::setw(2)
      << std::setfill('0') << std::right << tgTime.GetSec();
-
+#endif
   return os;
 }
 
