@@ -273,15 +273,7 @@ void TextGenPosixTime::SetThreadTimeZone(const std::string& theTimeZoneId /*= ""
 void TextGenPosixTime::ResetThreadTimeZone() { release_timezone_id(); }
 std::ostream& operator<<(std::ostream& os, const TextGenPosixTime& tgTime)
 {
-#if 1
   os << Fmi::date_time::format_time("%d.%m.%y %H:%M:%S", tgTime.GetDateTime());
-#else
-  os << std::setw(2) << std::setfill('0') << std::right << tgTime.GetDay() << "." << std::setw(2)
-     << std::setfill('0') << std::right << tgTime.GetMonth() << "." << tgTime.GetYear() << " "
-     << std::setw(2) << std::setfill('0') << std::right << tgTime.GetHour() << ":" << std::setw(2)
-     << std::setfill('0') << std::right << tgTime.GetMin() << ":" << std::setw(2)
-     << std::setfill('0') << std::right << tgTime.GetSec();
-#endif
   return os;
 }
 
