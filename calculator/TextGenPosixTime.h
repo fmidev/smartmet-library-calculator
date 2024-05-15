@@ -1,9 +1,7 @@
 #pragma once
 
 #include <newbase/NFmiStaticTime.h>
-//#include <boost/date_time/local_time/local_time.hpp>
 #include <macgyver/DateTime.h>  //include all types plus i/o
-//#include <boost/date_time/time_zone_base.hpp>
 #include <string>  // std::string
 
 class TextGenPosixTime
