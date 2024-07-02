@@ -96,14 +96,14 @@ class RegularMaskSource::Pimple
  *
  * \param theID The weather ID
  * \param theArea The weather area
- * \return boost::shared_ptr to mask or 0
+ * \return std::shared_ptr to mask or 0
  */
 // ----------------------------------------------------------------------
 
 RegularMaskSource::mask_type RegularMaskSource::Pimple::find(const WeatherId& theID,
                                                              const WeatherArea& theArea) const
 {
-  static boost::shared_ptr<NFmiIndexMask> dummy;
+  static std::shared_ptr<NFmiIndexMask> dummy;
 
   WeatherAreaAndID key(theID, theArea);
 
@@ -156,7 +156,7 @@ RegularMaskSource::mask_type RegularMaskSource::Pimple::create_mask(
   const NFmiSvgPath& svg = theArea.path();
   const float radius = theArea.radius();
 
-  boost::shared_ptr<NFmiQueryData> qdata = theWeatherSource.data(theData);
+  std::shared_ptr<NFmiQueryData> qdata = theWeatherSource.data(theData);
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(qdata.get());
   if (!qi.IsGrid())
     throw TextGenError("The data in " + theData + " is not gridded - cannot generate mask for it");

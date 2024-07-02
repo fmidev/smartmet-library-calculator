@@ -8,7 +8,7 @@
 #pragma once
 
 #include "WeatherSource.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace TextGen
 {
@@ -16,12 +16,12 @@ class LatestWeatherSource : public WeatherSource
 {
  public:
   LatestWeatherSource();
-  boost::shared_ptr<NFmiQueryData> data(const std::string& theName) const override;
+  std::shared_ptr<NFmiQueryData> data(const std::string& theName) const override;
   WeatherId id(const std::string& theName) const override;
 
  private:
   class Pimple;
-  boost::shared_ptr<Pimple> itsPimple;
+  std::shared_ptr<Pimple> itsPimple;
 
 };  // class LatestWeatherSource
 

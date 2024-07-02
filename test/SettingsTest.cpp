@@ -5,7 +5,7 @@
 #include "TextGenPosixTime.h"
 #include "WeatherResult.h"
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <iostream>
 #include <stdexcept>

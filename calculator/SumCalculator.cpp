@@ -67,7 +67,7 @@ float SumCalculator::operator()() const
 
 void SumCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -76,9 +76,9 @@ void SumCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> SumCalculator::clone() const
+std::shared_ptr<Calculator> SumCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new SumCalculator(*this));
+  return std::shared_ptr<Calculator>(new SumCalculator(*this));
 }
 
 // ----------------------------------------------------------------------
