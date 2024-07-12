@@ -87,7 +87,7 @@ float TrendCalculator::operator()() const
 
 void TrendCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -96,9 +96,9 @@ void TrendCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> TrendCalculator::clone() const
+std::shared_ptr<Calculator> TrendCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new TrendCalculator(*this));
+  return std::shared_ptr<Calculator>(new TrendCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

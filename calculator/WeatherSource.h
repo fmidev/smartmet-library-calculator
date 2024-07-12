@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <newbase/NFmiQueryData.h>
 #include <string>
 
@@ -21,7 +21,7 @@ class WeatherSource
 {
  public:
   virtual ~WeatherSource() = default;
-  virtual boost::shared_ptr<NFmiQueryData> data(const std::string& theName) const = 0;
+  virtual std::shared_ptr<NFmiQueryData> data(const std::string& theName) const = 0;
   virtual WeatherId id(const std::string& theName) const = 0;
 
 };  // class WeatherSource

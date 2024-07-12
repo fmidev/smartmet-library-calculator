@@ -8,7 +8,7 @@
 #pragma once
 
 #include "Calculator.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace TextGen
 {
@@ -20,14 +20,14 @@ class CountCalculator : public Calculator
   void operator()(float theValue) override;
   float operator()() const override;
   void acceptor(const Acceptor& theAcceptor) override;
-  boost::shared_ptr<Calculator> clone() const override;
+  std::shared_ptr<Calculator> clone() const override;
   void reset() override;
 
   void condition(const Acceptor& theCondition);
 
  private:
-  boost::shared_ptr<Acceptor> itsAcceptor;
-  boost::shared_ptr<Acceptor> itsCondition;
+  std::shared_ptr<Acceptor> itsAcceptor;
+  std::shared_ptr<Acceptor> itsCondition;
   long itsCounter{0};
   long itsTotalCounter{0};
 

@@ -12,7 +12,7 @@
 #include <newbase/NFmiPoint.h>
 #include <newbase/NFmiSvgPath.h>
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <string>
 
 namespace TextGen
@@ -101,7 +101,7 @@ class WeatherArea
   std::string itsName;
   NFmiPoint itsPoint;
   // By using shared pointers copying WeatherArea is much faster
-  boost::shared_ptr<NFmiSvgPath> itsPolygon;
+  std::shared_ptr<NFmiSvgPath> itsPolygon;
   float itsRadius;
 
   std::string itsSortKey;  // for sorting purposes only

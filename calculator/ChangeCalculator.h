@@ -9,7 +9,7 @@
 
 #include "Acceptor.h"
 #include "Calculator.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace TextGen
 {
@@ -21,11 +21,11 @@ class ChangeCalculator : public Calculator
   void operator()(float theValue) override;
   float operator()() const override;
   void acceptor(const Acceptor& theAcceptor) override;
-  boost::shared_ptr<Calculator> clone() const override;
+  std::shared_ptr<Calculator> clone() const override;
   void reset() override;
 
  private:
-  boost::shared_ptr<Acceptor> itsAcceptor;
+  std::shared_ptr<Acceptor> itsAcceptor;
 
   long itsCounter{0};
   float itsStartValue;

@@ -15,7 +15,7 @@
 #include "AnalysisSources.h"
 #include "MaskSource.h"
 #include "WeatherSource.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace TextGen
 {
@@ -27,7 +27,7 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<WeatherSource> AnalysisSources::getWeatherSource() const
+std::shared_ptr<WeatherSource> AnalysisSources::getWeatherSource() const
 {
   return itsWeatherSource;
 }
@@ -40,7 +40,7 @@ boost::shared_ptr<WeatherSource> AnalysisSources::getWeatherSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getMaskSource() const { return itsMaskSource; }
+std::shared_ptr<MaskSource> AnalysisSources::getMaskSource() const { return itsMaskSource; }
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the land mask source
@@ -49,7 +49,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getMaskSource() const { return it
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getLandMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getLandMaskSource() const
 {
   return itsLandMaskSource;
 }
@@ -62,7 +62,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getLandMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getCoastMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getCoastMaskSource() const
 {
   return itsCoastMaskSource;
 }
@@ -75,7 +75,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getCoastMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getInlandMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getInlandMaskSource() const
 {
   return itsInlandMaskSource;
 }
@@ -88,7 +88,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getInlandMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getNorthernMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getNorthernMaskSource() const
 {
   return itsNorthernMaskSource;
 }
@@ -101,7 +101,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getNorthernMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getSouthernMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getSouthernMaskSource() const
 {
   return itsSouthernMaskSource;
 }
@@ -114,7 +114,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getSouthernMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getEasternMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getEasternMaskSource() const
 {
   return itsEasternMaskSource;
 }
@@ -127,7 +127,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getEasternMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<MaskSource> AnalysisSources::getWesternMaskSource() const
+std::shared_ptr<MaskSource> AnalysisSources::getWesternMaskSource() const
 {
   return itsWesternMaskSource;
 }
@@ -140,7 +140,7 @@ boost::shared_ptr<MaskSource> AnalysisSources::getWesternMaskSource() const
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setWeatherSource(const boost::shared_ptr<WeatherSource>& theSource)
+void AnalysisSources::setWeatherSource(const std::shared_ptr<WeatherSource>& theSource)
 {
   itsWeatherSource = theSource;
 }
@@ -153,7 +153,7 @@ void AnalysisSources::setWeatherSource(const boost::shared_ptr<WeatherSource>& t
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsMaskSource = theSource;
 }
@@ -166,7 +166,7 @@ void AnalysisSources::setMaskSource(const boost::shared_ptr<MaskSource>& theSour
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setLandMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setLandMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsLandMaskSource = theSource;
 }
@@ -179,7 +179,7 @@ void AnalysisSources::setLandMaskSource(const boost::shared_ptr<MaskSource>& the
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setCoastMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setCoastMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsCoastMaskSource = theSource;
 }
@@ -192,7 +192,7 @@ void AnalysisSources::setCoastMaskSource(const boost::shared_ptr<MaskSource>& th
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setInlandMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setInlandMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsInlandMaskSource = theSource;
 }
@@ -205,7 +205,7 @@ void AnalysisSources::setInlandMaskSource(const boost::shared_ptr<MaskSource>& t
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setNorthernMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setNorthernMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsNorthernMaskSource = theSource;
 }
@@ -218,7 +218,7 @@ void AnalysisSources::setNorthernMaskSource(const boost::shared_ptr<MaskSource>&
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setSouthernMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setSouthernMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsSouthernMaskSource = theSource;
 }
@@ -231,7 +231,7 @@ void AnalysisSources::setSouthernMaskSource(const boost::shared_ptr<MaskSource>&
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setEasternMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setEasternMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsEasternMaskSource = theSource;
 }
@@ -244,7 +244,7 @@ void AnalysisSources::setEasternMaskSource(const boost::shared_ptr<MaskSource>& 
  */
 // ----------------------------------------------------------------------
 
-void AnalysisSources::setWesternMaskSource(const boost::shared_ptr<MaskSource>& theSource)
+void AnalysisSources::setWesternMaskSource(const std::shared_ptr<MaskSource>& theSource)
 {
   itsWesternMaskSource = theSource;
 }

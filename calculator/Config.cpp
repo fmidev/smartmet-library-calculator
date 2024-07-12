@@ -10,7 +10,7 @@
 #define BOOST_FILESYSTEM_NO_DEPRECATED
 #define BOOST_FILESYSTEM_VERSION 3
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 namespace Fmi
 {

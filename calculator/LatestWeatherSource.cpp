@@ -38,7 +38,7 @@ struct WeatherDataStruct
   std::time_t itsLastCheckTime = 0;
   std::string itsFilename;
   TextGen::WeatherId itsId = 0;
-  boost::shared_ptr<NFmiQueryData> itsData;
+  std::shared_ptr<NFmiQueryData> itsData;
 };
 
 namespace
@@ -115,7 +115,7 @@ LatestWeatherSource::LatestWeatherSource() : itsPimple(new Pimple) {}
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theName) const
+std::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theName) const
 {
   // Age limit for checking for new query data is 1 minute
   const int agelimit = 1 * 60;
@@ -153,7 +153,7 @@ boost::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& th
   if (it != itsPimple->itsData.end()) itsPimple->itsData.erase(it);
 
   // Read the new data
-  boost::shared_ptr<NFmiQueryData> qdata(new NFmiQueryData(filename));
+  std::shared_ptr<NFmiQueryData> qdata(new NFmiQueryData(filename));
 
   WeatherDataStruct newdata;
   newdata.itsId = IdGenerator::generate();

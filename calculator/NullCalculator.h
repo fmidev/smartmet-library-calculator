@@ -20,7 +20,7 @@ class NullCalculator : public Calculator
   void operator()(float theValue) override;
   float operator()() const override;
   void acceptor(const Acceptor& theAcceptor) override;
-  boost::shared_ptr<Calculator> clone() const override;
+  std::shared_ptr<Calculator> clone() const override;
   void reset() override;
 
 };  // class Calculator

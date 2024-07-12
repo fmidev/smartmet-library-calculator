@@ -8,7 +8,7 @@
 #pragma once
 
 #include "WeatherSource.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 class NFmiQueryData;
 
@@ -18,14 +18,14 @@ class UserWeatherSource : public WeatherSource
 {
  public:
   UserWeatherSource();
-  boost::shared_ptr<NFmiQueryData> data(const std::string& theName) const override;
+  std::shared_ptr<NFmiQueryData> data(const std::string& theName) const override;
   WeatherId id(const std::string& theName) const override;
 
-  void insert(const std::string& theName, const boost::shared_ptr<NFmiQueryData>& theData) const;
+  void insert(const std::string& theName, const std::shared_ptr<NFmiQueryData>& theData) const;
 
  private:
   class Pimple;
-  boost::shared_ptr<Pimple> itsPimple;
+  std::shared_ptr<Pimple> itsPimple;
 
 };  // class UserWeatherSource
 

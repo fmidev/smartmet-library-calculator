@@ -108,7 +108,7 @@ float ModMeanCalculator::operator()() const
 
 void ModMeanCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -117,9 +117,9 @@ void ModMeanCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> ModMeanCalculator::clone() const
+std::shared_ptr<Calculator> ModMeanCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new ModMeanCalculator(*this));
+  return std::shared_ptr<Calculator>(new ModMeanCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

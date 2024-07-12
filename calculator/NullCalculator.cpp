@@ -55,9 +55,9 @@ void NullCalculator::acceptor(const Acceptor& theAcceptor) {}
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> NullCalculator::clone() const
+std::shared_ptr<Calculator> NullCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new NullCalculator(*this));
+  return std::shared_ptr<Calculator>(new NullCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

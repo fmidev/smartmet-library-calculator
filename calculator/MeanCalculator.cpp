@@ -68,7 +68,7 @@ float MeanCalculator::operator()() const
 
 void MeanCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -77,9 +77,9 @@ void MeanCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> MeanCalculator::clone() const
+std::shared_ptr<Calculator> MeanCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new MeanCalculator(*this));
+  return std::shared_ptr<Calculator>(new MeanCalculator(*this));
 }
 
 // ----------------------------------------------------------------------
