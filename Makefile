@@ -12,8 +12,7 @@ DEFINES = -DUNIX -D_REENTRANT -DFMI_COMPRESSION -DBOOST -DBOOST_IOSTREAMS_NO_LIB
 INCLUDES += \
 	-isystem $(includedir)/smartmet/newbase
 
-LIBS += -L$(libdir) \
-	-lsmartmet-newbase \
+LIBS += -lsmartmet-newbase \
 	-lsmartmet-macgyver
 
 # What to install
