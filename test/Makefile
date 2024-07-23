@@ -20,6 +20,7 @@ INCLUDES += \
 
 LIBS += \
 	../libsmartmet-calculator.so \
+	$(PREFIX_LDFLAGS) \
 	-lsmartmet-newbase \
 	-lsmartmet-macgyver \
 	-lboost_iostreams \
