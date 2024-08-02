@@ -22,7 +22,7 @@ using namespace TextGen::QueryDataIntegrator;
 
 namespace QueryDataIntegratorTest
 {
-boost::shared_ptr<NFmiQueryData> theQD;
+std::shared_ptr<NFmiQueryData> theQD;
 const NFmiGrid* theGrid;
 
 NFmiSvgPath theArea;

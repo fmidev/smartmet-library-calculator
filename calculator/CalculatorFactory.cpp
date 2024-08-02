@@ -155,13 +155,13 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
       return create(theFunction);
     case Percentage:
     {
-      auto tmp = boost::movelib::make_unique<PercentageCalculator>();
+      auto tmp = std::make_unique<PercentageCalculator>();
       tmp->condition(theTester);
       return tmp.release();
     }
     case Count:
     {
-      auto tmp = boost::movelib::make_unique<CountCalculator>();
+      auto tmp = std::make_unique<CountCalculator>();
       tmp->condition(theTester);
       return tmp.release();
     }
@@ -200,13 +200,13 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
       return create(theFunction, theModulo);
     case Percentage:
     {
-      auto tmp = boost::movelib::make_unique<PercentageCalculator>();
+      auto tmp = std::make_unique<PercentageCalculator>();
       tmp->condition(theTester);
       return tmp.release();
     }
     case Count:
     {
-      auto tmp = boost::movelib::make_unique<CountCalculator>();
+      auto tmp = std::make_unique<CountCalculator>();
       tmp->condition(theTester);
       return tmp.release();
     }

@@ -23,7 +23,7 @@
 #include "WeatherPeriod.h"
 #include "WeatherResult.h"
 #include "WeatherSource.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
 #include <newbase/NFmiFastQueryInfo.h>
@@ -149,8 +149,8 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   // Get the data into use
 
-  boost::shared_ptr<WeatherSource> wsource = theSources.getWeatherSource();
-  boost::shared_ptr<NFmiQueryData> qd = wsource->data(dataname);
+  std::shared_ptr<WeatherSource> wsource = theSources.getWeatherSource();
+  std::shared_ptr<NFmiQueryData> qd = wsource->data(dataname);
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(qd.get());
 
   // Try activating the parameter
@@ -163,7 +163,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   // Handle points and areas separately
 
-  boost::shared_ptr<Calculator> spacemod, timemod, subtimemod;
+  std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
 
   if (!itIsModulo)
   {

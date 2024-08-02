@@ -14,7 +14,7 @@
  *
  * For example,
  * \code
- * boost::shared_ptr<ParameterAnalyzer> analyzer(ParameterAnalyzerFactory::create(Temperature));
+ * std::shared_ptr<ParameterAnalyzer> analyzer(ParameterAnalyzerFactory::create(Temperature));
  * \endcode
  *
  */

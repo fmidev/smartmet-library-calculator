@@ -111,9 +111,9 @@ void PercentageCalculator::condition(const Acceptor& theCondition)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> PercentageCalculator::clone() const
+std::shared_ptr<Calculator> PercentageCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new PercentageCalculator(*this));
+  return std::shared_ptr<Calculator>(new PercentageCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

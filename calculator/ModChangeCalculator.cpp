@@ -85,7 +85,7 @@ float ModChangeCalculator::operator()() const
 
 void ModChangeCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -94,9 +94,9 @@ void ModChangeCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> ModChangeCalculator::clone() const
+std::shared_ptr<Calculator> ModChangeCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new ModChangeCalculator(*this));
+  return std::shared_ptr<Calculator>(new ModChangeCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

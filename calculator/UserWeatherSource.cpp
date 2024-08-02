@@ -35,7 +35,7 @@ namespace TextGen
 class UserWeatherSource::Pimple
 {
  public:
-  using container_type = std::map<std::string, boost::shared_ptr<NFmiQueryData> >;
+  using container_type = std::map<std::string, std::shared_ptr<NFmiQueryData> >;
   container_type itsData;
 
   using id_container_type = std::map<std::string, WeatherId>;
@@ -60,7 +60,7 @@ UserWeatherSource::UserWeatherSource() : itsPimple(new Pimple) {}
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theName) const
+std::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theName) const
 {
   // See if we have a stored result
   using const_iterator = Pimple::container_type::const_iterator;
@@ -101,7 +101,7 @@ WeatherId UserWeatherSource::id(const std::string& theName) const
 // ----------------------------------------------------------------------
 
 void UserWeatherSource::insert(const std::string& theName,
-                               const boost::shared_ptr<NFmiQueryData>& theData) const
+                               const std::shared_ptr<NFmiQueryData>& theData) const
 {
   {
     using value_type = Pimple::container_type::value_type;

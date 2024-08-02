@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <string>
 
 class NFmiIndexMask;
@@ -23,8 +23,8 @@ class WeatherSource;
 class MaskSource
 {
  public:
-  using mask_type = boost::shared_ptr<NFmiIndexMask>;
-  using masks_type = boost::shared_ptr<NFmiIndexMaskSource>;
+  using mask_type = std::shared_ptr<NFmiIndexMask>;
+  using masks_type = std::shared_ptr<NFmiIndexMaskSource>;
 
   virtual ~MaskSource() = default;
   virtual mask_type mask(const WeatherArea& theArea,

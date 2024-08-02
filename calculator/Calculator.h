@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace TextGen
 {
@@ -21,7 +21,7 @@ class Calculator
   virtual void operator()(float theValue) = 0;
   virtual float operator()() const = 0;
   virtual void acceptor(const Acceptor& theAcceptor) = 0;
-  virtual boost::shared_ptr<Calculator> clone() const = 0;
+  virtual std::shared_ptr<Calculator> clone() const = 0;
   virtual void reset() = 0;
 
 };  // class Calculator

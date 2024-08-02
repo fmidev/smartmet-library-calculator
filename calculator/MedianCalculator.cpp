@@ -73,7 +73,7 @@ float MedianCalculator::operator()() const
 
 void MedianCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -82,9 +82,9 @@ void MedianCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> MedianCalculator::clone() const
+std::shared_ptr<Calculator> MedianCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new MedianCalculator(*this));
+  return std::shared_ptr<Calculator>(new MedianCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

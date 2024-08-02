@@ -24,7 +24,7 @@
 #include "WeatherResult.h"
 #include "WeatherSource.h"
 #include "WindChillQueryInfo.h"
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
 #include <newbase/NFmiQueryData.h>
@@ -123,8 +123,8 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
 
   // Get the data into use
 
-  boost::shared_ptr<WeatherSource> wsource = theSources.getWeatherSource();
-  boost::shared_ptr<NFmiQueryData> qd = wsource->data(dataname);
+  std::shared_ptr<WeatherSource> wsource = theSources.getWeatherSource();
+  std::shared_ptr<NFmiQueryData> qd = wsource->data(dataname);
 
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(qd.get());
   WindChillQueryInfo wi(qi);
@@ -142,7 +142,7 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
   throw TextGenError(theParameterName+" is not available in "+dataname);
   */
 
-  boost::shared_ptr<Calculator> spacemod, timemod, subtimemod;
+  std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
 
   if (!itIsModulo)
   {

@@ -74,7 +74,7 @@ float CountCalculator::operator()() const
 
 void CountCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -87,7 +87,7 @@ void CountCalculator::acceptor(const Acceptor& theAcceptor)
 
 void CountCalculator::condition(const Acceptor& theCondition)
 {
-  itsCondition = boost::shared_ptr<Acceptor>(theCondition.clone());
+  itsCondition = std::shared_ptr<Acceptor>(theCondition.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -96,9 +96,9 @@ void CountCalculator::condition(const Acceptor& theCondition)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> CountCalculator::clone() const
+std::shared_ptr<Calculator> CountCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new CountCalculator(*this));
+  return std::shared_ptr<Calculator>(new CountCalculator(*this));
 }
 
 // ----------------------------------------------------------------------

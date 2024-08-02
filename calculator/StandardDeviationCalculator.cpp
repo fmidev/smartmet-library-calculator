@@ -82,7 +82,7 @@ float StandardDeviationCalculator::operator()() const
 
 void StandardDeviationCalculator::acceptor(const Acceptor& theAcceptor)
 {
-  itsAcceptor = boost::shared_ptr<Acceptor>(theAcceptor.clone());
+  itsAcceptor = std::shared_ptr<Acceptor>(theAcceptor.clone());
 }
 
 // ----------------------------------------------------------------------
@@ -91,9 +91,9 @@ void StandardDeviationCalculator::acceptor(const Acceptor& theAcceptor)
  */
 // ----------------------------------------------------------------------
 
-boost::shared_ptr<Calculator> StandardDeviationCalculator::clone() const
+std::shared_ptr<Calculator> StandardDeviationCalculator::clone() const
 {
-  return boost::shared_ptr<Calculator>(new StandardDeviationCalculator(*this));
+  return std::shared_ptr<Calculator>(new StandardDeviationCalculator(*this));
 }
 
 // ----------------------------------------------------------------------
