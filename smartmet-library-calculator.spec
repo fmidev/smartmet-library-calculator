@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.2.18
+Version: 25.3.7
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Fri Mar  7 2025 Andris Pavēnis <andris.pavenis@fmi.fi> 25.3.7-1.fmi
+- Use Fmi::Exception instead of own exception class
+
 * Tue Feb 18 2025 Andris Pavēnis <andris.pavenis@fmi.fi> 25.2.18-1.fmi
 - Update to gdal-3.10, geos-3.13 and proj-9.5
 
