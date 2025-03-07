@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 24.2.23
+Version: 25.3.5
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Mar  5 2025 Pertti Kinnia <pertti.kinnia@fmi.fi> 25.3.5-1.fmi
+- Hotfix; return MissingValue for HourlyMaximumWindSpeed since it's been removed from querydata
+
 * Fri Feb 23 2024 Mika Heiskanen <mika.heiskanen@fmi.fi> 24.2.23-1.fmi
 - Full repackaging
 

@@ -159,7 +159,13 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
   if (param == kFmiBadParameter)
     throw TextGenError("Parameter " + paramname + " is not defined in newbase");
 
-  if (!qi.Param(param)) throw TextGenError(paramname + " is not available in " + dataname);
+  if (!qi.Param(param))
+  {
+    if (paramname != "HourlyMaximumWindSpeed")
+      throw TextGenError(paramname + " is not available in " + dataname);
+
+    return WeatherResult(kFloatMissing, 0);
+  }
 
   // Handle points and areas separately
 
