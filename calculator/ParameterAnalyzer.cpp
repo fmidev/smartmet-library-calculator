@@ -13,7 +13,7 @@
 // ======================================================================
 
 #include "ParameterAnalyzer.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 
 namespace TextGen
 {
@@ -340,7 +340,7 @@ const char* getDataTypeName(const TextGen::WeatherDataType& theDataType)
       return "climatology";
   }
 
-  throw TextGenError("Unrecognized WeatherDataType in ParameterAnalyzer::getDataTypeName");
+  throw Fmi::Exception(BCP, "Unrecognized WeatherDataType in ParameterAnalyzer::getDataTypeName");
 }
 
 }  // namespace TextGen

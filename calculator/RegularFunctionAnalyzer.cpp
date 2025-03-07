@@ -18,7 +18,7 @@
 #include "MaskSource.h"
 #include "QueryDataIntegrator.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include "WeatherArea.h"
 #include "WeatherPeriod.h"
 #include "WeatherResult.h"
@@ -60,7 +60,7 @@ const char* data_type_name(const TextGen::WeatherDataType& theDataType)
       return "climatology";
   }
 
-  throw TextGen::TextGenError("Unrecognized WeatherDataType");
+  throw Fmi::Exception(BCP, "Unrecognized WeatherDataType");
 }
 
 namespace TextGen
@@ -99,7 +99,7 @@ RegularFunctionAnalyzer::RegularFunctionAnalyzer(const WeatherFunction& theAreaF
 void RegularFunctionAnalyzer::modulo(int theModulo)
 {
   if (theModulo <= 0)
-    throw TextGenError("Trying to analyze data modulo " + Fmi::to_string(theModulo));
+    throw Fmi::Exception(BCP, "Trying to analyze data modulo " + Fmi::to_string(theModulo));
   itsModulo = theModulo;
   itIsModulo = true;
 }
@@ -157,9 +157,9 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   auto param = FmiParameterName(converter.ToEnum(paramname));
   if (param == kFmiBadParameter)
-    throw TextGenError("Parameter " + paramname + " is not defined in newbase");
+    throw Fmi::Exception(BCP, "Parameter " + paramname + " is not defined in newbase");
 
-  if (!qi.Param(param)) throw TextGenError(paramname + " is not available in " + dataname);
+  if (!qi.Param(param)) throw Fmi::Exception(BCP, paramname + " is not available in " + dataname);
 
   // Handle points and areas separately
 
@@ -249,7 +249,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
         << ')';
     if (theArea.isNamed()) msg << " named " << theArea.name();
     msg << " in " << dataname;
-    throw TextGenError(msg.str());
+    throw Fmi::Exception(BCP, msg.str());
   }
 
   float result =

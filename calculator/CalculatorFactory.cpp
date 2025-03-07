@@ -28,7 +28,7 @@
 #include "RangeAcceptor.h"
 #include "StandardDeviationCalculator.h"
 #include "SumCalculator.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include "TrendCalculator.h"
 #include <boost/move/make_unique.hpp>
 #include <macgyver/StringConversion.h>
@@ -77,7 +77,7 @@ Calculator* create(WeatherFunction theFunction)
       return new StandardDeviationCalculator;
   }
 
-  throw TextGenError("CalculatorFactory failed to recognize the given function" +
+  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
                      Fmi::to_string(static_cast<int>(theFunction)));
 }
 
@@ -114,16 +114,16 @@ Calculator* create(WeatherFunction theFunction, int theModulo)
       return new NullCalculator;
 
     case Median:
-      throw TextGenError("CalculatorFactory cannot create modular Median analyzer");
+      throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Median analyzer");
     case Maximum:
-      throw TextGenError("CalculatorFactory cannot create modular Maximum analyzer");
+      throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Maximum analyzer");
     case Minimum:
-      throw TextGenError("CalculatorFactory cannot create modular Minimum analyzer");
+      throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Minimum analyzer");
     case Sum:
-      throw TextGenError("CalculatorFactory cannot create modular Sum analyzer");
+      throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Sum analyzer");
   }
 
-  throw TextGenError("CalculatorFactory failed to recognize the given function" +
+  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
                      Fmi::to_string(static_cast<int>(theFunction)));
 }
 
@@ -167,7 +167,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
     }
   }
 
-  throw TextGenError("CalculatorFactory failed to recognize the given function" +
+  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
                      Fmi::to_string(static_cast<int>(theFunction)));
 }
 
@@ -212,7 +212,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
     }
   }
 
-  throw TextGenError("CalculatorFactory failed to recognize the given function" +
+  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
                      Fmi::to_string(static_cast<int>(theFunction)));
 }
 

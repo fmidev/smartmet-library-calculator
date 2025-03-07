@@ -23,7 +23,7 @@
 #include "ParameterAnalyzerFactory.h"
 #include "ModuloParameterAnalyzer.h"
 #include "RegularParameterAnalyzer.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include "WindChillParameterAnalyzer.h"
 
 namespace TextGen
@@ -176,7 +176,7 @@ ParameterAnalyzer* create(WeatherParameter theParameter)
 
   // Should never reach this place
 
-  throw TextGenError(
+  throw Fmi::Exception(BCP, 
       "Error: ParameterAnalyzerFactory does not recognize given parameter enumeration");
 }
 

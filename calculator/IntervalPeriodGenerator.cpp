@@ -18,7 +18,7 @@
 
 #include "IntervalPeriodGenerator.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 
 namespace TextGen
 {
@@ -89,15 +89,15 @@ bool IntervalPeriodGenerator::undivided() const { return false; }
 void IntervalPeriodGenerator::init()
 {
   if ((itsInterval != 0) && (24 % itsInterval != 0 && itsInterval % 24 != 0))
-    throw TextGenError(
+    throw Fmi::Exception(BCP, 
         "IntervalPeriodGenerator: Interval must divide 24 evenly or be divisible by 24");
   if (itsInterval < 0)
-    throw TextGenError("IntervalPeriodGenerator: Interval length must be positive");
+    throw Fmi::Exception(BCP, "IntervalPeriodGenerator: Interval length must be positive");
 
   if (itsMinimumInterval < 0)
-    throw TextGenError("IntervalPeriodGenerator: Minimum interval must be positive");
+    throw Fmi::Exception(BCP, "IntervalPeriodGenerator: Minimum interval must be positive");
   if (itsMinimumInterval > itsInterval)
-    throw TextGenError(
+    throw Fmi::Exception(BCP, 
         "IntervalPeriodGenerator: Minimum interval must be in range 1-interval or be zero");
 
   // Now we can generate the periods in advance
@@ -162,7 +162,7 @@ WeatherPeriod IntervalPeriodGenerator::period() const
 
 // ----------------------------------------------------------------------
 /*!
- * \brief Return the desired subperiod
+ *ï¿½\brief Return the desired subperiod
  *
  * Throws if there is no such subperiod
  *
@@ -174,7 +174,7 @@ WeatherPeriod IntervalPeriodGenerator::period() const
 WeatherPeriod IntervalPeriodGenerator::period(size_type thePeriod) const
 {
   if (thePeriod < 1 || thePeriod > itsPeriods.size())
-    throw TextGen::TextGenError("IntervalPeriodGenerator::period(): invalid argument");
+    throw Fmi::Exception(BCP, "IntervalPeriodGenerator::period(): invalid argument");
   return itsPeriods[thePeriod - 1];
 }
 

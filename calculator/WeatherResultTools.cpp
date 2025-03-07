@@ -14,7 +14,7 @@
 #include "WeatherResultTools.h"
 #include "MathTools.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 
 #include <newbase/NFmiGlobals.h>
 #include <cmath>
@@ -448,7 +448,7 @@ void checkMissingValue(const std::string& theStoryName,
       break;
   }
 
-  throw TextGenError("Error in '" + theStoryName + "' story: " + parameter +
+  throw Fmi::Exception(BCP, "Error in '" + theStoryName + "' story: " + parameter +
                      " value missing, cannot continue!");
 }
 

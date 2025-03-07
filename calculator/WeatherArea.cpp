@@ -68,7 +68,7 @@
 #include "WeatherArea.h"
 #include "LocationSource.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include <newbase/NFmiFileSystem.h>
 #include <newbase/NFmiStringTools.h>
 #include <fstream>
@@ -178,7 +178,7 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, float theRadius)
       itsLongitude(180.0),
       itsBooleanParameters(0x0)
 {
-  if (theRadius < 0) throw TextGenError("A weather point cannot have a negative expansion radius");
+  if (theRadius < 0) throw Fmi::Exception(BCP, "A weather point cannot have a negative expansion radius");
   if (theRadius > 0) make_point_path(*itsPolygon, thePoint);
   set_boolean_parameters();
 }
@@ -210,7 +210,7 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, const std::string& theName, 
       itsLongitude(180.0),
       itsBooleanParameters(0x0)
 {
-  if (theRadius < 0) throw TextGenError("A weather point cannot have a negative expansion radius");
+  if (theRadius < 0) throw Fmi::Exception(BCP, "A weather point cannot have a negative expansion radius");
   if (theRadius > 0) make_point_path(*itsPolygon, thePoint);
   set_boolean_parameters();
 }
@@ -275,7 +275,7 @@ bool WeatherArea::isNamed() const { return itsNamedFlag; }
 const std::string& WeatherArea::name() const
 {
   if (itsNamedFlag) return itsName;
-  throw TextGenError("Trying to access name of unnamed weather area");
+  throw Fmi::Exception(BCP, "Trying to access name of unnamed weather area");
 }
 
 // ----------------------------------------------------------------------
@@ -289,7 +289,7 @@ const std::string& WeatherArea::name() const
 const NFmiPoint& WeatherArea::point() const
 {
   if (itsPointFlag) return itsPoint;
-  throw TextGenError("Trying to access coordinate of polygonal weather area");
+  throw Fmi::Exception(BCP, "Trying to access coordinate of polygonal weather area");
 }
 
 // ----------------------------------------------------------------------
@@ -302,9 +302,9 @@ const NFmiPoint& WeatherArea::point() const
 
 const NFmiSvgPath& WeatherArea::path() const
 {
-  if (itsPointFlag) throw TextGenError("Trying to access path of a point");
+  if (itsPointFlag) throw Fmi::Exception(BCP, "Trying to access path of a point");
   if (itsPolygon.get() == nullptr)
-    throw TextGenError("Internal polygon allocation error in WeatherArea");
+    throw Fmi::Exception(BCP, "Internal polygon allocation error in WeatherArea");
   return *itsPolygon;
 }
 
@@ -354,11 +354,11 @@ void WeatherArea::type(Type theType) { itsType = theType; }
 void WeatherArea::parse_specs(const std::string& theSpecs)
 {
   if (theSpecs.empty())
-    throw TextGenError("Trying to construct WeatherArea from empty string description");
+    throw Fmi::Exception(BCP, "Trying to construct WeatherArea from empty string description");
 
   std::vector<std::string> words = NFmiStringTools::Split(theSpecs, ":");
   if (words.size() > 2)
-    throw TextGenError("Too many ':' characters in WeatherArea specification '" + theSpecs + "'");
+    throw Fmi::Exception(BCP, "Too many ':' characters in WeatherArea specification '" + theSpecs + "'");
 
   // Parse the radius part
 
@@ -370,7 +370,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
     }
     catch (...)
     {
-      throw TextGenError("Expecting a valid radius after the ':' character in WeatherArea '" +
+      throw Fmi::Exception(BCP, "Expecting a valid radius after the ':' character in WeatherArea '" +
                          theSpecs + "'");
     }
   }
@@ -400,19 +400,19 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
     itsPointFlag = false;
 
     std::ifstream in(filename.c_str(), std::ios::in);
-    if (!in) throw TextGenError("Could not open map file '" + filename + "' for reading");
+    if (!in) throw Fmi::Exception(BCP, "Could not open map file '" + filename + "' for reading");
     in >> *itsPolygon;
     in.close();
 
     if (itsPolygon->empty())
-      throw TextGenError("Map file '" + filename + "' does not contain an acceptable SVG path");
+      throw Fmi::Exception(BCP, "Map file '" + filename + "' does not contain an acceptable SVG path");
     return;
   }
 
   // Not a polygon - must be pointlike then
 
   if (itsRadius < 0)
-    throw TextGenError("Location '" + spec + "' cannot have negative expansion radius");
+    throw Fmi::Exception(BCP, "Location '" + spec + "' cannot have negative expansion radius");
 
   if (LocationSource::instance().hasCoordinates(spec))
   {
@@ -427,7 +427,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
     }
     catch (...)
     {
-      throw TextGenError("Location '" + spec + "' has no known coordinates");
+      throw Fmi::Exception(BCP, "Location '" + spec + "' has no known coordinates");
     }
   }
 

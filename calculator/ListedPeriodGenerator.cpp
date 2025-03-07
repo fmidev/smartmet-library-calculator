@@ -16,7 +16,7 @@
 
 #include "ListedPeriodGenerator.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 
 namespace TextGen
 {
@@ -69,7 +69,7 @@ ListedPeriodGenerator::size_type ListedPeriodGenerator::size() const { return it
 WeatherPeriod ListedPeriodGenerator::period() const { return itsMainPeriod; }
 // ----------------------------------------------------------------------
 /*!
- * \brief Return the desired subperiod
+ *ï¿½\brief Return the desired subperiod
  *
  * Throws if there is no such subperiod
  *
@@ -81,7 +81,7 @@ WeatherPeriod ListedPeriodGenerator::period() const { return itsMainPeriod; }
 WeatherPeriod ListedPeriodGenerator::period(size_type thePeriod) const
 {
   if (thePeriod < 1 || thePeriod > itsPeriods.size())
-    throw TextGen::TextGenError("ListedPeriodGenerator::period(): invalid argument");
+    throw Fmi::Exception(BCP, "ListedPeriodGenerator::period(): invalid argument");
   return itsPeriods[thePeriod - 1];
 }
 

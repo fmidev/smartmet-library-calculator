@@ -19,7 +19,7 @@
 // muuten MSVC:ss‰ min max m‰‰rittelyt jo tehty
 
 #include "WeatherPeriodTools.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include "TextGenPosixTime.h"
 #include "WeatherPeriod.h"
 #include <macgyver/StringConversion.h>
@@ -166,7 +166,7 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
   const std::string msg =
       "WeatherPeriodTools: Cannot extract subperiod " + Fmi::to_string(theNumber);
 
-  if (theNumber <= 0) throw TextGenError(msg);
+  if (theNumber <= 0) throw Fmi::Exception(BCP, msg);
 
   TextGenPosixTime start(thePeriod.localStartTime());
   start.ChangeByDays(-1);
@@ -204,7 +204,7 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
       }
   }
 
-  throw TextGenError(msg);
+  throw Fmi::Exception(BCP, msg);
 }
 }  // namespace WeatherPeriodTools
 }  // namespace TextGen

@@ -19,7 +19,7 @@
 
 #include "UserWeatherSource.h"
 #include "IdGenerator.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include <newbase/NFmiQueryData.h>
 #include <cassert>
 #include <map>
@@ -66,7 +66,7 @@ std::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theNam
   using const_iterator = Pimple::container_type::const_iterator;
   const_iterator it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
-    throw TextGenError("No data named " + theName + " stored in UserWeatherSource");
+    throw Fmi::Exception(BCP, "No data named " + theName + " stored in UserWeatherSource");
 
   return it->second;
 }
@@ -86,7 +86,7 @@ WeatherId UserWeatherSource::id(const std::string& theName) const
   using const_iterator = Pimple::id_container_type::const_iterator;
   const_iterator it = itsPimple->itsIdData.find(theName);
   if (it == itsPimple->itsIdData.end())
-    throw TextGenError("No data named " + theName + " stored in UserWeatherSource");
+    throw Fmi::Exception(BCP, "No data named " + theName + " stored in UserWeatherSource");
 
   return it->second;
 }

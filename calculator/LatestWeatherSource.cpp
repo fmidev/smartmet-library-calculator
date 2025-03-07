@@ -18,7 +18,7 @@
 #include "LatestWeatherSource.h"
 #include "IdGenerator.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 
 #include <newbase/NFmiFileSystem.h>
 #include <newbase/NFmiQueryData.h>
@@ -56,7 +56,7 @@ namespace
 
 std::string complete_filename(const std::string& theName)
 {
-  if (theName.empty()) throw TextGen::TextGenError("Trying to search unnamed querydata");
+  if (theName.empty()) throw Fmi::Exception(BCP, "Trying to search unnamed querydata");
 
   const std::string varname = "textgen::" + theName;
   const std::string queryname = Settings::optional_string(varname, theName);
@@ -64,12 +64,12 @@ std::string complete_filename(const std::string& theName)
   if (NFmiFileSystem::FileExists(queryname)) return queryname;
 
   if (!NFmiFileSystem::DirectoryExists(queryname))
-    throw TextGen::TextGenError("No directory named '" + queryname +
+    throw Fmi::Exception(BCP, "No directory named '" + queryname +
                                 "' containing querydata found");
 
   std::string newestfile = NFmiFileSystem::NewestFile(queryname);
   if (newestfile.empty())
-    throw TextGen::TextGenError("Directory '" + queryname + "' does not contain any querydata");
+    throw Fmi::Exception(BCP, "Directory '" + queryname + "' does not contain any querydata");
 
   std::string fullname = queryname;
   const char lastchar = fullname[fullname.size() - 1];
@@ -184,7 +184,7 @@ WeatherId LatestWeatherSource::id(const std::string& theName) const
   using const_iterator = Pimple::container_type::const_iterator;
   const_iterator it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
-    throw TextGenError("No data named " + theName + " stored in LatestWeatherSource");
+    throw Fmi::Exception(BCP, "No data named " + theName + " stored in LatestWeatherSource");
 
   return it->second.itsId;
 }

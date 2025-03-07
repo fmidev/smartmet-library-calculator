@@ -18,7 +18,7 @@
 #include "MaskSource.h"
 #include "QueryDataIntegrator.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include "WeatherArea.h"
 #include "WeatherPeriod.h"
 #include "WeatherResult.h"
@@ -74,7 +74,7 @@ WindChillFunctionAnalyzer::WindChillFunctionAnalyzer(const WeatherFunction& theA
 void WindChillFunctionAnalyzer::modulo(int theModulo)
 {
   if (theModulo <= 0)
-    throw TextGenError("Trying to analyze data modulo " + Fmi::to_string(theModulo));
+    throw Fmi::Exception(BCP, "Trying to analyze data modulo " + Fmi::to_string(theModulo));
   itsModulo = theModulo;
   itIsModulo = true;
 }
@@ -136,10 +136,10 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
   // it is composed of wind speed and temperature
   FmiParameterName param = FmiParameterName(converter.ToEnum(theParameterName));
   if(param == kFmiBadParameter)
-  throw TextGenError("Parameter "+theParameterName+" is not defined in newbase");
+  throw Fmi::Exception(BCP, "Parameter "+theParameterName+" is not defined in newbase");
 
   if(!qi.Param(param))
-  throw TextGenError(theParameterName+" is not available in "+dataname);
+  throw Fmi::Exception(BCP, theParameterName+" is not available in "+dataname);
   */
 
   std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
@@ -227,7 +227,7 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
         << ')';
     if (theArea.isNamed()) msg << " named " << theArea.name();
     msg << " in " << dataname;
-    throw TextGenError(msg.str());
+    throw Fmi::Exception(BCP, msg.str());
   }
 
   float result = QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod);

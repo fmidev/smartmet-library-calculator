@@ -23,7 +23,7 @@
 
 #include "LocationSource.h"
 #include "Settings.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include <newbase/NFmiLocationFinder.h>
 #include <newbase/NFmiPoint.h>
 
@@ -66,7 +66,7 @@ LocationSource::Pimple::Pimple() : itsLastSuccesfulPoint(kFloatMissing, kFloatMi
 bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) const
 {
   if (theLocation.empty())
-    throw TextGenError("Cannot request coordinates for an empty location name");
+    throw Fmi::Exception(BCP, "Cannot request coordinates for an empty location name");
 
   if (theLocation == itsLastSuccesfulName) return true;
 
@@ -96,7 +96,7 @@ const NFmiPoint LocationSource::Pimple::coordinates(const std::string& theLocati
 {
   if (hasCoordinates(theLocation)) return itsLastSuccesfulPoint;
 
-  throw TextGenError("Cannot request coordinates for unknown location '" + theLocation + "'");
+  throw Fmi::Exception(BCP, "Cannot request coordinates for unknown location '" + theLocation + "'");
 }
 
 // ----------------------------------------------------------------------

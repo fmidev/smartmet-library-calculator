@@ -14,7 +14,7 @@
 
 #include "NullCalculator.h"
 #include "DefaultAcceptor.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 
 namespace TextGen
 {
@@ -37,7 +37,7 @@ void NullCalculator::operator()(float theValue) {}
 
 float NullCalculator::operator()() const
 {
-  throw TextGenError("NullCalculator should never be asked for a result");
+  throw Fmi::Exception(BCP, "NullCalculator should never be asked for a result");
 }
 
 // ----------------------------------------------------------------------

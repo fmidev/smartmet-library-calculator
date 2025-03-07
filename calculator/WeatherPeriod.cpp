@@ -26,7 +26,7 @@
 // ======================================================================
 
 #include "WeatherPeriod.h"
-#include "TextGenError.h"
+#include <macgyver/Exception.h>
 #include "TimeTools.h"
 #include <cassert>
 #include <iostream>  // std::cout
@@ -66,7 +66,13 @@ WeatherPeriod::WeatherPeriod(const TextGenPosixTime& theLocalStartTime,
       itsUtcEndTime(TextGenPosixTime::UtcTime(theLocalEndTime))
 {
   if (theLocalEndTime.IsLessThan(theLocalStartTime))
-    throw TextGenError("WeatherPeriod: end time must be after start time");
+  {
+    std::ostringstream msg;
+    msg << "WeatherPeriod: end time must be after start time, start=" << theLocalStartTime
+        << " end=" << theLocalEndTime;
+    //throw Fmi::Exception(BCP, "WeatherPeriod: end time must be after start time");
+    throw Fmi::Exception(BCP, msg.str());
+  }
 }
 
 // ----------------------------------------------------------------------
