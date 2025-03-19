@@ -8,10 +8,7 @@ MaximumWindQueryInfo::MaximumWindQueryInfo(const NFmiFastQueryInfo& theInfo)
   // Use parameter directly if available
 
   if (Param(kFmiHourlyMaximumWindSpeed))
-  {
-    std::cerr << "MaxWind is available!\n";
     return;
-  }
 
   // Else must use at least mean wind speed
   itsExact = false;
