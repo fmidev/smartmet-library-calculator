@@ -82,7 +82,7 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
-* Tue Mar 18 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.3.18-1.fmi
+* Wed Mar 19 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.3.19-1.fmi
 - Improved max wind speed estimation
 
 * Fri Mar  7 2025 Andris Pavēnis <andris.pavenis@fmi.fi> 25.3.7-1.fmi
