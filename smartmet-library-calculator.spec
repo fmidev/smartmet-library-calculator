@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.3.7
+Version: 25.3.19
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Tue Mar 18 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.3.18-1.fmi
+- Improved max wind speed estimation
+
 * Fri Mar  7 2025 Andris Pavēnis <andris.pavenis@fmi.fi> 25.3.7-1.fmi
 - Use Fmi::Exception instead of own exception class
 

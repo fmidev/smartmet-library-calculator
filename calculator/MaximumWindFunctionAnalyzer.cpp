@@ -1,21 +1,22 @@
 // ======================================================================
 /*!
  * \file
- * \brief Implementation of class TextGen::RegularFunctionAnalyzer
+ * \brief Implementation of class TextGen::MaximumWindFunctionAnalyzer
  */
 // ======================================================================
 /*!
- * \class TextGen::RegularFunctionAnalyzer
+ * \class TextGen::MaximumWindFunctionAnalyzer
  *
  * \brief Regular function analysis
  *
  */
 // ======================================================================
 
-#include "RegularFunctionAnalyzer.h"
+#include "MaximumWindFunctionAnalyzer.h"
 #include "AnalysisSources.h"
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
+#include "MaximumWindQueryInfo.h"
 #include "QueryDataIntegrator.h"
 #include "Settings.h"
 #include "WeatherArea.h"
@@ -25,7 +26,6 @@
 #include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
-#include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiQueryData.h>
 #include <memory>
 #include <sstream>
@@ -36,32 +36,7 @@ namespace
 //! A static instance to avoid construction costs
 
 NFmiEnumConverter converter;
-
 }  // namespace
-
-// ----------------------------------------------------------------------
-/*!
- * \brief Return data type as string
- *
- * \param theDataType The data type
- * \return The string
- */
-// ----------------------------------------------------------------------
-
-const char* data_type_name(const TextGen::WeatherDataType& theDataType)
-{
-  switch (theDataType)
-  {
-    case TextGen::Forecast:
-      return "forecast";
-    case TextGen::Observation:
-      return "observation";
-    case TextGen::Climatology:
-      return "climatology";
-  }
-
-  throw Fmi::Exception(BCP, "Unrecognized WeatherDataType");
-}
 
 namespace TextGen
 {
@@ -75,9 +50,9 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-RegularFunctionAnalyzer::RegularFunctionAnalyzer(const WeatherFunction& theAreaFunction,
-                                                 const WeatherFunction& theTimeFunction,
-                                                 const WeatherFunction& theSubTimeFunction)
+MaximumWindFunctionAnalyzer::MaximumWindFunctionAnalyzer(const WeatherFunction& theAreaFunction,
+                                                         const WeatherFunction& theTimeFunction,
+                                                         const WeatherFunction& theSubTimeFunction)
     : itsAreaFunction(theAreaFunction),
       itsTimeFunction(theTimeFunction),
       itsSubTimeFunction(theSubTimeFunction),
@@ -96,7 +71,7 @@ RegularFunctionAnalyzer::RegularFunctionAnalyzer(const WeatherFunction& theAreaF
  */
 // ----------------------------------------------------------------------
 
-void RegularFunctionAnalyzer::modulo(int theModulo)
+void MaximumWindFunctionAnalyzer::modulo(int theModulo)
 {
   if (theModulo <= 0)
     throw Fmi::Exception(BCP, "Trying to analyze data modulo " + Fmi::to_string(theModulo));
@@ -130,42 +105,29 @@ void RegularFunctionAnalyzer::modulo(int theModulo)
  */
 // ----------------------------------------------------------------------
 
-WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources,
-                                               const WeatherDataType& theDataType,
-                                               const WeatherArea& theArea,
-                                               const WeatherPeriodGenerator& thePeriods,
-                                               const Acceptor& theAreaAcceptor,
-                                               const Acceptor& theTimeAcceptor,
-                                               const Acceptor& theTester,
-                                               const std::string& theDataName,
-                                               const std::string& theParameterName) const
+WeatherResult MaximumWindFunctionAnalyzer::analyze(const AnalysisSources& theSources,
+                                                   const WeatherDataType& theDataType,
+                                                   const WeatherArea& theArea,
+                                                   const WeatherPeriodGenerator& thePeriods,
+                                                   const Acceptor& theAreaAcceptor,
+                                                   const Acceptor& theTimeAcceptor,
+                                                   const Acceptor& theTester,
+                                                   const std::string& theDataName,
+                                                   const std::string& /* theParameterName */) const
 {
   // Establish the data
 
   const std::string default_forecast = Settings::optional_string("textgen::default_forecast", "");
   const std::string datavar = theDataName + '_' + data_type_name(theDataType);
   const std::string dataname = Settings::optional_string(datavar, default_forecast);
-  const std::string paramname = Settings::optional_string(theDataName, theParameterName);
 
   // Get the data into use
 
   std::shared_ptr<WeatherSource> wsource = theSources.getWeatherSource();
   std::shared_ptr<NFmiQueryData> qd = wsource->data(dataname);
+
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(qd.get());
-
-  // Try activating the parameter
-
-  auto param = FmiParameterName(converter.ToEnum(paramname));
-  if (param == kFmiBadParameter)
-    throw Fmi::Exception(BCP, "Parameter " + paramname + " is not defined in newbase");
-
-  if (paramname != "HourlyMaximumWindSpeed" && paramname != "WindChill")
-  {
-    if (!qi.Param(param))
-      throw Fmi::Exception(BCP, paramname + " is not available in " + dataname);
-  }
-
-  // Handle points and areas separately
+  MaximumWindQueryInfo wi(qi);
 
   std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
 
@@ -223,8 +185,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
     spacemod->acceptor(theAreaAcceptor);
 
     float result =
-        QueryDataIntegrator::Integrate(qi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
-
+        QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
     if (result == kFloatMissing)
       return WeatherResult(kFloatMissing, 0);
 
@@ -240,7 +201,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
     spacemod->acceptor(theAreaAcceptor);
 
     float error =
-        QueryDataIntegrator::Integrate(qi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
+        QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
 
     // This would happen if the area covers one point only
     if (error == kFloatMissing)
@@ -260,8 +221,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
     throw Fmi::Exception(BCP, msg.str());
   }
 
-  float result =
-      QueryDataIntegrator::Integrate(qi, theArea.point(), thePeriods, *subtimemod, *timemod);
+  float result = QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod);
 
   return {result, 0};
 }
