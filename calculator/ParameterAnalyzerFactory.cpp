@@ -21,10 +21,11 @@
 // ======================================================================
 
 #include "ParameterAnalyzerFactory.h"
+#include "MaximumWindParameterAnalyzer.h"
 #include "ModuloParameterAnalyzer.h"
 #include "RegularParameterAnalyzer.h"
-#include <macgyver/Exception.h>
 #include "WindChillParameterAnalyzer.h"
+#include <macgyver/Exception.h>
 
 namespace TextGen
 {
@@ -92,8 +93,6 @@ ParameterAnalyzer* create(WeatherParameter theParameter)
       return new RegularParameterAnalyzer("textgen::pressure", "Pressure");
     case Fog:
       return new RegularParameterAnalyzer("textgen::fog", "FogIntensity");
-    case MaximumWind:
-      return new RegularParameterAnalyzer("textgen::maximumwind", "HourlyMaximumWindSpeed");
 
     case EffectiveTemperatureSum:
       return new RegularParameterAnalyzer("textgen::effectivetemperaturesum",
@@ -168,16 +167,20 @@ ParameterAnalyzer* create(WeatherParameter theParameter)
     case NormalMinTemperatureF98:
       return new RegularParameterAnalyzer("textgen::fractiles", "NormalMinTemperatureF98");
 
-    case WindChill:
-      return new WindChillParameterAnalyzer("textgen::windchill", "WindChill");
     case GrowthPeriodOnOff:
       return new RegularParameterAnalyzer("textgen::effectivetemperaturesum", "GrowthPeriodOnOff");
+
+    case WindChill:
+      return new WindChillParameterAnalyzer("textgen::windchill", "WindChill");
+
+    case MaximumWind:
+      return new MaximumWindParameterAnalyzer("textgen::maximumwind", "HourlyMaximumWindSpeed");
   }
 
   // Should never reach this place
 
-  throw Fmi::Exception(BCP, 
-      "Error: ParameterAnalyzerFactory does not recognize given parameter enumeration");
+  throw Fmi::Exception(
+      BCP, "Error: ParameterAnalyzerFactory does not recognize given parameter enumeration");
 }
 
 }  // namespace ParameterAnalyzerFactory
