@@ -80,5 +80,9 @@ float MaximumWindQueryInfo::GetFloatValue(unsigned long theIndex) const
   //           20 m/s, 0.55 - 0.01 * 20 = 0.35  high speeds less turbulent (smaller WG/WMAX)
   //           30 m/s, 0.55 - 0.01 * 30 = 0.25  practical max in Finland
 
+  // Another formula fitted to FMI data with the help of ChatGPT 4.5 is based only on WS:
+  //
+  // WMAX = WS * gamma, where gamma = 1.00833 + 1.5583/WS
+
   return wspd + (0.55 - 0.01 * wspd) * (gust - wspd);
 }
