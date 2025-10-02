@@ -24,13 +24,14 @@
 #include "ModStandardDeviationCalculator.h"
 #include "ModTrendCalculator.h"
 #include "NullCalculator.h"
+#include "PeakCalculator.h"
 #include "PercentageCalculator.h"
 #include "RangeAcceptor.h"
 #include "StandardDeviationCalculator.h"
 #include "SumCalculator.h"
-#include <macgyver/Exception.h>
 #include "TrendCalculator.h"
 #include <boost/move/make_unique.hpp>
+#include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
 #include <string>
 
@@ -61,6 +62,8 @@ Calculator* create(WeatherFunction theFunction)
       return new MinimumCalculator;
     case Median:
       return new MedianCalculator;
+    case Peak:
+      return new PeakCalculator;
     case Sum:
       return new SumCalculator;
     case Percentage:
@@ -77,8 +80,9 @@ Calculator* create(WeatherFunction theFunction)
       return new StandardDeviationCalculator;
   }
 
-  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
-                     Fmi::to_string(static_cast<int>(theFunction)));
+  throw Fmi::Exception(BCP,
+                       "CalculatorFactory failed to recognize the given function" +
+                           Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 // ----------------------------------------------------------------------
@@ -121,10 +125,13 @@ Calculator* create(WeatherFunction theFunction, int theModulo)
       throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Minimum analyzer");
     case Sum:
       throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Sum analyzer");
+    case Peak:
+      throw Fmi::Exception(BCP, "CalculatorFactory cannot create modular Peak analyzer");
   }
 
-  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
-                     Fmi::to_string(static_cast<int>(theFunction)));
+  throw Fmi::Exception(BCP,
+                       "CalculatorFactory failed to recognize the given function" +
+                           Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 // ----------------------------------------------------------------------
@@ -147,6 +154,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
     case Maximum:
     case Minimum:
     case Median:
+    case Peak:
     case StandardDeviation:
     case Sum:
     case Trend:
@@ -167,8 +175,9 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester)
     }
   }
 
-  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
-                     Fmi::to_string(static_cast<int>(theFunction)));
+  throw Fmi::Exception(BCP,
+                       "CalculatorFactory failed to recognize the given function" +
+                           Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 // ----------------------------------------------------------------------
@@ -192,6 +201,7 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
     case Maximum:
     case Minimum:
     case Median:
+    case Peak:
     case StandardDeviation:
     case Sum:
     case Trend:
@@ -212,8 +222,9 @@ Calculator* create(WeatherFunction theFunction, const Acceptor& theTester, int t
     }
   }
 
-  throw Fmi::Exception(BCP, "CalculatorFactory failed to recognize the given function" +
-                     Fmi::to_string(static_cast<int>(theFunction)));
+  throw Fmi::Exception(BCP,
+                       "CalculatorFactory failed to recognize the given function" +
+                           Fmi::to_string(static_cast<int>(theFunction)));
 }
 
 }  // namespace CalculatorFactory

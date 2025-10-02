@@ -21,7 +21,8 @@ enum WeatherFunction
   Percentage,
   Count,
   Change,
-  Trend
+  Trend,
+  Peak
 
 };  // enum Weatherfunction
 
