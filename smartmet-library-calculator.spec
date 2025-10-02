@@ -5,8 +5,8 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.3.19
-Release: 2%{?dist}.fmi
+Version: 25.10.2
+Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/fmidev/smartmet-library-calculator
@@ -23,20 +23,20 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
-BuildRequires: smartmet-library-newbase-devel >= 25.2.18
-BuildRequires: smartmet-library-macgyver-devel >= 25.2.18
-BuildRequires: smartmet-library-gis-devel >= 25.2.18
+BuildRequires: smartmet-library-newbase-devel >= 25.3.20
+BuildRequires: smartmet-library-macgyver-devel >= 25.9.30
+BuildRequires: smartmet-library-gis-devel >= 25.9.15
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 25.2.18
+Requires: smartmet-library-newbase >= 25.3.20
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
-#TestRequires: smartmet-library-newbase-devel >= 25.2.18
-#TestRequires: smartmet-library-gis-devel >= 25.2.18
+#TestRequires: smartmet-library-newbase-devel >= 25.3.20
+#TestRequires: smartmet-library-gis-devel >= 25.9.15
 #TestRequires: %{smartmet_boost}-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Oct  2 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.10.2-1.fmi
+- Added PeakCalculator
+
 * Wed Mar 19 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.3.19-2.fmi
 - Removed forgotten debug message
 
