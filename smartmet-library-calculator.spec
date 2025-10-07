@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.10.2
+Version: 25.10.7
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Tue Oct  7 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.10.7-1.fmi
+- Reduced maximum wind multiplier for mean wind from 1.07 to 1.05 (value from Kaisa Solin)
+
 * Thu Oct  2 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.10.2-1.fmi
 - Added PeakCalculator
 
