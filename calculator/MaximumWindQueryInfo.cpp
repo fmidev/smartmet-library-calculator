@@ -57,7 +57,7 @@ float MaximumWindQueryInfo::GetFloatValue(unsigned long theIndex) const
 
   // If gust is not available, just use mean wind speed
 
-  const float wspd_multiplier_to_wmax = 1.07;  // Magic constant used by FMI meteorogists
+  const float wspd_multiplier_to_wmax = 1.05;  // Magic constant used by FMI meteorogists
 
   if (!itsBasedOnGustToo)
     return wspd_multiplier_to_wmax * wspd;
