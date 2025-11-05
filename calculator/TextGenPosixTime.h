@@ -53,7 +53,7 @@ class TextGenPosixTime
   time_t EpochTime() const;
   short GetJulianDay() const;
   short GetWeekday() const;  // mon=1, tue=2,..., sat=6,  sun=7
-  const Fmi::DateTime& PosixTime() { return istPosixTime; }
+  const Fmi::DateTime& PosixTime() { return itsPosixTime; }
   static TextGenPosixTime UtcTime(const TextGenPosixTime& localTime);
   static TextGenPosixTime LocalTime(const TextGenPosixTime& utcTime);
   // parameter isUtc tells whether theTime is in UTC or localtime:
@@ -66,10 +66,10 @@ class TextGenPosixTime
   static void SetThreadTimeZone(const std::string& theTimeZoneId = "");
   static void ResetThreadTimeZone();
 
-  inline const Fmi::DateTime& GetDateTime() const { return istPosixTime; }
+  inline const Fmi::DateTime& GetDateTime() const { return itsPosixTime; }
 
  private:
-  Fmi::DateTime istPosixTime;
+  Fmi::DateTime itsPosixTime;
 
 };  // class TextGenPosixTime
 
