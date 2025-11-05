@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.10.7
+Version: 25.11.5
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -24,7 +24,7 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
 BuildRequires: smartmet-library-newbase-devel >= 25.3.20
-BuildRequires: smartmet-library-macgyver-devel >= 25.9.30
+BuildRequires: smartmet-library-macgyver-devel >= 25.10.30
 BuildRequires: smartmet-library-gis-devel >= 25.9.15
 BuildRequires: freetype-devel
 %if %{with tests}
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Nov  5 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.11.5-1.fmi
+- Added TextGenPosixTime::ToSimpleStr()
+
 * Tue Oct  7 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.10.7-1.fmi
 - Reduced maximum wind multiplier for mean wind from 1.07 to 1.05 (value from Kaisa Solin)
 
