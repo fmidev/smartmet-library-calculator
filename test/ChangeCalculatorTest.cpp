@@ -22,19 +22,24 @@ void change()
 
   ChangeCalculator calc;
 
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 0 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 0 inserts");
 
   calc(1);
-  if (calc() != 0) TEST_FAILED("Should return 0 after 1 insert");
+  if (calc() != 0)
+    TEST_FAILED("Should return 0 after 1 insert");
 
   calc(2);
-  if (calc() != 2 - 1) TEST_FAILED("Failed to return 2-1");
+  if (calc() != 2 - 1)
+    TEST_FAILED("Failed to return 2-1");
 
   calc(3);
-  if (calc() != 3 - 1) TEST_FAILED("Failed to return 3-1");
+  if (calc() != 3 - 1)
+    TEST_FAILED("Failed to return 3-1");
 
   calc(4);
-  if (calc() != 4 - 1) TEST_FAILED("Failed to return 4-1");
+  if (calc() != 4 - 1)
+    TEST_FAILED("Failed to return 4-1");
 
   TEST_PASSED();
 }

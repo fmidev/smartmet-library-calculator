@@ -54,7 +54,8 @@ void MedianCalculator::operator()(float theValue)
 
 float MedianCalculator::operator()() const
 {
-  if (theValueVector.empty()) return kFloatMissing;
+  if (theValueVector.empty())
+    return kFloatMissing;
 
   sort(theValueVector.begin(), theValueVector.end());
   unsigned int vectorSize(theValueVector.size());
@@ -93,7 +94,10 @@ std::shared_ptr<Calculator> MedianCalculator::clone() const
  */
 // ----------------------------------------------------------------------
 
-void MedianCalculator::reset() { theValueVector.clear(); }
+void MedianCalculator::reset()
+{
+  theValueVector.clear();
+}
 }  // namespace TextGen
 
 // ======================================================================

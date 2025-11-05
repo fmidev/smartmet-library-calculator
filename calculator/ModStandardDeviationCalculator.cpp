@@ -99,10 +99,12 @@ void ModStandardDeviationCalculator::operator()(float theValue)
 
 float ModStandardDeviationCalculator::operator()() const
 {
-  if (itsCounter < 1) return kFloatMissing;
+  if (itsCounter < 1)
+    return kFloatMissing;
 
   const double tmp = itsSquaredSum - itsSum * itsSum / itsCounter;
-  if (tmp < 0) return 0.0;
+  if (tmp < 0)
+    return 0.0;
   return sqrt(tmp / itsCounter);
 }
 

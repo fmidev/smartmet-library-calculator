@@ -24,19 +24,24 @@ void mean()
 
   MeanCalculator calc;
 
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 0 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 0 inserts");
 
   calc(1);
-  if (calc() != 1) TEST_FAILED("Failed to return 1");
+  if (calc() != 1)
+    TEST_FAILED("Failed to return 1");
 
   calc(2);
-  if (calc() != (1 + 2) / 2.0) TEST_FAILED("Failed to return (1+2)/2");
+  if (calc() != (1 + 2) / 2.0)
+    TEST_FAILED("Failed to return (1+2)/2");
 
   calc(3);
-  if (calc() != (1 + 2 + 3) / 3.0) TEST_FAILED("Failed to return (1+2+3)/3");
+  if (calc() != (1 + 2 + 3) / 3.0)
+    TEST_FAILED("Failed to return (1+2+3)/3");
 
   calc(4);
-  if (calc() != (1 + 2 + 3 + 4) / 4.0) TEST_FAILED("Failed to return (1+2+3+4)/4");
+  if (calc() != (1 + 2 + 3 + 4) / 4.0)
+    TEST_FAILED("Failed to return (1+2+3+4)/4");
 
   TEST_PASSED();
 }

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <newbase/NFmiStaticTime.h>
 #include <macgyver/DateTime.h>  //include all types plus i/o
+#include <newbase/NFmiStaticTime.h>
 #include <string>  // std::string
 
 class TextGenPosixTime

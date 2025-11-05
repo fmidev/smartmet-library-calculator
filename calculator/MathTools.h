@@ -19,14 +19,20 @@ int to_precision(float theValue, int thePrecision);
  */
 // ----------------------------------------------------------------------
 
-inline double mean(double arg1, double arg2) { return (arg1 + arg2) / 2; }
+inline double mean(double arg1, double arg2)
+{
+  return (arg1 + arg2) / 2;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return mean of three arguments
  */
 // ----------------------------------------------------------------------
 
-inline double mean(double arg1, double arg2, double arg3) { return (arg1 + arg2 + arg3) / 3; }
+inline double mean(double arg1, double arg2, double arg3)
+{
+  return (arg1 + arg2 + arg3) / 3;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return mean of four arguments

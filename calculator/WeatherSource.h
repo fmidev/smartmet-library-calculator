@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <memory>
 #include <newbase/NFmiQueryData.h>
+#include <memory>
 #include <string>
 
 class NFmiQueryData;

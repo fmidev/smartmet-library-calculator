@@ -23,15 +23,15 @@ class WindChillParameterAnalyzer : public ParameterAnalyzer
   WindChillParameterAnalyzer(std::string theVariable, std::string theParameter);
 
   WeatherResult analyze(const AnalysisSources& theSources,
-                                const WeatherDataType& theDataType,
-                                const WeatherFunction& theAreaFunction,
-                                const WeatherFunction& theTimeFunction,
-                                const WeatherFunction& theSubTimeFunction,
-                                const WeatherArea& theArea,
-                                const WeatherPeriodGenerator& thePeriods,
-                                const Acceptor& theAreaAcceptor,
-                                const Acceptor& theTimeAcceptor,
-                                const Acceptor& theTester = NullAcceptor()) const override;
+                        const WeatherDataType& theDataType,
+                        const WeatherFunction& theAreaFunction,
+                        const WeatherFunction& theTimeFunction,
+                        const WeatherFunction& theSubTimeFunction,
+                        const WeatherArea& theArea,
+                        const WeatherPeriodGenerator& thePeriods,
+                        const Acceptor& theAreaAcceptor,
+                        const Acceptor& theTimeAcceptor,
+                        const Acceptor& theTester = NullAcceptor()) const override;
 
  private:
   WindChillParameterAnalyzer() = delete;

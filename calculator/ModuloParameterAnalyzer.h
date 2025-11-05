@@ -23,15 +23,15 @@ class ModuloParameterAnalyzer : public ParameterAnalyzer
   ModuloParameterAnalyzer(std::string theVariable, std::string theParameter, int theModulo);
 
   WeatherResult analyze(const AnalysisSources& theSources,
-                                const WeatherDataType& theDataType,
-                                const WeatherFunction& theAreaFunction,
-                                const WeatherFunction& theTimeFunction,
-                                const WeatherFunction& theSubTimeFunction,
-                                const WeatherArea& theArea,
-                                const WeatherPeriodGenerator& thePeriods,
-                                const Acceptor& theAreaAcceptor,
-                                const Acceptor& theTimeAcceptor,
-                                const Acceptor& theTester = NullAcceptor()) const override;
+                        const WeatherDataType& theDataType,
+                        const WeatherFunction& theAreaFunction,
+                        const WeatherFunction& theTimeFunction,
+                        const WeatherFunction& theSubTimeFunction,
+                        const WeatherArea& theArea,
+                        const WeatherPeriodGenerator& thePeriods,
+                        const Acceptor& theAreaAcceptor,
+                        const Acceptor& theTimeAcceptor,
+                        const Acceptor& theTester = NullAcceptor()) const override;
 
  private:
   ModuloParameterAnalyzer() = delete;

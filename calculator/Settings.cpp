@@ -39,13 +39,19 @@ namespace Settings
  */
 // ----------------------------------------------------------------------
 
-bool isset(const std::string& theName) { return Fmi::Config().isset(theName); }
+bool isset(const std::string& theName)
+{
+  return Fmi::Config().isset(theName);
+}
 void set(const std::string& theName, const std::string& theValue)
 {
   Fmi::Config::set(theName, theValue);
 }
 
-void set(const std::string& theSettingsString) { Fmi::Config::set(theSettingsString); }
+void set(const std::string& theSettingsString)
+{
+  Fmi::Config::set(theSettingsString);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Require the string value of the given variable
@@ -57,7 +63,10 @@ void set(const std::string& theSettingsString) { Fmi::Config::set(theSettingsStr
  */
 // ----------------------------------------------------------------------
 
-std::string require(const std::string& theName) { return Fmi::Config().requireString(theName); }
+std::string require(const std::string& theName)
+{
+  return Fmi::Config().requireString(theName);
+}
 
 // ----------------------------------------------------------------------
 /*!
@@ -73,7 +82,8 @@ std::string require(const std::string& theName) { return Fmi::Config().requireSt
 std::string require_string(const std::string& theName)
 {
   const std::string value = require(theName);
-  if (value.empty()) throw std::runtime_error("Value of " + theName + " must be nonempty");
+  if (value.empty())
+    throw std::runtime_error("Value of " + theName + " must be nonempty");
   return value;
 }
 
@@ -88,7 +98,10 @@ std::string require_string(const std::string& theName)
  */
 // ----------------------------------------------------------------------
 
-int require_int(const std::string& theName) { return Fmi::Config().requireInteger(theName); }
+int require_int(const std::string& theName)
+{
+  return Fmi::Config().requireInteger(theName);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Require the boolean value of the given variable
@@ -101,7 +114,10 @@ int require_int(const std::string& theName) { return Fmi::Config().requireIntege
  */
 // ----------------------------------------------------------------------
 
-bool require_bool(const std::string& theName) { return Fmi::Config().requireBoolean(theName); }
+bool require_bool(const std::string& theName)
+{
+  return Fmi::Config().requireBoolean(theName);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Require the double value of the given variable
@@ -113,7 +129,10 @@ bool require_bool(const std::string& theName) { return Fmi::Config().requireBool
  */
 // ----------------------------------------------------------------------
 
-double require_double(const std::string& theName) { return Fmi::Config().requireDouble(theName); }
+double require_double(const std::string& theName)
+{
+  return Fmi::Config().requireDouble(theName);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Require the hour value of the given variable
@@ -179,10 +198,12 @@ TextGenPosixTime require_time(const std::string& theName)
 
   const std::string msg = theName + " value " + value + " is not of form YYYYMMDDHHMI";
 
-  if (value.size() != 12) throw std::runtime_error(msg);
+  if (value.size() != 12)
+    throw std::runtime_error(msg);
 
   for (const auto chr : value)
-    if (isdigit(chr) == 0) throw std::runtime_error(msg);
+    if (isdigit(chr) == 0)
+      throw std::runtime_error(msg);
 
   try
   {
@@ -192,12 +213,17 @@ TextGenPosixTime require_time(const std::string& theName)
     const int hh = boost::lexical_cast<int>(value.substr(8, 2));
     const int mi = boost::lexical_cast<int>(value.substr(10, 2));
 
-    if (mm < 1 || mm > 12) throw std::runtime_error(msg);
-    if (dd < 1 || dd > 31) throw std::runtime_error(msg);
-    if (hh < 0 || hh > 23) throw std::runtime_error(msg);
-    if (mi < 0 || mi > 59) throw std::runtime_error(msg);
+    if (mm < 1 || mm > 12)
+      throw std::runtime_error(msg);
+    if (dd < 1 || dd > 31)
+      throw std::runtime_error(msg);
+    if (hh < 0 || hh > 23)
+      throw std::runtime_error(msg);
+    if (mi < 0 || mi > 59)
+      throw std::runtime_error(msg);
 
-    if (dd > TextGenPosixTime::DaysInMonth(mm, yy)) throw std::runtime_error(msg);
+    if (dd > TextGenPosixTime::DaysInMonth(mm, yy))
+      throw std::runtime_error(msg);
 
     return TextGenPosixTime(yy, mm, dd, hh, mi);
   }
@@ -224,7 +250,8 @@ TextGen::WeatherResult require_result(const std::string& theName)
   try
   {
     std::vector<std::string> values = NFmiStringTools::Split(value);
-    if (values.size() != 2) throw std::runtime_error(msg);
+    if (values.size() != 2)
+      throw std::runtime_error(msg);
     const auto result = boost::lexical_cast<float>(values[0]);
     const auto accuracy = boost::lexical_cast<float>(values[1]);
     return {result, accuracy};
@@ -334,8 +361,14 @@ int optional_percentage(const std::string& theName, int theDefault)
   return Fmi::Config().optionalInteger(theName, theDefault, 0, 100);
 }
 
-void clear() { Fmi::Config::clear(); }
-void release() { Fmi::Config::release(); }
+void clear()
+{
+  Fmi::Config::clear();
+}
+void release()
+{
+  Fmi::Config::release();
+}
 }  // namespace Settings
 
 // ======================================================================

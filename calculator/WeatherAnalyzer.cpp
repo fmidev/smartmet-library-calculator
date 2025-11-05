@@ -103,7 +103,8 @@ WeatherResult WeatherAnalyzer::analyze(const std::string& theFakeVariable,
                                        const Acceptor& theTimeAcceptor,
                                        const Acceptor& theTester) const
 {
-  if (Settings::isset(theFakeVariable)) return Settings::require_result(theFakeVariable);
+  if (Settings::isset(theFakeVariable))
+    return Settings::require_result(theFakeVariable);
 
   return analyze(theSources,
                  theParameter,
@@ -148,7 +149,8 @@ WeatherResult WeatherAnalyzer::analyze(const std::string& theFakeVariable,
                                        const Acceptor& theTimeAcceptor,
                                        const Acceptor& theTester) const
 {
-  if (Settings::isset(theFakeVariable)) return Settings::require_result(theFakeVariable);
+  if (Settings::isset(theFakeVariable))
+    return Settings::require_result(theFakeVariable);
 
   return analyze(theSources,
                  theParameter,

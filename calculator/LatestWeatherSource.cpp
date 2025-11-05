@@ -56,16 +56,17 @@ namespace
 
 std::string complete_filename(const std::string& theName)
 {
-  if (theName.empty()) throw Fmi::Exception(BCP, "Trying to search unnamed querydata");
+  if (theName.empty())
+    throw Fmi::Exception(BCP, "Trying to search unnamed querydata");
 
   const std::string varname = "textgen::" + theName;
   const std::string queryname = Settings::optional_string(varname, theName);
 
-  if (NFmiFileSystem::FileExists(queryname)) return queryname;
+  if (NFmiFileSystem::FileExists(queryname))
+    return queryname;
 
   if (!NFmiFileSystem::DirectoryExists(queryname))
-    throw Fmi::Exception(BCP, "No directory named '" + queryname +
-                                "' containing querydata found");
+    throw Fmi::Exception(BCP, "No directory named '" + queryname + "' containing querydata found");
 
   std::string newestfile = NFmiFileSystem::NewestFile(queryname);
   if (newestfile.empty())
@@ -73,7 +74,8 @@ std::string complete_filename(const std::string& theName)
 
   std::string fullname = queryname;
   const char lastchar = fullname[fullname.size() - 1];
-  if (lastchar != '/' && lastchar != '\\') fullname += '/';
+  if (lastchar != '/' && lastchar != '\\')
+    fullname += '/';
   fullname += newestfile;
 
   return fullname;
@@ -127,7 +129,8 @@ std::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theN
   {
     // If the cached data is new enough, return it
 
-    if (time(nullptr) - it->second.itsLastCheckTime < agelimit) return it->second.itsData;
+    if (time(nullptr) - it->second.itsLastCheckTime < agelimit)
+      return it->second.itsData;
   }
 
   // Associated filename
@@ -136,7 +139,8 @@ std::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theN
 
   // Update the time we checked the modification time
 
-  if (it != itsPimple->itsData.end()) it->second.itsLastCheckTime = time(nullptr);
+  if (it != itsPimple->itsData.end())
+    it->second.itsLastCheckTime = time(nullptr);
 
   // See if the cached data is outdated. It is outdated if the
   // directory contains a newer file, or if the file itself
@@ -150,7 +154,8 @@ std::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theN
     return it->second.itsData;
 
   // Erase the aged data
-  if (it != itsPimple->itsData.end()) itsPimple->itsData.erase(it);
+  if (it != itsPimple->itsData.end())
+    itsPimple->itsData.erase(it);
 
   // Read the new data
   std::shared_ptr<NFmiQueryData> qdata(new NFmiQueryData(filename));

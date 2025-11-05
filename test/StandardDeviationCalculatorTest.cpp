@@ -23,22 +23,27 @@ void standarddeviation()
 
   StandardDeviationCalculator calc;
 
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 0 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 0 inserts");
 
   calc(1);
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 1 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 1 inserts");
 
   float expected = sqrt((1 * 1 + 2 * 2 - 3 * 3 / 2.0) / 1);
   calc(2);
-  if (calc() != expected) TEST_FAILED("Failed for [1,2]");
+  if (calc() != expected)
+    TEST_FAILED("Failed for [1,2]");
 
   expected = sqrt((1 * 1 + 2 * 2 + 3 * 3 - 6 * 6 / 3.0) / 2.0);
   calc(3);
-  if (calc() != expected) TEST_FAILED("Failed for [1,2,3]");
+  if (calc() != expected)
+    TEST_FAILED("Failed for [1,2,3]");
 
   expected = sqrt((1 * 1 + 2 * 2 + 3 * 3 + 4 * 4 - 10 * 10 / 4.0) / 3.0);
   calc(4);
-  if (calc() != expected) TEST_FAILED("Failed for [1,2,3,4]");
+  if (calc() != expected)
+    TEST_FAILED("Failed for [1,2,3,4]");
 
   TEST_PASSED();
 }

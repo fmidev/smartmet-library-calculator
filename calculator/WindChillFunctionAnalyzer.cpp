@@ -18,16 +18,16 @@
 #include "MaskSource.h"
 #include "QueryDataIntegrator.h"
 #include "Settings.h"
-#include <macgyver/Exception.h>
 #include "WeatherArea.h"
 #include "WeatherPeriod.h"
 #include "WeatherResult.h"
 #include "WeatherSource.h"
 #include "WindChillQueryInfo.h"
-#include <memory>
+#include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
 #include <newbase/NFmiQueryData.h>
+#include <memory>
 #include <sstream>
 #include <string>
 
@@ -199,9 +199,11 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
 
     float result =
         QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
-    if (result == kFloatMissing) return WeatherResult(kFloatMissing, 0);
+    if (result == kFloatMissing)
+      return WeatherResult(kFloatMissing, 0);
 
-    if (itsAreaFunction != Mean) return WeatherResult(result, 0);
+    if (itsAreaFunction != Mean)
+      return WeatherResult(result, 0);
 
     // Calculate standard deviation for the mean
 
@@ -215,7 +217,8 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
         QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
 
     // This would happen if the area covers one point only
-    if (error == kFloatMissing) return WeatherResult(result, 0);
+    if (error == kFloatMissing)
+      return WeatherResult(result, 0);
 
     return {result, error};
   }
@@ -225,7 +228,8 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
     std::ostringstream msg;
     msg << "Could not set desired coordinate (" << theArea.point().X() << ',' << theArea.point().Y()
         << ')';
-    if (theArea.isNamed()) msg << " named " << theArea.name();
+    if (theArea.isNamed())
+      msg << " named " << theArea.name();
     msg << " in " << dataname;
     throw Fmi::Exception(BCP, msg.str());
   }

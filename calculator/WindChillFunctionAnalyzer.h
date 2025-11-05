@@ -34,14 +34,14 @@ class WindChillFunctionAnalyzer : public FunctionAnalyzer
                             const WeatherFunction& theSubTimeFunction);
 
   WeatherResult analyze(const AnalysisSources& theSources,
-                                const WeatherDataType& theDataType,
-                                const WeatherArea& theArea,
-                                const WeatherPeriodGenerator& thePeriods,
-                                const Acceptor& theAreaAcceptor,
-                                const Acceptor& theTimeAcceptor,
-                                const Acceptor& theTester,
-                                const std::string& theDataName,
-                                const std::string& theParameterName) const override;
+                        const WeatherDataType& theDataType,
+                        const WeatherArea& theArea,
+                        const WeatherPeriodGenerator& thePeriods,
+                        const Acceptor& theAreaAcceptor,
+                        const Acceptor& theTimeAcceptor,
+                        const Acceptor& theTester,
+                        const std::string& theDataName,
+                        const std::string& theParameterName) const override;
 
   void modulo(int theModulo);
 

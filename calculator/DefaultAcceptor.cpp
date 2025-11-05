@@ -23,7 +23,10 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-Acceptor* DefaultAcceptor::clone() const { return new DefaultAcceptor(*this); }
+Acceptor* DefaultAcceptor::clone() const
+{
+  return new DefaultAcceptor(*this);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Accept or reject a value
@@ -35,7 +38,10 @@ Acceptor* DefaultAcceptor::clone() const { return new DefaultAcceptor(*this); }
  */
 // ----------------------------------------------------------------------
 
-bool DefaultAcceptor::accept(float theValue) const { return (theValue != kFloatMissing); }
+bool DefaultAcceptor::accept(float theValue) const
+{
+  return (theValue != kFloatMissing);
+}
 }  // namespace TextGen
 
 // ======================================================================

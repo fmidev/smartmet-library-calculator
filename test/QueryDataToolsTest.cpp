@@ -50,11 +50,14 @@ void lastTime()
 
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(*qd.Info());
 
-  if (!lastTime(qi, TextGenPosixTime(1999, 1, 1))) TEST_FAILED("Should succeed for 1.1.1999");
+  if (!lastTime(qi, TextGenPosixTime(1999, 1, 1)))
+    TEST_FAILED("Should succeed for 1.1.1999");
 
-  if (!lastTime(qi, TextGenPosixTime(2003, 8, 15))) TEST_FAILED("Should succeed for 15.08.2003");
+  if (!lastTime(qi, TextGenPosixTime(2003, 8, 15)))
+    TEST_FAILED("Should succeed for 15.08.2003");
 
-  if (lastTime(qi, TextGenPosixTime(2030, 1, 1))) TEST_FAILED("Should fail for 1.1.2030");
+  if (lastTime(qi, TextGenPosixTime(2030, 1, 1)))
+    TEST_FAILED("Should fail for 1.1.2030");
 
   TEST_PASSED();
 }
@@ -80,8 +83,10 @@ void findIndices()
           qi, TextGenPosixTime(2003, 8, 15), TextGenPosixTime(2003, 8, 16), startindex, endindex))
     TEST_FAILED("Should succeed for 15.08.2003-16.08.2003");
 
-  if (startindex != 21) TEST_FAILED("Failed to get start index 21 for 15.08.2003 00:00");
-  if (endindex != 21 + 25) TEST_FAILED("Failed to get end index 46 for 16.08.2003 00:00");
+  if (startindex != 21)
+    TEST_FAILED("Failed to get start index 21 for 15.08.2003 00:00");
+  if (endindex != 21 + 25)
+    TEST_FAILED("Failed to get end index 46 for 16.08.2003 00:00");
 
   TEST_PASSED();
 }

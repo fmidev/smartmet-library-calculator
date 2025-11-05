@@ -26,7 +26,7 @@ namespace TextGen
 // ----------------------------------------------------------------------
 
 MinimumCalculator::MinimumCalculator()
-    : itsAcceptor(new DefaultAcceptor()),  itsMinimum(kFloatMissing)
+    : itsAcceptor(new DefaultAcceptor()), itsMinimum(kFloatMissing)
 {
 }
 
@@ -60,7 +60,8 @@ void MinimumCalculator::operator()(float theValue)
 
 float MinimumCalculator::operator()() const
 {
-  if (itsCounter == 0) return kFloatMissing;
+  if (itsCounter == 0)
+    return kFloatMissing;
 
   return itsMinimum;
 }

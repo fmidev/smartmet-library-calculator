@@ -27,7 +27,7 @@ namespace TextGen
 
 TrendCalculator::TrendCalculator()
     : itsAcceptor(new DefaultAcceptor()),
-      
+
       itsLastValue(kFloatMissing)
 {
 }
@@ -71,8 +71,10 @@ float TrendCalculator::operator()() const
   // The total number of numbers is one greater than number of changes,
   // hence the -1 in the divisor itsCounter-1
 
-  if (itsCounter < 1) return kFloatMissing;
-  if (itsCounter == 1) return 0.0;
+  if (itsCounter < 1)
+    return kFloatMissing;
+  if (itsCounter == 1)
+    return 0.0;
 
   return (itsPositiveChanges - itsNegativeChanges) / (itsCounter - 1.0) * 100;
 }

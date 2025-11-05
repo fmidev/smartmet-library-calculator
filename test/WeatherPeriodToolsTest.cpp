@@ -13,7 +13,10 @@ namespace WeatherPeriodToolsTest
  */
 // ----------------------------------------------------------------------
 
-void hours(void) { TEST_NOT_IMPLEMENTED(); }
+void hours(void)
+{
+  TEST_NOT_IMPLEMENTED();
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Test WeatherPeriodTools::countPeriods
@@ -112,7 +115,8 @@ void getperiod(void)
       WeatherPeriod expected =
           WeatherPeriod(TextGenPosixTime(2000, 1, 1, 12, 0), TextGenPosixTime(2000, 1, 1, 17, 0));
       WeatherPeriod result = getPeriod(period, 1, 06, 18, 12, 17);
-      if (expected != result) TEST_FAILED("Failed to get 1st subperiod 12-17");
+      if (expected != result)
+        TEST_FAILED("Failed to get 1st subperiod 12-17");
     }
   }
 
@@ -124,21 +128,24 @@ void getperiod(void)
       WeatherPeriod expected =
           WeatherPeriod(TextGenPosixTime(2000, 1, 1, 12, 0), TextGenPosixTime(2000, 1, 1, 18, 0));
       WeatherPeriod result = getPeriod(period, 1, 06, 18, 12, 18);
-      if (result != expected) TEST_FAILED("Failed to get 1/1 subperiod 12-18");
+      if (result != expected)
+        TEST_FAILED("Failed to get 1/1 subperiod 12-18");
     }
 
     {
       WeatherPeriod expected =
           WeatherPeriod(TextGenPosixTime(2000, 1, 1, 12, 0), TextGenPosixTime(2000, 1, 1, 18, 0));
       WeatherPeriod result = getPeriod(period, 1, 06, 18, 12, 17);
-      if (result != expected) TEST_FAILED("Failed to get 1/2 subperiod 12-18");
+      if (result != expected)
+        TEST_FAILED("Failed to get 1/2 subperiod 12-18");
     }
 
     {
       WeatherPeriod expected =
           WeatherPeriod(TextGenPosixTime(2000, 1, 2, 06, 0), TextGenPosixTime(2000, 1, 2, 17, 0));
       WeatherPeriod result = getPeriod(period, 2, 06, 18, 12, 17);
-      if (result != expected) TEST_FAILED("Failed to get 2/2 subperiod 06-17");
+      if (result != expected)
+        TEST_FAILED("Failed to get 2/2 subperiod 06-17");
     }
 
     {
@@ -146,7 +153,8 @@ void getperiod(void)
           WeatherPeriod(TextGenPosixTime(2000, 1, 1, 18, 0), TextGenPosixTime(2000, 1, 2, 06, 0));
       WeatherPeriod result = getPeriod(period, 1, 18, 06, 18, 06);
 
-      if (result != expected) TEST_FAILED("Failed to get 1/1 subperiod 18-06");
+      if (result != expected)
+        TEST_FAILED("Failed to get 1/1 subperiod 18-06");
     }
   }
 

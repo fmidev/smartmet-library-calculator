@@ -21,9 +21,9 @@
 
 #include "RegularMaskSource.h"
 
-#include <macgyver/Exception.h>
 #include "WeatherArea.h"
 #include "WeatherSource.h"
+#include <macgyver/Exception.h>
 
 #include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiGrid.h>
@@ -108,7 +108,8 @@ RegularMaskSource::mask_type RegularMaskSource::Pimple::find(const WeatherId& th
   WeatherAreaAndID key(theID, theArea);
 
   const auto it = itsMaskStorage.find(key);
-  if (it == itsMaskStorage.end()) return dummy;
+  if (it == itsMaskStorage.end())
+    return dummy;
 
   return it->second;
 }
@@ -159,7 +160,8 @@ RegularMaskSource::mask_type RegularMaskSource::Pimple::create_mask(
   std::shared_ptr<NFmiQueryData> qdata = theWeatherSource.data(theData);
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(qdata.get());
   if (!qi.IsGrid())
-    throw Fmi::Exception(BCP, "The data in " + theData + " is not gridded - cannot generate mask for it");
+    throw Fmi::Exception(
+        BCP, "The data in " + theData + " is not gridded - cannot generate mask for it");
 
   mask_type areamask(new NFmiIndexMask(NFmiIndexMaskTools::MaskExpand(*(qi.Grid()), svg, radius)));
   return areamask;
@@ -186,7 +188,8 @@ RegularMaskSource::mask_type RegularMaskSource::mask(const WeatherArea& theArea,
                                                      const std::string& theData,
                                                      const WeatherSource& theWeatherSource) const
 {
-  if (theArea.isPoint()) throw Fmi::Exception(BCP, "Trying to generate mask for point");
+  if (theArea.isPoint())
+    throw Fmi::Exception(BCP, "Trying to generate mask for point");
 
   // Establish the ID for the data
 
@@ -196,7 +199,8 @@ RegularMaskSource::mask_type RegularMaskSource::mask(const WeatherArea& theArea,
 
   mask_type areamask = itsPimple->find(id, theArea);
 
-  if (areamask.get() != nullptr) return areamask;
+  if (areamask.get() != nullptr)
+    return areamask;
 
   // Calculate new mask and cache it
 

@@ -78,8 +78,10 @@ bool isNextDay(const TextGenPosixTime& theDate1, const TextGenPosixTime& theDate
 
 bool isSeveralDays(const TextGenPosixTime& theDate1, const TextGenPosixTime& theDate2)
 {
-  if (isSameDay(theDate1, theDate2)) return false;
-  if (isNextDay(theDate1, theDate2) && theDate2.GetHour() == 0) return false;
+  if (isSameDay(theDate1, theDate2))
+    return false;
+  if (isNextDay(theDate1, theDate2) && theDate2.GetHour() == 0)
+    return false;
   return true;
 }
 
@@ -118,7 +120,8 @@ TextGenPosixTime dayStart(const TextGenPosixTime& theDate)
 TextGenPosixTime dayEnd(const TextGenPosixTime& theDate)
 {
   TextGenPosixTime tmp(dayStart(theDate));
-  if (!tmp.IsEqual(theDate)) tmp.ChangeByDays(1);
+  if (!tmp.IsEqual(theDate))
+    tmp.ChangeByDays(1);
   return tmp;
 }
 

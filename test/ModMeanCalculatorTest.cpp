@@ -22,19 +22,24 @@ void modmean()
 
   ModMeanCalculator calc(10);
 
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 0 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 0 inserts");
 
   calc(1);
-  if (calc() != 1) TEST_FAILED("Failed mean(1) = 1");
+  if (calc() != 1)
+    TEST_FAILED("Failed mean(1) = 1");
 
   calc(9);
-  if (calc() != (1 - 1) / 2.0) TEST_FAILED("Failed mean(1,9) = 0");
+  if (calc() != (1 - 1) / 2.0)
+    TEST_FAILED("Failed mean(1,9) = 0");
 
   calc(7);
-  if (calc() != (11 + 9 + 7) / 3.0) TEST_FAILED("Failed mean(1,9,7) = 9");
+  if (calc() != (11 + 9 + 7) / 3.0)
+    TEST_FAILED("Failed mean(1,9,7) = 9");
 
   calc(3);
-  if (calc() != (11 + 9 + 7 + 3) / 4.0) TEST_FAILED("Failed mean(1,9,7,3) = 7.5");
+  if (calc() != (11 + 9 + 7 + 3) / 4.0)
+    TEST_FAILED("Failed mean(1,9,7,3) = 7.5");
 
   TEST_PASSED();
 }

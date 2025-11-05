@@ -23,9 +23,11 @@ void accept()
 
   DefaultAcceptor acc;
 
-  if (!acc.accept(0)) TEST_FAILED("Should accept 0");
+  if (!acc.accept(0))
+    TEST_FAILED("Should accept 0");
 
-  if (acc.accept(kFloatMissing)) TEST_FAILED("Should not accept kFloatMissing");
+  if (acc.accept(kFloatMissing))
+    TEST_FAILED("Should not accept kFloatMissing");
 
   TEST_PASSED();
 }

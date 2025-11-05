@@ -79,7 +79,10 @@ IntervalPeriodGenerator::IntervalPeriodGenerator(WeatherPeriod theMainPeriod,
  */
 // ----------------------------------------------------------------------
 
-bool IntervalPeriodGenerator::undivided() const { return false; }
+bool IntervalPeriodGenerator::undivided() const
+{
+  return false;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Initialize the internal list of sorted periods
@@ -89,16 +92,16 @@ bool IntervalPeriodGenerator::undivided() const { return false; }
 void IntervalPeriodGenerator::init()
 {
   if ((itsInterval != 0) && (24 % itsInterval != 0 && itsInterval % 24 != 0))
-    throw Fmi::Exception(BCP, 
-        "IntervalPeriodGenerator: Interval must divide 24 evenly or be divisible by 24");
+    throw Fmi::Exception(
+        BCP, "IntervalPeriodGenerator: Interval must divide 24 evenly or be divisible by 24");
   if (itsInterval < 0)
     throw Fmi::Exception(BCP, "IntervalPeriodGenerator: Interval length must be positive");
 
   if (itsMinimumInterval < 0)
     throw Fmi::Exception(BCP, "IntervalPeriodGenerator: Minimum interval must be positive");
   if (itsMinimumInterval > itsInterval)
-    throw Fmi::Exception(BCP, 
-        "IntervalPeriodGenerator: Minimum interval must be in range 1-interval or be zero");
+    throw Fmi::Exception(
+        BCP, "IntervalPeriodGenerator: Minimum interval must be in range 1-interval or be zero");
 
   // Now we can generate the periods in advance
 
@@ -114,10 +117,12 @@ void IntervalPeriodGenerator::init()
 
     if (starttime.IsLessThan(itsMainPeriod.localStartTime()))
       starttime = itsMainPeriod.localStartTime();
-    if (itsMainPeriod.localEndTime().IsLessThan(endtime)) endtime = itsMainPeriod.localEndTime();
+    if (itsMainPeriod.localEndTime().IsLessThan(endtime))
+      endtime = itsMainPeriod.localEndTime();
 
     const int diff = endtime.DifferenceInHours(starttime);
-    if (diff >= itsMinimumInterval) itsPeriods.emplace_back(WeatherPeriod(starttime, endtime));
+    if (diff >= itsMinimumInterval)
+      itsPeriods.emplace_back(WeatherPeriod(starttime, endtime));
 
     if (itsInterval <= 0)
       time.ChangeByHours(1);

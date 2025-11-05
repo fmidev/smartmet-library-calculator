@@ -50,22 +50,38 @@ void set_function()
 
 void isset_function()
 {
-  if (!Fmi::Config::isset("string_param")) TEST_FAILED("Failed for string_param");
-  if (!Fmi::Config::isset("bool_param1")) TEST_FAILED("Failed for bool_param1");
-  if (!Fmi::Config::isset("bool_param2")) TEST_FAILED("Failed for bool_param2");
-  if (!Fmi::Config::isset("bool_param3")) TEST_FAILED("Failed for bool_param3");
-  if (!Fmi::Config::isset("bool_param4")) TEST_FAILED("Failed for bool_param5");
-  if (!Fmi::Config::isset("int_param")) TEST_FAILED("Failed for int_param");
-  if (!Fmi::Config::isset("double_param")) TEST_FAILED("Failed for double_param");
-  if (!Fmi::Config::isset("hour_param1")) TEST_FAILED("Failed for hour_param1");
-  if (!Fmi::Config::isset("hour_param2")) TEST_FAILED("Failed for hour_param2");
-  if (!Fmi::Config::isset("hour_param3")) TEST_FAILED("Failed for hour_param3");
-  if (!Fmi::Config::isset("hour_param4")) TEST_FAILED("Failed for hour_param4");
-  if (!Fmi::Config::isset("days_param")) TEST_FAILED("Failed for days_param");
-  if (!Fmi::Config::isset("days_param")) TEST_FAILED("Failed for days_param");
-  if (!Fmi::Config::isset("percentage_param")) TEST_FAILED("Failed for percentage_param");
-  if (!Fmi::Config::isset("time_param")) TEST_FAILED("Failed for time_param");
-  if (!Fmi::Config::isset("result_param")) TEST_FAILED("Failed for result_param");
+  if (!Fmi::Config::isset("string_param"))
+    TEST_FAILED("Failed for string_param");
+  if (!Fmi::Config::isset("bool_param1"))
+    TEST_FAILED("Failed for bool_param1");
+  if (!Fmi::Config::isset("bool_param2"))
+    TEST_FAILED("Failed for bool_param2");
+  if (!Fmi::Config::isset("bool_param3"))
+    TEST_FAILED("Failed for bool_param3");
+  if (!Fmi::Config::isset("bool_param4"))
+    TEST_FAILED("Failed for bool_param5");
+  if (!Fmi::Config::isset("int_param"))
+    TEST_FAILED("Failed for int_param");
+  if (!Fmi::Config::isset("double_param"))
+    TEST_FAILED("Failed for double_param");
+  if (!Fmi::Config::isset("hour_param1"))
+    TEST_FAILED("Failed for hour_param1");
+  if (!Fmi::Config::isset("hour_param2"))
+    TEST_FAILED("Failed for hour_param2");
+  if (!Fmi::Config::isset("hour_param3"))
+    TEST_FAILED("Failed for hour_param3");
+  if (!Fmi::Config::isset("hour_param4"))
+    TEST_FAILED("Failed for hour_param4");
+  if (!Fmi::Config::isset("days_param"))
+    TEST_FAILED("Failed for days_param");
+  if (!Fmi::Config::isset("days_param"))
+    TEST_FAILED("Failed for days_param");
+  if (!Fmi::Config::isset("percentage_param"))
+    TEST_FAILED("Failed for percentage_param");
+  if (!Fmi::Config::isset("time_param"))
+    TEST_FAILED("Failed for time_param");
+  if (!Fmi::Config::isset("result_param"))
+    TEST_FAILED("Failed for result_param");
 
   TEST_PASSED();
 }
@@ -76,16 +92,20 @@ void require_function()
   if (string_param != "string")
     TEST_FAILED("Value of string_param sould be 'string' not " + string_param);
   bool bool_param1(Fmi::Config().requireBoolean("bool_param1"));
-  if (bool_param1 != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
+  if (bool_param1 != true)
+    TEST_FAILED("Value of bool_param sould be 'true' not false");
 
   bool bool_param2(Fmi::Config().requireBoolean("bool_param2"));
-  if (bool_param2 != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
+  if (bool_param2 != false)
+    TEST_FAILED("Value of bool_param sould be 'false' not true");
 
   bool bool_param3(Fmi::Config().requireBoolean("bool_param3"));
-  if (bool_param3 != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
+  if (bool_param3 != true)
+    TEST_FAILED("Value of bool_param sould be 'true' not false");
 
   bool bool_param4(Fmi::Config().requireBoolean("bool_param4"));
-  if (bool_param4 != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
+  if (bool_param4 != false)
+    TEST_FAILED("Value of bool_param sould be 'false' not true");
 
   int int_param(Fmi::Config().requireInteger("int_param"));
   if (int_param != 55)

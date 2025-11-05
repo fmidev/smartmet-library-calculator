@@ -71,7 +71,8 @@ void ModChangeCalculator::operator()(float theValue)
 
 float ModChangeCalculator::operator()() const
 {
-  if (itsCounter == 0) return kFloatMissing;
+  if (itsCounter == 0)
+    return kFloatMissing;
   return itsCumulativeChange;
 }
 

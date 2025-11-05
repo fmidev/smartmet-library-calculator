@@ -188,7 +188,8 @@ void checkMissingValue(const std::string& theStoryName,
                        WeatherParameter theParameter,
                        const WeatherResult& theWeatherResult)
 {
-  if (theWeatherResult.value() != kFloatMissing) return;
+  if (theWeatherResult.value() != kFloatMissing)
+    return;
 
   std::string parameter;
   switch (theParameter)
@@ -448,8 +449,9 @@ void checkMissingValue(const std::string& theStoryName,
       break;
   }
 
-  throw Fmi::Exception(BCP, "Error in '" + theStoryName + "' story: " + parameter +
-                     " value missing, cannot continue!");
+  throw Fmi::Exception(
+      BCP,
+      "Error in '" + theStoryName + "' story: " + parameter + " value missing, cannot continue!");
 }
 
 void checkMissingValue(const std::string& theStoryName,

@@ -31,10 +31,7 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-StandardDeviationCalculator::StandardDeviationCalculator()
-    : itsAcceptor(new DefaultAcceptor()) 
-{
-}
+StandardDeviationCalculator::StandardDeviationCalculator() : itsAcceptor(new DefaultAcceptor()) {}
 
 // ----------------------------------------------------------------------
 /*!
@@ -64,10 +61,12 @@ void StandardDeviationCalculator::operator()(float theValue)
 
 float StandardDeviationCalculator::operator()() const
 {
-  if (itsCounter < 2) return kFloatMissing;
+  if (itsCounter < 2)
+    return kFloatMissing;
 
   const double tmp = itsSquaredSum - itsSum * itsSum / itsCounter;
-  if (tmp < 0) return 0.0;
+  if (tmp < 0)
+    return 0.0;
 
   return sqrt(tmp / (itsCounter - 1));
 }

@@ -90,7 +90,8 @@ void ModMeanCalculator::operator()(float theValue)
 
 float ModMeanCalculator::operator()() const
 {
-  if (itsCounter == 0) return kFloatMissing;
+  if (itsCounter == 0)
+    return kFloatMissing;
 
   // Floats do not support %, it is an integer operator
   double mean = itsSum / itsCounter;

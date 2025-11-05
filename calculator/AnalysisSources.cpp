@@ -40,7 +40,10 @@ std::shared_ptr<WeatherSource> AnalysisSources::getWeatherSource() const
  */
 // ----------------------------------------------------------------------
 
-std::shared_ptr<MaskSource> AnalysisSources::getMaskSource() const { return itsMaskSource; }
+std::shared_ptr<MaskSource> AnalysisSources::getMaskSource() const
+{
+  return itsMaskSource;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the land mask source

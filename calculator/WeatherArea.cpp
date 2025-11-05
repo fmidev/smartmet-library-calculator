@@ -178,8 +178,10 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, float theRadius)
       itsLongitude(180.0),
       itsBooleanParameters(0x0)
 {
-  if (theRadius < 0) throw Fmi::Exception(BCP, "A weather point cannot have a negative expansion radius");
-  if (theRadius > 0) make_point_path(*itsPolygon, thePoint);
+  if (theRadius < 0)
+    throw Fmi::Exception(BCP, "A weather point cannot have a negative expansion radius");
+  if (theRadius > 0)
+    make_point_path(*itsPolygon, thePoint);
   set_boolean_parameters();
 }
 
@@ -210,8 +212,10 @@ WeatherArea::WeatherArea(const NFmiPoint& thePoint, const std::string& theName, 
       itsLongitude(180.0),
       itsBooleanParameters(0x0)
 {
-  if (theRadius < 0) throw Fmi::Exception(BCP, "A weather point cannot have a negative expansion radius");
-  if (theRadius > 0) make_point_path(*itsPolygon, thePoint);
+  if (theRadius < 0)
+    throw Fmi::Exception(BCP, "A weather point cannot have a negative expansion radius");
+  if (theRadius > 0)
+    make_point_path(*itsPolygon, thePoint);
   set_boolean_parameters();
 }
 
@@ -254,7 +258,10 @@ WeatherArea::WeatherArea(const NFmiSvgPath& theSvgPath, const std::string& theNa
  */
 // ----------------------------------------------------------------------
 
-bool WeatherArea::isPoint() const { return itsPointFlag; }
+bool WeatherArea::isPoint() const
+{
+  return itsPointFlag;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Test if the area has a name
@@ -263,7 +270,10 @@ bool WeatherArea::isPoint() const { return itsPointFlag; }
  */
 // ----------------------------------------------------------------------
 
-bool WeatherArea::isNamed() const { return itsNamedFlag; }
+bool WeatherArea::isNamed() const
+{
+  return itsNamedFlag;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Name accessor
@@ -274,7 +284,8 @@ bool WeatherArea::isNamed() const { return itsNamedFlag; }
 
 const std::string& WeatherArea::name() const
 {
-  if (itsNamedFlag) return itsName;
+  if (itsNamedFlag)
+    return itsName;
   throw Fmi::Exception(BCP, "Trying to access name of unnamed weather area");
 }
 
@@ -288,7 +299,8 @@ const std::string& WeatherArea::name() const
 
 const NFmiPoint& WeatherArea::point() const
 {
-  if (itsPointFlag) return itsPoint;
+  if (itsPointFlag)
+    return itsPoint;
   throw Fmi::Exception(BCP, "Trying to access coordinate of polygonal weather area");
 }
 
@@ -302,7 +314,8 @@ const NFmiPoint& WeatherArea::point() const
 
 const NFmiSvgPath& WeatherArea::path() const
 {
-  if (itsPointFlag) throw Fmi::Exception(BCP, "Trying to access path of a point");
+  if (itsPointFlag)
+    throw Fmi::Exception(BCP, "Trying to access path of a point");
   if (itsPolygon.get() == nullptr)
     throw Fmi::Exception(BCP, "Internal polygon allocation error in WeatherArea");
   return *itsPolygon;
@@ -316,7 +329,10 @@ const NFmiSvgPath& WeatherArea::path() const
  */
 // ----------------------------------------------------------------------
 
-float WeatherArea::radius() const { return itsRadius; }
+float WeatherArea::radius() const
+{
+  return itsRadius;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Type accessor
@@ -325,7 +341,10 @@ float WeatherArea::radius() const { return itsRadius; }
  */
 // ----------------------------------------------------------------------
 
-WeatherArea::Type WeatherArea::type() const { return itsType; }
+WeatherArea::Type WeatherArea::type() const
+{
+  return itsType;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Change the type of the area
@@ -334,7 +353,10 @@ WeatherArea::Type WeatherArea::type() const { return itsType; }
  */
 // ----------------------------------------------------------------------
 
-void WeatherArea::type(Type theType) { itsType = theType; }
+void WeatherArea::type(Type theType)
+{
+  itsType = theType;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Parse a text description of a WeatherArea
@@ -358,7 +380,8 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
 
   std::vector<std::string> words = NFmiStringTools::Split(theSpecs, ":");
   if (words.size() > 2)
-    throw Fmi::Exception(BCP, "Too many ':' characters in WeatherArea specification '" + theSpecs + "'");
+    throw Fmi::Exception(BCP,
+                         "Too many ':' characters in WeatherArea specification '" + theSpecs + "'");
 
   // Parse the radius part
 
@@ -370,8 +393,9 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
     }
     catch (...)
     {
-      throw Fmi::Exception(BCP, "Expecting a valid radius after the ':' character in WeatherArea '" +
-                         theSpecs + "'");
+      throw Fmi::Exception(
+          BCP,
+          "Expecting a valid radius after the ':' character in WeatherArea '" + theSpecs + "'");
     }
   }
 
@@ -400,12 +424,14 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
     itsPointFlag = false;
 
     std::ifstream in(filename.c_str(), std::ios::in);
-    if (!in) throw Fmi::Exception(BCP, "Could not open map file '" + filename + "' for reading");
+    if (!in)
+      throw Fmi::Exception(BCP, "Could not open map file '" + filename + "' for reading");
     in >> *itsPolygon;
     in.close();
 
     if (itsPolygon->empty())
-      throw Fmi::Exception(BCP, "Map file '" + filename + "' does not contain an acceptable SVG path");
+      throw Fmi::Exception(BCP,
+                           "Map file '" + filename + "' does not contain an acceptable SVG path");
     return;
   }
 
@@ -432,7 +458,8 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
   }
 
   itsPointFlag = (itsRadius == 0);
-  if (!itsPointFlag) make_point_path(*itsPolygon, itsPoint);
+  if (!itsPointFlag)
+    make_point_path(*itsPolygon, itsPoint);
 }
 
 // ----------------------------------------------------------------------
@@ -527,7 +554,10 @@ void WeatherArea::setLongitudeDivisionLine(const double& theLongitude)
  * \param theLatitude The latitude to be used when the area is split to northern and southern part
  */
 // ----------------------------------------------------------------------
-void WeatherArea::setLatitudeDivisionLine(const double& theLatitude) { itsLatitude = theLatitude; }
+void WeatherArea::setLatitudeDivisionLine(const double& theLatitude)
+{
+  itsLatitude = theLatitude;
+}
 bool WeatherArea::booleanParameterValue(const ParameterId& parameterId)
 {
   bool retval(false);
@@ -560,9 +590,12 @@ bool WeatherArea::booleanParameterValue(const ParameterId& parameterId)
 
 void WeatherArea::set_boolean_parameters()
 {
-  if (booleanParameterValue(Marine)) itsBooleanParameters |= Marine;
-  if (booleanParameterValue(Mountain)) itsBooleanParameters |= Mountain;
-  if (booleanParameterValue(Island)) itsBooleanParameters |= Island;
+  if (booleanParameterValue(Marine))
+    itsBooleanParameters |= Marine;
+  if (booleanParameterValue(Mountain))
+    itsBooleanParameters |= Mountain;
+  if (booleanParameterValue(Island))
+    itsBooleanParameters |= Island;
 }
 
 // ----------------------------------------------------------------------
@@ -583,21 +616,30 @@ bool WeatherArea::booleanParameter(const ParameterId& parameterId) const
  *
  */
 // ----------------------------------------------------------------------
-bool WeatherArea::isMarine() const { return (itsBooleanParameters & Marine) != 0; }
+bool WeatherArea::isMarine() const
+{
+  return (itsBooleanParameters & Marine) != 0;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Returns true if the area is mountain area, false otherwise
  *
  */
 // ----------------------------------------------------------------------
-bool WeatherArea::isMountain() const { return (itsBooleanParameters & Mountain) != 0; }
+bool WeatherArea::isMountain() const
+{
+  return (itsBooleanParameters & Mountain) != 0;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Returns true if the area is island, false otherwise
  *
  */
 // ----------------------------------------------------------------------
-bool WeatherArea::isIsland() const { return (itsBooleanParameters & Island) != 0; }
+bool WeatherArea::isIsland() const
+{
+  return (itsBooleanParameters & Island) != 0;
+}
 }  // namespace TextGen
 
 // ======================================================================

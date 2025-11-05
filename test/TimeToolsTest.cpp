@@ -18,10 +18,14 @@ void is_same_day()
 
   TextGenPosixTime date(2003, 07, 11);
 
-  if (!isSameDay(date, TextGenPosixTime(2003, 07, 11))) TEST_FAILED("Failed for 11.07.2003");
-  if (isSameDay(date, TextGenPosixTime(2003, 07, 10))) TEST_FAILED("Failed for 10.07.2003");
-  if (isSameDay(date, TextGenPosixTime(2003, 06, 11))) TEST_FAILED("Failed for 11.06.2003");
-  if (isSameDay(date, TextGenPosixTime(2002, 07, 11))) TEST_FAILED("Failed for 11.07.2002");
+  if (!isSameDay(date, TextGenPosixTime(2003, 07, 11)))
+    TEST_FAILED("Failed for 11.07.2003");
+  if (isSameDay(date, TextGenPosixTime(2003, 07, 10)))
+    TEST_FAILED("Failed for 10.07.2003");
+  if (isSameDay(date, TextGenPosixTime(2003, 06, 11)))
+    TEST_FAILED("Failed for 11.06.2003");
+  if (isSameDay(date, TextGenPosixTime(2002, 07, 11)))
+    TEST_FAILED("Failed for 11.07.2002");
 
   TEST_PASSED();
 }
@@ -38,9 +42,12 @@ void is_next_day()
 
   TextGenPosixTime date(2003, 07, 11);
 
-  if (isNextDay(date, TextGenPosixTime(2003, 07, 11))) TEST_FAILED("Failed for 11.07.2003");
-  if (isNextDay(date, TextGenPosixTime(2003, 07, 10))) TEST_FAILED("Failed for 10.07.2003");
-  if (!isNextDay(date, TextGenPosixTime(2003, 07, 12))) TEST_FAILED("Failed for 12.07.2003");
+  if (isNextDay(date, TextGenPosixTime(2003, 07, 11)))
+    TEST_FAILED("Failed for 11.07.2003");
+  if (isNextDay(date, TextGenPosixTime(2003, 07, 10)))
+    TEST_FAILED("Failed for 10.07.2003");
+  if (!isNextDay(date, TextGenPosixTime(2003, 07, 12)))
+    TEST_FAILED("Failed for 12.07.2003");
 
   TEST_PASSED();
 }
@@ -57,11 +64,14 @@ void is_several_days()
 
   TextGenPosixTime date(2003, 07, 11);
 
-  if (isSeveralDays(date, TextGenPosixTime(2003, 07, 11))) TEST_FAILED("Failed for 11.07.2003");
-  if (isSeveralDays(date, TextGenPosixTime(2003, 07, 12))) TEST_FAILED("Failed for 12.07.2003");
+  if (isSeveralDays(date, TextGenPosixTime(2003, 07, 11)))
+    TEST_FAILED("Failed for 11.07.2003");
+  if (isSeveralDays(date, TextGenPosixTime(2003, 07, 12)))
+    TEST_FAILED("Failed for 12.07.2003");
   if (!isSeveralDays(date, TextGenPosixTime(2003, 07, 12, 1)))
     TEST_FAILED("Failed for 12.07.2003 01:00");
-  if (!isSeveralDays(date, TextGenPosixTime(2003, 07, 13))) TEST_FAILED("Failed for 13.07.2003");
+  if (!isSeveralDays(date, TextGenPosixTime(2003, 07, 13)))
+    TEST_FAILED("Failed for 13.07.2003");
 
   TEST_PASSED();
 }

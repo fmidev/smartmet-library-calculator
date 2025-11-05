@@ -36,26 +36,41 @@ void accessors(void)
   WeatherArea area3("Helsinki");
   WeatherArea area4("Helsinki:30", "Helsinki");
 
-  if (area1.isNamed()) TEST_FAILED("isNamed failed for unnamed (25,60)");
-  if (!area2.isNamed()) TEST_FAILED("isNamed failed for named (25,60)");
-  if (area3.isNamed()) TEST_FAILED("isNamed failed for unnamed Helsinki");
-  if (!area4.isNamed()) TEST_FAILED("isNamed failed for named Helsinki");
+  if (area1.isNamed())
+    TEST_FAILED("isNamed failed for unnamed (25,60)");
+  if (!area2.isNamed())
+    TEST_FAILED("isNamed failed for named (25,60)");
+  if (area3.isNamed())
+    TEST_FAILED("isNamed failed for unnamed Helsinki");
+  if (!area4.isNamed())
+    TEST_FAILED("isNamed failed for named Helsinki");
 
-  if (!(area1.isPoint())) TEST_FAILED("isPoint failed for 25,60");
-  if (area2.isPoint()) TEST_FAILED("isPoint failed for 25,60:30");
-  if (!(area3.isPoint())) TEST_FAILED("isPoint failed for Helsinki");
-  if (area4.isPoint()) TEST_FAILED("isPoint failed for Helsinki:30");
+  if (!(area1.isPoint()))
+    TEST_FAILED("isPoint failed for 25,60");
+  if (area2.isPoint())
+    TEST_FAILED("isPoint failed for 25,60:30");
+  if (!(area3.isPoint()))
+    TEST_FAILED("isPoint failed for Helsinki");
+  if (area4.isPoint())
+    TEST_FAILED("isPoint failed for Helsinki:30");
 
-  if (area2.name() != "Helsinki") TEST_FAILED("Failed to return name Helsinki for 25,60:30");
+  if (area2.name() != "Helsinki")
+    TEST_FAILED("Failed to return name Helsinki for 25,60:30");
 
-  if (area4.name() != "Helsinki") TEST_FAILED("Failed to return name Helsinki for Helsinki:30");
+  if (area4.name() != "Helsinki")
+    TEST_FAILED("Failed to return name Helsinki for Helsinki:30");
 
-  if (area1.point() != NFmiPoint(25, 60)) TEST_FAILED("Failed to return point 25,60");
+  if (area1.point() != NFmiPoint(25, 60))
+    TEST_FAILED("Failed to return point 25,60");
 
-  if (area1.radius() != 0) TEST_FAILED("Failed to return radius 0 for 25,60");
-  if (area2.radius() != 30) TEST_FAILED("Failed to return radius 30 for 25,60:30");
-  if (area3.radius() != 0) TEST_FAILED("Failed to return radius 0 for Helsinki");
-  if (area4.radius() != 30) TEST_FAILED("Failed to return radius 30 for Helsinki:30");
+  if (area1.radius() != 0)
+    TEST_FAILED("Failed to return radius 0 for 25,60");
+  if (area2.radius() != 30)
+    TEST_FAILED("Failed to return radius 30 for 25,60:30");
+  if (area3.radius() != 0)
+    TEST_FAILED("Failed to return radius 0 for Helsinki");
+  if (area4.radius() != 30)
+    TEST_FAILED("Failed to return radius 30 for Helsinki:30");
 
   TEST_PASSED();
 }
@@ -72,15 +87,23 @@ void comparisons(void)
   WeatherArea area5("Helsinki", "Helsinki");
   WeatherArea area6("Helsinki:30", "Helsingin seutu");
 
-  if (!(area1 == area1)) TEST_FAILED("area1==area1 test failed");
-  if (area1 != area1) TEST_FAILED("area1!=area1 test failed");
+  if (!(area1 == area1))
+    TEST_FAILED("area1==area1 test failed");
+  if (area1 != area1)
+    TEST_FAILED("area1!=area1 test failed");
 
-  if (area1 == area2) TEST_FAILED("area1==area2 test failed");
-  if (area1 != area3) TEST_FAILED("area1!=area3 test failed");
-  if (area1 == area4) TEST_FAILED("area1==area4 test failed");
-  if (area1 == area5) TEST_FAILED("area1==area5 test failed");
-  if (area1 == area6) TEST_FAILED("area1==area6 test failed");
-  if (area2 == area6) TEST_FAILED("area2==area6 test failed");
+  if (area1 == area2)
+    TEST_FAILED("area1==area2 test failed");
+  if (area1 != area3)
+    TEST_FAILED("area1!=area3 test failed");
+  if (area1 == area4)
+    TEST_FAILED("area1==area4 test failed");
+  if (area1 == area5)
+    TEST_FAILED("area1==area5 test failed");
+  if (area1 == area6)
+    TEST_FAILED("area1==area6 test failed");
+  if (area2 == area6)
+    TEST_FAILED("area2==area6 test failed");
 
   TEST_PASSED();
 }

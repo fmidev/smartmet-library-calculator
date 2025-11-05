@@ -90,7 +90,10 @@ HourPeriodGenerator::HourPeriodGenerator(WeatherPeriod theMainPeriod,
  */
 // ----------------------------------------------------------------------
 
-bool HourPeriodGenerator::undivided() const { return false; }
+bool HourPeriodGenerator::undivided() const
+{
+  return false;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the number of subperiods
@@ -99,7 +102,10 @@ bool HourPeriodGenerator::undivided() const { return false; }
  */
 // ----------------------------------------------------------------------
 
-HourPeriodGenerator::size_type HourPeriodGenerator::size() const { return itsSize; }
+HourPeriodGenerator::size_type HourPeriodGenerator::size() const
+{
+  return itsSize;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the minimal period covered by the generator

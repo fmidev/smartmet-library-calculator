@@ -41,7 +41,8 @@ namespace TextGen
 WeatherResult::WeatherResult(float theValue, float theError)
     : itsValue(theValue), itsError(theError)
 {
-  if (itsError < 0) throw std::runtime_error("Error estimate below zero");
+  if (itsError < 0)
+    throw std::runtime_error("Error estimate below zero");
 }
 
 // ----------------------------------------------------------------------
@@ -54,7 +55,10 @@ WeatherResult::WeatherResult(float theValue, float theError)
  */
 // ----------------------------------------------------------------------
 
-float WeatherResult::value() const { return itsValue; }
+float WeatherResult::value() const
+{
+  return itsValue;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Error accessor
@@ -65,7 +69,10 @@ float WeatherResult::value() const { return itsValue; }
  */
 // ----------------------------------------------------------------------
 
-float WeatherResult::error() const { return itsError; }
+float WeatherResult::error() const
+{
+  return itsError;
+}
 }  // namespace TextGen
 
 // ----------------------------------------------------------------------

@@ -10,14 +10,23 @@
 
 static thread_local std::string tls;
 
-void release_timezone_id() { tls.clear(); }
+void release_timezone_id()
+{
+  tls.clear();
+}
 
-std::string& get_timezone_id() { return tls; }
+std::string& get_timezone_id()
+{
+  return tls;
+}
 
 TextGenPosixTime::TextGenPosixTime() : itsPosixTime(Fmi::SecondClock::local_time()) {}
 TextGenPosixTime::TextGenPosixTime(const Fmi::DateTime& theTime) : itsPosixTime(theTime) {}
 
-TextGenPosixTime::TextGenPosixTime(std::time_t theTime) : itsPosixTime(Fmi::date_time::from_time_t(theTime)) {}
+TextGenPosixTime::TextGenPosixTime(std::time_t theTime)
+    : itsPosixTime(Fmi::date_time::from_time_t(theTime))
+{
+}
 
 TextGenPosixTime::TextGenPosixTime(const NFmiStaticTime& theTime)
     : itsPosixTime(Fmi::Date(theTime.GetYear(), theTime.GetMonth(), theTime.GetDay()),
@@ -38,10 +47,22 @@ TextGenPosixTime::TextGenPosixTime(
   itsPosixTime = Fmi::DateTime(d, td);
 }
 
-void TextGenPosixTime::ChangeBySeconds(long sec) { itsPosixTime += Fmi::Seconds(sec); }
-void TextGenPosixTime::ChangeByMinutes(long min) { itsPosixTime += Fmi::Minutes(min); }
-void TextGenPosixTime::ChangeByHours(long hour) { itsPosixTime += Fmi::Hours(hour); }
-void TextGenPosixTime::ChangeByDays(long day) { itsPosixTime += Fmi::date_time::Days(day); }
+void TextGenPosixTime::ChangeBySeconds(long sec)
+{
+  itsPosixTime += Fmi::Seconds(sec);
+}
+void TextGenPosixTime::ChangeByMinutes(long min)
+{
+  itsPosixTime += Fmi::Minutes(min);
+}
+void TextGenPosixTime::ChangeByHours(long hour)
+{
+  itsPosixTime += Fmi::Hours(hour);
+}
+void TextGenPosixTime::ChangeByDays(long day)
+{
+  itsPosixTime += Fmi::date_time::Days(day);
+}
 long TextGenPosixTime::DifferenceInMinutes(const TextGenPosixTime& anotherTime) const
 {
   Fmi::TimeDuration td(itsPosixTime - anotherTime.itsPosixTime);
@@ -159,12 +180,30 @@ void TextGenPosixTime::SetSec(short sec)
   itsPosixTime = Fmi::DateTime(d, Fmi::TimeDuration(td.hours(), td.minutes(), sec));
 }
 
-short TextGenPosixTime::GetYear() const { return itsPosixTime.date().year(); }
-short TextGenPosixTime::GetMonth() const { return itsPosixTime.date().month(); }
-short TextGenPosixTime::GetDay() const { return itsPosixTime.date().day(); }
-short TextGenPosixTime::GetHour() const { return itsPosixTime.time_of_day().hours(); }
-short TextGenPosixTime::GetMin() const { return itsPosixTime.time_of_day().minutes(); }
-short TextGenPosixTime::GetSec() const { return itsPosixTime.time_of_day().seconds(); }
+short TextGenPosixTime::GetYear() const
+{
+  return itsPosixTime.date().year();
+}
+short TextGenPosixTime::GetMonth() const
+{
+  return itsPosixTime.date().month();
+}
+short TextGenPosixTime::GetDay() const
+{
+  return itsPosixTime.date().day();
+}
+short TextGenPosixTime::GetHour() const
+{
+  return itsPosixTime.time_of_day().hours();
+}
+short TextGenPosixTime::GetMin() const
+{
+  return itsPosixTime.time_of_day().minutes();
+}
+short TextGenPosixTime::GetSec() const
+{
+  return itsPosixTime.time_of_day().seconds();
+}
 
 std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
 {
@@ -174,15 +213,20 @@ std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
   else if ((kLongYear & theTimeMask) != 0)
     ss << Fmi::date_time::format_time("%Y", itsPosixTime);
 
-  if ((kMonth & theTimeMask) != 0) ss << Fmi::date_time::format_time("%m", itsPosixTime);
+  if ((kMonth & theTimeMask) != 0)
+    ss << Fmi::date_time::format_time("%m", itsPosixTime);
 
-  if ((kDay & theTimeMask) != 0) ss << Fmi::date_time::format_time("%d", itsPosixTime);
+  if ((kDay & theTimeMask) != 0)
+    ss << Fmi::date_time::format_time("%d", itsPosixTime);
 
-  if ((kHour & theTimeMask) != 0) ss << Fmi::date_time::format_time("%H", itsPosixTime);
+  if ((kHour & theTimeMask) != 0)
+    ss << Fmi::date_time::format_time("%H", itsPosixTime);
 
-  if ((kMinute & theTimeMask) != 0) ss << Fmi::date_time::format_time("%M", itsPosixTime);
+  if ((kMinute & theTimeMask) != 0)
+    ss << Fmi::date_time::format_time("%M", itsPosixTime);
 
-  if ((kSecond & theTimeMask) != 0) ss << Fmi::date_time::format_time("%S", itsPosixTime);
+  if ((kSecond & theTimeMask) != 0)
+    ss << Fmi::date_time::format_time("%S", itsPosixTime);
 
   return ss.str();
 }
@@ -207,12 +251,16 @@ short TextGenPosixTime::GetWeekday() const  // mon=1, tue=2,..., sat=6,  sun=7
 {
   short retval = itsPosixTime.date().day_of_week().iso_encoding();
 
-  if (retval == 0) retval = 7;
+  if (retval == 0)
+    retval = 7;
 
   return retval;
 }
 
-short TextGenPosixTime::GetJulianDay() const { return itsPosixTime.date().julian_day(); }
+short TextGenPosixTime::GetJulianDay() const
+{
+  return itsPosixTime.date().julian_day();
+}
 short TextGenPosixTime::DaysInYear(const short aYear)
 {
   Fmi::Date d(aYear, 12, 1);
@@ -270,7 +318,10 @@ void TextGenPosixTime::SetThreadTimeZone(const std::string& theTimeZoneId /*= ""
   }
 }
 
-void TextGenPosixTime::ResetThreadTimeZone() { release_timezone_id(); }
+void TextGenPosixTime::ResetThreadTimeZone()
+{
+  release_timezone_id();
+}
 std::ostream& operator<<(std::ostream& os, const TextGenPosixTime& tgTime)
 {
   os << Fmi::date_time::format_time("%d.%m.%y %H:%M:%S", tgTime.GetDateTime());

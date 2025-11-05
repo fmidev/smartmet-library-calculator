@@ -32,8 +32,10 @@ void accessors(void)
   TextGenPosixTime time2(2003, 12, 31);
 
   WeatherPeriod period(time1, time2);
-  if (!period.localStartTime().IsEqual(time1)) TEST_FAILED("startTime() accessor failed");
-  if (!period.localEndTime().IsEqual(time2)) TEST_FAILED("endTime() accessor failed");
+  if (!period.localStartTime().IsEqual(time1))
+    TEST_FAILED("startTime() accessor failed");
+  if (!period.localEndTime().IsEqual(time2))
+    TEST_FAILED("endTime() accessor failed");
 
   TEST_PASSED();
 }
@@ -51,16 +53,24 @@ void comparisons(void)
   WeatherPeriod period2(time1, time3);
   WeatherPeriod period3(time2, time3);
 
-  if (!(period1 == period1)) TEST_FAILED("period1==period1 test failed");
-  if (period1 != period1) TEST_FAILED("period1!=period1 test failed");
+  if (!(period1 == period1))
+    TEST_FAILED("period1==period1 test failed");
+  if (period1 != period1)
+    TEST_FAILED("period1!=period1 test failed");
 
-  if (period1 == period2) TEST_FAILED("period1==period2 test failed");
-  if (period1 == period3) TEST_FAILED("period1==period3 test failed");
-  if (period2 == period3) TEST_FAILED("period2==period3 test failed");
+  if (period1 == period2)
+    TEST_FAILED("period1==period2 test failed");
+  if (period1 == period3)
+    TEST_FAILED("period1==period3 test failed");
+  if (period2 == period3)
+    TEST_FAILED("period2==period3 test failed");
 
-  if (!(period1 != period2)) TEST_FAILED("period1!=period2 test failed");
-  if (!(period1 != period3)) TEST_FAILED("period1!=period3 test failed");
-  if (!(period2 != period3)) TEST_FAILED("period2!=period3 test failed");
+  if (!(period1 != period2))
+    TEST_FAILED("period1!=period2 test failed");
+  if (!(period1 != period3))
+    TEST_FAILED("period1!=period3 test failed");
+  if (!(period2 != period3))
+    TEST_FAILED("period2!=period3 test failed");
 
   TEST_PASSED();
 }

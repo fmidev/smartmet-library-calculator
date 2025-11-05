@@ -28,8 +28,10 @@ void accessors(void)
   using namespace TextGen;
 
   WeatherResult result(1, 0.5);
-  if (result.value() != 1) TEST_FAILED("value() accessor failed");
-  if (result.error() != 0.5) TEST_FAILED("error() accessor failed");
+  if (result.value() != 1)
+    TEST_FAILED("value() accessor failed");
+  if (result.error() != 0.5)
+    TEST_FAILED("error() accessor failed");
 
   TEST_PASSED();
 }

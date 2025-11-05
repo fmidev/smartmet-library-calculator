@@ -31,7 +31,8 @@ namespace MathTools
 
 int to_precision(float theValue, int thePrecision)
 {
-  if (thePrecision <= 0) lroundf(theValue);
+  if (thePrecision <= 0)
+    lroundf(theValue);
   return lroundf(theValue / thePrecision) * thePrecision;
 }
 

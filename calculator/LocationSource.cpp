@@ -68,7 +68,8 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
   if (theLocation.empty())
     throw Fmi::Exception(BCP, "Cannot request coordinates for an empty location name");
 
-  if (theLocation == itsLastSuccesfulName) return true;
+  if (theLocation == itsLastSuccesfulName)
+    return true;
 
   if (itsFinder.Empty())
   {
@@ -78,7 +79,8 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
   }
 
   NFmiPoint point = itsFinder.Find(theLocation);
-  if (itsFinder.LastSearchFailed()) return false;
+  if (itsFinder.LastSearchFailed())
+    return false;
 
   itsLastSuccesfulName = theLocation;
   itsLastSuccesfulPoint = point;
@@ -94,9 +96,11 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
 
 const NFmiPoint LocationSource::Pimple::coordinates(const std::string& theLocation) const
 {
-  if (hasCoordinates(theLocation)) return itsLastSuccesfulPoint;
+  if (hasCoordinates(theLocation))
+    return itsLastSuccesfulPoint;
 
-  throw Fmi::Exception(BCP, "Cannot request coordinates for unknown location '" + theLocation + "'");
+  throw Fmi::Exception(BCP,
+                       "Cannot request coordinates for unknown location '" + theLocation + "'");
 }
 
 // ----------------------------------------------------------------------

@@ -43,7 +43,10 @@ NullPeriodGenerator::NullPeriodGenerator(WeatherPeriod theMainPeriod)
  */
 // ----------------------------------------------------------------------
 
-bool NullPeriodGenerator::undivided() const { return true; }
+bool NullPeriodGenerator::undivided() const
+{
+  return true;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the number of subperiods
@@ -52,7 +55,10 @@ bool NullPeriodGenerator::undivided() const { return true; }
  */
 // ----------------------------------------------------------------------
 
-NullPeriodGenerator::size_type NullPeriodGenerator::size() const { return 1; }
+NullPeriodGenerator::size_type NullPeriodGenerator::size() const
+{
+  return 1;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the minimal period covered by the generator
@@ -61,7 +67,10 @@ NullPeriodGenerator::size_type NullPeriodGenerator::size() const { return 1; }
  */
 // ----------------------------------------------------------------------
 
-WeatherPeriod NullPeriodGenerator::period() const { return itsMainPeriod; }
+WeatherPeriod NullPeriodGenerator::period() const
+{
+  return itsMainPeriod;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the desired subperiod
@@ -76,7 +85,8 @@ WeatherPeriod NullPeriodGenerator::period() const { return itsMainPeriod; }
 
 WeatherPeriod NullPeriodGenerator::period(size_type thePeriod) const
 {
-  if (thePeriod == 1) return itsMainPeriod;
+  if (thePeriod == 1)
+    return itsMainPeriod;
 
   const std::string msg = ("NullPeriodGenerator cannot return period " + Fmi::to_string(thePeriod));
   throw Fmi::Exception(BCP, msg);

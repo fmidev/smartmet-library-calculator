@@ -19,9 +19,9 @@
 // muuten MSVC:ss‰ min max m‰‰rittelyt jo tehty
 
 #include "WeatherPeriodTools.h"
-#include <macgyver/Exception.h>
 #include "TextGenPosixTime.h"
 #include "WeatherPeriod.h"
+#include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
 
 namespace TextGen
@@ -94,7 +94,8 @@ int countPeriods(const WeatherPeriod& thePeriod,
   for (; !thePeriod.localEndTime().IsLessThan(start); start.ChangeByDays(1))
   {
     TextGenPosixTime end(start);
-    if (theEndHour <= theStartHour) end.ChangeByDays(1);
+    if (theEndHour <= theStartHour)
+      end.ChangeByDays(1);
     end.SetHour(theEndHour);
 
     // Is period acceptable somehow?
@@ -106,7 +107,8 @@ int countPeriods(const WeatherPeriod& thePeriod,
     if (thePeriod.localEndTime().IsLessThan(end))
       diff2 = end.DifferenceInHours(thePeriod.localEndTime());
 
-    if (diff1 <= maxdiff1 && diff2 <= maxdiff2) count++;
+    if (diff1 <= maxdiff1 && diff2 <= maxdiff2)
+      count++;
   }
   return count;
 }
@@ -166,7 +168,8 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
   const std::string msg =
       "WeatherPeriodTools: Cannot extract subperiod " + Fmi::to_string(theNumber);
 
-  if (theNumber <= 0) throw Fmi::Exception(BCP, msg);
+  if (theNumber <= 0)
+    throw Fmi::Exception(BCP, msg);
 
   TextGenPosixTime start(thePeriod.localStartTime());
   start.ChangeByDays(-1);
@@ -183,7 +186,8 @@ WeatherPeriod getPeriod(const WeatherPeriod& thePeriod,
   for (; !thePeriod.localEndTime().IsLessThan(start); start.ChangeByDays(1))
   {
     TextGenPosixTime end(start);
-    if (theEndHour <= theStartHour) end.ChangeByDays(1);
+    if (theEndHour <= theStartHour)
+      end.ChangeByDays(1);
     end.SetHour(theEndHour);
 
     // Is period acceptable somehow?

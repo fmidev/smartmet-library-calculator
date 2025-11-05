@@ -27,7 +27,7 @@ namespace TextGen
 
 ChangeCalculator::ChangeCalculator()
     : itsAcceptor(new DefaultAcceptor()),
-      
+
       itsStartValue(kFloatMissing),
       itsEndValue(kFloatMissing)
 {
@@ -45,7 +45,8 @@ void ChangeCalculator::operator()(float theValue)
 {
   if (itsAcceptor->accept(theValue))
   {
-    if (itsCounter == 0) itsStartValue = theValue;
+    if (itsCounter == 0)
+      itsStartValue = theValue;
     itsEndValue = theValue;
     ++itsCounter;
   }

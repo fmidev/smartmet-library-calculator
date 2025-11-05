@@ -26,8 +26,8 @@
 // ======================================================================
 
 #include "WeatherPeriod.h"
-#include <macgyver/Exception.h>
 #include "TimeTools.h"
+#include <macgyver/Exception.h>
 #include <cassert>
 #include <iostream>  // std::cout
 #include <sstream>   // std::stringstream
@@ -70,7 +70,7 @@ WeatherPeriod::WeatherPeriod(const TextGenPosixTime& theLocalStartTime,
     std::ostringstream msg;
     msg << "WeatherPeriod: end time must be after start time, start=" << theLocalStartTime
         << " end=" << theLocalEndTime;
-    //throw Fmi::Exception(BCP, "WeatherPeriod: end time must be after start time");
+    // throw Fmi::Exception(BCP, "WeatherPeriod: end time must be after start time");
     throw Fmi::Exception(BCP, msg.str());
   }
 }
@@ -83,7 +83,10 @@ WeatherPeriod::WeatherPeriod(const TextGenPosixTime& theLocalStartTime,
  */
 // ----------------------------------------------------------------------
 
-const TextGenPosixTime& WeatherPeriod::localStartTime() const { return itsLocalStartTime; }
+const TextGenPosixTime& WeatherPeriod::localStartTime() const
+{
+  return itsLocalStartTime;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief End time accessor
@@ -92,7 +95,10 @@ const TextGenPosixTime& WeatherPeriod::localStartTime() const { return itsLocalS
  */
 // ----------------------------------------------------------------------
 
-const TextGenPosixTime& WeatherPeriod::localEndTime() const { return itsLocalEndTime; }
+const TextGenPosixTime& WeatherPeriod::localEndTime() const
+{
+  return itsLocalEndTime;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Start time accessor
@@ -101,7 +107,10 @@ const TextGenPosixTime& WeatherPeriod::localEndTime() const { return itsLocalEnd
  */
 // ----------------------------------------------------------------------
 
-const TextGenPosixTime& WeatherPeriod::utcStartTime() const { return itsUtcStartTime; }
+const TextGenPosixTime& WeatherPeriod::utcStartTime() const
+{
+  return itsUtcStartTime;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief End time accessor
@@ -110,7 +119,10 @@ const TextGenPosixTime& WeatherPeriod::utcStartTime() const { return itsUtcStart
  */
 // ----------------------------------------------------------------------
 
-const TextGenPosixTime& WeatherPeriod::utcEndTime() const { return itsUtcEndTime; }
+const TextGenPosixTime& WeatherPeriod::utcEndTime() const
+{
+  return itsUtcEndTime;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Less-than comparison for TextGen::WeatherPeriod
@@ -125,7 +137,8 @@ const TextGenPosixTime& WeatherPeriod::utcEndTime() const { return itsUtcEndTime
 
 bool WeatherPeriod::operator<(const TextGen::WeatherPeriod& theRhs) const
 {
-  if (utcStartTime() != theRhs.utcStartTime()) return (utcStartTime() < theRhs.utcStartTime());
+  if (utcStartTime() != theRhs.utcStartTime())
+    return (utcStartTime() < theRhs.utcStartTime());
   return (utcEndTime() < theRhs.utcEndTime());
 }
 

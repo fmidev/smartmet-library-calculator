@@ -18,9 +18,15 @@ using SettingsData = std::map<std::string, std::string>;
 
 static thread_local SettingsData tls;
 
-void release_settings() { tls.clear(); }
+void release_settings()
+{
+  tls.clear();
+}
 
-SettingsData& get_settings() { return tls; }
+SettingsData& get_settings()
+{
+  return tls;
+}
 
 bool Config::isset(const std::string& theName)
 {
@@ -47,7 +53,8 @@ void Config::set(const std::string& theSettingsString)
   tokenizer tokens(theSettingsString, sep);
   for (const std::string& t : tokens)
   {
-    if (t.find('=') == std::string::npos) continue;
+    if (t.find('=') == std::string::npos)
+      continue;
 
     boost::char_separator<char> sep2("=");
     tokenizer tokens2(t, sep2);
@@ -67,7 +74,10 @@ void Config::clear()
   settings.clear();
 }
 
-void Config::release() { release_settings(); }
+void Config::release()
+{
+  release_settings();
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Get setting value as a string
@@ -94,7 +104,8 @@ std::string Config::optionalString(const std::string& theName, const std::string
 {
   SettingsData& params(get_settings());
 
-  if (params.find(theName) == params.end()) return theDefault;
+  if (params.find(theName) == params.end())
+    return theDefault;
 
   return params[theName];
 }
@@ -109,7 +120,8 @@ bool Config::optionalBoolean(const std::string& theName, bool theDefault) const
 {
   SettingsData& params(get_settings());
 
-  if (params.find(theName) == params.end()) return theDefault;
+  if (params.find(theName) == params.end())
+    return theDefault;
 
   return requireBoolean(theName);
 }
@@ -124,8 +136,10 @@ bool Config::requireBoolean(const std::string& theName) const
 {
   std::string value = boost::algorithm::to_lower_copy(requireString(theName));
 
-  if (value == "1" || value == "true") return true;
-  if (value == "0" || value == "false") return false;
+  if (value == "1" || value == "true")
+    return true;
+  if (value == "0" || value == "false")
+    return false;
 
   throw std::runtime_error("Variable '" + theName + "' value must be a boolean");
 }
@@ -140,7 +154,8 @@ int Config::optionalInteger(const std::string& theName, int theDefault) const
 {
   SettingsData& params(get_settings());
 
-  if (params.find(theName) == params.end()) return theDefault;
+  if (params.find(theName) == params.end())
+    return theDefault;
 
   return requireInteger(theName);
 }
@@ -168,7 +183,8 @@ int Config::requireInteger(const std::string& theName, int theLoLimit, int theHi
 {
   int value = std::stoi(requireString(theName));
 
-  if (value >= theLoLimit && value <= theHiLimit) return value;
+  if (value >= theLoLimit && value <= theHiLimit)
+    return value;
   throw std::runtime_error("Variable '" + theName + "' value is out of range " +
                            Fmi::to_string(theLoLimit) + "..." + Fmi::to_string(theHiLimit));
 }
@@ -186,7 +202,8 @@ int Config::optionalInteger(const std::string& theName,
 {
   int value = optionalInteger(theName, theDefault);
 
-  if (value >= theLoLimit && value <= theHiLimit) return value;
+  if (value >= theLoLimit && value <= theHiLimit)
+    return value;
   throw std::runtime_error("Variable '" + theName + "' value is out of range " +
                            Fmi::to_string(theLoLimit) + "..." + Fmi::to_string(theHiLimit));
 }
@@ -201,7 +218,8 @@ double Config::optionalDouble(const std::string& theName, double theDefault) con
 {
   SettingsData& params(get_settings());
 
-  if (params.find(theName) == params.end()) return theDefault;
+  if (params.find(theName) == params.end())
+    return theDefault;
 
   return requireDouble(theName);
 }

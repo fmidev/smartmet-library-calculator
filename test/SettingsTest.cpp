@@ -41,22 +41,38 @@ void settings_set()
 
 void settings_isset()
 {
-  if (!Settings::isset("string_param")) TEST_FAILED("Failed for string_param");
-  if (!Settings::isset("bool_param1")) TEST_FAILED("Failed for bool_param1");
-  if (!Settings::isset("bool_param2")) TEST_FAILED("Failed for bool_param2");
-  if (!Settings::isset("bool_param3")) TEST_FAILED("Failed for bool_param3");
-  if (!Settings::isset("bool_param4")) TEST_FAILED("Failed for bool_param5");
-  if (!Settings::isset("int_param")) TEST_FAILED("Failed for int_param");
-  if (!Settings::isset("double_param")) TEST_FAILED("Failed for double_param");
-  if (!Settings::isset("hour_param1")) TEST_FAILED("Failed for hour_param1");
-  if (!Settings::isset("hour_param2")) TEST_FAILED("Failed for hour_param2");
-  if (!Settings::isset("hour_param3")) TEST_FAILED("Failed for hour_param3");
-  if (!Settings::isset("hour_param4")) TEST_FAILED("Failed for hour_param4");
-  if (!Settings::isset("days_param")) TEST_FAILED("Failed for days_param");
-  if (!Settings::isset("days_param")) TEST_FAILED("Failed for days_param");
-  if (!Settings::isset("percentage_param")) TEST_FAILED("Failed for percentage_param");
-  if (!Settings::isset("time_param")) TEST_FAILED("Failed for time_param");
-  if (!Settings::isset("result_param")) TEST_FAILED("Failed for result_param");
+  if (!Settings::isset("string_param"))
+    TEST_FAILED("Failed for string_param");
+  if (!Settings::isset("bool_param1"))
+    TEST_FAILED("Failed for bool_param1");
+  if (!Settings::isset("bool_param2"))
+    TEST_FAILED("Failed for bool_param2");
+  if (!Settings::isset("bool_param3"))
+    TEST_FAILED("Failed for bool_param3");
+  if (!Settings::isset("bool_param4"))
+    TEST_FAILED("Failed for bool_param5");
+  if (!Settings::isset("int_param"))
+    TEST_FAILED("Failed for int_param");
+  if (!Settings::isset("double_param"))
+    TEST_FAILED("Failed for double_param");
+  if (!Settings::isset("hour_param1"))
+    TEST_FAILED("Failed for hour_param1");
+  if (!Settings::isset("hour_param2"))
+    TEST_FAILED("Failed for hour_param2");
+  if (!Settings::isset("hour_param3"))
+    TEST_FAILED("Failed for hour_param3");
+  if (!Settings::isset("hour_param4"))
+    TEST_FAILED("Failed for hour_param4");
+  if (!Settings::isset("days_param"))
+    TEST_FAILED("Failed for days_param");
+  if (!Settings::isset("days_param"))
+    TEST_FAILED("Failed for days_param");
+  if (!Settings::isset("percentage_param"))
+    TEST_FAILED("Failed for percentage_param");
+  if (!Settings::isset("time_param"))
+    TEST_FAILED("Failed for time_param");
+  if (!Settings::isset("result_param"))
+    TEST_FAILED("Failed for result_param");
 
   TEST_PASSED();
 }
@@ -83,13 +99,16 @@ void settings_require()
     TEST_FAILED("Value of string_param sould be 'false' not " + string_param);
 
   string_param = Settings::require("bool_param3");
-  if (string_param != "1") TEST_FAILED("Value of string_param sould be '1' not " + string_param);
+  if (string_param != "1")
+    TEST_FAILED("Value of string_param sould be '1' not " + string_param);
 
   string_param = Settings::require("bool_param4");
-  if (string_param != "0") TEST_FAILED("Value of string_param sould be '0' not " + string_param);
+  if (string_param != "0")
+    TEST_FAILED("Value of string_param sould be '0' not " + string_param);
 
   string_param = Settings::require("int_param");
-  if (string_param != "55") TEST_FAILED("Value of string_param sould be '55' not " + string_param);
+  if (string_param != "55")
+    TEST_FAILED("Value of string_param sould be '55' not " + string_param);
 
   string_param = Settings::require("double_param");
   if (string_param != "23.56")
@@ -97,16 +116,20 @@ void settings_require()
 
   // bool
   bool bool_param(Settings::require_bool("bool_param1"));
-  if (bool_param != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
+  if (bool_param != true)
+    TEST_FAILED("Value of bool_param sould be 'true' not false");
 
   bool_param = Settings::require_bool("bool_param2");
-  if (bool_param != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
+  if (bool_param != false)
+    TEST_FAILED("Value of bool_param sould be 'false' not true");
 
   bool_param = Settings::require_bool("bool_param3");
-  if (bool_param != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
+  if (bool_param != true)
+    TEST_FAILED("Value of bool_param sould be 'true' not false");
 
   bool_param = Settings::require_bool("bool_param4");
-  if (bool_param != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
+  if (bool_param != false)
+    TEST_FAILED("Value of bool_param sould be 'false' not true");
 
   // int
   int int_param(Settings::require_int("int_param"));
@@ -205,13 +228,16 @@ void settings_optional()
 
   // bool
   bool bool_param(Settings::optional_bool("bool_param1", false));
-  if (bool_param != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
+  if (bool_param != true)
+    TEST_FAILED("Value of bool_param sould be 'true' not false");
 
   bool_param = Settings::optional_bool("bool_paramm1", true);
-  if (bool_param != true) TEST_FAILED("Value of bool_param sould be 'true' not false");
+  if (bool_param != true)
+    TEST_FAILED("Value of bool_param sould be 'true' not false");
 
   bool_param = Settings::optional_bool("bool_paramm1", false);
-  if (bool_param != false) TEST_FAILED("Value of bool_param sould be 'false' not true");
+  if (bool_param != false)
+    TEST_FAILED("Value of bool_param sould be 'false' not true");
 
   // int
   int int_param(Settings::optional_int("int_param", 60));

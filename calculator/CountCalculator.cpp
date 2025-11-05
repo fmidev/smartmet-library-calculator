@@ -27,9 +27,8 @@ namespace TextGen
 // ----------------------------------------------------------------------
 
 CountCalculator::CountCalculator()
-    : itsAcceptor(new DefaultAcceptor()),
-      itsCondition(new NullAcceptor())
-      
+    : itsAcceptor(new DefaultAcceptor()), itsCondition(new NullAcceptor())
+
 {
 }
 
@@ -46,7 +45,8 @@ void CountCalculator::operator()(float theValue)
   if (itsAcceptor->accept(theValue))
   {
     ++itsTotalCounter;
-    if (itsCondition->accept(theValue)) ++itsCounter;
+    if (itsCondition->accept(theValue))
+      ++itsCounter;
   }
 }
 
@@ -60,7 +60,8 @@ void CountCalculator::operator()(float theValue)
 
 float CountCalculator::operator()() const
 {
-  if (itsTotalCounter == 0) return kFloatMissing;
+  if (itsTotalCounter == 0)
+    return kFloatMissing;
   return itsCounter;
 }
 

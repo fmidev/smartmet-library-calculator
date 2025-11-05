@@ -22,28 +22,36 @@ void modchange()
 
   ModChangeCalculator calc(10);
 
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 0 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 0 inserts");
 
   calc(1);
-  if (calc() != 0) TEST_FAILED("Should return 0 after 1 insert");
+  if (calc() != 0)
+    TEST_FAILED("Should return 0 after 1 insert");
 
   calc(2);
-  if (calc() != 1) TEST_FAILED("Failed to return 1 for [1,2]");
+  if (calc() != 1)
+    TEST_FAILED("Failed to return 1 for [1,2]");
 
   calc(4);
-  if (calc() != 3) TEST_FAILED("Failed to return 3 for [1,2,4]");
+  if (calc() != 3)
+    TEST_FAILED("Failed to return 3 for [1,2,4]");
 
   calc(8);
-  if (calc() != 7) TEST_FAILED("Failed to return 8 for [1,2,4,8]");
+  if (calc() != 7)
+    TEST_FAILED("Failed to return 8 for [1,2,4,8]");
 
   calc(1);
-  if (calc() != 10) TEST_FAILED("Failed to return 10 for [1,2,4,8,1]");
+  if (calc() != 10)
+    TEST_FAILED("Failed to return 10 for [1,2,4,8,1]");
 
   calc(2);
-  if (calc() != 11) TEST_FAILED("Failed to return 11 for [1,2,4,8,1,2]");
+  if (calc() != 11)
+    TEST_FAILED("Failed to return 11 for [1,2,4,8,1,2]");
 
   calc(9);
-  if (calc() != 8) TEST_FAILED("Failed to return 11 for [1,2,4,8,1,2,9]");
+  if (calc() != 8)
+    TEST_FAILED("Failed to return 11 for [1,2,4,8,1,2,9]");
 
   TEST_PASSED();
 }

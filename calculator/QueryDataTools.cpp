@@ -57,9 +57,11 @@ bool findIndices(NFmiFastQueryInfo& theQI,
 {
   const auto invalid = static_cast<unsigned long>(-1);
 
-  if (!firstTime(theQI, theStartTime, theEndTime)) return false;
+  if (!firstTime(theQI, theStartTime, theEndTime))
+    return false;
   theStartIndex = theQI.TimeIndex();
-  if (!lastTime(theQI, theEndTime)) return false;
+  if (!lastTime(theQI, theEndTime))
+    return false;
   theEndIndex = theQI.TimeIndex();
 
   return (theStartIndex != invalid && theEndIndex != invalid);
@@ -87,7 +89,8 @@ bool firstTime(NFmiFastQueryInfo& theQI,
                const TextGenPosixTime& theEndTime)
 {
   // Abort if endtime is before start of date
-  if (theQI.TimeDescriptor().FirstTime() > theEndTime) return false;
+  if (theQI.TimeDescriptor().FirstTime() > theEndTime)
+    return false;
 
   theQI.FirstTime();
   unsigned long idx1 = theQI.TimeIndex();
@@ -97,8 +100,10 @@ bool firstTime(NFmiFastQueryInfo& theQI,
   while (idx1 != idx2)
   {
     unsigned long idx = (idx1 + idx2) / 2;
-    if (!theQI.TimeIndex(idx)) return false;
-    if (!theQI.IsValidTime()) return false;
+    if (!theQI.TimeIndex(idx))
+      return false;
+    if (!theQI.IsValidTime())
+      return false;
     if (theQI.ValidTime() >= theTime)
       idx2 = idx;
     else
@@ -135,9 +140,11 @@ bool lastTime(NFmiFastQueryInfo& theQI, const TextGenPosixTime& theTime)
   while (idx1 != idx2)
   {
     unsigned long idx = (idx1 + idx2) / 2;
-    if (!theQI.TimeIndex(idx)) return false;
+    if (!theQI.TimeIndex(idx))
+      return false;
 
-    if (!theQI.IsValidTime()) return false;
+    if (!theQI.IsValidTime())
+      return false;
     if (theQI.ValidTime() > theTime)
       idx2 = idx;
     else

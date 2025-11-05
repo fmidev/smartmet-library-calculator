@@ -30,7 +30,10 @@ RangeAcceptor::RangeAcceptor() : itsLoLimit(kFloatMissing), itsHiLimit(kFloatMis
  */
 // ----------------------------------------------------------------------
 
-Acceptor* RangeAcceptor::clone() const { return new RangeAcceptor(*this); }
+Acceptor* RangeAcceptor::clone() const
+{
+  return new RangeAcceptor(*this);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Accept or reject a value
@@ -44,9 +47,12 @@ Acceptor* RangeAcceptor::clone() const { return new RangeAcceptor(*this); }
 
 bool RangeAcceptor::accept(float theValue) const
 {
-  if (theValue == kFloatMissing) return false;
-  if (itsLoLimit != kFloatMissing && theValue < itsLoLimit) return false;
-  if (itsHiLimit != kFloatMissing && theValue > itsHiLimit) return false;
+  if (theValue == kFloatMissing)
+    return false;
+  if (itsLoLimit != kFloatMissing && theValue < itsLoLimit)
+    return false;
+  if (itsHiLimit != kFloatMissing && theValue > itsHiLimit)
+    return false;
   return true;
 }
 
@@ -58,7 +64,10 @@ bool RangeAcceptor::accept(float theValue) const
  */
 // ----------------------------------------------------------------------
 
-void RangeAcceptor::lowerLimit(float theLimit) { itsLoLimit = theLimit; }
+void RangeAcceptor::lowerLimit(float theLimit)
+{
+  itsLoLimit = theLimit;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Set an upper limit for acceptable values
@@ -67,7 +76,10 @@ void RangeAcceptor::lowerLimit(float theLimit) { itsLoLimit = theLimit; }
  */
 // ----------------------------------------------------------------------
 
-void RangeAcceptor::upperLimit(float theLimit) { itsHiLimit = theLimit; }
+void RangeAcceptor::upperLimit(float theLimit)
+{
+  itsHiLimit = theLimit;
+}
 }  // namespace TextGen
 
 // ======================================================================

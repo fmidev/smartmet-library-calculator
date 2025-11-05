@@ -23,10 +23,12 @@ void modmean()
 
   ModStandardDeviationCalculator calc(10);
 
-  if (calc() != kFloatMissing) TEST_FAILED("Should return kFloatMissing after 0 inserts");
+  if (calc() != kFloatMissing)
+    TEST_FAILED("Should return kFloatMissing after 0 inserts");
 
   calc(1);
-  if (calc() != 0) TEST_FAILED("Failed std(1) = 0");
+  if (calc() != 0)
+    TEST_FAILED("Failed std(1) = 0");
 
   float expected = sqrt((1 * 1 + 1 * 1 - (1 - 1) * (1 - 1) / 2.0) / 2.0);
   calc(9);

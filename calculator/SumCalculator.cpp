@@ -53,7 +53,8 @@ void SumCalculator::operator()(float theValue)
 
 float SumCalculator::operator()() const
 {
-  if (itsCounter == 0) return kFloatMissing;
+  if (itsCounter == 0)
+    return kFloatMissing;
   return itsSum;
 }
 

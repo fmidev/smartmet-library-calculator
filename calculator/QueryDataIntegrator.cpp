@@ -56,7 +56,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
 {
   theTimeCalculator.reset();
 
-  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime)) return kFloatMissing;
+  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
+    return kFloatMissing;
 
   do
   {
@@ -93,7 +94,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
 {
   theTimeCalculator.reset();
 
-  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime)) return kFloatMissing;
+  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
+    return kFloatMissing;
 
   do
   {
@@ -140,7 +142,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
   }
 
   // Safety against bad loop
-  if (thePeriods.size() <= 0) return kFloatMissing;
+  if (thePeriods.size() <= 0)
+    return kFloatMissing;
 
   theMainTimeCalculator.reset();
 
@@ -204,7 +207,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
   }
 
   // Safety against bad loop
-  if (thePeriods.size() <= 0) return kFloatMissing;
+  if (thePeriods.size() <= 0)
+    return kFloatMissing;
 
   theMainTimeCalculator.reset();
 
@@ -250,7 +254,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
                 const NFmiIndexMask& theIndexMask,
                 Calculator& theSpaceCalculator)
 {
-  if (theIndexMask.empty()) return kFloatMissing;
+  if (theIndexMask.empty())
+    return kFloatMissing;
 
   theSpaceCalculator.reset();
 
@@ -297,8 +302,10 @@ float Integrate(NFmiFastQueryInfo& theQI,
 {
   theTimeCalculator.reset();
 
-  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime)) return kFloatMissing;
-  if (theIndexMask.empty()) return kFloatMissing;
+  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
+    return kFloatMissing;
+  if (theIndexMask.empty())
+    return kFloatMissing;
 
   do
   {
@@ -340,7 +347,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
 {
   theSpaceCalculator.reset();
 
-  if (theIndexMask.empty()) return kFloatMissing;
+  if (theIndexMask.empty())
+    return kFloatMissing;
 
   unsigned long startindex, endindex;
 
@@ -400,7 +408,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
 {
   theTimeCalculator.reset();
 
-  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime)) return kFloatMissing;
+  if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
+    return kFloatMissing;
 
   do
   {
@@ -451,11 +460,13 @@ float Integrate(NFmiFastQueryInfo& theQI,
   }
 
   // Safety against bad loop
-  if (thePeriods.size() <= 0) return kFloatMissing;
+  if (thePeriods.size() <= 0)
+    return kFloatMissing;
 
   theSpaceCalculator.reset();
 
-  if (theIndexMask.empty()) return kFloatMissing;
+  if (theIndexMask.empty())
+    return kFloatMissing;
 
   for (const auto& mask : theIndexMask)
   {

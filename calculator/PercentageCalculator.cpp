@@ -27,9 +27,8 @@ namespace TextGen
 // ----------------------------------------------------------------------
 
 PercentageCalculator::PercentageCalculator()
-    : itsAcceptor(new DefaultAcceptor()),
-      itsCondition(new NullAcceptor())
-      
+    : itsAcceptor(new DefaultAcceptor()), itsCondition(new NullAcceptor())
+
 {
 }
 
@@ -60,7 +59,8 @@ void PercentageCalculator::operator()(float theValue)
   if (itsAcceptor->accept(theValue))
   {
     ++itsTotalCounter;
-    if (itsCondition->accept(theValue)) ++itsCounter;
+    if (itsCondition->accept(theValue))
+      ++itsCounter;
   }
 }
 
@@ -74,7 +74,8 @@ void PercentageCalculator::operator()(float theValue)
 
 float PercentageCalculator::operator()() const
 {
-  if (itsTotalCounter == 0) return kFloatMissing;
+  if (itsTotalCounter == 0)
+    return kFloatMissing;
 
   return 100 * static_cast<float>(itsCounter) / itsTotalCounter;
 }

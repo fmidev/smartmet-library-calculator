@@ -41,14 +41,20 @@ ListedPeriodGenerator::ListedPeriodGenerator(const WeatherPeriod& theMainPeriod)
  */
 // ----------------------------------------------------------------------
 
-bool ListedPeriodGenerator::undivided() const { return false; }
+bool ListedPeriodGenerator::undivided() const
+{
+  return false;
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Add a new period to be processed
  */
 // ----------------------------------------------------------------------
 
-void ListedPeriodGenerator::add(const WeatherPeriod& thePeriod) { itsPeriods.push_back(thePeriod); }
+void ListedPeriodGenerator::add(const WeatherPeriod& thePeriod)
+{
+  itsPeriods.push_back(thePeriod);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the number of subperiods
@@ -57,7 +63,10 @@ void ListedPeriodGenerator::add(const WeatherPeriod& thePeriod) { itsPeriods.pus
  */
 // ----------------------------------------------------------------------
 
-ListedPeriodGenerator::size_type ListedPeriodGenerator::size() const { return itsPeriods.size(); }
+ListedPeriodGenerator::size_type ListedPeriodGenerator::size() const
+{
+  return itsPeriods.size();
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Return the minimal period covered by the generator
@@ -66,7 +75,10 @@ ListedPeriodGenerator::size_type ListedPeriodGenerator::size() const { return it
  */
 // ----------------------------------------------------------------------
 
-WeatherPeriod ListedPeriodGenerator::period() const { return itsMainPeriod; }
+WeatherPeriod ListedPeriodGenerator::period() const
+{
+  return itsMainPeriod;
+}
 // ----------------------------------------------------------------------
 /*!
  *�\brief Return the desired subperiod

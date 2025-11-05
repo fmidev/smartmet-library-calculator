@@ -23,12 +23,14 @@ void size(void)
 
     {
       HourPeriodGenerator generator(period, 12, 18, 12, 18);
-      if (generator.size() != 0) TEST_FAILED("Size should be zero - 12-18 does not fit into 12-17");
+      if (generator.size() != 0)
+        TEST_FAILED("Size should be zero - 12-18 does not fit into 12-17");
     }
 
     {
       HourPeriodGenerator generator(period, 12, 18, 12, 17);
-      if (generator.size() != 1) TEST_FAILED("Size should be one - 12-17 fits into 12-18(17)");
+      if (generator.size() != 1)
+        TEST_FAILED("Size should be one - 12-17 fits into 12-18(17)");
     }
   }
 
@@ -38,7 +40,8 @@ void size(void)
 
     {
       HourPeriodGenerator generator(period, 12, 18, 12, 18);
-      if (generator.size() != 1) TEST_FAILED("Size should be 1, 12-18 fits into first day");
+      if (generator.size() != 1)
+        TEST_FAILED("Size should be 1, 12-18 fits into first day");
     }
 
     {

@@ -23,7 +23,10 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-Acceptor* NullAcceptor::clone() const { return new NullAcceptor(*this); }
+Acceptor* NullAcceptor::clone() const
+{
+  return new NullAcceptor(*this);
+}
 // ----------------------------------------------------------------------
 /*!
  * \brief Accept or reject a value
@@ -35,7 +38,10 @@ Acceptor* NullAcceptor::clone() const { return new NullAcceptor(*this); }
  */
 // ----------------------------------------------------------------------
 
-bool NullAcceptor::accept(float /* theValue */) const { return true; }
+bool NullAcceptor::accept(float /* theValue */) const
+{
+  return true;
+}
 }  // namespace TextGen
 
 // ======================================================================
