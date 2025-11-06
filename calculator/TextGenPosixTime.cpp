@@ -205,9 +205,9 @@ short TextGenPosixTime::GetSec() const
   return itsPosixTime.time_of_day().seconds();
 }
 
-std::string TextGenPosixTime::ToSimpleStr() const
+std::string TextGenPosixTime::ToIsoExtendedStr() const
 {
-  return itsPosixTime.to_simple_string();
+  return itsPosixTime.to_iso_extended_string();
 }
 
 std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const

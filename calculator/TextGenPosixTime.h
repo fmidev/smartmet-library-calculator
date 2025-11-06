@@ -50,7 +50,7 @@ class TextGenPosixTime
   void SetSec(short sec);
 
   std::string ToStr(const unsigned long theTimeMask) const;
-  std::string ToSimpleStr() const;
+  std::string ToIsoExtendedStr() const;
   time_t EpochTime() const;
   short GetJulianDay() const;
   short GetWeekday() const;  // mon=1, tue=2,..., sat=6,  sun=7
