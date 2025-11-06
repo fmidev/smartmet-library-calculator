@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.11.5
+Version: 25.11.6
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Nov  6 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.11.6-1.fmi
+- Replaced TextGenPosixTime ToSimpleStr() with ToIsoExtendedString()
+
 * Wed Nov  5 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.11.5-1.fmi
 - Added TextGenPosixTime::ToSimpleStr()
 
