@@ -48,4 +48,6 @@ bool operator==(const TextGen::WeatherPeriod& theLhs, const TextGen::WeatherPeri
 
 bool operator!=(const TextGen::WeatherPeriod& theLhs, const TextGen::WeatherPeriod& theRhs);
 
+std::ostream& operator<<(std::ostream& os, const TextGen::WeatherPeriod& thePeriod);
+
 // ======================================================================

@@ -175,4 +175,12 @@ bool operator!=(const TextGen::WeatherPeriod& theLhs, const TextGen::WeatherPeri
   return !(theLhs == theRhs);
 }
 
+// ----------------------------------------------------------------------
+
+std::ostream& operator<<(std::ostream& os, const TextGen::WeatherPeriod& thePeriod)
+{
+  os << thePeriod.utcStartTime() << " - " << thePeriod.utcEndTime();
+  return os;
+}
+
 // ======================================================================
