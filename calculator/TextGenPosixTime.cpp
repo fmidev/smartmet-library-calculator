@@ -329,7 +329,7 @@ void TextGenPosixTime::ResetThreadTimeZone()
 }
 std::ostream& operator<<(std::ostream& os, const TextGenPosixTime& tgTime)
 {
-  os << Fmi::date_time::format_time("%d.%m.%y %H:%M:%S", tgTime.GetDateTime());
+  os << tgTime.ToIsoExtendedStr();
   return os;
 }
 
