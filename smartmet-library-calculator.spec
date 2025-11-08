@@ -6,7 +6,7 @@
 Summary: Querydata calculator
 Name: %{SPECNAME}
 Version: 25.11.7
-Release: 1%{?dist}.fmi
+Release: 2%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/fmidev/smartmet-library-calculator
@@ -24,7 +24,7 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
 BuildRequires: smartmet-library-newbase-devel >= 25.3.20
-BuildRequires: smartmet-library-macgyver-devel >= 25.10.30
+BuildRequires: smartmet-library-macgyver-devel >= 25.11.5
 BuildRequires: smartmet-library-gis-devel >= 25.9.15
 BuildRequires: freetype-devel
 %if %{with tests}
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Fri Nov  7 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.11.7-2.fmi
+- Use 95th percentile instead of 98th for PeakWind
+
 * Fri Nov  7 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.11.7-1.fmi
 - Improved time formatting
 
