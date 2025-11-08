@@ -57,11 +57,13 @@ float PeakCalculator::operator()() const
   if (theValueVector.empty())
     return kFloatMissing;
 
-  sort(theValueVector.begin(), theValueVector.end());
-  unsigned int vectorSize(theValueVector.size());
-  const unsigned int peakIndex = (vectorSize < 2 ? 0 : static_cast<int>((0.98 * vectorSize) - 1));
+  unsigned int sz = theValueVector.size();
+  if (sz < 10)
+    return *std::max_element(theValueVector.begin(), theValueVector.end());
 
-  return theValueVector.at(peakIndex);
+  unsigned int n = 95 * sz / 100;
+  std::nth_element(theValueVector.begin(), theValueVector.begin() + n, theValueVector.end());
+  return theValueVector[n];
 }
 
 // ----------------------------------------------------------------------
