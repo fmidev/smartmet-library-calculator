@@ -337,7 +337,7 @@ const NFmiSvgPath& WeatherArea::path() const
 {
   if (itsPointFlag)
     throw Fmi::Exception(BCP, "Trying to access path of a point");
-  if (itsPolygon.get() == nullptr)
+  if (!itsPolygon)
     throw Fmi::Exception(BCP, "Internal polygon allocation error in WeatherArea");
   return *itsPolygon;
 }
