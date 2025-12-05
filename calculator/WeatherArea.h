@@ -39,7 +39,6 @@ class WeatherArea
     Island = 0x4
   };
 
- public:
 #ifdef NO_COMPILER_GENERATED
   ~WeatherArea();
   WeatherArea(const WeatherArea& theArea);
