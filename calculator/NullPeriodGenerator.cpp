@@ -13,9 +13,6 @@
  */
 // ----------------------------------------------------------------------
 
-// boost included laitettava ennen newbase:n NFmiGlobals-includea,
-// muuten MSVC:ss‰ min max m‰‰rittelyt jo tehty
-
 #include "NullPeriodGenerator.h"
 #include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
@@ -73,7 +70,7 @@ WeatherPeriod NullPeriodGenerator::period() const
 }
 // ----------------------------------------------------------------------
 /*!
- *†\brief Return the desired subperiod
+ * \brief Return the desired subperiod
  *
  * Throws if anything but the first period is requested, since by
  * definition there is always exactly 1 subperiod.

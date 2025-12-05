@@ -112,7 +112,7 @@ bool operator!=(const TextGen::WeatherResult& theLhs, const TextGen::WeatherResu
  * This is intended for logging results to MessageLogger instances.
  *
  * \param theResult The result to output
- * \param theOutput The output stream
+ * \param theOutput The output stream
  * \return The output stream
  */
 // ----------------------------------------------------------------------

@@ -123,7 +123,7 @@ WeatherPeriod HourPeriodGenerator::period() const
 
 // ----------------------------------------------------------------------
 /*!
- * \brief Return the desired subperiod
+ * \brief Return the desired subperiod
  *
  * Throws if there is no such subperiod
  *

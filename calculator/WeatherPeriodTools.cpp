@@ -15,9 +15,6 @@
  */
 // ======================================================================
 
-// boost included laitettava ennen newbase:n NFmiGlobals-includea,
-// muuten MSVC:ss‰ min max m‰‰rittelyt jo tehty
-
 #include "WeatherPeriodTools.h"
 #include "TextGenPosixTime.h"
 #include "WeatherPeriod.h"

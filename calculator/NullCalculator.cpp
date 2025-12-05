@@ -51,7 +51,7 @@ float NullCalculator::operator()() const
 void NullCalculator::acceptor(const Acceptor& theAcceptor) {}
 // ----------------------------------------------------------------------
 /*!
- * \brief Clone
+ * \brief Clone
  */
 // ----------------------------------------------------------------------
 

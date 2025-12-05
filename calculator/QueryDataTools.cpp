@@ -80,7 +80,7 @@ bool findIndices(NFmiFastQueryInfo& theQI,
  * \param theQI The query info
  * \param theTime The time to set
  * \param theEndTime The end time of the desired range
- * \return True if the time was set succesfully
+ * \return True if the time was set succesfully
  */
 // ----------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ bool firstTime(NFmiFastQueryInfo& theQI,
  *
  * \param theQI The query info
  * \param theTime The time to set
- * \return True if the time was set succesfully
+ * \return True if the time was set succesfully
  */
 // ----------------------------------------------------------------------
 

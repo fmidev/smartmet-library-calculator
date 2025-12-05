@@ -36,11 +36,11 @@ Acceptor* RangeAcceptor::clone() const
 }
 // ----------------------------------------------------------------------
 /*!
- * \brief Accept or reject a value
+ * \brief Accept or reject a value
  *
  * The value kFloatMissing is never accepted.
 
- * \param theValue The value to be accepted
+ * \param theValue The value to be accepted
  * \return True if the value is accepted
  */
 // ----------------------------------------------------------------------

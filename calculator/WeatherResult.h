@@ -1,7 +1,7 @@
 // ======================================================================
 /*!
  * \file
- * \brief Interface of class TextGen::WeatherResult
+ * \brief Interface of class TextGen::WeatherResult
  */
 // ======================================================================
 

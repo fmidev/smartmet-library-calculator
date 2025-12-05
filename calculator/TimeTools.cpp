@@ -149,7 +149,7 @@ TextGenPosixTime nextDay(const TextGenPosixTime& theDate)
  * \brief Add the given number of hours to the given time
  *
  * \param theDate The date to add to
- * \param theHours The number of hours to add
+ * \param theHours The number of hours to add
  * \return The new date
  */
 // ----------------------------------------------------------------------

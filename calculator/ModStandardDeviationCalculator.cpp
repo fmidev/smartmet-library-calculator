@@ -123,7 +123,7 @@ void ModStandardDeviationCalculator::acceptor(const Acceptor& theAcceptor)
 
 // ----------------------------------------------------------------------
 /*!
- * \brief Clone
+ * \brief Clone
  */
 // ----------------------------------------------------------------------
 
