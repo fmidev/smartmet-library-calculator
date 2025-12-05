@@ -82,9 +82,9 @@ class RegularMaskSource::Pimple
 
   void insert(const WeatherId& theID, const WeatherArea& theArea, const mask_type& theMask);
 
-  mask_type create_mask(const WeatherArea& theArea,
-                        const std::string& theData,
-                        const WeatherSource& theWeatherSource) const;
+  static mask_type create_mask(const WeatherArea& theArea,
+                               const std::string& theData,
+                               const WeatherSource& theWeatherSource);
 
 };  // class RegularMaskSource::Pimple
 
@@ -150,9 +150,7 @@ void RegularMaskSource::Pimple::insert(const WeatherId& theID,
 // ----------------------------------------------------------------------
 
 RegularMaskSource::mask_type RegularMaskSource::Pimple::create_mask(
-    const WeatherArea& theArea,
-    const std::string& theData,
-    const WeatherSource& theWeatherSource) const
+    const WeatherArea& theArea, const std::string& theData, const WeatherSource& theWeatherSource)
 {
   const NFmiSvgPath& svg = theArea.path();
   const float radius = theArea.radius();

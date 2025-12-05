@@ -46,6 +46,8 @@ class WeatherArea
 #endif
 
   // WeatherArea & operator=(const WeatherArea & theArea);
+  WeatherArea() = delete;
+
   WeatherArea(const WeatherArea& theArea);
 
   WeatherArea(const std::string& theSpecs);
@@ -88,7 +90,6 @@ class WeatherArea
   bool isIsland() const;
 
  private:
-  WeatherArea() = delete;
   void parse_specs(const std::string& theSpecs);
   void set_boolean_parameters();
   bool booleanParameterValue(const ParameterId& parameterId);

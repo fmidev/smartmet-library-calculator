@@ -87,7 +87,7 @@ void Config::release()
  */
 // ----------------------------------------------------------------------
 
-std::string Config::requireString(const std::string& theName) const
+std::string Config::requireString(const std::string& theName)
 {
   SettingsData& params(get_settings());
 
@@ -103,7 +103,7 @@ std::string Config::requireString(const std::string& theName) const
  */
 // ----------------------------------------------------------------------
 
-std::string Config::optionalString(const std::string& theName, const std::string& theDefault) const
+std::string Config::optionalString(const std::string& theName, const std::string& theDefault)
 {
   SettingsData& params(get_settings());
 
@@ -119,7 +119,7 @@ std::string Config::optionalString(const std::string& theName, const std::string
  */
 // ----------------------------------------------------------------------
 
-bool Config::optionalBoolean(const std::string& theName, bool theDefault) const
+bool Config::optionalBoolean(const std::string& theName, bool theDefault)
 {
   SettingsData& params(get_settings());
 
@@ -135,7 +135,7 @@ bool Config::optionalBoolean(const std::string& theName, bool theDefault) const
  */
 // ----------------------------------------------------------------------
 
-bool Config::requireBoolean(const std::string& theName) const
+bool Config::requireBoolean(const std::string& theName)
 {
   std::string value = boost::algorithm::to_lower_copy(requireString(theName));
 
@@ -153,7 +153,7 @@ bool Config::requireBoolean(const std::string& theName) const
  */
 // ----------------------------------------------------------------------
 
-int Config::optionalInteger(const std::string& theName, int theDefault) const
+int Config::optionalInteger(const std::string& theName, int theDefault)
 {
   SettingsData& params(get_settings());
 
@@ -169,7 +169,7 @@ int Config::optionalInteger(const std::string& theName, int theDefault) const
  */
 // ----------------------------------------------------------------------
 
-int Config::requireInteger(const std::string& theName) const
+int Config::requireInteger(const std::string& theName)
 {
   std::string value = requireString(theName);
 
@@ -182,7 +182,7 @@ int Config::requireInteger(const std::string& theName) const
  */
 // ----------------------------------------------------------------------
 
-int Config::requireInteger(const std::string& theName, int theLoLimit, int theHiLimit) const
+int Config::requireInteger(const std::string& theName, int theLoLimit, int theHiLimit)
 {
   int value = std::stoi(requireString(theName));
 
@@ -201,7 +201,7 @@ int Config::requireInteger(const std::string& theName, int theLoLimit, int theHi
 int Config::optionalInteger(const std::string& theName,
                             int theDefault,
                             int theLoLimit,
-                            int theHiLimit) const
+                            int theHiLimit)
 {
   int value = optionalInteger(theName, theDefault);
 
@@ -217,7 +217,7 @@ int Config::optionalInteger(const std::string& theName,
  */
 // ----------------------------------------------------------------------
 
-double Config::optionalDouble(const std::string& theName, double theDefault) const
+double Config::optionalDouble(const std::string& theName, double theDefault)
 {
   SettingsData& params(get_settings());
 
@@ -233,7 +233,7 @@ double Config::optionalDouble(const std::string& theName, double theDefault) con
  */
 // ----------------------------------------------------------------------
 
-double Config::requireDouble(const std::string& theName) const
+double Config::requireDouble(const std::string& theName)
 {
   std::string value = requireString(theName);
 
