@@ -167,7 +167,9 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   // Handle points and areas separately
 
-  std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
+  std::shared_ptr<Calculator> spacemod;
+  std::shared_ptr<Calculator> timemod;
+  std::shared_ptr<Calculator> subtimemod;
 
   if (!itIsModulo)
   {

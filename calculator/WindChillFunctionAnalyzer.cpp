@@ -142,7 +142,9 @@ WeatherResult WindChillFunctionAnalyzer::analyze(const AnalysisSources& theSourc
   throw Fmi::Exception(BCP, theParameterName+" is not available in "+dataname);
   */
 
-  std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
+  std::shared_ptr<Calculator> spacemod;
+  std::shared_ptr<Calculator> timemod;
+  std::shared_ptr<Calculator> subtimemod;
 
   if (!itIsModulo)
   {

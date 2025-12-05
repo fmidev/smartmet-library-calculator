@@ -129,7 +129,9 @@ WeatherResult MaximumWindFunctionAnalyzer::analyze(const AnalysisSources& theSou
   NFmiFastQueryInfo qi = NFmiFastQueryInfo(qd.get());
   MaximumWindQueryInfo wi(qi);
 
-  std::shared_ptr<Calculator> spacemod, timemod, subtimemod;
+  std::shared_ptr<Calculator> spacemod;
+  std::shared_ptr<Calculator> timemod;
+  std::shared_ptr<Calculator> subtimemod;
 
   if (!itIsModulo)
   {
