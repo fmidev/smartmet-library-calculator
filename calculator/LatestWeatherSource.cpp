@@ -186,7 +186,6 @@ std::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theN
 WeatherId LatestWeatherSource::id(const std::string& theName) const
 {
   // See if we have a stored result
-  using const_iterator = Pimple::container_type::const_iterator;
   auto it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
     throw Fmi::Exception(BCP, "No data named " + theName + " stored in LatestWeatherSource");
