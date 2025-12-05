@@ -236,7 +236,7 @@ std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
   return ss.str();
 }
 
-short TextGenPosixTime::GetZoneDifferenceHour(const TextGenPosixTime& theTime, bool isUtc)
+short TextGenPosixTime::GetZoneDifferenceHour(const TextGenPosixTime& theTime, bool /* isUtc */)
 {
   std::string timeZoneId(get_timezone_id().empty() ? DEFAULT_TZ_ID : get_timezone_id());
   const Fmi::TimeZonePtr timeZone =
