@@ -289,7 +289,7 @@ TextGenPosixTime TextGenPosixTime::UtcTime(const TextGenPosixTime& localTime)
 
   Fmi::DateTime utcptime = localTime.itsPosixTime - Fmi::Hours(zdh);
 
-  return TextGenPosixTime(utcptime);
+  return utcptime;
 }
 
 //
@@ -299,7 +299,7 @@ TextGenPosixTime TextGenPosixTime::LocalTime(const TextGenPosixTime& utcTime)
 
   Fmi::DateTime localptime = utcTime.itsPosixTime + Fmi::Hours(zdh);
 
-  return TextGenPosixTime(localptime);
+  return localptime;
 }
 
 // https://stackoverflow.com/questions/3118582/how-do-i-find-the-current-system-timezone

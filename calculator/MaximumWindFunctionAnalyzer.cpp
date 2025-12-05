@@ -187,10 +187,10 @@ WeatherResult MaximumWindFunctionAnalyzer::analyze(const AnalysisSources& theSou
     float result =
         QueryDataIntegrator::Integrate(wi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
     if (result == kFloatMissing)
-      return WeatherResult(kFloatMissing, 0);
+      return {kFloatMissing, 0};
 
     if (itsAreaFunction != Mean)
-      return WeatherResult(result, 0);
+      return {result, 0};
 
     // Calculate standard deviation for the mean
 
@@ -205,7 +205,7 @@ WeatherResult MaximumWindFunctionAnalyzer::analyze(const AnalysisSources& theSou
 
     // This would happen if the area covers one point only
     if (error == kFloatMissing)
-      return WeatherResult(result, 0);
+      return {result, 0};
 
     return {result, error};
   }

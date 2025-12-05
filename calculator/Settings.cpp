@@ -204,11 +204,11 @@ TextGenPosixTime require_time(const std::string& theName)
 
   try
   {
-    const int yy = boost::lexical_cast<int>(value.substr(0, 4));
-    const int mm = boost::lexical_cast<int>(value.substr(4, 2));
-    const int dd = boost::lexical_cast<int>(value.substr(6, 2));
-    const int hh = boost::lexical_cast<int>(value.substr(8, 2));
-    const int mi = boost::lexical_cast<int>(value.substr(10, 2));
+    const auto yy = boost::lexical_cast<short int>(value.substr(0, 4));
+    const auto mm = boost::lexical_cast<short int>(value.substr(4, 2));
+    const auto dd = boost::lexical_cast<short int>(value.substr(6, 2));
+    const auto hh = boost::lexical_cast<short int>(value.substr(8, 2));
+    const auto mi = boost::lexical_cast<short int>(value.substr(10, 2));
 
     if (mm < 1 || mm > 12)
       throw std::runtime_error(msg);
@@ -222,7 +222,7 @@ TextGenPosixTime require_time(const std::string& theName)
     if (dd > TextGenPosixTime::DaysInMonth(mm, yy))
       throw std::runtime_error(msg);
 
-    return TextGenPosixTime(yy, mm, dd, hh, mi);
+    return {yy, mm, dd, hh, mi};
   }
   catch (std::exception&)
   {

@@ -100,7 +100,7 @@ bool isSeveralDays(const TextGenPosixTime& theDate1, const TextGenPosixTime& the
 
 TextGenPosixTime dayStart(const TextGenPosixTime& theDate)
 {
-  return TextGenPosixTime(theDate.GetYear(), theDate.GetMonth(), theDate.GetDay());
+  return {theDate.GetYear(), theDate.GetMonth(), theDate.GetDay()};
 }
 
 // ----------------------------------------------------------------------
