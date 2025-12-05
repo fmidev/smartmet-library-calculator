@@ -60,7 +60,7 @@ std::string complete_filename(const std::string& theName)
     throw Fmi::Exception(BCP, "Trying to search unnamed querydata");
 
   const std::string varname = "textgen::" + theName;
-  const std::string queryname = Settings::optional_string(varname, theName);
+  std::string queryname = Settings::optional_string(varname, theName);
 
   if (NFmiFileSystem::FileExists(queryname))
     return queryname;
