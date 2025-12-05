@@ -306,7 +306,7 @@ std::string get_current_timezone()
   struct tm t;
   char buf[16];
   ::localtime_r(&ts, &t);
-  ::strftime(buf, sizeof(buf), "%Z", &t);
+  static_cast<void>(::strftime(buf, sizeof(buf), "%Z", &t));
   return buf;
 }
 
