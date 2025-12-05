@@ -41,7 +41,7 @@ class LocationSource::Pimple
   Pimple();
 
   bool hasCoordinates(const std::string& theLocation) const;
-  const NFmiPoint coordinates(const std::string& theLocation) const;
+  NFmiPoint coordinates(const std::string& theLocation) const;
 
   mutable std::string itsLastSuccesfulName;
   mutable NFmiPoint itsLastSuccesfulPoint;
@@ -94,7 +94,7 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
  */
 // ----------------------------------------------------------------------
 
-const NFmiPoint LocationSource::Pimple::coordinates(const std::string& theLocation) const
+NFmiPoint LocationSource::Pimple::coordinates(const std::string& theLocation) const
 {
   if (hasCoordinates(theLocation))
     return itsLastSuccesfulPoint;

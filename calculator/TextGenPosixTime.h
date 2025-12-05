@@ -41,7 +41,7 @@ class TextGenPosixTime
   short GetMin() const;
   short GetSec() const;
 
-  void SetDate(const short year, const short month, const short day);
+  void SetDate(short year, short month, short day);
   void SetYear(short year);
   void SetMonth(short month);
   void SetDay(short day);
@@ -49,7 +49,7 @@ class TextGenPosixTime
   void SetMin(short minute);
   void SetSec(short sec);
 
-  std::string ToStr(const unsigned long theTimeMask) const;
+  std::string ToStr(unsigned long theTimeMask) const;
   std::string ToIsoExtendedStr() const;
   time_t EpochTime() const;
   short GetJulianDay() const;

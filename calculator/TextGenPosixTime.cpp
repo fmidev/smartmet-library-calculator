@@ -127,7 +127,7 @@ bool TextGenPosixTime::operator!=(const TextGenPosixTime& anotherTime) const
   return (itsPosixTime != anotherTime.itsPosixTime);
 }
 
-void TextGenPosixTime::SetDate(const short year, const short month, const short day)
+void TextGenPosixTime::SetDate(short year, short month, short day)
 {
   Fmi::Date d(year, month, day);
   Fmi::TimeDuration td(itsPosixTime.time_of_day());
@@ -213,7 +213,7 @@ std::string TextGenPosixTime::ToIsoExtendedStr() const
   return itsPosixTime.to_iso_extended_string();
 }
 
-std::string TextGenPosixTime::ToStr(const unsigned long theTimeMask) const
+std::string TextGenPosixTime::ToStr(unsigned long theTimeMask) const
 {
   std::stringstream ss;
   if ((kShortYear & theTimeMask) != 0)
