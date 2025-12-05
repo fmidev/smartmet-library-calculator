@@ -38,7 +38,7 @@ namespace Settings
 
 bool isset(const std::string& theName)
 {
-  return Fmi::Config().isset(theName);
+  return Fmi::Config::isset(theName);
 }
 void set(const std::string& theName, const std::string& theValue)
 {
