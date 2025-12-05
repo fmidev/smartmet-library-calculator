@@ -457,7 +457,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
   {
     try
     {
-      std::vector<float> tmp = NFmiStringTools::Split<std::vector<float> >(spec);
+      auto tmp = NFmiStringTools::Split<std::vector<float> >(spec);
       itsPoint = NFmiPoint(tmp[0], tmp[1]);
     }
     catch (...)

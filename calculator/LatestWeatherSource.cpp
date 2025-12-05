@@ -187,7 +187,7 @@ WeatherId LatestWeatherSource::id(const std::string& theName) const
 {
   // See if we have a stored result
   using const_iterator = Pimple::container_type::const_iterator;
-  const_iterator it = itsPimple->itsData.find(theName);
+  auto it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
     throw Fmi::Exception(BCP, "No data named " + theName + " stored in LatestWeatherSource");
 

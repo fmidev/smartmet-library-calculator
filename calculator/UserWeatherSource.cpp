@@ -63,8 +63,7 @@ UserWeatherSource::UserWeatherSource() : itsPimple(new Pimple) {}
 std::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theName) const
 {
   // See if we have a stored result
-  using const_iterator = Pimple::container_type::const_iterator;
-  const_iterator it = itsPimple->itsData.find(theName);
+  auto it = itsPimple->itsData.find(theName);
   if (it == itsPimple->itsData.end())
     throw Fmi::Exception(BCP, "No data named " + theName + " stored in UserWeatherSource");
 
@@ -83,8 +82,7 @@ std::shared_ptr<NFmiQueryData> UserWeatherSource::data(const std::string& theNam
 WeatherId UserWeatherSource::id(const std::string& theName) const
 {
   // See if we have a stored result
-  using const_iterator = Pimple::id_container_type::const_iterator;
-  const_iterator it = itsPimple->itsIdData.find(theName);
+  auto it = itsPimple->itsIdData.find(theName);
   if (it == itsPimple->itsIdData.end())
     throw Fmi::Exception(BCP, "No data named " + theName + " stored in UserWeatherSource");
 
