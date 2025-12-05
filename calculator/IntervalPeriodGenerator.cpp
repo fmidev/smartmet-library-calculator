@@ -122,7 +122,7 @@ void IntervalPeriodGenerator::init()
 
     const int diff = endtime.DifferenceInHours(starttime);
     if (diff >= itsMinimumInterval)
-      itsPeriods.emplace_back(WeatherPeriod(starttime, endtime));
+      itsPeriods.emplace_back(starttime, endtime);
 
     if (itsInterval <= 0)
       time.ChangeByHours(1);
