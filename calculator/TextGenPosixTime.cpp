@@ -8,7 +8,9 @@
 // Used to be Europe/Helsinki, this is a more portable default
 #define DEFAULT_TZ_ID "UTC"
 
-static thread_local std::string tls;
+namespace
+{
+thread_local std::string tls;
 
 void release_timezone_id()
 {
@@ -19,6 +21,7 @@ std::string& get_timezone_id()
 {
   return tls;
 }
+}  // namespace
 
 TextGenPosixTime::TextGenPosixTime() : itsPosixTime(Fmi::SecondClock::local_time()) {}
 TextGenPosixTime::TextGenPosixTime(const Fmi::DateTime& theTime) : itsPosixTime(theTime) {}

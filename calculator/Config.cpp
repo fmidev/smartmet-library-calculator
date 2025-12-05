@@ -16,7 +16,9 @@ namespace Fmi
 {
 using SettingsData = std::map<std::string, std::string>;
 
-static thread_local SettingsData tls;
+namespace
+{
+thread_local SettingsData tls;
 
 void release_settings()
 {
@@ -27,6 +29,7 @@ SettingsData& get_settings()
 {
   return tls;
 }
+}  // namespace
 
 bool Config::isset(const std::string& theName)
 {
