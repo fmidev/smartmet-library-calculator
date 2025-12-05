@@ -7,7 +7,7 @@
 /*!
  * \namespace Settings
  *
- * \brief Provides parsed and checked access to Config
+ * \brief Provides parsed and checked access to Config
  *
  */
 // ----------------------------------------------------------------------

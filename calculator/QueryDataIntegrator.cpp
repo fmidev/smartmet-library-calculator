@@ -435,7 +435,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
  *
  * \param theQI The query info
  * \param thePeriods The weather period generator
- * \param theSubTimeCalculator The calculator for accumulating sub periods
+ * \param theSubTimeCalculator The calculator for accumulating sub periods
  * \param theMainTimeCalculator The calculator for accumulating sub period results
  * \param theIndexMask The mask containing the space indices
  * \param theSpaceCalculator The calculator for accumulating the space result
