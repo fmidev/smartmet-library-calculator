@@ -5,8 +5,8 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.11.7
-Release: 2%{?dist}.fmi
+Version: 25.12.5
+Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/fmidev/smartmet-library-calculator
@@ -82,6 +82,10 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Fri Dec  5 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.12.5-1.fmi
+- Fixed dangerous use after std::move
+- Silenced several compiler warnings
+
 * Fri Nov  7 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.11.7-2.fmi
 - Use 95th percentile instead of 98th for PeakWind
 
