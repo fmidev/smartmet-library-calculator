@@ -7,10 +7,11 @@
 class TextGenPosixTime
 {
  public:
-  TextGenPosixTime();
+  TextGenPosixTime() = default;
+  TextGenPosixTime(const TextGenPosixTime& theTime) = default;
+
   TextGenPosixTime(time_t theTime);
   TextGenPosixTime(const Fmi::DateTime& theTime);
-  TextGenPosixTime(const TextGenPosixTime& theTime) = default;
   TextGenPosixTime(const NFmiStaticTime& theTime);
 
   TextGenPosixTime(short year, short month, short day);
@@ -70,7 +71,7 @@ class TextGenPosixTime
   inline const Fmi::DateTime& GetDateTime() const { return itsPosixTime; }
 
  private:
-  Fmi::DateTime itsPosixTime;
+  Fmi::DateTime itsPosixTime{Fmi::SecondClock::local_time()};
 
 };  // class TextGenPosixTime
 

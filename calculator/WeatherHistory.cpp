@@ -2,7 +2,6 @@
 
 namespace TextGen
 {
-WeatherHistory::WeatherHistory() : latestDate(1970, 1, 1) {}
 
 void WeatherHistory::updateWeekdayPhrase(const std::string& theWeekdayPhrase,
                                          const TextGenPosixTime& theTime)

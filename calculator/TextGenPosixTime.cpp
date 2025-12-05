@@ -23,7 +23,6 @@ std::string& get_timezone_id()
 }
 }  // namespace
 
-TextGenPosixTime::TextGenPosixTime() : itsPosixTime(Fmi::SecondClock::local_time()) {}
 TextGenPosixTime::TextGenPosixTime(const Fmi::DateTime& theTime) : itsPosixTime(theTime) {}
 
 TextGenPosixTime::TextGenPosixTime(std::time_t theTime)

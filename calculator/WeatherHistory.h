@@ -8,8 +8,8 @@ namespace TextGen
 class WeatherHistory
 {
  public:
-  WeatherHistory();
-  WeatherHistory(const WeatherHistory& theWeatherHistory) = default;
+  WeatherHistory() = default;
+  WeatherHistory(const WeatherHistory& other) = default;
 
   void updateTimePhrase(const std::string& theWeekdayPhrase,
                         const std::string& theDayPhasePhrase,
@@ -17,7 +17,7 @@ class WeatherHistory
   void updateWeekdayPhrase(const std::string& theWeekdayPhrase, const TextGenPosixTime& theTime);
   void updateDayPhasePhrase(const std::string& theDayPhasePhrase);
 
-  TextGenPosixTime latestDate;
+  TextGenPosixTime latestDate{1970, 1, 1};
   std::string latestWeekdayPhrase;
   std::string latestDayPhasePhrase;
 };
