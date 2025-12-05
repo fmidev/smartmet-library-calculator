@@ -21,6 +21,7 @@ class NullPeriodGenerator : public WeatherPeriodGenerator
  public:
   using size_type = WeatherPeriodGenerator::size_type;
 
+  NullPeriodGenerator() = delete;
   NullPeriodGenerator(WeatherPeriod theMainPeriod);
 
   ~NullPeriodGenerator() override = default;
@@ -30,8 +31,6 @@ class NullPeriodGenerator : public WeatherPeriodGenerator
   WeatherPeriod period(size_type thePeriod) const override;
 
  private:
-  NullPeriodGenerator() = delete;
-
   const WeatherPeriod itsMainPeriod;
 
 };  // class NullPeriodGenerator

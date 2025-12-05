@@ -15,6 +15,7 @@ namespace TextGen
 class ModMeanCalculator : public Calculator
 {
  public:
+  ModMeanCalculator() = delete;
   ModMeanCalculator(int theModulo);
   ~ModMeanCalculator() override = default;
   void operator()(float theValue) override;
@@ -24,8 +25,6 @@ class ModMeanCalculator : public Calculator
   void reset() override;
 
  private:
-  ModMeanCalculator() = delete;
-
   std::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;
 

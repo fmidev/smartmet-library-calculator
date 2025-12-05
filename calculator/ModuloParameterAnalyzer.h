@@ -20,6 +20,7 @@ class WeatherResult;
 class ModuloParameterAnalyzer : public ParameterAnalyzer
 {
  public:
+  ModuloParameterAnalyzer() = delete;
   ModuloParameterAnalyzer(std::string theVariable, std::string theParameter, int theModulo);
 
   WeatherResult analyze(const AnalysisSources& theSources,
@@ -34,8 +35,6 @@ class ModuloParameterAnalyzer : public ParameterAnalyzer
                         const Acceptor& theTester = NullAcceptor()) const override;
 
  private:
-  ModuloParameterAnalyzer() = delete;
-
   const std::string itsVariable;
   const std::string itsParameter;
   const int itsModulo;

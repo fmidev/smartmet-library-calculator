@@ -22,6 +22,7 @@ class IntervalPeriodGenerator : public WeatherPeriodGenerator
  public:
   using size_type = WeatherPeriodGenerator::size_type;
 
+  IntervalPeriodGenerator() = delete;
   IntervalPeriodGenerator(WeatherPeriod theMainPeriod,
                           int theStartHour,
                           int theInterval,
@@ -36,7 +37,6 @@ class IntervalPeriodGenerator : public WeatherPeriodGenerator
   WeatherPeriod period(size_type thePeriod) const override;
 
  private:
-  IntervalPeriodGenerator() = delete;
   void init();
 
   const WeatherPeriod itsMainPeriod;

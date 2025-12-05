@@ -20,6 +20,7 @@ class WeatherResult;
 class WindChillParameterAnalyzer : public ParameterAnalyzer
 {
  public:
+  WindChillParameterAnalyzer() = delete;
   WindChillParameterAnalyzer(std::string theVariable, std::string theParameter);
 
   WeatherResult analyze(const AnalysisSources& theSources,
@@ -34,8 +35,6 @@ class WindChillParameterAnalyzer : public ParameterAnalyzer
                         const Acceptor& theTester = NullAcceptor()) const override;
 
  private:
-  WindChillParameterAnalyzer() = delete;
-
   const std::string itsVariable;
   const std::string itsParameter;
 };

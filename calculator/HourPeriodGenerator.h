@@ -21,6 +21,7 @@ class HourPeriodGenerator : public WeatherPeriodGenerator
  public:
   using size_type = WeatherPeriodGenerator::size_type;
 
+  HourPeriodGenerator() = delete;
   HourPeriodGenerator(WeatherPeriod theMainPeriod,
                       int theStartHour,
                       int theEndHour,
@@ -36,8 +37,6 @@ class HourPeriodGenerator : public WeatherPeriodGenerator
   WeatherPeriod period(size_type thePeriod) const override;
 
  private:
-  HourPeriodGenerator() = delete;
-
   const WeatherPeriod itsMainPeriod;
   const int itsStartHour;
   const int itsEndHour;

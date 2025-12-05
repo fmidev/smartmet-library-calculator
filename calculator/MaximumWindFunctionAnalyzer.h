@@ -28,6 +28,7 @@ class WeatherResult;
 class MaximumWindFunctionAnalyzer : public FunctionAnalyzer
 {
  public:
+  MaximumWindFunctionAnalyzer() = delete;
   ~MaximumWindFunctionAnalyzer() override = default;
   MaximumWindFunctionAnalyzer(const WeatherFunction& theAreaFunction,
                               const WeatherFunction& theTimeFunction,
@@ -46,8 +47,6 @@ class MaximumWindFunctionAnalyzer : public FunctionAnalyzer
   void modulo(int theModulo);
 
  private:
-  MaximumWindFunctionAnalyzer() = delete;
-
   const WeatherFunction itsAreaFunction;
   const WeatherFunction itsTimeFunction;
   const WeatherFunction itsSubTimeFunction;

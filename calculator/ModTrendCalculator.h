@@ -16,6 +16,7 @@ namespace TextGen
 class ModTrendCalculator : public Calculator
 {
  public:
+  ModTrendCalculator() = delete;
   ModTrendCalculator(int theModulo);
   ~ModTrendCalculator() override = default;
   void operator()(float theValue) override;
@@ -25,8 +26,6 @@ class ModTrendCalculator : public Calculator
   void reset() override;
 
  private:
-  ModTrendCalculator() = delete;
-
   std::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;
 

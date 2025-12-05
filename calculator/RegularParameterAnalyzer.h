@@ -20,6 +20,7 @@ class WeatherResult;
 class RegularParameterAnalyzer : public ParameterAnalyzer
 {
  public:
+  RegularParameterAnalyzer() = delete;
   RegularParameterAnalyzer(std::string theVariable, std::string theParameter);
 
   WeatherResult analyze(const AnalysisSources& theSources,
@@ -34,8 +35,6 @@ class RegularParameterAnalyzer : public ParameterAnalyzer
                         const Acceptor& theTester = NullAcceptor()) const override;
 
  private:
-  RegularParameterAnalyzer() = delete;
-
   const std::string itsVariable;
   const std::string itsParameter;
 };

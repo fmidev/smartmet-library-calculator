@@ -15,6 +15,7 @@ namespace TextGen
 class ModStandardDeviationCalculator : public Calculator
 {
  public:
+  ModStandardDeviationCalculator() = delete;
   ModStandardDeviationCalculator(int theModulo);
   ~ModStandardDeviationCalculator() override = default;
   void operator()(float theValue) override;
@@ -24,8 +25,6 @@ class ModStandardDeviationCalculator : public Calculator
   void reset() override;
 
  private:
-  ModStandardDeviationCalculator() = delete;
-
   std::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;
 

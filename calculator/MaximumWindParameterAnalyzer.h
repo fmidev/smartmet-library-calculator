@@ -20,6 +20,7 @@ class WeatherResult;
 class MaximumWindParameterAnalyzer : public ParameterAnalyzer
 {
  public:
+  MaximumWindParameterAnalyzer() = delete;
   MaximumWindParameterAnalyzer(std::string theVariable, std::string theParameter);
 
   WeatherResult analyze(const AnalysisSources& theSources,
@@ -34,8 +35,6 @@ class MaximumWindParameterAnalyzer : public ParameterAnalyzer
                         const Acceptor& theTester = NullAcceptor()) const override;
 
  private:
-  MaximumWindParameterAnalyzer() = delete;
-
   const std::string itsVariable;
   const std::string itsParameter;
 };

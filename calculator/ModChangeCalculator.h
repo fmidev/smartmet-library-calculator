@@ -15,6 +15,7 @@ namespace TextGen
 class ModChangeCalculator : public Calculator
 {
  public:
+  ModChangeCalculator() = delete;
   ModChangeCalculator(int theModulo);
   ~ModChangeCalculator() override = default;
   void operator()(float theValue) override;
@@ -24,8 +25,6 @@ class ModChangeCalculator : public Calculator
   void reset() override;
 
  private:
-  ModChangeCalculator() = delete;
-
   std::shared_ptr<Acceptor> itsAcceptor;
   const int itsModulo;
 

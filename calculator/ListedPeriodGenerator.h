@@ -22,6 +22,7 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
  public:
   using size_type = WeatherPeriodGenerator::size_type;
 
+  ListedPeriodGenerator() = delete;
   ListedPeriodGenerator(const WeatherPeriod& theMainPeriod);
 
   ~ListedPeriodGenerator() override = default;
@@ -33,8 +34,6 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
   void add(const WeatherPeriod& thePeriod);
 
  private:
-  ListedPeriodGenerator() = delete;
-
   const WeatherPeriod itsMainPeriod;
   std::vector<WeatherPeriod> itsPeriods;
 

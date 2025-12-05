@@ -20,13 +20,13 @@ class WeatherResult
   WeatherResult& operator=(const WeatherResult& theResult);
 #endif
 
+  WeatherResult() = delete;
   WeatherResult(float theValue, float theError);
 
   float value() const;
   float error() const;
 
  private:
-  WeatherResult() = delete;
   float itsValue;
   float itsError;
 

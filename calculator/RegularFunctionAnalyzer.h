@@ -27,6 +27,7 @@ class WeatherResult;
 class RegularFunctionAnalyzer : public FunctionAnalyzer
 {
  public:
+  RegularFunctionAnalyzer() = delete;
   ~RegularFunctionAnalyzer() override = default;
   RegularFunctionAnalyzer(const WeatherFunction& theAreaFunction,
                           const WeatherFunction& theTimeFunction,
@@ -45,7 +46,6 @@ class RegularFunctionAnalyzer : public FunctionAnalyzer
   void modulo(int theModulo);
 
  private:
-  RegularFunctionAnalyzer() = delete;
   const WeatherFunction itsAreaFunction;
   const WeatherFunction itsTimeFunction;
   const WeatherFunction itsSubTimeFunction;
