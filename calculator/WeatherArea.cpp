@@ -75,6 +75,27 @@
 
 namespace
 {
+
+std::string expand_area_filename(const std::string& name, const std::string& path)
+{
+  if (NFmiFileSystem::FileExists(name))
+    return name;
+
+  std::string filename = name + ".svg";
+  if (NFmiFileSystem::FileExists(filename))
+    return filename;
+
+  filename = path + '/' + name;
+  if (NFmiFileSystem::FileExists(filename))
+    return filename;
+
+  filename += ".svg";
+  if (NFmiFileSystem::FileExists(filename))
+    return filename;
+
+  return name;
+}
+
 // ----------------------------------------------------------------------
 /*!
  * \brief Create a path for a point
@@ -405,19 +426,7 @@ void WeatherArea::parse_specs(const std::string& theSpecs)
 
   const std::string searchpath = Settings::optional_string("textgen::mappath", ".");
 
-  std::string filename = spec;
-  if (NFmiFileSystem::FileExists(filename))
-  {
-  }
-  else if (NFmiFileSystem::FileExists(filename = spec + ".svg"))
-  {
-  }
-  else if (NFmiFileSystem::FileExists(filename = searchpath + '/' + spec))
-  {
-  }
-  else if (NFmiFileSystem::FileExists(filename = searchpath + '/' + spec + ".svg"))
-  {
-  }
+  auto filename = expand_area_filename(spec, searchpath);
 
   if (NFmiFileSystem::FileExists(filename))
   {
