@@ -28,8 +28,8 @@ namespace TextGen
  */
 // ----------------------------------------------------------------------
 
-ListedPeriodGenerator::ListedPeriodGenerator(const WeatherPeriod& theMainPeriod)
-    : itsMainPeriod(theMainPeriod)
+ListedPeriodGenerator::ListedPeriodGenerator(WeatherPeriod theMainPeriod)
+    : itsMainPeriod(std::move(theMainPeriod))
 {
 }
 

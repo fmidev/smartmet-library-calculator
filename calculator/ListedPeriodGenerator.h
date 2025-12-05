@@ -23,7 +23,7 @@ class ListedPeriodGenerator : public WeatherPeriodGenerator
   using size_type = WeatherPeriodGenerator::size_type;
 
   ListedPeriodGenerator() = delete;
-  ListedPeriodGenerator(const WeatherPeriod& theMainPeriod);
+  ListedPeriodGenerator(WeatherPeriod theMainPeriod);
 
   ~ListedPeriodGenerator() override = default;
   bool undivided() const override;
