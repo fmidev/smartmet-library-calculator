@@ -23,7 +23,7 @@ class WeatherResult;
 class ParameterAnalyzer
 {
  public:
-  virtual ~ParameterAnalyzer() = default;
+  virtual ~ParameterAnalyzer();
   virtual WeatherResult analyze(const AnalysisSources& theSources,
                                 const WeatherDataType& theDataType,
                                 const WeatherFunction& theAreaFunction,

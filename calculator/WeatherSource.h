@@ -20,7 +20,7 @@ using WeatherId = long;
 class WeatherSource
 {
  public:
-  virtual ~WeatherSource() = default;
+  virtual ~WeatherSource();
   virtual std::shared_ptr<NFmiQueryData> data(const std::string& theName) const = 0;
   virtual WeatherId id(const std::string& theName) const = 0;
 

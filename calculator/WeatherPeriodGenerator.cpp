@@ -23,3 +23,8 @@
 // ----------------------------------------------------------------------
 
 #include "WeatherPeriodGenerator.h"
+
+namespace TextGen
+{
+WeatherPeriodGenerator::~WeatherPeriodGenerator() = default;
+}

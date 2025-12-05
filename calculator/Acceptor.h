@@ -13,7 +13,7 @@ class Acceptor
 {
  public:
   Acceptor() = default;
-  virtual ~Acceptor() = default;
+  virtual ~Acceptor();
   virtual bool accept(float theValue) const = 0;
   virtual Acceptor* clone() const = 0;
 

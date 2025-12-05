@@ -17,6 +17,9 @@
 
 namespace TextGen
 {
+
+ParameterAnalyzer::~ParameterAnalyzer() = default;
+
 void ParameterAnalyzer::getParameterStrings(const WeatherParameter& theParameter,
                                             std::string& theParameterName,
                                             std::string& theDataName)

@@ -13,3 +13,8 @@
 // ======================================================================
 
 #include "Acceptor.h"
+
+namespace TextGen
+{
+Acceptor::~Acceptor() = default;
+}

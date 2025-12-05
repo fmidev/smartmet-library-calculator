@@ -16,3 +16,8 @@
 // ======================================================================
 
 #include "Calculator.h"
+
+namespace TextGen
+{
+Calculator::~Calculator() = default;
+}

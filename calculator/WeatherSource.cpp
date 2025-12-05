@@ -20,3 +20,8 @@
 // ======================================================================
 
 #include "WeatherSource.h"
+
+namespace TextGen
+{
+WeatherSource::~WeatherSource() = default;
+}

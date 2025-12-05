@@ -16,3 +16,8 @@
 // ======================================================================
 
 #include "MaskSource.h"
+
+namespace TextGen
+{
+MaskSource::~MaskSource() = default;
+}

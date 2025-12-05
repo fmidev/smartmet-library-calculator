@@ -26,7 +26,7 @@ class MaskSource
   using mask_type = std::shared_ptr<NFmiIndexMask>;
   using masks_type = std::shared_ptr<NFmiIndexMaskSource>;
 
-  virtual ~MaskSource() = default;
+  virtual ~MaskSource();
   virtual mask_type mask(const WeatherArea& theArea,
                          const std::string& theData,
                          const WeatherSource& theWeatherSource) const = 0;
