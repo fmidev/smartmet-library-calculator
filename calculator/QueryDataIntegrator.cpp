@@ -122,7 +122,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
  *
  * \param theQI The query info
  * \param thePeriods The subperiod generator
- * \param theSubTimeCalculator The calculator for accumulating the subresult
+ * \param theSubTimeCalculator The calculator for accumulating the subresult
  * \param theMainTimeCalculator The calculator for subresults
  * \return The accumulation result
  */

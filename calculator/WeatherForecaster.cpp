@@ -24,3 +24,8 @@
 // ======================================================================
 
 #include "WeatherForecaster.h"
+
+namespace TextGen
+{
+WeatherForecaster::~WeatherForecaster() = default;
+}

@@ -62,7 +62,7 @@ void set(const std::string& theSettingsString)
 
 std::string require(const std::string& theName)
 {
-  return Fmi::Config().requireString(theName);
+  return Fmi::Config::requireString(theName);
 }
 
 // ----------------------------------------------------------------------
@@ -97,7 +97,7 @@ std::string require_string(const std::string& theName)
 
 int require_int(const std::string& theName)
 {
-  return Fmi::Config().requireInteger(theName);
+  return Fmi::Config::requireInteger(theName);
 }
 // ----------------------------------------------------------------------
 /*!
@@ -113,7 +113,7 @@ int require_int(const std::string& theName)
 
 bool require_bool(const std::string& theName)
 {
-  return Fmi::Config().requireBoolean(theName);
+  return Fmi::Config::requireBoolean(theName);
 }
 // ----------------------------------------------------------------------
 /*!
@@ -128,7 +128,7 @@ bool require_bool(const std::string& theName)
 
 double require_double(const std::string& theName)
 {
-  return Fmi::Config().requireDouble(theName);
+  return Fmi::Config::requireDouble(theName);
 }
 // ----------------------------------------------------------------------
 /*!
@@ -143,7 +143,7 @@ double require_double(const std::string& theName)
 
 int require_hour(const std::string& theName)
 {
-  return Fmi::Config().requireInteger(theName, 0, 23);
+  return Fmi::Config::requireInteger(theName, 0, 23);
 }
 // ----------------------------------------------------------------------
 /*!
@@ -159,7 +159,7 @@ int require_hour(const std::string& theName)
 int require_days(const std::string& theName)
 {
   const int maxdays = 100000;
-  return Fmi::Config().requireInteger(theName, 0, maxdays);
+  return Fmi::Config::requireInteger(theName, 0, maxdays);
 }
 
 // ----------------------------------------------------------------------
@@ -175,7 +175,7 @@ int require_days(const std::string& theName)
 
 int require_percentage(const std::string& theName)
 {
-  return Fmi::Config().requireInteger(theName, 0, 100);
+  return Fmi::Config::requireInteger(theName, 0, 100);
 }
 
 // ----------------------------------------------------------------------
@@ -271,7 +271,7 @@ TextGen::WeatherResult require_result(const std::string& theName)
 
 std::string optional_string(const std::string& theName, const std::string& theDefault)
 {
-  return Fmi::Config().optionalString(theName, theDefault);
+  return Fmi::Config::optionalString(theName, theDefault);
 }
 
 // ----------------------------------------------------------------------
@@ -288,9 +288,9 @@ int optional_int(const std::string& theName, int theDefault)
 {
   std::stringstream ss;
   ss << theDefault;
-  return boost::lexical_cast<int>(Fmi::Config().optionalString(theName, ss.str()));
+  return boost::lexical_cast<int>(Fmi::Config::optionalString(theName, ss.str()));
 
-  // return Fmi::Config().optional<int>(theName ,theDefault);
+  // return Fmi::Config::optional<int>(theName ,theDefault);
 }
 
 // ----------------------------------------------------------------------
@@ -305,7 +305,7 @@ int optional_int(const std::string& theName, int theDefault)
 
 bool optional_bool(const std::string& theName, bool theDefault)
 {
-  return Fmi::Config().optionalBoolean(theName, theDefault);
+  return Fmi::Config::optionalBoolean(theName, theDefault);
 }
 
 // ----------------------------------------------------------------------
@@ -323,9 +323,9 @@ double optional_double(const std::string& theName, double theDefault)
   /*
   std::stringstream ss;
   ss << theDefault;
-  return boost::lexical_cast<double>(Fmi::Config().optional<std::string>(theName ,ss.str()));
+  return boost::lexical_cast<double>(Fmi::Config::optional<std::string>(theName ,ss.str()));
 */
-  return Fmi::Config().optionalDouble(theName, theDefault);
+  return Fmi::Config::optionalDouble(theName, theDefault);
 }
 
 // ----------------------------------------------------------------------
@@ -340,7 +340,7 @@ double optional_double(const std::string& theName, double theDefault)
 
 int optional_hour(const std::string& theName, int theDefault)
 {
-  return Fmi::Config().optionalInteger(theName, theDefault, 0, 23);
+  return Fmi::Config::optionalInteger(theName, theDefault, 0, 23);
 }
 
 // ----------------------------------------------------------------------
@@ -355,7 +355,7 @@ int optional_hour(const std::string& theName, int theDefault)
 
 int optional_percentage(const std::string& theName, int theDefault)
 {
-  return Fmi::Config().optionalInteger(theName, theDefault, 0, 100);
+  return Fmi::Config::optionalInteger(theName, theDefault, 0, 100);
 }
 
 void clear()
