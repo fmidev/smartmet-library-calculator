@@ -45,7 +45,7 @@ HourPeriodGenerator::HourPeriodGenerator(WeatherPeriod theMainPeriod,
       itsMaxStartHour(theMaxStartHour),
       itsMinEndHour(theMinEndHour),
       itsSize(WeatherPeriodTools::countPeriods(
-          theMainPeriod, theStartHour, theEndHour, theMaxStartHour, theMinEndHour))
+          itsMainPeriod, theStartHour, theEndHour, theMaxStartHour, theMinEndHour))
 {
 }
 
