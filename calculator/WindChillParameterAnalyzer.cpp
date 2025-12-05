@@ -16,7 +16,6 @@
 #include "AnalysisSources.h"
 #include "WeatherResult.h"
 #include "WindChillFunctionAnalyzer.h"
-#include "WindChillParameterAnalyzer.h"
 
 namespace TextGen
 {

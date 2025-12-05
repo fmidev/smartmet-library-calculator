@@ -15,7 +15,6 @@
 #include "MaximumWindParameterAnalyzer.h"
 #include "AnalysisSources.h"
 #include "MaximumWindFunctionAnalyzer.h"
-#include "MaximumWindParameterAnalyzer.h"
 #include "WeatherResult.h"
 
 namespace TextGen
