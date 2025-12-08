@@ -50,11 +50,13 @@ inline double mean(double arg1, double arg2, double arg3, double arg4)
  */
 // ----------------------------------------------------------------------
 
+#if 0
 template <typename T>
 const T& min(const T& arg1, const T& arg2)
 {
   return (arg1 < arg2 ? arg1 : arg2);
 }
+#endif
 
 // ----------------------------------------------------------------------
 /*!
@@ -62,11 +64,13 @@ const T& min(const T& arg1, const T& arg2)
  */
 // ----------------------------------------------------------------------
 
+#if 0
 template <typename T>
 const T& max(const T& arg1, const T& arg2)
 {
   return (arg1 < arg2 ? arg2 : arg1);
 }
+#endif
 
 // ----------------------------------------------------------------------
 /*!
@@ -77,7 +81,7 @@ const T& max(const T& arg1, const T& arg2)
 template <typename T>
 const T& min(const T& arg1, const T& arg2, const T& arg3)
 {
-  return min(min(arg1, arg2), arg3);
+  return std::min(std::min(arg1, arg2), arg3);
 }
 
 // ----------------------------------------------------------------------
@@ -89,7 +93,7 @@ const T& min(const T& arg1, const T& arg2, const T& arg3)
 template <typename T>
 const T& max(const T& arg1, const T& arg2, const T& arg3)
 {
-  return max(max(arg1, arg2), arg3);
+  return std::max(std::max(arg1, arg2), arg3);
 }
 
 // ----------------------------------------------------------------------
@@ -101,7 +105,7 @@ const T& max(const T& arg1, const T& arg2, const T& arg3)
 template <typename T>
 const T& min(const T& arg1, const T& arg2, const T& arg3, const T& arg4)
 {
-  return min(min(arg1, arg2), min(arg3, arg4));
+  return std::min(std::min(arg1, arg2), std::min(arg3, arg4));
 }
 
 // ----------------------------------------------------------------------
@@ -113,7 +117,7 @@ const T& min(const T& arg1, const T& arg2, const T& arg3, const T& arg4)
 template <typename T>
 const T& max(const T& arg1, const T& arg2, const T& arg3, const T& arg4)
 {
-  return max(max(arg1, arg2), max(arg3, arg4));
+  return std::max(std::max(arg1, arg2), std::max(arg3, arg4));
 }
 
 // ----------------------------------------------------------------------
