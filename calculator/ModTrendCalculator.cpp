@@ -51,6 +51,7 @@ void ModTrendCalculator::operator()(float theValue)
     if (itsCounter > 0)
     {
       const float diff = theValue - itsLastValue;
+#if 0      
       if (diff < -itsModulo / 2.0)
         ++itsPositiveChanges;
       else if (diff > itsModulo / 2.0)
@@ -61,6 +62,14 @@ void ModTrendCalculator::operator()(float theValue)
         ++itsPositiveChanges;
       else
         ++itsZeroChanges;
+#else
+      // Optimized to avoid similar branches
+      if (diff == 0)
+        ++itsZeroChanges;
+      else
+        (diff > 0) ^ (std::abs(diff) > itsModulo / 2.0) ? ++itsPositiveChanges
+                                                        : ++itsNegativeChanges;
+#endif
     }
     ++itsCounter;
     itsLastValue = theValue;
