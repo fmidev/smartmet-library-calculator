@@ -17,6 +17,9 @@ namespace TextGen
 class LocationSource
 {
  public:
+  LocationSource(const LocationSource& theSrc) = delete;
+  LocationSource& operator=(const LocationSource& theSrc) = delete;
+
   static LocationSource& instance();
 
   bool hasCoordinates(const std::string& theLocation) const;
@@ -29,8 +32,6 @@ class LocationSource
   // Singleton protection
   LocationSource();
   ~LocationSource() = default;
-  LocationSource(const LocationSource& theSrc) = delete;
-  LocationSource& operator=(const LocationSource& theSrc) = delete;
 
 };  // class LocationSource
 
