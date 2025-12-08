@@ -1,6 +1,7 @@
 #include "TextGenPosixTime.h"
 #include <macgyver/TimeZoneFactory.h>
 #include <newbase/NFmiStaticTime.h>
+#include <array>
 #include <ctime>
 #include <iostream>  // std::cout
 #include <sstream>   // std::stringstream
@@ -26,11 +27,11 @@ std::string& get_timezone_id()
 std::string get_current_timezone()
 {
   ::time_t ts = 0;
-  struct tm t;
-  char buf[16];
+  ::tm t;
+  std::array<char, 16> buf{};
   ::localtime_r(&ts, &t);
-  static_cast<void>(::strftime(buf, sizeof(buf), "%Z", &t));
-  return buf;
+  static_cast<void>(::strftime(buf.data(), buf.size(), "%Z", &t));
+  return {buf.data()};
 }
 
 }  // namespace
