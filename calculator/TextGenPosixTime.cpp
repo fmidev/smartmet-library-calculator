@@ -1,4 +1,5 @@
 #include "TextGenPosixTime.h"
+#include <macgyver/Exception.h>
 #include <macgyver/TimeZoneFactory.h>
 #include <newbase/NFmiStaticTime.h>
 #include <array>
@@ -29,7 +30,8 @@ std::string get_current_timezone()
   ::time_t ts = 0;
   ::tm t;
   std::array<char, 16> buf{};
-  ::localtime_r(&ts, &t);
+  if (::localtime_r(&ts, &t) == nullptr)
+    throw Fmi::Exception(BCP, "localtime_r call failed when calling get_current_timezone()");
   static_cast<void>(::strftime(buf.data(), buf.size(), "%Z", &t));
   return {buf.data()};
 }
