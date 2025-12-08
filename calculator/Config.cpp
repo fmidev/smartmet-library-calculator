@@ -3,14 +3,10 @@
 #include <boost/algorithm/string/case_conv.hpp>
 #include <boost/tokenizer.hpp>
 #include <macgyver/StringConversion.h>
+#include <filesystem>
 #include <functional>
 #include <stdexcept>
 #include <string>
-
-#define BOOST_FILESYSTEM_NO_DEPRECATED
-#define BOOST_FILESYSTEM_VERSION 3
-
-#include <filesystem>
 
 namespace Fmi
 {
