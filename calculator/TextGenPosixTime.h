@@ -67,7 +67,7 @@ class TextGenPosixTime
   static void SetThreadTimeZone(const std::string& theTimeZoneId = "");
   static void ResetThreadTimeZone();
 
-  inline const Fmi::DateTime& GetDateTime() const { return itsPosixTime; }
+  const Fmi::DateTime& GetDateTime() const { return itsPosixTime; }
 
  private:
   Fmi::DateTime itsPosixTime{Fmi::SecondClock::local_time()};
