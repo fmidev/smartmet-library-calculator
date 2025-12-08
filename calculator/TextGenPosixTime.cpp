@@ -21,6 +21,18 @@ std::string& get_timezone_id()
 {
   return tls;
 }
+
+// https://stackoverflow.com/questions/3118582/how-do-i-find-the-current-system-timezone
+std::string get_current_timezone()
+{
+  ::time_t ts = 0;
+  struct tm t;
+  char buf[16];
+  ::localtime_r(&ts, &t);
+  static_cast<void>(::strftime(buf, sizeof(buf), "%Z", &t));
+  return buf;
+}
+
 }  // namespace
 
 TextGenPosixTime::TextGenPosixTime(const Fmi::DateTime& theTime) : itsPosixTime(theTime) {}
@@ -299,17 +311,6 @@ TextGenPosixTime TextGenPosixTime::LocalTime(const TextGenPosixTime& utcTime)
   Fmi::DateTime localptime = utcTime.itsPosixTime + Fmi::Hours(zdh);
 
   return localptime;
-}
-
-// https://stackoverflow.com/questions/3118582/how-do-i-find-the-current-system-timezone
-std::string get_current_timezone()
-{
-  ::time_t ts = 0;
-  struct tm t;
-  char buf[16];
-  ::localtime_r(&ts, &t);
-  static_cast<void>(::strftime(buf, sizeof(buf), "%Z", &t));
-  return buf;
 }
 
 void TextGenPosixTime::SetThreadTimeZone(const std::string& theTimeZoneId /*= ""*/)
