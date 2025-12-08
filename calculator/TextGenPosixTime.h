@@ -8,7 +8,6 @@ class TextGenPosixTime
 {
  public:
   TextGenPosixTime() = default;
-  TextGenPosixTime(const TextGenPosixTime& theTime) = default;
 
   TextGenPosixTime(time_t theTime);
   TextGenPosixTime(const Fmi::DateTime& theTime);
