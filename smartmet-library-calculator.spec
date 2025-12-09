@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 25.12.8
+Version: 25.12.9
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Tue Dec  9 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.12.9-1.fmi
+- Silenced compiler warnings
+
 * Mon Dec  8 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.12.8-1.fmi
 - Fixed possible issue of dangling references
 - Silenced several compiler warnings
