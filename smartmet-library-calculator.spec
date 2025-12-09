@@ -6,7 +6,7 @@
 Summary: Querydata calculator
 Name: %{SPECNAME}
 Version: 25.12.9
-Release: 1%{?dist}.fmi
+Release: 2%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/fmidev/smartmet-library-calculator
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Tue Dec  9 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.12.9-2.fmi
+- Added default constructors for TextGenPosixTime
+
 * Tue Dec  9 2025 Mika Heiskanen <mika.heiskanen@fmi.fi> - 25.12.9-1.fmi
 - Silenced compiler warnings
 
