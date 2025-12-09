@@ -7,6 +7,9 @@
 class TextGenPosixTime
 {
  public:
+  TextGenPosixTime();
+  TextGenPosixTime(const TextGenPosixTime& other);
+
   TextGenPosixTime(time_t theTime);
   TextGenPosixTime(const Fmi::DateTime& theTime);
   TextGenPosixTime(const NFmiStaticTime& theTime);
