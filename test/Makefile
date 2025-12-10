@@ -24,8 +24,7 @@ LIBS += \
 	-lsmartmet-newbase \
 	-lsmartmet-macgyver \
 	-lboost_iostreams \
-	-lboost_locale \
-	-lboost_system
+	-lboost_locale
 
 
 INCLUDES += -I ../calculator
