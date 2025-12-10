@@ -63,10 +63,9 @@ TextGenPosixTime::TextGenPosixTime(short year, short month, short day)
 
 TextGenPosixTime::TextGenPosixTime(
     short year, short month, short day, short hour, short minute /*=0*/, short sec /*=0*/)
+    : itsPosixTime(Fmi::Date(year, month, day),
+                   Fmi::TimeDuration(hour, minute, sec, 0))
 {
-  Fmi::TimeDuration td(hour, minute, sec, 0);
-  Fmi::Date d(year, month, day);
-  itsPosixTime = Fmi::DateTime(d, td);
 }
 
 void TextGenPosixTime::ChangeBySeconds(long sec)
