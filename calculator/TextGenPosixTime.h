@@ -73,7 +73,7 @@ class TextGenPosixTime
   const Fmi::DateTime& GetDateTime() const { return itsPosixTime; }
 
  private:
-  Fmi::DateTime itsPosixTime{Fmi::SecondClock::local_time()};
+  Fmi::DateTime itsPosixTime;
 
 };  // class TextGenPosixTime
 

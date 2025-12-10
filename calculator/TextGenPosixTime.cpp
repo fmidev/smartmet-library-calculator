@@ -38,7 +38,11 @@ std::string get_current_timezone()
 
 }  // namespace
 
-TextGenPosixTime::TextGenPosixTime() = default;
+TextGenPosixTime::TextGenPosixTime()
+  : itsPosixTime(Fmi::SecondClock::local_time())
+{
+}
+
 TextGenPosixTime::TextGenPosixTime(const TextGenPosixTime& other) = default;
 
 TextGenPosixTime& TextGenPosixTime::operator=(const TextGenPosixTime& other) = default;
