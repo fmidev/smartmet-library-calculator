@@ -1,6 +1,6 @@
 #include <boost/lexical_cast.hpp>
-#include <calculator/MathTools.h>
 #include <regression/tframe.h>
+#include "MathTools.h"
 
 namespace MathToolsTest
 {
