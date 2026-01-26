@@ -32,7 +32,7 @@ INCLUDES += -I ../calculator
 all: $(PROG)
 clean:
 	rm -f $(PROG) *~
-	rm -rf .obj
+	rm -rf obj
 
 test: $(PROG)
 	@echo Running tests:
@@ -42,12 +42,12 @@ test: $(PROG)
 	if test -z "$$failed" ; then true; else echo Test failed:; \
 		for test in $$failed; do echo "   $$test"; done; false; fi
 
-$(PROG) : % : .obj/%.o
+$(PROG) : % : obj/%.o
 	$(CXX) $(CFLAGS) -o $@ $@.cpp $(INCLUDES) $(LIBS)
 
-.obj/%.o: %.cpp
-	@mkdir -p .obj
-	$(CXX) $(CFLAGS) $(INCLUDES) -c -MD -MF $(patsubst obj/%.o, .obj/%.d, $@) -MT $@ -o $@ $<
+obj/%.o: %.cpp
+	@mkdir -p obj
+	$(CXX) $(CFLAGS) $(INCLUDES) -c -MD -MF $(patsubst obj/%.o, obj/%.d, $@) -MT $@ -o $@ $<
 
 ifneq ($(wildcard .obj/*.d),)
 -include $(wildcard .obj/*.d)
