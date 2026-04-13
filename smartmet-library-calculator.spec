@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 26.2.4
+Version: 26.4.13
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -24,8 +24,8 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
 BuildRequires: smartmet-library-newbase-devel >= 26.2.4
-BuildRequires: smartmet-library-macgyver-devel >= 26.2.4
-BuildRequires: smartmet-library-gis-devel >= 26.2.4
+BuildRequires: smartmet-library-macgyver-devel >= 26.4.13
+BuildRequires: smartmet-library-gis-devel >= 26.3.30
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
@@ -36,7 +36,7 @@ Requires: smartmet-library-newbase >= 26.2.4
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
 #TestRequires: smartmet-library-newbase-devel >= 26.2.4
-#TestRequires: smartmet-library-gis-devel >= 26.2.4
+#TestRequires: smartmet-library-gis-devel >= 26.3.30
 #TestRequires: %{smartmet_boost}-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Mon Apr 13 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> 26.4.13-1.fmi
+- Repackaged due to base library changes
+
 * Wed Feb  4 2026 Andris Pavēnis <andris.pavenis@fmi.fi> 26.2.4-1.fmi
 - Update to proj-9.7, gdal-3.12, fmt-12
 
