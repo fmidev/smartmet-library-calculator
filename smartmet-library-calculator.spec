@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 26.4.13
+Version: 26.6.9
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -23,20 +23,20 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
-BuildRequires: smartmet-library-newbase-devel >= 26.2.4
-BuildRequires: smartmet-library-macgyver-devel >= 26.4.13
-BuildRequires: smartmet-library-gis-devel >= 26.3.30
+BuildRequires: smartmet-library-newbase-devel >= 26.6.26
+BuildRequires: smartmet-library-macgyver-devel >= 26.6.26
+BuildRequires: smartmet-library-gis-devel >= 26.6.25
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 26.2.4
+Requires: smartmet-library-newbase >= 26.6.26
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
-#TestRequires: smartmet-library-newbase-devel >= 26.2.4
-#TestRequires: smartmet-library-gis-devel >= 26.3.30
+#TestRequires: smartmet-library-newbase-devel >= 26.6.26
+#TestRequires: smartmet-library-gis-devel >= 26.6.25
 #TestRequires: %{smartmet_boost}-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
@@ -82,6 +82,9 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Thu Jul  9 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.6.9-1.fmi
+- Repackaged to satisfy CircleCI dependencies
+
 * Mon Apr 13 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> 26.4.13-1.fmi
 - Repackaged due to base library changes
 
