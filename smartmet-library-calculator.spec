@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 26.6.9
+Version: 26.7.9
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,7 +82,7 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
-* Thu Jul  9 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.6.9-1.fmi
+* Thu Jul  9 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.7.9-1.fmi
 - Repackaged to satisfy CircleCI dependencies
 
 * Mon Apr 13 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> 26.4.13-1.fmi
