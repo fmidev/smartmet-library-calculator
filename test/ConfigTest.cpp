@@ -16,6 +16,8 @@ namespace ConfigTest
 void set_function()
 {
   Fmi::Config::set("string_param", "string");
+  Fmi::Config::set("quoted_param", "\"quoted\"");
+  Fmi::Config::set("quoted_bool_param", "\"true\"");
   Fmi::Config::set("bool_param1", "true");
   Fmi::Config::set("bool_param2", "false");
   Fmi::Config::set("bool_param3", "1");
@@ -91,6 +93,14 @@ void require_function()
   string string_param(Fmi::Config().requireString("string_param"));
   if (string_param != "string")
     TEST_FAILED("Value of string_param sould be 'string' not " + string_param);
+  // quotes written around a value in the configuration are not part of it
+  string quoted_param(Fmi::Config().requireString("quoted_param"));
+  if (quoted_param != "quoted")
+    TEST_FAILED("Value of quoted_param should be 'quoted' not " + quoted_param);
+  if (Fmi::Config().optionalString("quoted_param", "") != "quoted")
+    TEST_FAILED("optionalString should strip the quotes of quoted_param");
+  if (!Fmi::Config().requireBoolean("quoted_bool_param"))
+    TEST_FAILED("Value of quoted_bool_param should be true");
   bool bool_param1(Fmi::Config().requireBoolean("bool_param1"));
   if (bool_param1 != true)
     TEST_FAILED("Value of bool_param sould be 'true' not false");

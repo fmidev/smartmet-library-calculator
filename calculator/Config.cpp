@@ -83,6 +83,20 @@ void Config::release()
  */
 // ----------------------------------------------------------------------
 
+namespace
+{
+// Strip a matching pair of surrounding quotes. The configuration files are plain
+// "name = value" text, so quotes written around a string value would otherwise become part
+// of it and break comparisons such as style == "quadrant".
+std::string unquote(const std::string& theValue)
+{
+  if (theValue.size() >= 2 && (theValue.front() == '"' || theValue.front() == '\'') &&
+      theValue.back() == theValue.front())
+    return theValue.substr(1, theValue.size() - 2);
+  return theValue;
+}
+}  // namespace
+
 std::string Config::requireString(const std::string& theName)
 {
   SettingsData& params(get_settings());
@@ -90,7 +104,7 @@ std::string Config::requireString(const std::string& theName)
   if (params.find(theName) == params.end())
     throw std::runtime_error("The variable " + theName + " is required to have a value");
 
-  return params[theName];
+  return unquote(params[theName]);
 }
 
 // ----------------------------------------------------------------------
@@ -106,7 +120,7 @@ std::string Config::optionalString(const std::string& theName, const std::string
   if (params.find(theName) == params.end())
     return theDefault;
 
-  return params[theName];
+  return unquote(params[theName]);
 }
 
 // ----------------------------------------------------------------------
