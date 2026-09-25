@@ -4,13 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
+Full developer documentation: `docs/developer-guide.md`.
+
 `smartmet-library-calculator` — a C++17 shared library (`libsmartmet-calculator.so`) providing time series and area aggregation calculations over QueryData (FMI's native gridded weather data format). Part of the SmartMet Server ecosystem. All code lives in the `TextGen` namespace.
 
 ## Build commands
 
 ```bash
 make                  # Build libsmartmet-calculator.so
-make test             # Build and run all Boost.Test unit tests
+make test             # Build and run all unit tests (regression/tframe.h)
 make format           # Run clang-format on all source and test files
 make clean            # Clean build artifacts and test binaries
 make rpm              # Build RPM package
@@ -66,7 +68,7 @@ Key integration patterns:
 - `MaskSource` / `RegularMaskSource` — provide spatial masks for area calculations
 - `WeatherPeriodGenerator` implementations (`HourPeriodGenerator`, `IntervalPeriodGenerator`, `ListedPeriodGenerator`, `NullPeriodGenerator`) — subdivide time ranges
 - `AnalysisSources` — bundles all data sources together for the analyzer
-- `Settings` — global key-value configuration (wraps `smartmet-library-macgyver` settings)
+- `Settings` — **thread-local** key-value configuration (`Fmi::Config` in `Config.cpp`); set per request thread, `Settings::release()` afterwards
 
 ## CI
 
