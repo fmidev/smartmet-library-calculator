@@ -52,16 +52,14 @@ void Config::set(const std::string& theSettingsString)
   tokenizer tokens(theSettingsString, sep);
   for (const std::string& t : tokens)
   {
-    if (t.find('=') == std::string::npos)
+    // Split at the first '=' only, the value may contain more of them
+    const auto pos = t.find('=');
+    if (pos == std::string::npos)
       continue;
 
-    boost::char_separator<char> sep2("=");
-    tokenizer tokens2(t, sep2);
-    tokenizer::iterator tok_iter = tokens2.begin();
-    std::string key(*tok_iter);
+    std::string key = t.substr(0, pos);
     boost::trim(key);
-    tok_iter++;
-    std::string value(*tok_iter);
+    std::string value = t.substr(pos + 1);
     boost::trim(value);
     Fmi::Config::set(key, value);
   }
