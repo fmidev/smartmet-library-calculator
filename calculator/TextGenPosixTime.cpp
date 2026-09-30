@@ -257,13 +257,23 @@ std::string TextGenPosixTime::ToStr(unsigned long theTimeMask) const
   return ss.str();
 }
 
-short TextGenPosixTime::GetZoneDifferenceHour(const TextGenPosixTime& theTime, bool /* isUtc */)
+namespace
+{
+// Offset of the thread time zone from UTC at the given time, which is
+// interpreted as wall clock time like in GetZoneDifferenceHour()
+Fmi::TimeDuration zone_offset(const Fmi::DateTime& theTime)
 {
   std::string timeZoneId(get_timezone_id().empty() ? DEFAULT_TZ_ID : get_timezone_id());
   const Fmi::TimeZonePtr timeZone =
       Fmi::TimeZoneFactory::instance().time_zone_from_string(timeZoneId);
-  Fmi::LocalDateTime ldt(theTime.itsPosixTime.date(), theTime.itsPosixTime.time_of_day(), timeZone);
-  return ldt.offset().total_seconds() / 3600;
+  Fmi::LocalDateTime ldt(theTime.date(), theTime.time_of_day(), timeZone);
+  return ldt.offset();
+}
+}  // namespace
+
+short TextGenPosixTime::GetZoneDifferenceHour(const TextGenPosixTime& theTime, bool /* isUtc */)
+{
+  return zone_offset(theTime.itsPosixTime).total_seconds() / 3600;
 }
 
 std::time_t TextGenPosixTime::EpochTime() const
@@ -301,11 +311,14 @@ short TextGenPosixTime::DaysInMonth(const short aMonth, const short aYear)
   return d.end_of_month().day();
 }
 
+// Conversions use the full offset: GetZoneDifferenceHour() truncates offsets
+// such as +05:30 to whole hours.
+
 TextGenPosixTime TextGenPosixTime::UtcTime(const TextGenPosixTime& localTime)
 {
-  short zdh = TextGenPosixTime::GetZoneDifferenceHour(localTime, false);
+  const Fmi::TimeDuration offset = zone_offset(localTime.itsPosixTime);
 
-  Fmi::DateTime utcptime = localTime.itsPosixTime - Fmi::Hours(zdh);
+  Fmi::DateTime utcptime = localTime.itsPosixTime - offset;
 
   return utcptime;
 }
@@ -313,9 +326,9 @@ TextGenPosixTime TextGenPosixTime::UtcTime(const TextGenPosixTime& localTime)
 //
 TextGenPosixTime TextGenPosixTime::LocalTime(const TextGenPosixTime& utcTime)
 {
-  short zdh = TextGenPosixTime::GetZoneDifferenceHour(utcTime, true);
+  const Fmi::TimeDuration offset = zone_offset(utcTime.itsPosixTime);
 
-  Fmi::DateTime localptime = utcTime.itsPosixTime + Fmi::Hours(zdh);
+  Fmi::DateTime localptime = utcTime.itsPosixTime + offset;
 
   return localptime;
 }
