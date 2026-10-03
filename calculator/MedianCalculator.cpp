@@ -59,7 +59,8 @@ float MedianCalculator::operator()() const
 
   sort(theValueVector.begin(), theValueVector.end());
   unsigned int vectorSize(theValueVector.size());
-  const unsigned int medianIndex = (vectorSize < 2 ? 0 : ((vectorSize / 2) - 1));
+  // The middle value, or the lower one of the middle values for an even count
+  const unsigned int medianIndex = (vectorSize - 1) / 2;
 
   return theValueVector.at(medianIndex);
 }
