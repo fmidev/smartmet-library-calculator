@@ -12,6 +12,10 @@ The calculator library provides time series and area calculation tools for Query
 - Area-based aggregation over grid regions
 - Integration with the QueryData format
 
+## Documentation
+
+- [Developer guide](docs/developer-guide.md): analysis flow, integration order, areas, times and pitfalls
+
 ## License
 
 MIT — see [LICENSE](LICENSE)
