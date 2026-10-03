@@ -136,10 +136,11 @@ the end, and rebuild textgen when a class layout changes.
 
 * **Settings and the time zone are per thread.** Set them in the thread that runs the
   analysis, and clear them afterwards, or the next request on the thread sees them.
-* **The time zone offset is whole hours.** `TextGenPosixTime` converts with
-  `offset / 3600`, so zones like `Asia/Kolkata` (+05:30) are off by 30 minutes.
+* **`GetZoneDifferenceHour()` truncates to whole hours.** `UtcTime()` and `LocalTime()`
+  use the full offset, but code using the hour difference directly is off by 30 minutes
+  in zones like `Asia/Kolkata` (+05:30).
 * **Any empty sub-period makes the whole result missing.**
 * **`Mean` area results cost two passes** because of the error estimate (§2).
 * **Point analyses use the nearest grid point**, without interpolation.
-* **`key=value` strings given to `Settings::set()`** keep only the text up to a second `=`
-  in the value.
+* **`Settings::set("key=value\n...")` splits each line at its first `=`.** The value may
+  contain further `=` characters and may be empty.
