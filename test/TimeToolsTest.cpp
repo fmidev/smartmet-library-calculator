@@ -143,6 +143,12 @@ void toutctime()
            .IsEqual(TextGenPosixTime(2003, 9, 7, 10)))
     TEST_FAILED("Failed to convert 7.9.2003 12:00 SWE to 10:00 UTC");
 
+  // Offsets which are not whole hours
+  TextGenPosixTime::SetThreadTimeZone("Asia/Kolkata");
+  if (!TextGenPosixTime::UtcTime(TextGenPosixTime(2003, 9, 7, 12))
+           .IsEqual(TextGenPosixTime(2003, 9, 7, 6, 30)))
+    TEST_FAILED("Failed to convert 7.9.2003 12:00 IST to 6:30 UTC");
+
   TextGenPosixTime::ResetThreadTimeZone();
 
   TEST_PASSED();
@@ -171,6 +177,12 @@ void tolocaltime()
   if (!TextGenPosixTime::LocalTime(TextGenPosixTime(2003, 9, 7, 12))
            .IsEqual(TextGenPosixTime(2003, 9, 7, 14)))
     TEST_FAILED("Failed to convert 7.9.2003 12:00 UTC to 14:00 UTC");
+
+  // Offsets which are not whole hours
+  TextGenPosixTime::SetThreadTimeZone("Asia/Kolkata");
+  if (!TextGenPosixTime::LocalTime(TextGenPosixTime(2003, 9, 7, 12))
+           .IsEqual(TextGenPosixTime(2003, 9, 7, 17, 30)))
+    TEST_FAILED("Failed to convert 7.9.2003 12:00 UTC to 17:30 IST");
 
   TextGenPosixTime::ResetThreadTimeZone();
 

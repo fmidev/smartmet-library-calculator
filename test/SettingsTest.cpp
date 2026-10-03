@@ -333,6 +333,23 @@ void settings_optional()
  */
 // ----------------------------------------------------------------------
 
+// Values given in a settings string may contain '=' characters
+
+void settings_set_string()
+{
+  Settings::set("string_param_a = a=b=c\nstring_param_b=\nstring_param_c = plain\n");
+
+  if (Settings::require_string("string_param_a") != "a=b=c")
+    TEST_FAILED("Value of string_param_a should be 'a=b=c', not '" +
+                Settings::require_string("string_param_a") + "'");
+  if (!Settings::isset("string_param_b") || !Settings::require("string_param_b").empty())
+    TEST_FAILED("string_param_b should be set to an empty value");
+  if (Settings::require_string("string_param_c") != "plain")
+    TEST_FAILED("Value of string_param_c should be 'plain'");
+
+  TEST_PASSED();
+}
+
 class tests : public tframe::tests
 {
   //! Overridden message separator
@@ -344,6 +361,7 @@ class tests : public tframe::tests
     TEST(settings_isset);
     TEST(settings_require);
     TEST(settings_optional);
+    TEST(settings_set_string);
   }
 
 };  // class tests
