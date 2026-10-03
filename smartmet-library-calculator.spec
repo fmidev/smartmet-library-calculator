@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 26.9.21
+Version: 26.10.3
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -23,20 +23,20 @@ BuildRequires: rpm-build
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: %{smartmet_boost}-devel
-BuildRequires: smartmet-library-newbase-devel >= 26.6.26
-BuildRequires: smartmet-library-macgyver-devel >= 26.6.26
-BuildRequires: smartmet-library-gis-devel >= 26.6.25
+BuildRequires: smartmet-library-newbase-devel >= 26.10.3
+BuildRequires: smartmet-library-macgyver-devel >= 26.10.3
+BuildRequires: smartmet-library-gis-devel >= 26.10.3
 BuildRequires: freetype-devel
 %if %{with tests}
 BuildRequires: smartmet-library-regression
 %endif
-Requires: smartmet-library-newbase >= 26.6.26
+Requires: smartmet-library-newbase >= 26.10.3
 #TestRequires: make
 #TestRequires: gcc-c++
 #TestRequires: smartmet-library-regression
 #TestRequires: smartmet-library-macgyver-devel
-#TestRequires: smartmet-library-newbase-devel >= 26.6.26
-#TestRequires: smartmet-library-gis-devel >= 26.6.25
+#TestRequires: smartmet-library-newbase-devel >= 26.10.3
+#TestRequires: smartmet-library-gis-devel >= 26.10.3
 #TestRequires: %{smartmet_boost}-devel
 #TestRequires: smartmet-timezones
 Provides: %{LIBNAME}
@@ -82,6 +82,10 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Sat Oct 03 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.10.3-1.fmi
+- Use the full UTC offset in TextGenPosixTime conversions
+- Split settings strings at the first '=' only
+
 * Mon Sep 21 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.9.21-1.fmi
 - Config: quotes written around a string value in the configuration are no longer part of the value
 
