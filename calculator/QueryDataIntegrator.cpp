@@ -250,7 +250,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
  */
 // ----------------------------------------------------------------------
 
-float Integrate(NFmiFastQueryInfo& theQI,
+float Integrate(const NFmiFastQueryInfo& theQI,
                 const NFmiIndexMask& theIndexMask,
                 Calculator& theSpaceCalculator)
 {
