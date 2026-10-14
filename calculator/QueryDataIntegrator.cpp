@@ -59,11 +59,11 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
     return kFloatMissing;
 
-  do
+  for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= theEndTime)
   {
     const float tmp = theQI.FloatValue();
     theTimeCalculator(tmp);
-  } while (theQI.NextTime() && theQI.Time() <= theEndTime);
+  }
 
   return theTimeCalculator();
 }
@@ -97,11 +97,11 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
     return kFloatMissing;
 
-  do
+  for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= theEndTime)
   {
     const float tmp = theQI.InterpolatedValue(theLatLon);
     theTimeCalculator(tmp);
-  } while (theQI.NextTime() && theQI.Time() <= theEndTime);
+  }
 
   return theTimeCalculator();
 }
@@ -156,11 +156,11 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
     theSubTimeCalculator.reset();
 
-    do
+    for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= period.utcEndTime())
     {
       const float tmp = theQI.FloatValue();
       theSubTimeCalculator(tmp);
-    } while (theQI.NextTime() && theQI.Time() <= period.utcEndTime());
+    }
 
     const float subresult = theSubTimeCalculator();
     theMainTimeCalculator(subresult);
@@ -221,11 +221,11 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
     theSubTimeCalculator.reset();
 
-    do
+    for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= period.utcEndTime())
     {
       const float tmp = theQI.InterpolatedValue(theLatLon);
       theSubTimeCalculator(tmp);
-    } while (theQI.NextTime() && theQI.Time() <= period.utcEndTime());
+    }
 
     const float subresult = theSubTimeCalculator();
     theMainTimeCalculator(subresult);
@@ -307,11 +307,11 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (theIndexMask.empty())
     return kFloatMissing;
 
-  do
+  for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= theEndTime)
   {
     const float tmp = Integrate(theQI, theIndexMask, theSpaceCalculator);
     theTimeCalculator(tmp);
-  } while (theQI.NextTime() && theQI.Time() <= theEndTime);
+  }
 
   return theTimeCalculator();
 }
@@ -362,7 +362,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
     theQI.TimeIndex(startindex);
 
-    do
+    for (bool more = true; more; more = theQI.NextTime() && theQI.TimeIndex() < endindex)
     {
       // possible -1 is handled by IndexFloatValue
       const unsigned long idx =
@@ -370,7 +370,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
       const float tmp = theQI.GetFloatValue(idx);
 
       theTimeCalculator(tmp);
-    } while (theQI.NextTime() && theQI.TimeIndex() < endindex);
+    }
 
     const float timeresult = theTimeCalculator();
     theSpaceCalculator(timeresult);
@@ -412,12 +412,12 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (!QueryDataTools::firstTime(theQI, theStartTime, theEndTime))
     return kFloatMissing;
 
-  do
+  for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= theEndTime)
   {
     const NFmiIndexMask& mask = theMaskSource.Find(theQI.Time());
     const float tmp = Integrate(theQI, mask, theSpaceCalculator);
     theTimeCalculator(tmp);
-  } while (theQI.NextTime() && theQI.Time() <= theEndTime);
+  }
 
   return theTimeCalculator();
 }
@@ -482,7 +482,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
 
       theSubTimeCalculator.reset();
 
-      do
+      for (bool more = true; more; more = theQI.NextTime() && theQI.Time() <= period.utcEndTime())
       {
         // possible -1 is handled by IndexFloatValue
         const unsigned long idx =
@@ -490,7 +490,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
         const float tmp = theQI.GetFloatValue(idx);
 
         theSubTimeCalculator(tmp);
-      } while (theQI.NextTime() && theQI.Time() <= period.utcEndTime());
+      }
 
       const float subtimeresult = theSubTimeCalculator();
       theMainTimeCalculator(subtimeresult);

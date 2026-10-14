@@ -331,9 +331,7 @@ void ParameterAnalyzer::getParameterStrings(const WeatherParameter& theParameter
   }
 }
 
-namespace
-{
-const char* getDataTypeName(const TextGen::WeatherDataType& theDataType)
+const char* ParameterAnalyzer::getDataTypeName(const TextGen::WeatherDataType& theDataType)
 {
   switch (theDataType)
   {
@@ -347,6 +345,5 @@ const char* getDataTypeName(const TextGen::WeatherDataType& theDataType)
 
   throw Fmi::Exception(BCP, "Unrecognized WeatherDataType in ParameterAnalyzer::getDataTypeName");
 }
-}  // namespace
 
 }  // namespace TextGen
