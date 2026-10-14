@@ -350,8 +350,8 @@ float Integrate(NFmiFastQueryInfo& theQI,
   if (theIndexMask.empty())
     return kFloatMissing;
 
-  unsigned long startindex;
-  unsigned long endindex;
+  unsigned long startindex = 0;
+  unsigned long endindex = 0;
 
   if (!QueryDataTools::findIndices(theQI, theStartTime, theEndTime, startindex, endindex))
     return kFloatMissing;
