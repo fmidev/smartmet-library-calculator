@@ -14,6 +14,7 @@ class Acceptor
  public:
   Acceptor() = default;
   virtual ~Acceptor();
+  Acceptor(const Acceptor&) = default;
   virtual bool accept(float theValue) const = 0;
   virtual Acceptor* clone() const = 0;
 
