@@ -49,6 +49,8 @@ class WeatherArea
   WeatherArea() = delete;
 
   WeatherArea(const WeatherArea& theArea);
+  WeatherArea& operator=(const WeatherArea& theArea) = default;
+  ~WeatherArea() = default;
 
   WeatherArea(const std::string& theSpecs);
 

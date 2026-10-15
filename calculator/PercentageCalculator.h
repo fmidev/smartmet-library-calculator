@@ -18,6 +18,7 @@ class PercentageCalculator : public Calculator
   PercentageCalculator();
   PercentageCalculator(const PercentageCalculator& theOther);
   ~PercentageCalculator() override = default;
+  PercentageCalculator& operator=(const PercentageCalculator&) = default;
   void operator()(float theValue) override;
   float operator()() const override;
   void acceptor(const Acceptor& theAcceptor) override;

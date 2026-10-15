@@ -28,7 +28,7 @@ std::string& get_timezone_id()
 std::string get_current_timezone()
 {
   ::time_t ts = 0;
-  ::tm t;
+  ::tm t{};
   std::array<char, 16> buf{};
   if (::localtime_r(&ts, &t) == nullptr)
     throw Fmi::Exception(BCP, "localtime_r call failed when calling get_current_timezone()");

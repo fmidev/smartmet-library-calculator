@@ -18,6 +18,7 @@ class TextGenPosixTime
   TextGenPosixTime(short year, short month, short day, short hour, short minute = 0, short sec = 0);
 
   TextGenPosixTime& operator=(const TextGenPosixTime& other);
+  ~TextGenPosixTime() = default;
 
   void ChangeBySeconds(long sec);
   void ChangeByMinutes(long min);
