@@ -56,11 +56,11 @@ Key integration patterns:
 
 ### 3. Analyzer layer (high-level API)
 
-`WeatherAnalyzer` is the abstract entry point — takes data sources, a weather parameter, area/time functions, a geographic area, and time periods, returns a `WeatherResult`. Two concrete implementations:
-- `WeatherForecaster` — forecast data from QueryData files
-- `GridForecaster` — the actual workhorse that orchestrates parameter analysis
+`WeatherAnalyzer` is the abstract entry point — takes data sources, a weather parameter, area/time functions, a geographic area, and time periods, returns a `WeatherResult`. The hierarchy:
+- `WeatherForecaster` — abstract forecast analyzer, derived from `WeatherAnalyzer`
+- `GridForecaster` — the concrete implementation (derived from `WeatherForecaster`) that orchestrates parameter analysis
 
-`ParameterAnalyzer` subclasses handle parameter-specific logic (regular parameters, wind chill, maximum wind). `ParameterAnalyzerFactory` selects the right one.
+`ParameterAnalyzer` subclasses handle parameter-specific logic (regular parameters, modular parameters such as wind direction, wind chill, maximum wind). `ParameterAnalyzerFactory` selects the right one.
 
 ### Supporting abstractions
 
