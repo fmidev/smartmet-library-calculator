@@ -2,7 +2,7 @@ PROG = $(patsubst %.cpp,%,$(wildcard *.cpp))
 PHPPROG = $(wildcard *.php)
 # OBS = $(wildcard ../obj/*.o)
 
-include $(or $(PREFIX),$(shell smartbuildcfg --prefix 2>/dev/null),/usr)/share/smartmet/devel/makefile.inc
+include $(or $(PREFIX),$(shell smartbuildcfg --prefix))/share/smartmet/devel/makefile.inc
 
 UNAME_S := $(shell uname -s)
 
