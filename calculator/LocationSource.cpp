@@ -43,8 +43,8 @@ class LocationSource::Pimple
   bool hasCoordinates(const std::string& theLocation) const;
   NFmiPoint coordinates(const std::string& theLocation) const;
 
-  mutable std::string itsLastSuccesfulName;
-  mutable NFmiPoint itsLastSuccesfulPoint;
+  mutable std::string itsLastSuccessfulName;
+  mutable NFmiPoint itsLastSuccessfulPoint;
   mutable NFmiLocationFinder itsFinder;
 
 };  // Pimple
@@ -55,7 +55,7 @@ class LocationSource::Pimple
  */
 // ----------------------------------------------------------------------
 
-LocationSource::Pimple::Pimple() : itsLastSuccesfulPoint(kFloatMissing, kFloatMissing) {}
+LocationSource::Pimple::Pimple() : itsLastSuccessfulPoint(kFloatMissing, kFloatMissing) {}
 
 // ----------------------------------------------------------------------
 /*!
@@ -68,7 +68,7 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
   if (theLocation.empty())
     throw Fmi::Exception(BCP, "Cannot request coordinates for an empty location name");
 
-  if (theLocation == itsLastSuccesfulName)
+  if (theLocation == itsLastSuccessfulName)
     return true;
 
   if (itsFinder.Empty())
@@ -82,8 +82,8 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
   if (itsFinder.LastSearchFailed())
     return false;
 
-  itsLastSuccesfulName = theLocation;
-  itsLastSuccesfulPoint = point;
+  itsLastSuccessfulName = theLocation;
+  itsLastSuccessfulPoint = point;
 
   return true;
 }
@@ -97,7 +97,7 @@ bool LocationSource::Pimple::hasCoordinates(const std::string& theLocation) cons
 NFmiPoint LocationSource::Pimple::coordinates(const std::string& theLocation) const
 {
   if (hasCoordinates(theLocation))
-    return itsLastSuccesfulPoint;
+    return itsLastSuccessfulPoint;
 
   throw Fmi::Exception(BCP,
                        "Cannot request coordinates for unknown location '" + theLocation + "'");
