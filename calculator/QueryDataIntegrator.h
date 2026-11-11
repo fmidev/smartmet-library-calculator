@@ -74,7 +74,7 @@ float Integrate(NFmiFastQueryInfo& theQI,
                 const NFmiIndexMask& theIndexMask,
                 Calculator& theSpaceCalculator);
 
-// Integrate over grid and time with time dependend mask, current P & L
+// Integrate over grid and time with time dependent mask, current P & L
 
 float Integrate(NFmiFastQueryInfo& theQI,
                 const NFmiIndexMaskSource& theMaskSource,

@@ -67,7 +67,7 @@ bool isNextDay(const TextGenPosixTime& theDate1, const TextGenPosixTime& theDate
  * \brief Test if the period covers several days
  *
  * Note that a period that ends at 00:00 the next day is not considered
- * to span several days, the end hour must be atleast 01:00 if the period
+ * to span several days, the end hour must be at least 01:00 if the period
  * ends the day after the start date.
  *
  * \param theDate1 The first date

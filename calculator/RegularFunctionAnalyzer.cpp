@@ -114,7 +114,7 @@ void RegularFunctionAnalyzer::modulo(int theModulo)
  * is the only such function.
  *
  * It is assumed that the space and time functions are never both
- * Percentage, hence atmost one Acceptor is needed for Percentage
+ * Percentage, hence at most one Acceptor is needed for Percentage
  * calculations.
  *
  * \param theSources Analysis sources

@@ -19,7 +19,7 @@
  * into a new WeatherPeriodTools namespace. It is possible that
  * a function for testing inclusion will be added to such a namespace
  * later on. The intention is to avoid cluttering this small class
- * with a lot of methods, since it is forseeable that all kinds
+ * with a lot of methods, since it is foreseeable that all kinds
  * of interval splitting algorithms will also be needed.
  *
  */

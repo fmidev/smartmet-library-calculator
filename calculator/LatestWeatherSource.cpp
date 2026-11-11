@@ -145,7 +145,7 @@ std::shared_ptr<NFmiQueryData> LatestWeatherSource::data(const std::string& theN
   // See if the cached data is outdated. It is outdated if the
   // directory contains a newer file, or if the file itself
   // has been modified. We also require that the new modification
-  // time is atleast 30 seconds old to make sure the file has been
+  // time is at least 30 seconds old to make sure the file has been
   // fully created.
 
   if (it != itsPimple->itsData.end() &&

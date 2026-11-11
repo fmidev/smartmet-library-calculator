@@ -7,7 +7,7 @@
 /*!
  * \namespace MathTools
  *
- * \brief Various mathematical utitity functions
+ * \brief Various mathematical utility functions
  *
  */
 // ======================================================================
@@ -40,7 +40,7 @@ int to_precision(float theValue, int thePrecision)
 /*!
  * \brief Calculates Pearson coefficient
  *
- * \param theValueVector The vector containg double values
+ * \param theValueVector The vector containing double values
  * \return The Pearson coefficient
  */
 // ----------------------------------------------------------------------
