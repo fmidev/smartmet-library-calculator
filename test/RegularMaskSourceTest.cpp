@@ -1,7 +1,6 @@
 #include "RegularMaskSource.h"
 #include "UserWeatherSource.h"
 #include "WeatherArea.h"
-#include <boost/accumulators/accumulators.hpp>
 #include <newbase/NFmiIndexMask.h>
 #include <newbase/NFmiQueryData.h>
 #include <newbase/NFmiStringTools.h>

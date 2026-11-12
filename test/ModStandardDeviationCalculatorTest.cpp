@@ -1,5 +1,4 @@
 #include "ModStandardDeviationCalculator.h"
-#include <boost/accumulators/accumulators.hpp>
 #include <newbase/NFmiGlobals.h>
 #include <regression/tframe.h>
 #include <cmath>
