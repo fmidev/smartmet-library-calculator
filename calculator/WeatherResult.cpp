@@ -19,7 +19,6 @@
 // ======================================================================
 
 #include "WeatherResult.h"
-#include <cassert>
 #include <iostream>
 #include <stdexcept>
 

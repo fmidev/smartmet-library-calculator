@@ -1,11 +1,8 @@
 #include "MeanCalculator.h"
+#include <boost/locale.hpp>
 #include <newbase/NFmiGlobals.h>
 #include <regression/tframe.h>
-
 #include <iostream>
-#include <string>
-
-#include <boost/locale.hpp>
 
 using namespace std;
 using namespace boost;

@@ -7,8 +7,6 @@
 
 #pragma once
 
-#include <ctime>
-
 class TextGenPosixTime;
 
 namespace TextGen

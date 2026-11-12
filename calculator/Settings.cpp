@@ -12,18 +12,17 @@
  */
 // ----------------------------------------------------------------------
 
-#include <boost/lexical_cast.hpp>
-
-#include "Config.h"
 #include "Settings.h"
+#include "Config.h"
 #include "TextGenPosixTime.h"
 #include "WeatherResult.h"
+#include <boost/lexical_cast.hpp>
 #include <newbase/NFmiStringTools.h>
-
 #include <cctype>  // for std::isdigit
-#include <list>
+#include <exception>
 #include <sstream>  // std::stringstream
 #include <stdexcept>
+#include <vector>
 
 namespace Settings
 {

@@ -1,9 +1,8 @@
 #include "SumCalculator.h"
+#include <boost/accumulators/accumulators.hpp>
 #include <newbase/NFmiGlobals.h>
 #include <regression/tframe.h>
-
 #include <iostream>
-#include <string>
 
 using namespace std;
 using namespace boost;

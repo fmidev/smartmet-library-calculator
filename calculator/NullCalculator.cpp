@@ -13,8 +13,9 @@
 // ======================================================================
 
 #include "NullCalculator.h"
-#include "DefaultAcceptor.h"
 #include <macgyver/Exception.h>
+#include <memory>
+#include <string>
 
 namespace TextGen
 {

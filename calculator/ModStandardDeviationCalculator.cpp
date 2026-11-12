@@ -22,10 +22,9 @@
 // ======================================================================
 
 #include "ModStandardDeviationCalculator.h"
+#include "Acceptor.h"
 #include "DefaultAcceptor.h"
-
 #include <newbase/NFmiGlobals.h>
-
 #include <cmath>
 
 namespace TextGen

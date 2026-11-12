@@ -4,16 +4,26 @@
 #include "QueryDataIntegrator.h"
 #include "SumCalculator.h"
 #include "TextGenPosixTime.h"
-#include <regression/tframe.h>
-
 #include <boost/lexical_cast.hpp>
 #include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiIndexMask.h>
 #include <newbase/NFmiIndexMaskSource.h>
 #include <newbase/NFmiIndexMaskTools.h>
+#include <newbase/NFmiMetTime.h>
+#include <newbase/NFmiParameterName.h>
+#include <newbase/NFmiPoint.h>
 #include <newbase/NFmiQueryData.h>
+#include <newbase/NFmiQueryInfo.h>
 #include <newbase/NFmiSvgPath.h>
+#include <regression/tframe.h>
+#include <algorithm>
+#include <cmath>
 #include <fstream>
+#include <iostream>
+#include <memory>
+#include <string>
+
+class NFmiGrid;
 
 using namespace std;
 using namespace boost;

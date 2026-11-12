@@ -8,6 +8,8 @@
 #pragma once
 
 #include "MaskSource.h"
+#include <memory>
+#include <string>
 
 namespace TextGen
 {
@@ -29,6 +31,7 @@ class RegularMaskSource : public MaskSource
 
  private:
   class Pimple;
+
   std::shared_ptr<Pimple> itsPimple;
 
 };  // class RegularMaskSource

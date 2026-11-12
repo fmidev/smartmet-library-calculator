@@ -8,12 +8,11 @@
 #pragma once
 
 #include "WeatherHistory.h"
-
 #include <newbase/NFmiPoint.h>
-#include <newbase/NFmiSvgPath.h>
-
 #include <memory>
 #include <string>
+
+class NFmiSvgPath;
 
 namespace TextGen
 {

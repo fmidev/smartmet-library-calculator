@@ -1,9 +1,7 @@
 #include "NullAcceptor.h"
 #include <newbase/NFmiGlobals.h>
 #include <regression/tframe.h>
-
 #include <iostream>
-#include <string>
 
 using namespace std;
 

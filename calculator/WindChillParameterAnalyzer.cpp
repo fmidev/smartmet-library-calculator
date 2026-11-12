@@ -13,9 +13,11 @@
 // ======================================================================
 
 #include "WindChillParameterAnalyzer.h"
-#include "AnalysisSources.h"
+#include "FunctionAnalyzer.h"
 #include "WeatherResult.h"
 #include "WindChillFunctionAnalyzer.h"
+#include <memory>
+#include <utility>
 
 namespace TextGen
 {

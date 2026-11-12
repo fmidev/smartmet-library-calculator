@@ -13,9 +13,9 @@
 // ======================================================================
 
 #include "CountCalculator.h"
+#include "Acceptor.h"
 #include "DefaultAcceptor.h"
 #include "NullAcceptor.h"
-
 #include <newbase/NFmiGlobals.h>
 
 namespace TextGen

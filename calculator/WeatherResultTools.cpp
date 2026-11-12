@@ -15,11 +15,10 @@
 #include "MathTools.h"
 #include "Settings.h"
 #include <macgyver/Exception.h>
-
 #include <newbase/NFmiGlobals.h>
+#include <algorithm>
 #include <cmath>
 #include <cstdlib>
-#include <utility>
 
 namespace TextGen
 {

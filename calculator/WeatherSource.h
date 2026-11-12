@@ -11,8 +11,6 @@
 #include <memory>
 #include <string>
 
-class NFmiQueryData;
-
 namespace TextGen
 {
 using WeatherId = long;

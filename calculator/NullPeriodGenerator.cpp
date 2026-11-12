@@ -16,6 +16,8 @@
 #include "NullPeriodGenerator.h"
 #include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
+#include <string>
+#include <utility>
 
 namespace TextGen
 {

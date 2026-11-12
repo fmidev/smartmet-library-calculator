@@ -70,8 +70,11 @@
 #include "Settings.h"
 #include <macgyver/Exception.h>
 #include <newbase/NFmiFileSystem.h>
+#include <newbase/NFmiGlobals.h>
 #include <newbase/NFmiStringTools.h>
+#include <newbase/NFmiSvgPath.h>
 #include <fstream>
+#include <vector>
 
 namespace
 {

@@ -2,6 +2,7 @@
 #include "WeatherPeriod.h"
 #include "WeatherPeriodTools.h"
 #include <regression/tframe.h>
+#include <iostream>
 
 using namespace std;
 

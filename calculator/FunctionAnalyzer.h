@@ -21,7 +21,6 @@ namespace TextGen
 {
 class Acceptor;
 class AnalysisSources;
-class Calculator;
 class WeatherArea;
 class WeatherPeriodGenerator;
 class WeatherResult;

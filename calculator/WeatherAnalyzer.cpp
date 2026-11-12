@@ -20,17 +20,14 @@
 // ======================================================================
 
 #include "WeatherAnalyzer.h"
-#include "Acceptor.h"
-#include "AnalysisSources.h"
 #include "NullPeriodGenerator.h"
 #include "Settings.h"
-#include "WeatherArea.h"
 #include "WeatherPeriod.h"
-#include "WeatherPeriodGenerator.h"
 #include "WeatherResult.h"
 
 namespace TextGen
 {
+class Acceptor;
 // ----------------------------------------------------------------------
 /*!
  * \brief Analyze weather data for area

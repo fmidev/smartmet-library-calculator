@@ -1,10 +1,9 @@
 #include "StandardDeviationCalculator.h"
+#include <boost/accumulators/accumulators.hpp>
 #include <newbase/NFmiGlobals.h>
 #include <regression/tframe.h>
-
 #include <cmath>
 #include <iostream>
-#include <string>
 
 using namespace std;
 using namespace boost;

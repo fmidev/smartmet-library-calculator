@@ -21,8 +21,8 @@
 #include "IdGenerator.h"
 #include <macgyver/Exception.h>
 #include <newbase/NFmiQueryData.h>
-#include <cassert>
 #include <map>
+#include <utility>
 
 namespace TextGen
 {

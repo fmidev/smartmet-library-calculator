@@ -13,7 +13,6 @@
 // ======================================================================
 
 #include "NullAcceptor.h"
-#include <newbase/NFmiGlobals.h>
 
 namespace TextGen
 {

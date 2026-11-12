@@ -7,12 +7,13 @@
 
 #pragma once
 
-#include "Acceptor.h"
 #include "Calculator.h"
 #include <memory>
 
 namespace TextGen
 {
+class Acceptor;
+
 class StandardDeviationCalculator : public Calculator
 {
  public:

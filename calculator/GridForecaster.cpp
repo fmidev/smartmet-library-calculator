@@ -18,13 +18,11 @@
 // ======================================================================
 
 #include "GridForecaster.h"
-#include "Acceptor.h"
-#include "AnalysisSources.h"
+#include "ParameterAnalyzer.h"
 #include "ParameterAnalyzerFactory.h"
-#include "WeatherArea.h"
-#include "WeatherPeriod.h"
-#include "WeatherPeriodGenerator.h"
+#include "WeatherDataType.h"
 #include "WeatherResult.h"
+#include <memory>
 
 namespace TextGen
 {

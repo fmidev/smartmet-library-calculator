@@ -9,11 +9,10 @@
 
 #include "WeatherFunction.h"
 
-#include "Calculator.h"
-
 namespace TextGen
 {
 class Acceptor;
+class Calculator;
 
 namespace CalculatorFactory
 {

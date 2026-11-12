@@ -14,22 +14,26 @@
 
 #include "RegularFunctionAnalyzer.h"
 #include "AnalysisSources.h"
+#include "Calculator.h"
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
 #include "QueryDataIntegrator.h"
 #include "Settings.h"
 #include "WeatherArea.h"
-#include "WeatherPeriod.h"
 #include "WeatherResult.h"
 #include "WeatherSource.h"
 #include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
 #include <newbase/NFmiEnumConverter.h>
 #include <newbase/NFmiFastQueryInfo.h>
-#include <newbase/NFmiQueryData.h>
+#include <newbase/NFmiGlobals.h>
+#include <newbase/NFmiParameterName.h>
+#include <newbase/NFmiPoint.h>
 #include <memory>
 #include <sstream>
 #include <string>
+
+class NFmiQueryData;
 
 namespace
 {

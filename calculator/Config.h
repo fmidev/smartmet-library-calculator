@@ -6,11 +6,6 @@
 
 #pragma once
 
-#include <boost/lexical_cast.hpp>
-#include <boost/thread.hpp>
-#include <map>
-#include <memory>
-#include <stdexcept>
 #include <string>
 
 namespace Fmi

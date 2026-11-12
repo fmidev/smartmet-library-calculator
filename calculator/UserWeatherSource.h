@@ -9,6 +9,7 @@
 
 #include "WeatherSource.h"
 #include <memory>
+#include <string>
 
 class NFmiQueryData;
 
@@ -25,6 +26,7 @@ class UserWeatherSource : public WeatherSource
 
  private:
   class Pimple;
+
   std::shared_ptr<Pimple> itsPimple;
 
 };  // class UserWeatherSource

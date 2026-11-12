@@ -12,6 +12,8 @@
 
 namespace TextGen
 {
+class Acceptor;
+
 class ModStandardDeviationCalculator : public Calculator
 {
  public:

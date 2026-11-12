@@ -7,15 +7,14 @@
 
 #pragma once
 
+#include "NullAcceptor.h"
 #include "ParameterAnalyzer.h"
+#include "WeatherDataType.h"
+#include "WeatherFunction.h"
 #include <string>
 
 namespace TextGen
 {
-class AnalyzerSources;
-class WeatherArea;
-class WeatherPeriodGenerator;
-class WeatherResult;
 
 class RegularParameterAnalyzer : public ParameterAnalyzer
 {

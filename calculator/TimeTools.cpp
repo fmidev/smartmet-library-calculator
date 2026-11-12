@@ -21,8 +21,6 @@
 #include "TimeTools.h"
 #include "TextGenPosixTime.h"
 
-#include <ctime>
-
 namespace TextGen
 {
 namespace TimeTools

@@ -7,11 +7,12 @@
 
 #pragma once
 
-#include "ParameterAnalyzer.h"
 #include "WeatherParameter.h"
 
 namespace TextGen
 {
+class ParameterAnalyzer;
+
 namespace ParameterAnalyzerFactory
 {
 ParameterAnalyzer* create(TextGen::WeatherParameter theParameter);

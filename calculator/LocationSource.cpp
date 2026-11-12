@@ -24,6 +24,7 @@
 #include "LocationSource.h"
 #include "Settings.h"
 #include <macgyver/Exception.h>
+#include <newbase/NFmiGlobals.h>
 #include <newbase/NFmiLocationFinder.h>
 #include <newbase/NFmiPoint.h>
 

@@ -18,15 +18,15 @@
 #include "QueryDataIntegrator.h"
 #include "Calculator.h"
 #include "QueryDataTools.h"
+#include "TextGenPosixTime.h"
 #include "WeatherPeriod.h"
 #include "WeatherPeriodGenerator.h"
-
-#include "TextGenPosixTime.h"
 #include <newbase/NFmiFastQueryInfo.h>
+#include <newbase/NFmiGlobals.h>
 #include <newbase/NFmiIndexMask.h>
 #include <newbase/NFmiIndexMaskSource.h>
-#include <newbase/NFmiMetMath.h>
-#include <newbase/NFmiPoint.h>
+#include <newbase/NFmiMetTime.h>
+#include <vector>
 
 namespace TextGen
 {

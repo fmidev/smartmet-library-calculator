@@ -1,9 +1,8 @@
 #include "Settings.h"
+#include "WeatherResult.h"
 #include "WeatherResultTools.h"
 #include <regression/tframe.h>
-
 #include <iostream>
-#include <stdexcept>
 #include <string>
 
 using namespace std;

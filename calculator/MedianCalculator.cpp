@@ -13,10 +13,9 @@
 // ======================================================================
 
 #include "MedianCalculator.h"
+#include "Acceptor.h"
 #include "DefaultAcceptor.h"
-
 #include <newbase/NFmiGlobals.h>
-
 #include <algorithm>
 
 namespace TextGen

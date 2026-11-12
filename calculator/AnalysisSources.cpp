@@ -13,8 +13,6 @@
 // ======================================================================
 
 #include "AnalysisSources.h"
-#include "MaskSource.h"
-#include "WeatherSource.h"
 #include <memory>
 
 namespace TextGen

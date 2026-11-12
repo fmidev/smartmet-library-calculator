@@ -26,11 +26,9 @@
 // ======================================================================
 
 #include "WeatherPeriod.h"
-#include "TimeTools.h"
 #include <macgyver/Exception.h>
-#include <cassert>
-#include <iostream>  // std::cout
-#include <sstream>   // std::stringstream
+#include <sstream>  // std::stringstream
+#include <string>
 
 namespace TextGen
 {

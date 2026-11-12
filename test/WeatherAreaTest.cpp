@@ -1,8 +1,10 @@
 #include "Settings.h"
 #include "WeatherArea.h"
-#include <regression/tframe.h>
-
+#include <newbase/NFmiPoint.h>
 #include <newbase/NFmiSettings.h>
+#include <regression/tframe.h>
+#include <iostream>
+#include <string>
 
 using namespace std;
 

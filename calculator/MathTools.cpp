@@ -13,8 +13,6 @@
 // ======================================================================
 
 #include "MathTools.h"
-
-#include <newbase/NFmiGlobals.h>
 #include <cmath>
 
 namespace MathTools

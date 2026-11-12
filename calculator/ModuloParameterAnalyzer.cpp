@@ -13,9 +13,10 @@
 // ======================================================================
 
 #include "ModuloParameterAnalyzer.h"
-#include "AnalysisSources.h"
 #include "RegularFunctionAnalyzer.h"
 #include "WeatherResult.h"
+#include <memory>
+#include <utility>
 
 namespace TextGen
 {

@@ -9,6 +9,7 @@
 
 #include "WeatherSource.h"
 #include <memory>
+#include <string>
 
 namespace TextGen
 {
@@ -21,6 +22,7 @@ class LatestWeatherSource : public WeatherSource
 
  private:
   class Pimple;
+
   std::shared_ptr<Pimple> itsPimple;
 
 };  // class LatestWeatherSource

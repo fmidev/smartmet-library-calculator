@@ -19,9 +19,10 @@
 // ======================================================================
 
 #include "QueryDataTools.h"
-
 #include "TextGenPosixTime.h"
 #include <newbase/NFmiFastQueryInfo.h>
+#include <newbase/NFmiMetTime.h>
+#include <newbase/NFmiTimeDescriptor.h>
 
 namespace TextGen
 {

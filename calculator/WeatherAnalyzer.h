@@ -9,16 +9,13 @@
 
 #include "DefaultAcceptor.h"
 #include "NullAcceptor.h"
-#include "WeatherDataType.h"
 #include "WeatherFunction.h"
 #include "WeatherParameter.h"
-
 #include <string>
-
-class NFmiPoint;
 
 namespace TextGen
 {
+class Acceptor;
 class AnalysisSources;
 class WeatherArea;
 class WeatherPeriod;

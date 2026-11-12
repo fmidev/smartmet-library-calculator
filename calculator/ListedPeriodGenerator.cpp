@@ -15,8 +15,9 @@
 // ----------------------------------------------------------------------
 
 #include "ListedPeriodGenerator.h"
-#include "Settings.h"
 #include <macgyver/Exception.h>
+#include <string>
+#include <utility>
 
 namespace TextGen
 {

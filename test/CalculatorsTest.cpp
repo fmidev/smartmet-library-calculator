@@ -12,6 +12,7 @@
 #include "RangeAcceptor.h"
 #include <newbase/NFmiGlobals.h>
 #include <regression/tframe.h>
+#include <iostream>
 #include <string>
 #include <vector>
 

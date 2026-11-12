@@ -13,6 +13,8 @@
 
 namespace TextGen
 {
+class Acceptor;
+
 class MedianCalculator : public Calculator
 {
  public:

@@ -26,9 +26,12 @@
 #include "RegularParameterAnalyzer.h"
 #include "WindChillParameterAnalyzer.h"
 #include <macgyver/Exception.h>
+#include <string>
 
 namespace TextGen
 {
+class ParameterAnalyzer;
+
 namespace ParameterAnalyzerFactory
 {
 // ----------------------------------------------------------------------

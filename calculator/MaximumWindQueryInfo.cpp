@@ -1,4 +1,6 @@
 #include "MaximumWindQueryInfo.h"
+#include <newbase/NFmiGlobals.h>
+#include <newbase/NFmiParameterName.h>
 
 MaximumWindQueryInfo::MaximumWindQueryInfo(const NFmiFastQueryInfo& theInfo)
     : NFmiFastQueryInfo(theInfo)

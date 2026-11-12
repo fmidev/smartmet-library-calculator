@@ -12,11 +12,9 @@
 
 class NFmiIndexMask;
 class NFmiIndexMaskSource;
-class NFmiPoint;
 
 namespace TextGen
 {
-class MapSource;
 class WeatherArea;
 class WeatherSource;
 

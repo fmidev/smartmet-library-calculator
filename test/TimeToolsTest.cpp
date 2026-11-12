@@ -1,6 +1,8 @@
 #include "TextGenPosixTime.h"
 #include "TimeTools.h"
 #include <regression/tframe.h>
+#include <iostream>
+#include <string>
 
 using namespace std;
 

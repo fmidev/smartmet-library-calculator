@@ -19,12 +19,11 @@
 #include "IdGenerator.h"
 #include "Settings.h"
 #include <macgyver/Exception.h>
-
 #include <newbase/NFmiFileSystem.h>
 #include <newbase/NFmiQueryData.h>
-
-#include <cassert>
+#include <ctime>
 #include <map>
+#include <utility>
 
 // ----------------------------------------------------------------------
 /*!

@@ -8,6 +8,7 @@
 #pragma once
 
 #include "TextGenPosixTime.h"
+#include <iosfwd>
 
 namespace TextGen
 {

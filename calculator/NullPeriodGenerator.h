@@ -10,11 +10,8 @@
 #include "WeatherPeriod.h"
 #include "WeatherPeriodGenerator.h"
 
-#include <string>
-
 namespace TextGen
 {
-class WeatherPeriod;
 
 class NullPeriodGenerator : public WeatherPeriodGenerator
 {

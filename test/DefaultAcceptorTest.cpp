@@ -1,11 +1,7 @@
-#include <regression/tframe.h>
-
 #include "DefaultAcceptor.h"
-
 #include <newbase/NFmiGlobals.h>
-
+#include <regression/tframe.h>
 #include <iostream>
-#include <string>
 
 using namespace std;
 

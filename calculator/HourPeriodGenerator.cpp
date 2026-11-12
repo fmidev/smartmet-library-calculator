@@ -18,7 +18,9 @@
 
 #include "HourPeriodGenerator.h"
 #include "Settings.h"
+#include "TextGenPosixTime.h"
 #include "WeatherPeriodTools.h"
+#include <utility>
 
 namespace TextGen
 {

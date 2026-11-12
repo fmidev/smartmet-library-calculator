@@ -1,12 +1,11 @@
 #include "Config.h"
 #include <boost/algorithm/string.hpp>
-#include <boost/algorithm/string/case_conv.hpp>
 #include <boost/tokenizer.hpp>
 #include <macgyver/StringConversion.h>
-#include <filesystem>
-#include <functional>
+#include <map>
 #include <stdexcept>
 #include <string>
+#include <utility>
 
 namespace Fmi
 {

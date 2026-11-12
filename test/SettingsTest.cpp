@@ -1,17 +1,13 @@
-#include <regression/tframe.h>
-
-#include "Config.h"
 #include "Settings.h"
 #include "TextGenPosixTime.h"
 #include "WeatherResult.h"
-
-#include <memory>
-
-#include <iostream>
-#include <stdexcept>
-#include <string>
-
 #include <boost/locale.hpp>
+#include <newbase/NFmiStaticTime.h>
+#include <regression/tframe.h>
+#include <iostream>
+#include <locale>
+#include <sstream>
+#include <string>
 
 using namespace std;
 using namespace boost;

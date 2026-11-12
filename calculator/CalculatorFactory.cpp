@@ -26,17 +26,18 @@
 #include "NullCalculator.h"
 #include "PeakCalculator.h"
 #include "PercentageCalculator.h"
-#include "RangeAcceptor.h"
 #include "StandardDeviationCalculator.h"
 #include "SumCalculator.h"
 #include "TrendCalculator.h"
-#include <boost/move/make_unique.hpp>
 #include <macgyver/Exception.h>
 #include <macgyver/StringConversion.h>
+#include <memory>
 #include <string>
 
 namespace TextGen
 {
+class Calculator;
+
 namespace CalculatorFactory
 {
 // ----------------------------------------------------------------------

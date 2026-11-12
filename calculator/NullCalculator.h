@@ -11,7 +11,6 @@
 
 namespace TextGen
 {
-class Acceptor;
 
 class NullCalculator : public Calculator
 {

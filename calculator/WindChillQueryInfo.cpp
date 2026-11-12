@@ -1,5 +1,6 @@
 #include "WindChillQueryInfo.h"
 #include <newbase/NFmiMetMath.h>
+#include <newbase/NFmiParameterName.h>
 
 WindChillQueryInfo::WindChillQueryInfo(const NFmiFastQueryInfo& theInfo)
     : NFmiFastQueryInfo(theInfo)

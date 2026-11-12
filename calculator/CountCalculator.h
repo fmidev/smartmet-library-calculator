@@ -12,6 +12,8 @@
 
 namespace TextGen
 {
+class Acceptor;
+
 class CountCalculator : public Calculator
 {
  public:

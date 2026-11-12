@@ -8,21 +8,12 @@
 #pragma once
 
 #include "FunctionAnalyzer.h"
+#include "WeatherDataType.h"
 #include "WeatherFunction.h"
-
 #include <string>
-
-class NFmiDataModifier;
 
 namespace TextGen
 {
-class AnalysisSources;
-class Calculator;
-class WeatherArea;
-class WeatherLimits;
-class WeatherPeriod;
-class WeatherPeriodGenerator;
-class WeatherResult;
 
 class RegularFunctionAnalyzer : public FunctionAnalyzer
 {

@@ -20,19 +20,17 @@
 // ======================================================================
 
 #include "RegularMaskSource.h"
-
 #include "WeatherArea.h"
 #include "WeatherSource.h"
 #include <macgyver/Exception.h>
-
 #include <newbase/NFmiFastQueryInfo.h>
-#include <newbase/NFmiGrid.h>
 #include <newbase/NFmiIndexMask.h>
-#include <newbase/NFmiIndexMaskSource.h>
 #include <newbase/NFmiIndexMaskTools.h>
-#include <newbase/NFmiQueryData.h>
-
 #include <map>
+#include <utility>
+
+class NFmiQueryData;
+class NFmiSvgPath;
 
 namespace TextGen
 {

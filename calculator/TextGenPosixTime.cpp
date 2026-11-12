@@ -1,11 +1,11 @@
 #include "TextGenPosixTime.h"
 #include <macgyver/Exception.h>
+#include <macgyver/LocalDateTime.h>
 #include <macgyver/TimeZoneFactory.h>
 #include <newbase/NFmiStaticTime.h>
 #include <array>
 #include <ctime>
-#include <iostream>  // std::cout
-#include <sstream>   // std::stringstream
+#include <sstream>  // std::stringstream
 
 // Used to be Europe/Helsinki, this is a more portable default
 #define DEFAULT_TZ_ID "UTC"

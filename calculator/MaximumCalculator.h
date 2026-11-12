@@ -12,6 +12,8 @@
 
 namespace TextGen
 {
+class Acceptor;
+
 class MaximumCalculator : public Calculator
 {
  public:

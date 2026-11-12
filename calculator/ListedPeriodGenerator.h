@@ -9,13 +9,10 @@
 
 #include "WeatherPeriod.h"
 #include "WeatherPeriodGenerator.h"
-
-#include <string>
 #include <vector>
 
 namespace TextGen
 {
-class WeatherPeriod;
 
 class ListedPeriodGenerator : public WeatherPeriodGenerator
 {

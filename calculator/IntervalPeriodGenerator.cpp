@@ -18,7 +18,9 @@
 
 #include "IntervalPeriodGenerator.h"
 #include "Settings.h"
+#include "TextGenPosixTime.h"
 #include <macgyver/Exception.h>
+#include <utility>
 
 namespace TextGen
 {

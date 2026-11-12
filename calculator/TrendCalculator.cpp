@@ -13,8 +13,8 @@
 // ======================================================================
 
 #include "TrendCalculator.h"
+#include "Acceptor.h"
 #include "DefaultAcceptor.h"
-
 #include <newbase/NFmiGlobals.h>
 
 namespace TextGen

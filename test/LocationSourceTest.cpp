@@ -1,15 +1,12 @@
 #include "LocationSource.h"
 #include "Settings.h"
-#include <regression/tframe.h>
-
+#include <boost/locale.hpp>
 #include <newbase/NFmiPoint.h>
 #include <newbase/NFmiSettings.h>
-
+#include <regression/tframe.h>
 #include <iostream>
-#include <stdexcept>
+#include <locale>
 #include <string>
-
-#include <boost/locale.hpp>
 
 using namespace std;
 using namespace boost;

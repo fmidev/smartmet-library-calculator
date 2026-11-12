@@ -13,9 +13,11 @@
 // ======================================================================
 
 #include "MaximumWindParameterAnalyzer.h"
-#include "AnalysisSources.h"
+#include "FunctionAnalyzer.h"
 #include "MaximumWindFunctionAnalyzer.h"
 #include "WeatherResult.h"
+#include <memory>
+#include <utility>
 
 namespace TextGen
 {
