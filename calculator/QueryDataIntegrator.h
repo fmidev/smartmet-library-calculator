@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <vector>
+
 class NFmiFastQueryInfo;
 class NFmiIndexMask;
 class NFmiIndexMaskSource;
@@ -91,6 +93,19 @@ float Integrate(NFmiFastQueryInfo& theQI,
                 Calculator& theMainTimeCalculator,
                 const NFmiIndexMask& theIndexMask,
                 Calculator& theSpaceCalculator);
+
+// Integrate over time and sub time for each grid point with current param & level
+
+bool IntegrateTime(NFmiFastQueryInfo& theQI,
+                   const WeatherPeriodGenerator& thePeriods,
+                   Calculator& theSubTimeCalculator,
+                   Calculator& theMainTimeCalculator,
+                   const NFmiIndexMask& theIndexMask,
+                   std::vector<float>& theResults);
+
+// Integrate over precalculated values
+
+float Integrate(const std::vector<float>& theValues, Calculator& theCalculator);
 
 }  // namespace QueryDataIntegrator
 }  // namespace TextGen

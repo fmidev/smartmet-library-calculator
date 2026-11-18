@@ -22,7 +22,11 @@
 #include "TextGenPosixTime.h"
 #include <newbase/NFmiFastQueryInfo.h>
 #include <newbase/NFmiMetTime.h>
+#include <newbase/NFmiQueryData.h>
 #include <newbase/NFmiTimeDescriptor.h>
+#include <algorithm>
+#include <memory>
+#include <vector>
 
 namespace TextGen
 {
@@ -153,6 +157,60 @@ bool lastTime(NFmiFastQueryInfo& theQI, const TextGenPosixTime& theTime)
   }
   theQI.TimeIndex(idx1);
   return (theQI.IsValidTime() && theQI.ValidTime() >= theTime);
+}
+
+// ----------------------------------------------------------------------
+/*!
+ * \brief Return a thread specific NFmiFastQueryInfo for the data
+ *
+ * Constructing a NFmiFastQueryInfo copies all the descriptors of the
+ * data, which becomes expensive when a story makes thousands of
+ * analysis calls. Hence each thread reuses the info it created for
+ * the data earlier. The info is reset to the state it has after
+ * construction.
+ *
+ * \param theData The querydata
+ * \return The info, valid until the next call from the same thread
+ */
+// ----------------------------------------------------------------------
+
+NFmiFastQueryInfo& cachedInfo(const std::shared_ptr<NFmiQueryData>& theData)
+{
+  struct CachedInfo
+  {
+    std::weak_ptr<NFmiQueryData> data;
+    std::unique_ptr<NFmiFastQueryInfo> info;
+  };
+
+  const std::size_t max_cache_size = 8;
+
+  thread_local std::vector<CachedInfo> cache;
+
+  for (auto& item : cache)
+  {
+    if (item.data.lock() == theData)
+    {
+      item.info->First();
+      return *item.info;
+    }
+  }
+
+  // Forget data which no longer exists, and the oldest data if there are too many
+
+  cache.erase(
+      std::remove_if(
+          cache.begin(), cache.end(), [](const CachedInfo& item) { return item.data.expired(); }),
+      cache.end());
+
+  if (cache.size() >= max_cache_size)
+    cache.erase(cache.begin());
+
+  CachedInfo item;
+  item.data = theData;
+  item.info.reset(new NFmiFastQueryInfo(theData.get()));
+  cache.push_back(std::move(item));
+
+  return *cache.back().info;
 }
 
 }  // namespace QueryDataTools

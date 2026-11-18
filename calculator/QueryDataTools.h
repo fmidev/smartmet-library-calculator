@@ -7,7 +7,10 @@
 
 #pragma once
 
+#include <memory>
+
 class NFmiFastQueryInfo;
+class NFmiQueryData;
 class TextGenPosixTime;
 
 namespace TextGen
@@ -25,6 +28,8 @@ bool firstTime(NFmiFastQueryInfo& theQI,
                const TextGenPosixTime& theEndTime);
 
 bool lastTime(NFmiFastQueryInfo& theQI, const TextGenPosixTime& theTime);
+
+NFmiFastQueryInfo& cachedInfo(const std::shared_ptr<NFmiQueryData>& theData);
 }  // namespace QueryDataTools
 }  // namespace TextGen
 

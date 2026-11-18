@@ -5,7 +5,7 @@
 %define DEVELNAME %{SPECNAME}-devel
 Summary: Querydata calculator
 Name: %{SPECNAME}
-Version: 26.11.13
+Version: 26.11.18
 Release: 1%{?dist}.fmi
 License: MIT
 Group: Development/Libraries
@@ -82,6 +82,14 @@ Requires: smartmet-library-macgyver-devel
 %{_includedir}/smartmet/%{DIRNAME}/*.h
 
 %changelog
+* Wed Nov 18 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.11.18-1.fmi
+- Optimized area integrations: data is read in blocks for adjacent grid points instead
+  of one value at a time, and the mean and its standard deviation are calculated in a
+  single pass over the data
+- Added QueryDataTools::cachedInfo for reusing one NFmiFastQueryInfo per querydata and
+  thread instead of constructing a new one for every analysis
+- Added QueryDataIntegrator::IntegrateTime and Integrate for precalculated values
+
 * Fri Nov 13 2026 Mika Heiskanen <mika.heiskanen@fmi.fi> - 26.11.13-1.fmi
 - Include cleanup: headers include what they use and prefer forward declarations,
   unnecessary includes removed. No functional changes, but code using these headers may

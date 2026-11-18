@@ -18,6 +18,7 @@
 #include "CalculatorFactory.h"
 #include "MaskSource.h"
 #include "QueryDataIntegrator.h"
+#include "QueryDataTools.h"
 #include "Settings.h"
 #include "WeatherArea.h"
 #include "WeatherResult.h"
@@ -32,6 +33,7 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <vector>
 
 class NFmiQueryData;
 
@@ -155,7 +157,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
 
   std::shared_ptr<WeatherSource> wsource = theSources.getWeatherSource();
   std::shared_ptr<NFmiQueryData> qd = wsource->data(dataname);
-  NFmiFastQueryInfo qi = NFmiFastQueryInfo(qd.get());
+  NFmiFastQueryInfo& qi = QueryDataTools::cachedInfo(qd);
 
   // Try activating the parameter
 
@@ -228,8 +230,14 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
       spacemod.reset(CalculatorFactory::create(itsAreaFunction, theTester, itsModulo));
     spacemod->acceptor(theAreaAcceptor);
 
-    float result =
-        QueryDataIntegrator::Integrate(qi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
+    // Integrate over time only once, the results are needed again for the standard deviation
+
+    std::vector<float> timeresults;
+    if (!QueryDataIntegrator::IntegrateTime(
+            qi, thePeriods, *subtimemod, *timemod, *mask, timeresults))
+      return {kFloatMissing, 0};
+
+    float result = QueryDataIntegrator::Integrate(timeresults, *spacemod);
 
     if (result == kFloatMissing)
       return {kFloatMissing, 0};
@@ -245,8 +253,7 @@ WeatherResult RegularFunctionAnalyzer::analyze(const AnalysisSources& theSources
       spacemod.reset(CalculatorFactory::create(StandardDeviation, theTester, itsModulo));
     spacemod->acceptor(theAreaAcceptor);
 
-    float error =
-        QueryDataIntegrator::Integrate(qi, thePeriods, *subtimemod, *timemod, *mask, *spacemod);
+    float error = QueryDataIntegrator::Integrate(timeresults, *spacemod);
 
     // This would happen if the area covers one point only
     if (error == kFloatMissing)
